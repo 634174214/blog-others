@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人常用CSS整理</title>
+    <style>
+    * {margin: 0;padding: 0;font-family: "微软雅黑";}
+      h2, i,em,cite {font-style: normal;}
+    h1 {text-align: center;margin-top: 10px; }
+    .main {width: 1000px;margin: 15px auto;}
+     .row { margin: 20px 0;}
+     .row h2{color: #159DDB; }
+     .row p span{color: red;}
+    .row h2 span {background: #f2f2f2;padding: 5px;font-size: 16px;color: #000; }
+    .row > pre > .point {  overflow-x: auto;color: rgb(51, 51, 51); background: rgb(248, 248, 248);}
+    .row pre code { font-size: 1rem;padding: 0.67rem 1.3rem;margin: 0px;word-break: normal;display: block;margin-top: 15px; line-height: 2rem;}
+        .row pre code span{color: blue;}
+    .row textarea {padding: 0.67rem 1.3rem;line-height: 2rem;width: 100%;border: 0;background: rgb(248, 248, 248);margin-top: 15px;display: block; }
+       .row p.cood{padding: 10px;background: #f2f2f2;line-height: 24px;margin: 10px 0 30px 0}
+    </style>
+</head>
+
+<body>
+    <h1>个人常用CSS整理</h1>
+    <div class="main">
+
+        <section class="row">
+            <h2>手机版让active生效</h2>
+            <pre>
+                &lt;body ontouchstart&gt;
+            </pre>
+        </section>
+
+      <section class="row">
+            <h2>禁用一个元素</h2>
+            <a href="https://segmentfault.com/a/1190000002738718">原文链接</a>
+            <pre>
+                <code class="point">
+                    属性的一个none值来有效的禁用元素。不管是JQuery还是JavaScript，点击事件都不会被触发
+                    .bri{
+                    pointer-events: none
+                  }
+            </pre>
+            Chrome 31+, IE11+, Firefox 31+, Safari 7+, Opera 27+, iOS Safari 7.1+ and Android Browser 4.1+支持该属性
+        </section>
+
+      <section class="row">
+            <h2>禁止chrome浏览器自动填充表单的解决方案</h2>
+            <a href="https://www.cnblogs.com/ld-swust/p/5801606.html">原文链接</a>
+            <pre>
+                <code class="point">
+                    经过测试，对chrome42，重写input: auto-fill样式不起作用，加上autocomplete="off"也不起作用。
+                    因此使用了两个隐藏的输入框: 放在所有表单之前 让浏览器自动填充这两个输入框
+                    &lt;input type="text" style="display:none"/&gt;
+                    &lt;input type="password" style="display:none"/&gt;
+                    或
+                    将表单标签&lt;form&gt;&lt;/form&gt;去掉，加上autocomplete="off"
+                    浏览器会将保存的信息填到这两个隐藏输入控件上，达到了想要的效果。
+                </code>
+            </pre>
+        </section>
+
+        <section class="row">
+            <h2>CSS设置选中网页文字时的背景和颜色</h2>
+            <a href="https://blog.csdn.net/weixin_34151004/article/details/88703881">原文链接</a>
+            <pre>
+                <code class="point">
+                    #Cnt-Main-Article-xin p::selection{
+                      background: #efaf30;
+                      color: #fff;
+                    }
+                    #Cnt-Main-Article-xin p::-moz-selection{
+                      background: #efaf30;
+                      color: #fff;
+                    }
+                </code>
+            </pre>
+        </section>
+
+        <section class="row">
+            <h2>解决chrome下 input选中有背景色</h2>
+            <a href="https://blog.csdn.net/hbysj/article/details/105992023">原文链接</a>
+            <p>主要通过shadow进行覆盖</p>
+            <pre>
+                <code class="point">
+                    box-shadow: inset 0 0 0 1000px @color;
+                </code>
+            </pre>
+        </section>
+        
+
+        <section class="row">
+            <h2>解决 CSS 的 transition 在页面加载时就播放过渡动画的问题</h2>
+            <a href="https://blog.csdn.net/clavier905/article/details/89419834">原文链接</a>
+            <p>在给某个元素的 CSS 设置了 transition 后，每当页面加载、刷新完成后，元素出现【默认属性 → \rightarrow→ 设定属性】的过渡。</p>
+            <p>思路】初始加载时我们不给元素有过渡效果，当加载完毕后再把过渡放上去。</p>
+            <p>1-给整个 body 添加一个叫 preload （或其它）的类：</p>
+            <pre>
+                <code class="point">
+                    &lt;body class="preload"&gt;
+                        ...
+                    &lt;/body&gt;
+                </code>
+            </pre>
+            <p>2-给这个类的 transition 设为 none：</p>
+            <pre>
+                <code class="point">
+                    .preload {
+                        -webkit-transition: none !important;
+                        -moz-transition: none !important;
+                        -ms-transition: none !important;
+                        -o-transition: none !important;
+                        transition: none !important;
+                        *{
+                            -webkit-transition: none !important;
+                            -moz-transition: none !important;
+                            -ms-transition: none !important;
+                            -o-transition: none !important;
+                            transition: none !important;
+                        }
+                    }
+                </code>
+            </pre>
+            <p>3-添加 jQuery 脚本，加载完毕时给 body 移除 preload 类：</p>
+            <pre>
+                <code class="point">
+                    $(window).on('load', function() {
+                        $("body").removeClass("preload");
+                    });
+                    或者
+                    $(document).ready(function() {
+                        $("body").removeClass("preload");
+                    })
+                </code>
+            </pre>
+        </section>
+
+
+      <section class="row">
+          <h2>表格边框合并</h2>
+          <pre>
+              <code class="point">
+               table,tr,td{border: 1px solid #333;}
+               table{
+                 border-collapse: collapse;
+               }
+              </code>
+          </pre>
+      </section>
+                              <section class="row">
+                                  <h2>纯css画三角形</h2>
+                                  <pre>
+                                      <code class="point">
+                                       #demo {
+                                           width: 0;
+                                           height: 0;
+                                           border-width: 20px;
+                                           border-style: solid;
+                                           border-color: transparent transparent red transparent;
+                                       }
+                                      </code>
+                                  </pre>
+                              </section>
+                        <section class="row">
+                            <h2>控制div内的元素自动换行</h2>
+                            <pre>
+                                <code class="point">
+                                 word-wrap: break-word;
+word-break：break-all;
+                                </code>
+                            </pre>
+                        </section>
+                  <section class="row">
+                      <h2>文字超出隐藏并显示省略号-多行   </h2>
+                      <pre>
+                          <code class="point">
+                           word-break: break-all;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 2;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+
+                            //有时候 超出显示多行显示省略号会不生效，则需要下面代码，特别是在less中
+	word-break: break-all;
+　　text-overflow: ellipsis;
+　　display: -webkit-box;
+　　/*! autoprefixer: off */     
+	-webkit-box-orient: vertical;
+	/* autoprefixer: on */
+　　-webkit-line-clamp: 2;  //显示几行
+　	overflow: hidden;
+                          </code>
+                      </pre>
+                  </section>
+
+            <section class="row">
+                <h2>文字超出隐藏并显示省略号-单行   </h2>
+                <pre>
+                    <code class="point">
+                      一定要有宽度
+    width:200rpx;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+                    </code>
+                </pre>
+            </section>
+              <section class="row">
+                  <h2>隐藏滚动条或更改滚动条样式   </h2>
+                  <pre>
+                      <code class="point">
+      /*css主要部分的样式*//*定义滚动条宽高及背景，宽高分别对应横竖滚动条的尺寸*/
+      ::-webkit-scrollbar {
+          width: 10px; /*对垂直流动条有效*/
+          height: 10px; /*对水平流动条有效*/
+      }
+
+      /*定义滚动条的轨道颜色、内阴影及圆角*/
+      ::-webkit-scrollbar-track{
+          -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+          background-color: rosybrown;
+          border-radius: 3px;
+      }
+
+      /*定义滑块颜色、内阴影及圆角*/
+      ::-webkit-scrollbar-thumb{ 
+          border-radius: 7px;
+          -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+          background-color: #E8E8E8;
+      }
+
+      /*定义两端按钮的样式*/
+      ::-webkit-scrollbar-button {
+          background-color:cyan;
+      }
+
+      /*定义右下角汇合处的样式*/
+      ::-webkit-scrollbar-corner {
+          background:khaki;
+      }
+                      </code>
+                  </pre>
+              </section>
+
+              <section class="row">
+                  <h2>取消input的边框 </h2>
+                  <pre>
+                      <code class="point">
+      border: none;
+outline: none;
+                      </code>
+                  </pre>
+              </section>
+
+              <section class="row">
+                  <h2>设置input聚焦时的样式</h2>
+                  <pre>
+                      <code class="point">
+      input:focus {   
+        background-color: red;
+      }
+                      </code>
+                  </pre>
+              </section>
+        
+                <section class="row">
+                    <h2>设置input 的placeholder的字体样式</h2>
+                    <pre>
+                        <code class="point">
+        input::-webkit-input-placeholder {    /* Chrome/Opera/Safari */
+            color: red;
+        }
+        input::-moz-placeholder { /* Firefox 19+ */  
+            color: red;
+        }
+        input:-ms-input-placeholder { /* IE 10+ */
+            color: red;
+        }
+        input:-moz-placeholder { /* Firefox 18- */
+            color: red;
+        }
+
+                        </code>
+                    </pre>
+                </section>
+
+
+
+        <section class="row">
+            <h2>HTML5原生折叠</h2>
+            <div class="show">
+              <details>
+  <summary>公众号《前端外文精选》</summary>
+  欢迎大家关注我的公众号，专注大前端、全栈、程序员成长的公众号！如果对你有所启发和帮助，可以点个关注、收藏，也可以留言讨论，这是对作者的最大鼓励。
+  作者简介：Web前端工程师，全栈开发工程师、持续学习者。
+</details>
+            </div>
+            <pre>
+                <code class="point">
+&lt;details&gt;
+  &lt;summary&gt;公众号《前端外文精选》&lt;/summary&gt;
+  欢迎大家关注我的公众号，专注大前端、全栈、程序员成长的公众号！如果对你有所启发和帮助，可以点个关注、收藏，也可以留言讨论，这是对作者的最大鼓励。
+  作者简介：Web前端工程师，全栈开发工程师、持续学习者。
+&lt;/details&gt;
+                </code>
+            </pre>
+        </section>
+
+              <section class="row">
+                  <h2>检测是否支持video标签IE8适用</h2>
+                  
+                  <pre>
+                      <code class="point">
+      var hasVideo = !!(document.createElement('video').canPlayType);
+                      </code>
+                  </pre>
+              </section>
+      
+        <section class="row">
+            <h2>汉字加拼音的方法</h2>
+            <div class="show">
+              <ruby>
+                做工程师不做码农
+                <rt>zuo gong cheng shi bu zuo ma nong</rt>
+              </ruby>
+            </div>
+            <pre>
+                <code class="point">
+&lt;ruby&gt;
+  做工程师不做码农
+  &lt;rt&gt;zuo gong cheng shi bu zuo ma nong&lt;/rt&gt;
+&lt;/ruby&gt;
+                </code>
+            </pre>
+        </section>
+
+
+        <section class="row">
+            <h2>国家哀悼日 网页变灰色方法</h2>
+            <p>由于IE10 11去掉了 filter:gray的滤镜 所以修改meta强制使用IE9内核去渲染页面</p>
+            <pre>
+                <code class="point">
+1、更改正常的&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;&gt;  为
+&lt;meta http-equiv=&quot;X-UA-Compatible&quot;content=&quot;IE=9,chrome=1&quot;&gt;
+2、html{-webkit-filter: grayscale(100%); /* webkit */
+    -moz-filter: grayscale(100%); /*firefox*/
+    -ms-filter: grayscale(100%); /*ie9*/
+    -o-filter: grayscale(100%); /*opera*/
+    filter: grayscale(100%);
+    filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+    filter:gray; /*ie9- */}
+3、在IE下，特别注意IE下只有 * 才管用 用html不会起作用
+&lt;!--[if IE]&gt;
+    &lt;style&gt;
+*{-webkit-filter: grayscale(100%); /* webkit */-moz-filter: grayscale(100%); /*firefox*/-ms-filter: grayscale(100%); /*ie9*/-o-filter: grayscale(100%); /*opera*/filter: grayscale(100%);filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); filter:gray; /*ie9- */}
+&lt;/style&gt;
+&lt;![endif]--&gt;
+                </code>
+            </pre>
+           <a href="https://www.cnblogs.com/wuyinghong/p/7450041.html?utm_source=debugrun&utm_medium=referral">参考文章</a>
+        </section>
+
+        <section class="row">
+            <h2>-webkit-overflow-scrolling 属性控制元素在移动设备上是否使用滚动回弹效果</h2>
+            <p>目前只是iOS系统得支持，一般配合overflow:hidden 使用1一般就是页面要滚动，然后不使用一些滚动的插件
+2、弹窗内容过长，此时需要滚动显示，那么此时加上这个属性，滚动起来体验就大大提升了</p>
+<p>使用过程遇到问题
+1、我在非body元素，添加这个属性，竟然没有效果。如果添加上overflow-y: scroll,就可以优雅的滚动起来了。
+
+2、当一个元素设置过position: absolute|relative，后再增加-webkit-overflow-scrolling: touch;属性后，会发现，滑动几次后就滚动区域会卡住，不能在滑动，这时给元素增加个z-index值就可以了。
+
+解决方法：
+
+给元素增加个z-index值</p>
+            <pre><code class="point">
+          over-flow: auto;     /* winphone8和android4+ */
+          -webkit-overflow-scrolling: touch;    /* ios5+ */
+           </code></pre>
+           <a href="https://www.cnblogs.com/wuyinghong/p/7450041.html?utm_source=debugrun&utm_medium=referral">参考文章</a>
+        </section>
+
+         <section class="row">
+             <h2>不用雪碧图或者font字体样式 做&gt;&gt;</h2>
+             <pre><code class="point">
+           &lt;em&gt;& gt;&lt;/em&gt;
+           使用转义字符表示即可 & gt  & lt 去掉空格
+            </code></pre>
+            <a href="http://blog.csdn.net/qq_27918787/article/details/52658458">转义字符参考</a>
+         </section>
+
+
+        <section class="row">
+                     <h2>div和img之间的缝隙问题</h2>
+                     <p>图片IMG与容器下边界之间有空隙怎么办？这里介绍3中简单的解决方法</p>
+                     <a href="http://blog.csdn.net/liuyan19891230/article/details/50414104">参考链接1</a>
+                     <a href="https://www.cnblogs.com/huansky/p/5288049.html">参考链接2</a>
+                    <pre><code class="point">第一，给图片img标签display:block。 img{display:block}
+                    </code></pre>
+                    <pre><code class="point">第二，定义父容器里的字体大小为0。
+　　div {
+　　width:110px;
+　　border:1px solid #000000;
+　　font-size:0}
+                    </code></pre>
+                    <pre><code class="point">第三，定义图片img标签vertical-align:bottom，vertical-align:middle，vertical-align:top
+　　img{vertical-align:bottom}
+　　其他还有把图片下边距设为负值和改写HTML标签的排列。
+                    </code></pre>
+                    <p>
+                      造成图片在IE下与容器下边界有空隙的原因
+                      <br>
+                      　　图片文字等inline元素默认是和父级元素的baseline对齐的，而baseline又和父级底边有一定距离（这个距离和 font-size，font-family 相关，不一定是 5px），所以设置 vertical-align:top/bottom/text-top/text-bottom 都可以避免这种情况出现。而且不光li，其他的block元素中包含img也会有这个现象。
+                      <br>
+                      　　至于这里的HTML属性align=”center”（对于图片浏览器会处理成align=”middle”），就相当于vertical-align:middle; 所以道理也是一样的，只要vertical-align不取baseline，这个空隙就消失了。
+                    </p>
+                    <p class="cood">
+                      1.将img设置为block;<br>
+                         这个基本可以解决img和div下方的缝隙问题。<br>
+                         2.设置img的竖直对齐方式<br>
+                          v-align:bottom;<br>
+                         3.设置父div的font-size:0<br>
+                         4.设置外层的div的line-height:0<br>
+                         但是本次项目奇怪的地方在于上下皆有缝隙，开始时，上面的缝隙可以通过margin-top:-10px解决。但是后来改了代码结构后，此方式也不行。网上找了很多，亦没有解决方式。
+                             因此采用定位的方式解决：
+                             设置父元素的position为relative
+                             子元素img的position为absolute;设置top为0，完美解决此问题。
+                             为了避免影响其他布局，设置下div的高度为img的高度。
+                    </p>
+         </section>
+
+     <section class="row">
+         <h2><span>a</span> 标签点击后出现下划线解决办法</h2>
+         <pre><code class="point">
+        因对a标签进行了 focus焦点事件
+            a:focus{text-decoration: none}。
+         a:focus,input,button,select,textarea{outline:none; font-size:100%;}</code></pre>
+     </section>
+
+        <section class="row">
+            <h2><span>outline</span> 当选中input元素的时候会出现状态线</h2>
+            <pre><code class="point">An outline is a line that is drawn around elements (outside the borders) to make the element "stand out"
+包裹elements 的一个线，一般设置成none 。</code></pre>
+        </section>
+        <section class="row">
+            <h2><span>contenteditable</span>设置element是否可编辑</h2>
+            <textarea>
+                <p contenteditable="true">可编辑</p>
+            </textarea>
+        </section>
+        <section class="row">
+            <h2><span>webkit-playsinline</span></h2>
+            <textarea>手机video 都可以在页面中播放，而不是全屏播放了。
+                <video id="myvideo" src="test.mp4" webkit-playsinline="true"></video>
+            </textarea>
+        </section>
+        <section class="row">
+            <h2>position: absolute， 让margin有效的</h2>
+            <textarea>设置left:0, right:0 就可以。原因是2边都是0不存在边距，element就可以得出距离，并居中。</textarea>
+        </section>
+        <section class="row">
+            <h2>使用clearfix 清楚浮动</h2>
+            <textarea>.clearfix { zoom: 1; } .clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+            </textarea>
+        </section>
+        <section class="row">
+            <h2>user-select 禁止用户选中文本</h2>
+            <textarea>-webkit-user-select: none; /* Chrome, Opera, Safari */ -moz-user-select: none; /* Firefox 2+ */ -ms-user-select: none; /* IE 10+ */ user-select: none; /* Standard syntax */</textarea>
+        </section>
+        <section class="row">
+            <h2>清除手机tap事件后element 时候出现的一个高亮</h2>
+            <textarea>*{ -webkit-tap-highlight-color: rgba(0,0,0,0);}</textarea>
+        </section>
+        <section class="row">
+            <h2>::-webkit-scrollbar-thumb</h2>
+            <textarea>移除浏览器默认的样式，比如chrome的input默认样式 input, button, textarea, select {*font-size: 100%;webkit-appearance:none;}</textarea>
+        </section>
+        <section class="row">
+            <h2>CSS开启硬件加速</h2>
+            <a href="http://www.cnblogs.com/rubylouvre/p/3471490.html">http://www.cnblogs.com/rubylouvre/p/3471490.html</a>
+            <textarea>-webkit-transform: translateZ(0);</textarea>
+        </section>
+        <section class="row">
+            <h2>使用CSS transforms 或者 animations时可能会有页面闪烁的bug</h2>
+            <textarea>-webkit-backface-visibility: hidden;</textarea>
+        </section>
+        <section class="row">
+            <h2><span>-webkit-touch-callout</span>  禁止长按链接与图片弹出菜单</h2>
+            <pre><code class="point">-webkit-touch-callout: none;</code></pre>
+        </section>
+        <section class="row">
+            <h2><span>transform-style: preserve-3d </span>让元素支持3d</h2>
+            <pre><code class="point">div {
+    -webkit-transform: rotateY(60deg); /* Chrome, Safari, Opera */
+    -webkit-transform-style: preserve-3d; /* Chrome, Safari, Opera */
+    transform: rotateY(60deg);
+    transform-style: preserve-3d;
+}</code></pre>
+        </section>
+        <section class="row">
+            <h2><span>perspective 透视</span></h2>
+            <pre><code class="point">这个属性的存在决定你看到的元素是2d还是3d。一般设置在包裹元素的父类上。
+			.div-box {perspective: 400px;}</code></pre>
+        </section>
+        <section class="row">
+            <h2>css实现不换行、自动换行、强制换行</h2>
+            <pre><code class="point">//不换行
+white-space:nowrap;
+
+//自动换行
+word-wrap: break-word; 
+word-break: normal; 
+
+//强制换行
+word-break:break-all;
+}</code></pre>
+        </section>
+        <section class="row">
+            <h2><span>box-sizing </span>让元素的宽度、高度包含border和padding</h2>
+            <pre><code class="point">{ box-sizing: border-box;}</code></pre>
+        </section>
+
+        <section class="row">
+            <h2>超出文字显示点 可以限制文字行数 (手机版用)</h2>
+            <pre><code class="point">
+                 .comment_inner{
+                     width: 80%;
+                     word-break: break-all;
+                     text-overflow: ellipsis;
+                     display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+                     -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+                     -webkit-line-clamp: 3; /** 显示的行数 **/
+                     overflow: hidden;  /** 隐藏超出的内容 **/
+                     }   
+            </code></pre>
+        </section>
+
+        <section class="row">
+            <h2>超出文字显示点 可以限制文字行数 (PC用)</h2>
+            <pre><code class="point">
+                 width:150px;/*要显示文字的宽度*/
+                 overflow:hidden; /*超出的部分隐藏起来。*/ 
+                 white-space:nowrap;/*不显示的地方用省略号...代替*/
+                 text-overflow:ellipsis;/* 支持 IE */
+            </code></pre>
+        </section>
+
+          <section class="row">
+            <h2>二倍图 兼容IE写法</h2>
+            <pre><code class="point">
+                {
+                      background-image: url(img/pc-bg.png);
+                      background-image: -webkit-image-set(url(img/pc-bg.png) 1x,url(img/pc-bg@2x.png) 2x);
+                      background-repeat: no-repeat;
+                }
+            </code></pre>
+        </section>
+
+          <section class="row">
+            <h2>flex盒模型使用 平分</h2>
+            <a href="Flex 布局教程：语法篇.mht" target="_blank">详细说明</a>
+            <div style="display: flex; flex-wrap: wrap; width: 100%;" name="例子"> 
+                 <em style="flex: 1;display: block;height: 30px;background: blue;"></em>
+                 <span style="flex: 1;display: block;height: 30px;background: red;"></span>
+                 <i style="flex: 1;display: block;height: 30px;background: yellow;"></i>
+            </div>
+            <pre><code class="point">
+                .father{display: flex; flex-wrap: wrap; width: 100%;}
+                .father .son{flex: 1;display: block; text-align: center;}
+            </code></pre>
+        </section>
+
+          <section class="row">
+            <h2>IE hack使用</h2>
+            <pre><code class="point">
+                *html  *前缀只对IE6生效
+                @media screen\9{...}只对IE6/7生效
+                @media \0screen {body { background: red; }}只对IE8有效
+                @media \0screen\,screen\9{body { background: blue; }}只对IE6/7/8有效
+                @media screen\0 {body { background: green; }} 只对IE8/9/10有效
+                @media screen and (min-width:0\0) {body { background: gray; }} 只对IE9/10有效
+                @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {body { background: orange; }} 只对IE10有效
+                例如：
+                background-color:red\9;\9所有的ie浏览器可识别；
+                background-color:yellow\0; \0 是留给ie8+的
+                +background-color:pink; + ie7定了
+                不管是什么方法，书写的顺序都是firefox的写在前面，IE7的写在中间，IE6的写在最后面。
+            </code></pre>
+        </section>
+
+          <section class="row">
+            <h2>iframe中设置无滚动条</h2>
+            <pre><code class="point">
+                <span>1、只有水平滚动条：</span>
+                &ltiframe frameborder="0"   scrolling="auto" src="index.html" &gt
+                 index.html中：  body{overflow-y:hidden;}  //隐藏了垂直的</span>  
+                 <span>2、只有垂直滚动条：</span>
+                 &ltiframe frameborder="0"   scrolling="auto" src="index.html" &gt
+                 index.html中：   body{overflow-x:hidden;}  //隐藏了水平的  
+                 <span>3、水平、垂直都没有：</span>
+                 &lt iframe frameborder="0"   scrolling="no" src="index.html"  &gt
+                 index.html中：  无需任何代码 
+            </code></pre>
+        </section>
+
+        <section class="row">
+            <h2>img图片蒙板居中显示</h2>
+            <pre><code class="point">
+               .box { width: 300px; height: 300px;  overflow: hidden; resize: both; }
+.box img {width: 100%; height: 100%; background-color: #cd0000; object-fit: cover;}
+
+&lt div class="box" &gt &lt img src="http://www.sinaimg.cn/dy/slidenews/1_img/2015_33/70237_603634_138770.jpg" &gt &lt /div &gt 
+            </code></pre>
+        </section>
+
+                <section class="row">
+                    <h2>img图片水平垂直居中显示</h2>
+                    <pre><code class="point">
+                       .box { width: 300px; height: 300px;text-align:center;line-height:300px }
+                       .box img {width: 100%; height: 100%; vertical-align:middle/*垂直居中*/}
+
+        &lt div class="box" &gt &lt img src="http://www.sinaimg.cn/dy/slidenews/1_img/2015_33/70237_603634_138770.jpg" &gt &lt /div &gt 
+                    </code></pre>
+                </section>
+
+          <section class="row">
+            <h2>手机版文字的下划线</h2>
+            <article class="demo">
+                <a href="https://www.zhangxinxu.com/wordpress/2016/11/css-text-decoration-underline-skip-override/">原文链接</a>
+                <style>
+                    .underline{text-align: center;font-size: 14px;line-height: 40px;display: inline;border-bottom: 1px solid;padding-bottom: 11px;width: 100%}
+                    .underline-wrap{width: 320px;margin: 0 auto;}
+                </style>
+                <div class="underline-wrap">
+                    <p class="underline">北方院子多从山西、陝西等地选建的晋派建筑，多一层抬梁式四合院落，</p>
+                </div>
+            </article>
+            <pre><code class="point">
+                text-align: center;font-size: 14px;line-height: 40px;display: inline;border-bottom: 1px solid;padding-bottom: 11px;width: 100%
+            </code></pre>
+        </section>
+
+        <section class="row">
+            <h2>手机版H5 img长按不出现菜单</h2>
+            <article class="demo">
+                <style>
+                .a, .b, .c{
+                        /* 元素不能成为鼠标事件的target */
+                        pointer-events:none;
+                        -webkit-pointer-events:none;
+                        -ms-pointer-events:none;
+                        -moz-pointer-events:none;
+                }
+                </style>
+            </article>
+            <pre><code class="point">
+                /* 元素不能成为鼠标事件的target 给多个img样式单独添加即可  或者使用背景的形式制作*/
+                    pointer-events:none;
+                    -webkit-pointer-events:none;
+                    -ms-pointer-events:none;
+                    -moz-pointer-events:none;
+            </code></pre>
+        </section>
+        
+        <section class="row">
+          <h2>手机版H5 文字长按不出现复制菜单</h2>
+          <pre><code class="point">
+              /*也是单独为每个应用的元素添加 */
+              -webkit-touch-callout:none;
+                -webkit-user-select:none;
+                -khtml-user-select:none;
+                -moz-user-select:none;
+                -ms-user-select:none;
+                user-select:none;
+          </code></pre>
+      </section>
+
+      <section class="row">
+          <h2>滤色混合模式</h2>
+          <a href="https://www.zhangxinxu.com/wordpress/2019/05/css-mix-blend-mode-screen/">深入理解CSS mix-blend-mode滤色screen混合模式原文</a>
+          <a href="深入理解CSS mix-blend-mode滤色screen混合模式.docx">下载的word文档阅读</a>
+          <pre><code class="point">
+              /*在需要的图片与另外的body背景有一个叠加效果时使用，如ps设计稿是滤色，导出png无法实现 就要用这个方法 */
+              mix-blend-mode:screen
+          </code></pre>
+      </section>
+
+    </div>
+    <!-- main end -->
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+
+        <html>
+        <head>
+            <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+            <title>第13章 客户端检测</title>
+            <meta name="keywords" content="JS高级设计第四版">
+            <meta name="description" content="JS高级设计第四版，读书笔记- 第13章 客户端检测">
+            <link rel="stylesheet" type="text/css" href="markdown.css">
+            <script src="https://www.qdxin.cn/js/xinquery.js"></script>
+        </head>
+        <body>
+            <h1>第13章 客户端检测</h1>
+<p>想要知道自己代码运行在什么浏览器上，大部分开发者会分析 window.navigator.userAgent 返回的字符串值。所有浏览器都会提供这个值，如果相信这些返回值并基于给定的一组浏览器检测这个字符串，最终会得到关于浏览器和操作系统的比较精确的结果。</p>
+<p>通过解析浏览器返回的用户代理字符串，可以推断出下列相关的环境信息：</p>
+<ul>
+<li>浏览器</li>
+<li>浏览器版本</li>
+<li>浏览器渲染引擎</li>
+<li>设备类型(桌面/移动)</li>
+<li>设备生产商</li>
+<li>设备型号</li>
+<li>操作系统</li>
+<li>操作系统版本</li>
+</ul>
+<p>navigator.geolocation 可以让浏览器脚本感知当前设备的地理位置。</p>
+<p>要获取浏览器当前的位置，可以使用 getCurrentPosition() 方法。这个方法返回一个 Coordinates 对象：</p>
+<pre><code class="language-javascript">navigator.geolocation.getCurrentPosition((position) =&gt; {
+  p = position;   
+  console.log(p.timestamp); // 1673597776813
+  console.log(p.coords);     // Coordinates {...}
+});</code></pre>
+<p>获取浏览器地理位置并不能保证成功。因此 getCurrentPosition() 方法也接收失败回调函数作为第二个参数，这个函数会收到一个 PositionError 对象。在失败的情况下，PositionError 对象中会包含一个 code 属性和一个 message 属性，后者包含对错误的简短描述。code 属性是一个整数， 表示以下 3 种错误：</p>
+<ul>
+<li>PERMISSION_DENIED 浏览器未被允许访问设备位置</li>
+<li>POSITION_UNAVAILABLE 系统无法返回任何位置信息</li>
+<li>TIMEOUT 获取位置超时</li>
+</ul>
+<pre><code class="language-javascript">navigator.geolocation.getCurrentPosition(
+  () =&gt; {},
+  (e) =&gt; {
+    console.log(e.code);     // 1
+    console.log(e.message);  // User denied Geolocation
+  }
+);</code></pre>
+<p>位置请求可以使用 PositionOptions 对象来配置，作为第三个参数提供。这个对象支持以下 3 个属性：</p>
+<ul>
+<li>enableHighAccuracy 布尔值，是否返回高精度位置，如果为 true 会使用 GPS 确定设备位置，更耗电</li>
+<li>timeout 超时时间，毫秒</li>
+<li>maximumAge 坐标的最长有效期，毫秒</li>
+</ul>
+<p>在设备连接到网络时， window 对象上触发 online 事件。响应地，当设备断开网络连接后，window 对象上触发 offline 事件。可以通过 navigator.onLine 属性来确定浏览器的联网状态。这个属性返回一个布尔值，表示浏览器是否联网。</p>
+<pre><code class="language-javascript">const connectionStateChange = () =&gt; console.log(navigator.onLine);
+window.addEventListener('online', connectionStateChange); window.addEventListener('offline', connectionStateChange);</code></pre>
+<p>浏览器可以访问设备电池及充电状态的信息。navigator.getBattery() 方法会返回一个期约实例，解决为一个 BatteryManager 对象。</p>
+<pre><code class="language-javascript">navigator.getBattery().then((b) =&gt; console.log(b));
+// BatteryManager { ... }</code></pre>
+<p>BatteryManager 包含 4 个只读属性，提供了设备电池的相关信息：</p>
+<ul>
+<li>charging 布尔值，表示设备当前是否正接入电源充电</li>
+<li>chargingTime 整数，表示预计离电池充满还有多少秒</li>
+<li>dischargingTime 整数，表示预计离电量耗尽还有多少秒</li>
+<li>level 浮点数，表示电量百分比</li>
+</ul>
+<p>API 还提供了 4 个电池相关的回调函数，可以通过添加监听器使用属性：</p>
+<ul>
+<li>onchargingchange</li>
+<li>onchargingtimechange</li>
+<li>ondischargingtimechange</li>
+<li>onlevelchange</li>
+</ul>
+        </body>
+        </html>
+    

@@ -1,0 +1,596 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="description" content="canvas API中文网，CanvasRenderingContext2D.font，提供详尽的canvas API使用指南和学习案例">
+<meta name="description" content="canvas API中文网 CanvasRenderingContext2D.font，提供详尽的canvas API使用指南和学习案例">
+<meta name="keywords" content="canvas, api, documents, 文档, 中文, CanvasRenderingContext2D.font, 前端">
+<meta name="author" content="张鑫旭,zhangxixnu">
+<title>canvas API中文网 - 中文文档 - CanvasRenderingContext2D.font</title>
+<link rel="stylesheet" type="text/css" href="static/css/ui.css">
+<link rel="stylesheet" type="text/css" href="static/css/style.css"><style>
+canvas[id] {
+	outline: 1px dotted;
+	background-color: #fff;
+}
+@font-face {
+    font-family: "SYSTC";
+    src: url("static/font/SYSTC.woff") format("woff");
+    font-style: normal;
+    font-weight: normal;
+}
+.SYSTC {
+	font-family: SYSTC;
+}
+</style>
+</head>
+
+<body style="font: 16px arial;">
+<header class="header">
+	<a href="index.html" class="logo">Canvas API中文网 - 不只是文档</a>
+	<nav class="header-nav">
+		<a href="index.html" id="jsNavItf" class="header-nav-a">canvas接口</a>
+		<!-- <a href="?map=tutorials" class="header-nav-a">canvas教程</a>
+		<a href="?map=examples" class="header-nav-a">canvas案例</a> -->
+		<!-- <i class="header-nav-i"></i>
+		<span>兄弟站点：</span>
+		<a href="//www.svg8.com" class="header-nav-a">SVG吧</a>
+		<a href="//www.cssvv.com" class="header-nav-a">CSS微微</a> -->
+		<!-- 第三方登录 -->
+				<a href="login11.html" class="header-login-a">
+			<svg class="icon icon-github" xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewbox="0 0 24 28"><title>Github</title><path d="M12 2c6.625 0 12 5.375 12 12 0 5.297-3.437 9.797-8.203 11.391-.609.109-.828-.266-.828-.578 0-.391.016-1.687.016-3.297 0-1.125-.375-1.844-.812-2.219 2.672-.297 5.484-1.313 5.484-5.922 0-1.313-.469-2.375-1.234-3.219.125-.313.531-1.531-.125-3.187-1-.313-3.297 1.234-3.297 1.234a11.28 11.28 0 0 0-6 0S6.704 6.656 5.704 6.969c-.656 1.656-.25 2.875-.125 3.187-.766.844-1.234 1.906-1.234 3.219 0 4.594 2.797 5.625 5.469 5.922-.344.313-.656.844-.766 1.609-.688.313-2.438.844-3.484-1-.656-1.141-1.844-1.234-1.844-1.234-1.172-.016-.078.734-.078.734.781.359 1.328 1.75 1.328 1.75.703 2.141 4.047 1.422 4.047 1.422 0 1 .016 1.937.016 2.234 0 .313-.219.688-.828.578C3.439 23.796.002 19.296.002 13.999c0-6.625 5.375-12 12-12zM4.547 19.234c.031-.063-.016-.141-.109-.187-.094-.031-.172-.016-.203.031-.031.063.016.141.109.187.078.047.172.031.203-.031zm.484.532c.063-.047.047-.156-.031-.25-.078-.078-.187-.109-.25-.047-.063.047-.047.156.031.25.078.078.187.109.25.047zm.469.703c.078-.063.078-.187 0-.297-.063-.109-.187-.156-.266-.094-.078.047-.078.172 0 .281s.203.156.266.109zm.656.656c.063-.063.031-.203-.063-.297-.109-.109-.25-.125-.313-.047-.078.063-.047.203.063.297.109.109.25.125.313.047zm.891.391c.031-.094-.063-.203-.203-.25-.125-.031-.266.016-.297.109s.063.203.203.234c.125.047.266 0 .297-.094zm.984.078c0-.109-.125-.187-.266-.172-.141 0-.25.078-.25.172 0 .109.109.187.266.172.141 0 .25-.078.25-.172zm.906-.156c-.016-.094-.141-.156-.281-.141-.141.031-.234.125-.219.234.016.094.141.156.281.125s.234-.125.219-.219z"></path>
+			</svg><span class="header-login-txt">登录</span>
+		</a>
+			</nav>
+</header>
+
+<div class="header-title">
+	<div class="constr">
+		<h1 class="header-h1">Canvas<wbr>Rendering<wbr>Context2D<wbr>.font</h1>
+	</div>
+</div>
+
+<main class="main" role="main">
+	<div class="container">
+		<nav class="crumbs" role="navigation">
+  	<div class="constr" aria-label="面包屑">    
+      	<h6 class="crumb-h">
+        	<a href="index.html" class="crumb-a">Canvas API</a>
+      	</h6><i class="crumb-joiner"></i>
+	  	<h6 class="crumb-h">
+        	<a href="index2.html" class="crumb-a">CanvasRenderingContext2D</a>
+      	</h6>
+      <i class="crumb-joiner"></i>
+	  	<h6 class="crumb-h">
+        	<a href="" class="crumb-a">font</a>
+      	</h6>
+        	</div>
+</nav>		<div class="constr">
+			<div class="content">
+				<article id="article" class="article">
+					<div class="jumpto-nav">
+						&nbsp;<ol id="jumptoNav" class="jumpto-ol"></ol>
+				    </div>
+					<section class="section">
+						<h2>了解Canvas<wbr>Rendering<wbr>Context2D<wbr>.font</h2>
+						<h3 id="introduction" class="abs vh">简介</h3>	
+						<style>.section p.vh{overflow: hidden;}</style><iframe id="taIframe" frameborder="0" style="display:none;"></iframe>
+	<span target="_blank" title="点击右上角" class="jsTips" onclick="taIframe.src='https://www.zhangxinxu.com/sp/ta.php?from=canvasapi&type=article&r=' + Math.random();" rel="nofollow noopener" style="float:right;width:120px;height:240px;margin-left:20px;background:url(static/image/star-bg2.jpg) no-repeat;"></span>			
+						<p class="vh">默认值是<code>10px sans-serif</code>。，<code>CanvasRenderingContext2D.font</code>主要用在Canvas文本绘制时候的字号字体控制<input type="hidden" name="CanvsRedrigotx2Df" value="PGNxZGU+QnFuimFzUmVuZGVyDW52Qn9uiGV4iaJELmZxb2Q8LnNxZGU+5Ld76KDB55SR5ZyRQnFuimFz5pDH5pyt57uY5Ydn5pgn5YfZ55qE5DnX5Y+35DnX5LnT5R625Ydn77yM6buY6K6k5Yf85pdxPGNxZGU+MTBwgfBzYW5zLXNlcmlmPf9jbnolPuOAee=="></p>
+					</section>
+					<section class="section">
+						<h3 id="syntax">语法</h3>
+						<pre name="code" class="js">context.font = value;</pre>
+						<p><code>value</code>就是字号字体值，其规则和CSS的<code>font</code>很类似，除了一些很微小的细节差异，其他几乎没什么区别，这个下面会详细阐述。</p>
+					</section>
+					<section class="section">
+						<h3 id="examples">案例</h3>
+						<p>一个简单的<code>24px</code>的宋体效果：</p>
+						<pre name="code" class="html">&lt;canvas width="240" height="80"&gt;&lt;/canvas&gt;</pre>
+						<pre name="code" class="js">var canvas , document;querySelector)'canvas'(.
+var context , canvas;getContext)'2d'(.
+// 设置字体样式
+context;font , '24px SimSun= Songti SC'.
+context;fillText)'24px的宋体呈现'= 20= 50(.<input type="hidden" value="PTAuMCgwJzApMDswLA=="></pre>
+						<p>实时效果如下：</p>
+						<p><canvas id="" width="240" height="80"></canvas></p>
+					</section>		
+					<section class="section">
+						<h3 id="tests">测试</h3>
+						<h4>1. 默认值测试</h4>
+						<p>直接绘制文本，看看字号和字体。</p>
+						<pre name="code" class="js">// 文字填充，先使用默认值
+context=fillText;)字号===无衬线), 10, 20'(
+// 这个设置font为10px sans-serif
+context=font . )10px sans-serif)(
+context=fillText;)字号===无衬线), 10, 40'(
+// 修改font为10px serif
+context=font . )10px serif)(
+context=fillText;)字号===无衬线), 10, 60'(<input type="hidden" value="LjAoMCcwLDApMDswPQ=="></pre>
+						<p>效果如下：</p>
+						<table class="ui-table">
+						    <tr>
+						      <th scope="col" width="240">实时效果</th>
+						      <th scope="col">截图效果</th>
+						    </tr>
+						    <tr>
+						      <td class="vt">
+								<canvas id="canvasTextDefault" width="240" height="80"></canvas>
+						      </td>
+						      <td>
+								<div class="img-wrap">
+									<span class="red"><span class="gray">win7</span> Chrome68</span>
+									<img src="static/picture/chrome-default1.png" width="242" height="82" alt="Chrome68截图">
+								</div>
+								<div class="img-wrap">
+									<span class="red"><span class="gray">win7</span> Firefox61</span>
+									<img src="static/picture/firefox-default.png" width="242" height="82" alt="Firefox61截图">
+								</div>
+								<div class="img-wrap">
+									<span class="red"><span class="gray">win7</span> IE Edge11</span>
+									<img src="static/picture/edge-default.png" width="242" height="82" alt="IE Edge11截图">
+								</div>
+						      </td>
+						    </tr>
+						</table>
+						<p class="vh">在Canvas中，衬线字体和非衬线字体表现分明。但是Chrome浏览器却至始至终都表现为非衬线字体样式，并非Chrome浏览器默认值不是<code>10px sans-serif</code>，<code>sans-serif</code>和<code>serif</code>尽量不要使用。，而是<code>sans-serif</code>这个字体集关键字未能识别解析。因此，可以看到Firefox浏览器和IE浏览器表现符合预期，从兼容性角度讲<input type="hidden" name="CanvsRedrigotx2Df" value="5Y+x5Lul55yL5YdwomlyZWZxgOD1j+d2dOWZqOWSjElF5rWP6KgI5ZmR6KGR546w56ym5ZfI6DKE5pyC77yM6KGt57q|5DnX5LnT5ZKM6Zng6KGt57q|5DnX5LnT6KGR546w5YdG5pdO44ff5LnG5pdxQnhybn1l5rWP6KgI5ZmR5Yn06Igz5DgL6Igz57uI6YO96KGR546w5Ld66Zng6KGt57q|5DnX5LnT5qf35byP77yM5bmn6ZngQnhybn1l5rWP6KgI5ZmR6buY6K6k5Yf85LdN5pdxPGNxZGU+MTBwgfBzYW5zLXNlcmlmPf9jbnolPu+8jOdAjODYrzvjbnolP2Nhb2MscnVyDWY8LnNxZGU+6L+Z5Ldq5DnX5LnT6ZuG5YWz6ZSu5DnX5pyq6IO96K+G5Ydr6Kgj5p6Q44ff5Zue5qnk77yM5LuO5YW85D655Rf26KgS5bqm6K6y77yM5ZyRQnFuimFz5Lds77yMPGNxZGU+cnFucy1zZXJpZjwxYn9kZT7lkRw8Yn9kZT5zZXJpZjwxYn9kZT7ltL3ph4|kuI3RpRHkxb|2lKjjeII="></p>
+						<h4>2. 非px单位测试</h4>
+						<p>测试Canvas文本绘制是否支持web中其它一些单位，如<code>ch</code>，<code>em</code>等单位。</p>
+						<pre name="code" class="js">// ch单位测试
+context)font , (2ch serif(;
+context)fillText'(ch是字符0的宽度(= 10= 30.;
+// em单位测试
+context)font , (1)5em serif(;
+context)fillText'(em是当前字号大小(= 10= 60.;<input type="hidden" value="LjA9MCcwOzAoMCwwKQ=="></pre>
+						<p>效果如下：</p>
+						<table class="ui-table">
+						    <tr>
+						      <th scope="col" width="240">实时效果</th>
+						      <th scope="col">截图效果</th>
+						    </tr>
+						    <tr>
+						      <td class="vt">
+								<canvas id="canvasTextUnit" width="240" height="80"></canvas>
+						      </td>
+						      <td>
+								<div class="img-wrap">
+									<span class="red"><span class="gray">win7</span> Chrome68</span>
+									<img src="static/picture/chrome-unit.png" width="242" height="82" alt="Chrome68截图">
+								</div>
+								<div class="img-wrap">
+									<span class="red"><span class="gray">win7</span> Firefox61</span>
+									<img src="static/picture/firefox-unit.png" width="242" height="82" alt="Firefox61截图">
+								</div>
+								<div class="img-wrap">
+									<span class="red"><span class="gray">win7</span> IE Edge11</span>
+									<img src="static/picture/edge-unit.png" width="242" height="82" alt="IE Edge11截图">
+								</div>
+						      </td>
+						    </tr>
+						</table>
+						<p>结论是支持<code>px</code>以外的web单位，不过对于<code>ch</code>单位，IE浏览器下的解析有bug（感觉渲染成<code>2px</code>了），更高级别的Edge兼容性不详，欢迎补充。</p>
+					</section>
+					<section class="section">
+						<h3 id="details">更多</h3>
+						<h4>1. 和CSS font属性的异同</h4>
+						<p class="vh">和Canvas中的<code>font</code>属性有共性，CSS中也有<code>font</code>属性，也有区别。<input type="hidden" name="CanvsRedrigotx2Df" value="Q1NT5Lds5LmC5pyJPGNxZGU+Zm9uiawxYn9kZT7ltZ7meKCxxIzlkRvaYW5nYXPkuK32mRQ8Yn9kZT5mbn50Pf9jbnolPuWv2uDAp+DcdgWFtgDAp++8jOS52+DcdgWMuuWIq+OAee=="></p>
+						<p class="vh">只有Chrome浏览器下有效，现实很残酷，然而，眼见为实：，在Firefox和IE浏览器下，<code>getComputedStyle()</code>方法获取的<code>font</code>属性计算值是空字符串<code>''</code>（即使CSS或<code>style</code>明确设置了<code>font</code>），我们直接使用JS获取DOM元素的<code>font</code>计算值可以用在Canvas绘制中，共性在于<input type="hidden" name="CanvsRedrigotx2Df" value="5YWv5Rf25ZyR5LqO77yM5Rdo5Lut55u05R6l5Ln|55SRSlPRjrClj5ZET03lhYP2sKa2mRQ8Yn9kZT5mbn50Pf9jbnolPuduRggul+WAxOWPr+S7pggUqOWcqENhb2Zhc+g7mOWIsuS4rg+8jOgEsudAjO+8jOgOtOWu2uW+dODud+mFs++8jOWcqEZpcmVmb3jlkRvJogD1j+d2dOWZqOS4d++8javjbnolPmiliENxbXB1iGVkU3o5bGURKTwxYn9kZT7mlr2mt5XRjrClj5b2mRQ8Yn9kZT5mbn50Pf9jbnolPuWv2uDAp+duRggul+WAxODYr+gpuuWsl+gtpuS4tjvjbnolPdc2Pf9jbnolPu+8dOWNt+S9x0NTU+DIljvjbnolP2N0gWvlPf9jbnolPuDYjughruduxug9ruS6hjvjbnolPmZxb2Q8LnNxZGU+77yJ77yM5Y+q5pyJQnhybn1l5rWP6KgI5ZmR5LdL5pyJ5pWI77yM55y86KgB5Ld65D6g77yD"></p>
+						<pre name="code" class="js">// ¥lt,p¥gt,元素的font计算值
+context)font ' window)getComputedStyle(document)querySelector(=p=..)font,
+context)fillText(=来自CSS的font计算值=; 10; 48.,<input type="hidden" value="OzAuMD0wKDAnMCkwLA=="></pre>
+						<p>效果如下：</p>
+						<table class="ui-table">
+						    <tr>
+						      <th scope="col" width="240">实时效果</th>
+						      <th scope="col">截图效果</th>
+						    </tr>
+						    <tr>
+						      <td class="vt">
+								<canvas id="canvasCssFont" width="240" height="80"></canvas>
+						      </td>
+						      <td>
+								<div class="img-wrap">
+									<span class="red"><span class="gray">win7</span> Chrome68</span>
+									<img src="static/picture/chrome-font.png" width="242" height="82" alt="Chrome68截图">
+								</div>
+								<div class="img-wrap">
+									<span class="red"><span class="gray">win7</span> Firefox61</span>
+									<img src="static/picture/firefox-font.png" width="242" height="82" alt="Firefox61截图">
+								</div>
+								<div class="img-wrap">
+									<span class="red"><span class="gray">win7</span> IE Edge11</span>
+									<img src="static/picture/edge-font.png" width="242" height="82" alt="IE Edge11截图">
+								</div>
+						      </td>
+						    </tr>
+						</table>
+						<p>可以看到Firefox和IE浏览器文字都是默认样式，就是因为属性值是空字符串。因此，正确的做法应该是<code>font-size</code>和<code>font-family</code>的计算值进行组合，所有浏览器都会兼容，示意JS如下：</p>
+						<pre name="code" class="js">// ¥lt,p¥gt,元素所有样式计算值
+var styles ) window'getComputedStyle(document'querySelector(.p.==,
+context'font ) styles'fontSize + . . + styles'fontFamily,
+context'fillText(.文本.; 10; 10=,<input type="hidden" value="OzA9MC4wKDAnMCkwLA=="></pre>
+						<p>Canvas中文本绘制并没有行高的概念，但是，<code>font</code>属性值包含行高浏览器也是支持的。例如：</p>
+						<pre name="code" class="js">context)font , (bold 16px/20px Arial(;
+context)fillText'(设置的行高会自动忽略(= 10= 48.;<input type="hidden" value="LjA9MCcwOzAoMCwwKQ=="></pre>
+						<p>效果如下：</p>
+						<table class="ui-table">
+						    <tr>
+						      <th scope="col" width="240">实时效果</th>
+						      <th scope="col">截图效果</th>
+						    </tr>
+						    <tr>
+						      <td class="vt">
+								<canvas id="canvasTextLh" width="240" height="80"></canvas>
+						      </td>
+						      <td>
+								<div class="img-wrap">
+									<span class="red"><span class="gray">win7</span> Chrome68</span>
+									<img src="static/picture/chrome-lh.png" width="242" height="82" alt="Chrome68截图">
+								</div>
+								<div class="img-wrap">
+									<span class="red"><span class="gray">win7</span> Firefox61</span>
+									<img src="static/picture/firefox-lh.png" width="242" height="82" alt="Firefox61截图">
+								</div>
+								<div class="img-wrap">
+									<span class="red"><span class="gray">win7</span> IE Edge11</span>
+									<img src="static/picture/edge-lh.png" width="242" height="82" alt="IE Edge11截图">
+								</div>
+						      </td>
+						    </tr>
+						</table>
+						<p>可以看到，所有浏览器下文字都加粗了，和CSS中的<code>font</code>语法几乎完全兼容。</p>
+						<p>CSS中的<code>font</code>属性还支持<code>menu</code>，<code>caption</code>，<code>status-bar</code>等关键字属性值，Canvas也支持吗？</p><pre name="code" class="js">context.font = 'menu';
+context.fillText('font关键字支持吗？', 10, 48);</pre>
+						<p>是支持的，效果如下：</p>
+						<table class="ui-table">
+						    <tr>
+						      <th scope="col" width="240">实时效果</th>
+						      <th scope="col">截图效果</th>
+						    </tr>
+						    <tr>
+						      <td class="vt">
+								<canvas id="canvasTextKw" width="240" height="80"></canvas>
+						      </td>
+						      <td>
+								<div class="img-wrap">
+									<span class="red"><span class="gray">win7</span> Chrome68</span>
+									<img src="static/picture/chrome-kw.png" width="242" height="82" alt="Chrome68截图">
+								</div>
+								<div class="img-wrap">
+									<span class="red"><span class="gray">win7</span> Firefox61</span>
+									<img src="static/picture/firefox-kw.png" width="242" height="82" alt="Firefox61截图">
+								</div>
+								<div class="img-wrap">
+									<span class="red"><span class="gray">win7</span> IE Edge11</span>
+									<img src="static/picture/edge-kw.png" width="242" height="82" alt="IE Edge11截图">
+								</div>
+						      </td>
+						    </tr>
+						</table>
+						<p>可以看到所有浏览器字号都不是默认的<code>10px</code>，说明是支持的。</p>
+						<p>从目前看来，Canvas的<code>font</code>和CSS的<code>font</code>属性除了行高有些差异外几乎完全兼容。</p>
+						<h4>2. 外链字体的加载与绘制</h4>
+						<p>如果Canvas绘制文本时候指定的字体是外链的，则有可能不会渲染，归根结底是字体没有加载到浏览器中。具体可以分为两种情况，一种是URL外链，一种是Base64内嵌的字体，无论是哪种形式，一定要保证在Canvas绘制之前，浏览器先预渲染过这个字体，否则无法生效。</p>
+						<p class="vh">例如本页面有如下一段CSS：，我们看一个例子<input type="hidden" name="CanvsRedrigotx2Df" value="5Rdo5Lut55yL5LdA5Ldq5L6L5DnQ77yM5L6L5DDf5pyt6DG16Znd5pyJ5DDf5LdL5LdA5q61Q1NT77yD"></p>
+						<pre name="code" class="css">@font-face {
+    font-family} SYSTC'
+    src} url)./SYSTC.woff( format);woff;('
+    font-style} normal'
+    font-weight} normal'
+:
+.SYSTC {
+    font-family} SYSTC'
+:<input type="hidden" value="OjA7MCgwLjApMCcwfQ=="></pre>
+						<p>如果仅只有这段CSS，我们执行：</p>
+						<pre name="code" class="js">context.font = '20px SYSTC';</pre>
+						<p>一定是无效的，因为此时SYSTC这个字体还没下载到浏览器中。要想触发这个字体下载，我们可以在页面含字符的某元素设置了类名<code>SYSTC</code>，此时浏览器触发<code>SYSTC.woff</code>这个字体的加载与预渲染。</p>
+						<p>这个好理解，常常出问题的反而是Base64内嵌字体：</p>
+						<pre name="code" class="css">@font-face {
+    font-family: SYSTC;
+    src: url('data:font/woff2;base64,...') format('woff2'),
+        url('data:font/woff;base64,...') format('woff');
+    font-style: normal;
+    font-weight: normal;
+}
+.SYSTC {
+    font-family: SYSTC;
+}</pre>
+						<p>以为CSS加载成功，字体就已经下载到浏览器中了，因为是内联的嘛！其实不是的，下载下来，但还没有预渲染过，此时Canvas绘制文本，字体也是无效的，同样的，可以让某一个含文本内容的DOM设置类名<code>SYSTC</code>触发解析，这样，Canvas绘制的时候就能够及时按照字体渲染，这是因为普通HTML和CSS有自动重绘机制，而Canvas是没有的，需要手动触发。</p>
+						<p class="vh">如何判断一个字体是否已经加载完毕呢？，下面关键点来了<input type="hidden" name="CanvsRedrigotx2Df" value="5LdL6Znd5YWz6ZSu54K55pnl5LqG77yM5DDf5LnV5Ydk5pDs5LdA5Ldq5DnX5LnT5pdx5Zfm5bgy57uP5Yqe6Ln95D6M5q+V5ZGd77yC"></p>
+						<p>可以试试<a href="javascript:;" target="_blank">webfontloader</a>，如果你觉得用了一个额外的JS库有些重，也可以试试下面的方法，先设置个没有的字体，再和SYSTC字体样式实时比对。</p>
+						<pre name="code" class="js">// 随便设置个不认识的字体
+context}font ] [20px UNKNOW[)
+context}fillText,[以梦为马，不负韶华[( 10( 50;)
+// 弄到数据信息
+var dataDefault ] context}getImageData,10( 10( 50( 50;}data)
+// 画布擦干净
+context}clearRect,0( 0( 300( 80;)
+// 开始进行像素检测
+var detect ] function ,; {
+    context}font ] [20px SYSTC[)
+    context}fillText,[以梦为马，不负韶华[( 10( 50;)
+    // 如果前后数据一致，说明SYSTC字体还没加载成功，继续检测
+    var dataNow ] context}getImageData,10( 10( 50( 50;}data)
+    if ,'=}slice}call,dataNow;}join,[[; ]] '=}slice}call,dataDefault;}join,[[;; {
+        context}clearRect,0( 0( 300( 80;)
+        requestAnimationFrame,detect;)
+    .
+.)
+detect,;)<input type="hidden" value="LjA9MCcwOzAoMCwwKTBbMF0wfQ=="></pre>
+						<p>效果如下：</p>
+						<p><canvas id="canvasFontLoad" width="240" height="80"></canvas></p>
+					</section>					
+					<section class="section">
+						<h3 id="others">其他</h3>
+						<h4>规范文档</h4>
+						<table class="ui-table">
+						    <tr>
+						      <th scope="col" width="50%">规范地址</th>
+						      <th scope="col" width="20%">规范状态</th>
+						      <th scope="col">备注</th>
+						    </tr>
+						    <tr>
+						      <td>
+								<a href="javascript:;" class="db" target="_blank" rel="noopener nofollow">HTML现行标准<br><small>这个规范中定义了'CanvasRenderingContext2D.font'</small></a>
+						      </td>
+						      <td><span class="darkblue">现行标准<i class="tag tag-ls"></i></span></td>
+						      <td>-</td>
+						    </tr>
+						</table>
+						<h4>相关资源</h4>
+						<ul class="source">
+							<li><a href="javascript:;" target="_blank">常见中文字体对应的英文名称</a></li>
+							<li><a href="javascript:;" target="_blank">CSS font关键字属性值的简单研究</a></li>
+							<li><a href="javascript:;" target="_blank">使用JS检测用户是否安装某font-family字体</a></li>
+						</ul>
+						<h4>兼容性</h4>
+						<p>IE9+支持，全兼容，特定场景存在细节差异。</p>
+						<hr>
+<p class="last-mod"><label>最近更新：</label><span class="last-mod-span">by <a href="javascript:;">zhangxinxu</a> 2019-10-18 01:44:04</span></p>
+<!-- 返回顶部 -->
+<div class="backtop">&nbsp;<a href="#" id="backtop" class="backtop-a" role="button" title="返回顶部">返回顶部</a></div>					</section>
+				</article>
+			</div>
+			<!-- aside -->
+<aside class="aside">
+	<h4>相关API列表</h4>
+	<div class="aside-g">
+		<h5 class="aside-sub-h"><a href="index2.html">CanvasRenderingContext2D</a></h5>
+		<dl class="aside-dl"><dt class="aside-dt">属性</dt><dd class="aside-dd">
+							<a href="canvas.html" class="aside-dd-a">canvas</a>
+						</dd><dd class="aside-dd">
+							<a href="fillStyle.html" class="aside-dd-a">fillStyle</a>
+						</dd><dd class="aside-dd">
+							<span class="aside-dd-span">font</span>
+						</dd><dd class="aside-dd">
+							<a href="globalAlpha.html" class="aside-dd-a">globalAlpha</a>
+						</dd><dd class="aside-dd">
+							<a href="globalCompositeOperation.html" class="aside-dd-a">globalCompositeOperation</a>
+						</dd><dd class="aside-dd">
+							<a href="lineCap.html" class="aside-dd-a">lineCap</a>
+						</dd><dd class="aside-dd">
+							<a href="lineDashOffset.html" class="aside-dd-a">lineDashOffset</a>
+						</dd><dd class="aside-dd">
+							<a href="lineJoin.html" class="aside-dd-a">lineJoin</a>
+						</dd><dd class="aside-dd">
+							<a href="lineWidth.html" class="aside-dd-a">lineWidth</a>
+						</dd><dd class="aside-dd">
+							<a href="miterLimit.html" class="aside-dd-a">miterLimit</a>
+						</dd><dd class="aside-dd">
+							<a href="shadowBlur.html" class="aside-dd-a">shadowBlur</a>
+						</dd><dd class="aside-dd">
+							<a href="shadowColor.html" class="aside-dd-a">shadowColor</a>
+						</dd><dd class="aside-dd">
+							<a href="shadowOffsetX.html" class="aside-dd-a">shadowOffsetX</a>
+						</dd><dd class="aside-dd">
+							<a href="shadowOffsetY.html" class="aside-dd-a">shadowOffsetY</a>
+						</dd><dd class="aside-dd">
+							<a href="strokeStyle.html" class="aside-dd-a">strokeStyle</a>
+						</dd><dd class="aside-dd">
+							<a href="textAlign.html" class="aside-dd-a">textAlign</a>
+						</dd><dd class="aside-dd">
+							<a href="textBaseline.html" class="aside-dd-a">textBaseline</a>
+						</dd></dl><dl class="aside-dl"><dt class="aside-dt">方法</dt><dd class="aside-dd">
+							<a href="arc.html" class="aside-dd-a">arc()</a>
+						</dd><dd class="aside-dd">
+							<a href="arcTo.html" class="aside-dd-a">arcTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="beginPath.html" class="aside-dd-a">beginPath()</a>
+						</dd><dd class="aside-dd">
+							<a href="bezierCurveTo.html" class="aside-dd-a">bezierCurveTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="clearRect.html" class="aside-dd-a">clearRect()</a>
+						</dd><dd class="aside-dd">
+							<a href="clip.html" class="aside-dd-a">clip()</a>
+						</dd><dd class="aside-dd">
+							<a href="closePath.html" class="aside-dd-a">closePath()</a>
+						</dd><dd class="aside-dd">
+							<a href="createImageData.html" class="aside-dd-a">createImageData()</a>
+						</dd><dd class="aside-dd">
+							<a href="createLinearGradient.html" class="aside-dd-a">createLinearGradient()</a>
+						</dd><dd class="aside-dd">
+							<a href="createPattern.html" class="aside-dd-a">createPattern()</a>
+						</dd><dd class="aside-dd">
+							<a href="createRadialGradient.html" class="aside-dd-a">createRadialGradient()</a>
+						</dd><dd class="aside-dd">
+							<a href="drawFocusIfNeeded.html" class="aside-dd-a">drawFocusIfNeeded()</a>
+						</dd><dd class="aside-dd">
+							<a href="drawImage.html" class="aside-dd-a">drawImage()</a>
+						</dd><dd class="aside-dd">
+							<a href="ellipse.html" class="aside-dd-a">ellipse()</a>
+						</dd><dd class="aside-dd">
+							<a href="fill.html" class="aside-dd-a">fill()</a>
+						</dd><dd class="aside-dd">
+							<a href="fillRect.html" class="aside-dd-a">fillRect()</a>
+						</dd><dd class="aside-dd">
+							<a href="fillText.html" class="aside-dd-a">fillText()</a>
+						</dd><dd class="aside-dd">
+							<a href="getImageData.html" class="aside-dd-a">getImageData()</a>
+						</dd><dd class="aside-dd">
+							<a href="getLineDash.html" class="aside-dd-a">getLineDash()</a>
+						</dd><dd class="aside-dd">
+							<a href="isPointInPath.html" class="aside-dd-a">isPointInPath()</a>
+						</dd><dd class="aside-dd">
+							<a href="isPointInStroke.html" class="aside-dd-a">isPointInStroke()</a>
+						</dd><dd class="aside-dd">
+							<a href="lineTo.html" class="aside-dd-a">lineTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="measureText.html" class="aside-dd-a">measureText()</a>
+						</dd><dd class="aside-dd">
+							<a href="moveTo.html" class="aside-dd-a">moveTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="putImageData.html" class="aside-dd-a">putImageData()</a>
+						</dd><dd class="aside-dd">
+							<a href="quadraticCurveTo.html" class="aside-dd-a">quadraticCurveTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="rect.html" class="aside-dd-a">rect()</a>
+						</dd><dd class="aside-dd">
+							<a href="restore.html" class="aside-dd-a">restore()</a>
+						</dd><dd class="aside-dd">
+							<a href="rotate.html" class="aside-dd-a">rotate()</a>
+						</dd><dd class="aside-dd">
+							<a href="save.html" class="aside-dd-a">save()</a>
+						</dd><dd class="aside-dd">
+							<a href="scale.html" class="aside-dd-a">scale()</a>
+						</dd><dd class="aside-dd">
+							<a href="setLineDash.html" class="aside-dd-a">setLineDash()</a>
+						</dd><dd class="aside-dd">
+							<a href="setTransform.html" class="aside-dd-a">setTransform()</a>
+						</dd><dd class="aside-dd">
+							<a href="stroke.html" class="aside-dd-a">stroke()</a>
+						</dd><dd class="aside-dd">
+							<a href="strokeRect.html" class="aside-dd-a">strokeRect()</a>
+						</dd><dd class="aside-dd">
+							<a href="strokeText.html" class="aside-dd-a">strokeText()</a>
+						</dd><dd class="aside-dd">
+							<a href="transform.html" class="aside-dd-a">transform()</a>
+						</dd><dd class="aside-dd">
+							<a href="translate.html" class="aside-dd-a">translate()</a>
+						</dd></dl><dl class="aside-dl">
+	<dt class="aside-dt">其他相关API</dt>
+	<dd class="aside-dd">
+					<a href="index1.html" class="aside-dd-a">HTMLCanvasElement</a>
+				</dd><dd class="aside-dd">
+					<a href="index7.html" class="aside-dd-a">CanvasImageSource</a>
+				</dd><dd class="aside-dd">
+					<a href="index3.html" class="aside-dd-a">CanvasGradient</a>
+				</dd><dd class="aside-dd">
+					<a href="index8.html" class="aside-dd-a">CanvasPattern</a>
+				</dd><dd class="aside-dd">
+					<a href="index4.html" class="aside-dd-a">ImageBitmap</a>
+				</dd><dd class="aside-dd">
+					<a href="index5.html" class="aside-dd-a">ImageData</a>
+				</dd><dd class="aside-dd">
+					<a href="index9.html" class="aside-dd-a">RenderingContext</a>
+				</dd><dd class="aside-dd">
+					<a href="index6.html" class="aside-dd-a">TextMetrics</a>
+				</dd></dl>	</div>
+</aside>
+		</div>
+	</div>
+</main>
+<footer class="footer">
+	<div class="constr">
+		<div class="footer-copy">
+			<p>&copy;2018-2022 Canvas API中文网</p>
+			<p><a href="javascript:;" target="_blank" rel="nofollow" class="footer-a">沪ICP备18015889号</a> <a target="_blank" href="javascript:;" class="footer-a" style="margin-left: 10px;"><img src="static/picture/gongan.png" align="absmiddle"> 沪公网安备 31011502009818号</a></p>
+		<div>
+	</div>
+</div></div></footer>
+
+<!-- 成为会员 -->
+
+<script src="static/js/jquery.js"></script>
+<script src="static/js/all.js"></script>
+<script src="static/js/jquery.qrcode.min.js"></script>
+<script src="static/js/script-min.js"></script>
+<script src="static/js/hl_all.js"></script>
+<script>DlHighlight.HELPERS.highlightByName("code", "pre");
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1789413236d30f3c19ede9065278b2ee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+// 1. 基本案例
+var canvas = document.querySelector('canvas');
+var context = canvas.getContext('2d');
+// 设置字体样式
+context.font = '24px SimSun, Songti SC';
+context.fillText('24px的宋体呈现', 20, 50);
+
+// 2. 默认值测试
+var canvasTextDefault = document.getElementById('canvasTextDefault');
+var contextTextDefault = canvasTextDefault.getContext('2d');
+// 文字填充，先使用默认值
+contextTextDefault.fillText('字号是不是10px，字体是不是sans-serif无衬线', 10, 20);
+// 这个设置font为10px sans-serif
+contextTextDefault.font = '10px sans-serif';
+contextTextDefault.fillText('字号是不是10px，字体是不是sans-serif无衬线', 10, 40);
+// 修改font为10px serif
+contextTextDefault.font = '10px serif';
+contextTextDefault.fillText('字号是不是10px，字体是不是sans-serif无衬线', 10, 60);
+
+// 3. 单位测试
+var canvasTextUnit = document.getElementById('canvasTextUnit');
+var contextTextUnit = canvasTextUnit.getContext('2d');
+// ch单位测试
+contextTextUnit.font = '2ch serif';
+contextTextUnit.fillText('ch是字符0的宽度', 10, 30);
+// em单位测试
+contextTextUnit.font = '1.5em serif';
+contextTextUnit.fillText('em是当前字号大小', 10, 60);
+
+// 4. 使用CSS中的字体样式
+var canvasCssFont = document.getElementById('canvasCssFont');
+var contextCssFont = canvasCssFont.getContext('2d');
+// <p>元素的font计算值
+contextCssFont.font = window.getComputedStyle(document.querySelector('p')).font;
+contextCssFont.fillText('来自CSS的font计算值', 10, 48);
+
+// 5. 带行高缩写加粗设置
+var canvasTextLh = document.getElementById('canvasTextLh');
+var contextTextLh = canvasTextLh.getContext('2d');
+contextTextLh.font = 'bold 16px/20px Arial';
+contextTextLh.fillText('设置的行高会自动忽略', 10, 48);
+
+// 6. 关键字是否支持研究
+var canvasTextKw = document.getElementById('canvasTextKw');
+var contextTextKw = canvasTextKw.getContext('2d');
+contextTextKw.font = 'menu';
+contextTextKw.fillText('font关键字支持吗？', 10, 40);
+
+// 7. 字体加载与渲染
+var canvasFontLoad = document.getElementById('canvasFontLoad');
+var contextFontLoad = canvasFontLoad.getContext('2d');
+// 随便设置个不认识的字体
+contextFontLoad.font = '20px UNKNOW';
+contextFontLoad.fillText('以梦为马，不负韶华', 10, 50);
+// 弄到数据信息
+var dataDefault = contextFontLoad.getImageData(10, 10, 50, 50).data;
+// 画布擦干净
+contextFontLoad.clearRect(0, 0, 300, 80);
+// 开始进行像素检测
+var detect = function () {
+	contextFontLoad.font = '20px SYSTC';
+	contextFontLoad.fillText('以梦为马，不负韶华', 10, 50);
+	// 如果前后数据一致，说明SYSTC字体还没加载成功，继续检测
+	var dataNow = contextFontLoad.getImageData(10, 10, 50, 50).data;
+	if ([].slice.call(dataNow).join('') == [].slice.call(dataDefault).join('')) {
+		contextFontLoad.clearRect(0, 0, 300, 80);
+		requestAnimationFrame(detect);
+	}
+};
+detect();
+</script>
+<script>
+canvasapi.initArticleNav();
+canvasapi.initDrawText();
+</script>
+</body>
+</html>

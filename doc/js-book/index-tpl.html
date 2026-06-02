@@ -1,0 +1,60 @@
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{$title}</title>
+    <meta name="keywords" content="JS高级设计第四版">
+    <meta name="description" content="JS高级设计第四版，读书笔记}">
+    <link rel="stylesheet" type="text/css" href="markdown.css">
+    <style>
+        *{padding: 0;margin: 0;}
+        .left{position: fixed;top: 0;bottom: 0;left: 0;width: 200px;background-color: #f2f2f2;padding: 0px 0 20px;overflow-y: auto;}
+        .left ul{padding-left: 0;border-top: 10px solid #7cdcab;}
+        .left ul li{list-style: none;}
+        .left a{display: block;line-height: 50px;padding: 0 15px;padding-left: 8px;text-indent: 1em;}
+        .left a:hover{background-color: #e6e6e6;}
+        .left ul li.active{border-left: 8px solid #1f4bda;}
+        .left ul li.active a{padding-left: 0;}
+        .right{position: fixed;top: 0;bottom: 0;left: 200px;right: 0;padding: 20 0 0px 20px;}
+        iframe{width: 100%;height: 100%;}
+    </style>
+</head>
+<body>
+    <div class="left" id="left">
+        <ul>
+            <li class="active">
+                <a href="html/第10章 函数.html" target="main">1</a>
+            </li>
+            <li>
+                <a href="html/第10章 函数.html" target="main">1</a>
+            </li>
+            <li>
+                <a href="html/第10章 函数.html" target="main">1</a>
+            </li>
+            <li>
+                <a href="html/第10章 函数.html" target="main">1</a>
+            </li>
+            <li>
+                <a href="html/第10章 函数.html" target="main">1</a>
+            </li>
+            <li>
+                <a href="html/第10章 函数.html" target="main">1</a>
+            </li>
+            <li>
+                <a href="html/第10章 函数.html" target="main">1</a>
+            </li>
+        </ul>
+    </div>
+    <div class="right">
+        <iframe src="html/第10章 函数.html" frameborder="0" name="main"></iframe>
+    </div>
+
+    <script src="https://www.qdxin.cn/js/xinquery.js"></script>
+    <script>
+        $('#left').on('click', 'li', function() {
+            $(this).siblings().removeClass('active');
+            $(this).addClass('active');
+        })
+    </script>
+</body>
+</html>

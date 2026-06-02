@@ -1,0 +1,224 @@
+@keyframes wuDialog_fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes wuDialog_fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes wuDialog_fadeDownIn {
+  0% {
+    opacity: 0;
+    transform: translate(0, -20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0px);
+  }
+}
+
+@keyframes wuDialog_fadeDownOut {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(0, -20px);
+  }
+}
+
+.wu-dialog{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  background-color: rgba(0,18,36,0.8);
+  z-index: 9999999999;
+  animation: wuDialog_fadeIn 0.4s both;
+}
+.wu-dialog.out{
+  animation: wuDialog_fadeOut 0.4s both;
+}
+.wu-dialog.out .wu-dialog-inner{
+  animation: wuDialog_fadeDownOut 0.4s both;
+}
+.wu-dialog-inner{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  animation: wuDialog_fadeDownIn 0.4s both;
+}
+.wu-dialog-body{
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px 20px 20px 20px;
+  width: 80%;
+  max-width: 400px;
+}
+.wu-dialog-h2{
+  height: 40px;
+  line-height: 40px;
+  color: #666;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+}
+.wu-dialog-close{
+  position: absolute;
+  color: #666;
+  right: 0;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  text-align: right;
+  line-height: 40px;
+  cursor: pointer;
+}
+.wu-dialog-msg{
+  padding: 20px 10px 25px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333;
+}
+.wu-dialog-control{
+  text-align: right;
+}
+.wu-dialog-btn{
+  background: #fff;
+  font-size: 16px;
+  border: 0;
+  height: 40px;
+  width: 100px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.wu-dialog-btn.sure{
+  background-color: #409eff;
+  color: #fff;
+}
+.wu-dialog-btn.sure:hover{
+  background-color: #79bbff;
+}
+.wu-dialog-btn.cancel{
+  border: 1px solid #ccc;
+  color: #333;
+  margin-right: 10px;
+}
+.wu-dialog-btn.cancel:hover{
+  color: #409eff;
+  border: 1px solid #c6e2ff;
+  background-color: #ecf5ff;
+}
+.wu-dialog-message{
+  position: fixed;
+  top: 10%;
+  left: 0;
+  right: 0;
+  z-index: 9999999999;
+  text-align: center;
+  animation: wuDialog_fadeDownIn 0.4s both;
+}
+.wu-dialog-message.out{
+  animation: wuDialog_fadeDownOut 0.4s both;
+}
+.wu-dialog-message-p{
+  background-color: rgba(0,0,0, 0.6);
+  color: #fff;
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 16px;
+  max-width: 40%;
+  line-height: 22px;
+  border-radius: 5px;
+}
+.wu-dialog-message.is-phone .wu-dialog-message-p{
+  max-width: 80%;
+}
+
+.wu-dialog-tips{
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  z-index: 9999999999;
+  text-align: center;
+  animation: wuDialog_fadeDownIn 0.4s both;
+}
+.wu-dialog-tips.out{
+  animation: wuDialog_fadeDownOut 0.4s both;
+}
+.wu-dialog-tips-body{
+  display: inline-flex;
+  background-color: #f2f2f2;
+  max-width: 50%;
+  box-shadow: 0 0 5px #ccc;
+  padding: 10px 20px;
+  color: #666;
+  align-items: center;
+  position: relative;
+}
+.wu-dialog-tips-p{
+  flex: 1;
+  word-break: break-all;
+  line-height: 24px;
+  padding-right: 0px;
+  text-align: left;
+}
+.wu-dialog-tips-close{
+  flex: 0 0 30px;
+  height: 24px;
+  font-size: 20px;
+  text-align: right;
+  line-height: 30px;
+  cursor: pointer;
+}
+
+.wu-dialog-tips.is-phone .wu-dialog-tips-body:before{
+  content: "!";
+  font-size: 14px;
+  display: inline-block;
+  border-radius: 50%;
+  border: 1px solid;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+}
+.wu-dialog-tips.is-phone{
+  top: 50px;
+}
+.wu-dialog-tips.is-phone .wu-dialog-tips-body{
+  max-width: 90%;
+  width: 90%;
+  position: relative;
+  padding-bottom: 36px;
+}
+.wu-dialog-tips.is-phone .wu-dialog-tips-p{
+  padding-left: 15px;
+}
+.wu-dialog-tips.is-phone .wu-dialog-tips-close{
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  height: 30px;
+  line-height: 26px;
+}

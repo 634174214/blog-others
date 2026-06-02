@@ -1,0 +1,447 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="description" content="canvas API中文网，CanvasRenderingContext2D，提供详尽的canvas API使用指南和学习案例">
+<meta name="description" content="canvas API中文网 CanvasRenderingContext2D，提供详尽的canvas API使用指南和学习案例">
+<meta name="keywords" content="canvas, api, documents, 文档, 中文, CanvasRenderingContext2D, 前端">
+<meta name="author" content="张鑫旭,zhangxixnu">
+<title>canvas API中文网 - 中文文档 - CanvasRenderingContext2D</title>
+<link rel="stylesheet" type="text/css" href="static/css/ui.css">
+<link rel="stylesheet" type="text/css" href="static/css/style.css"></head>
+
+<body>
+<header class="header">
+	<a href="index.html" class="logo">Canvas API中文网 - 不只是文档</a>
+	<nav class="header-nav">
+		<a href="index.html" id="jsNavItf" class="header-nav-a">canvas接口</a>
+		<!-- <a href="?map=tutorials" class="header-nav-a">canvas教程</a>
+		<a href="?map=examples" class="header-nav-a">canvas案例</a> -->
+		<!-- <i class="header-nav-i"></i>
+		<span>兄弟站点：</span>
+		<a href="//www.svg8.com" class="header-nav-a">SVG吧</a>
+		<a href="//www.cssvv.com" class="header-nav-a">CSS微微</a> -->
+		<!-- 第三方登录 -->
+				<a href="login7.html" class="header-login-a">
+			<svg class="icon icon-github" xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewbox="0 0 24 28"><title>Github</title><path d="M12 2c6.625 0 12 5.375 12 12 0 5.297-3.437 9.797-8.203 11.391-.609.109-.828-.266-.828-.578 0-.391.016-1.687.016-3.297 0-1.125-.375-1.844-.812-2.219 2.672-.297 5.484-1.313 5.484-5.922 0-1.313-.469-2.375-1.234-3.219.125-.313.531-1.531-.125-3.187-1-.313-3.297 1.234-3.297 1.234a11.28 11.28 0 0 0-6 0S6.704 6.656 5.704 6.969c-.656 1.656-.25 2.875-.125 3.187-.766.844-1.234 1.906-1.234 3.219 0 4.594 2.797 5.625 5.469 5.922-.344.313-.656.844-.766 1.609-.688.313-2.438.844-3.484-1-.656-1.141-1.844-1.234-1.844-1.234-1.172-.016-.078.734-.078.734.781.359 1.328 1.75 1.328 1.75.703 2.141 4.047 1.422 4.047 1.422 0 1 .016 1.937.016 2.234 0 .313-.219.688-.828.578C3.439 23.796.002 19.296.002 13.999c0-6.625 5.375-12 12-12zM4.547 19.234c.031-.063-.016-.141-.109-.187-.094-.031-.172-.016-.203.031-.031.063.016.141.109.187.078.047.172.031.203-.031zm.484.532c.063-.047.047-.156-.031-.25-.078-.078-.187-.109-.25-.047-.063.047-.047.156.031.25.078.078.187.109.25.047zm.469.703c.078-.063.078-.187 0-.297-.063-.109-.187-.156-.266-.094-.078.047-.078.172 0 .281s.203.156.266.109zm.656.656c.063-.063.031-.203-.063-.297-.109-.109-.25-.125-.313-.047-.078.063-.047.203.063.297.109.109.25.125.313.047zm.891.391c.031-.094-.063-.203-.203-.25-.125-.031-.266.016-.297.109s.063.203.203.234c.125.047.266 0 .297-.094zm.984.078c0-.109-.125-.187-.266-.172-.141 0-.25.078-.25.172 0 .109.109.187.266.172.141 0 .25-.078.25-.172zm.906-.156c-.016-.094-.141-.156-.281-.141-.141.031-.234.125-.219.234.016.094.141.156.281.125s.234-.125.219-.219z"></path>
+			</svg><span class="header-login-txt">登录</span>
+		</a>
+			</nav>
+</header>
+
+<div class="header-title">
+	<div class="constr">
+		<h1 class="header-h1">Canvas<wbr>Rendering<wbr>Context<wbr>2D</h1>
+	</div>
+</div>
+
+<main class="main" role="main">
+	<div class="container">
+		<nav class="crumbs" role="navigation">
+  	<div class="constr" aria-label="面包屑">    
+      	<h6 class="crumb-h">
+        	<a href="index.html" class="crumb-a">Canvas API</a>
+      	</h6><i class="crumb-joiner"></i>
+	  	<h6 class="crumb-h">
+        	<a href="" class="crumb-a">CanvasRenderingContext2D</a>
+      	</h6>
+        	</div>
+</nav>		<div class="constr">
+			<div class="content">
+				<article id="article" class="article">
+					<div class="jumpto-nav">
+						&nbsp;<ol id="jumptoNav" class="jumpto-ol"></ol>
+				    </div>
+					<section class="section">
+						<h2>了解Canvas<wbr>Rendering<wbr>Context<wbr>2D</h2>
+						<h3 id="introduction" class="abs vh">简介</h3>
+						<style>.section p.vh{overflow: hidden;}</style><iframe id="taIframe" frameborder="0" style="display:none;"></iframe>
+	<span target="_blank" title="点击右上角" class="jsTips" onclick="taIframe.src='https://www.zhangxinxu.com/sp/ta.php?from=canvasapi&type=article&r=' + Math.random();" rel="nofollow noopener" style="float:right;width:120px;height:240px;margin-left:20px;background:url(static/image/star-bg2.jpg) no-repeat;"></span>						<p><code>CanvasRenderingContext2D</code>顾名思义就是“Canvas 2D渲染上下文”，可以理解为下面代码中的<code>context</code>。</p>
+						<pre name="code" class="js">var canvas = document.querySelector('canvas');
+var context = canvas.getContext('2d');</pre>
+						<p><code>context</code>暴露了大量的API属性和方法，可以用来绘制文本，图形以及像素处理等，可以说是2D Canvas应用的核心所在。</p>
+						<p>按照功能，可以对这些暴露的标准API属性和方法进行如下的分组：</p>
+					</section>
+					<section class="section">
+						<h3 id="rectangles">绘制矩形</h3>
+						<p>下面就是Canvas中与矩形绘制相关的几个方法。</p>
+						<dl class="dl">
+							<dt><a href="clearRect.html"><code>CanvasRenderingContext2D.clearRect()</code></a></dt>
+							<dd>清除指定矩形区域内部所有的像素信息为初始色（通常为透明）。</dd>
+							<dt><a href="fillRect.html"><code>CanvasRenderingContext2D.fillRect()</code></a></dt>
+							<dd>矩形填充，可以填充颜色，渐变，图案等。</dd>
+							<dt><a href="strokeRect.html"><code>CanvasRenderingContext2D.strokeRect()</code></a></dt>
+							<dd>矩形描边。</dd>
+						</dl>
+					</section>
+					<section class="section">
+						<h3 id="texts">绘制文本</h3>
+						<p>下面就是Canvas中与文本绘制相关的几个方法。</p>
+						<dl class="dl">
+							<dt><a href="fillText.html"><code>CanvasRenderingContext2D.fillText()</code></a></dt>
+							<dd>文字填充，可以填充纯色，渐变或者图案。</dd>
+							<dt><a href="strokeText.html"><code>CanvasRenderingContext2D.strokeText()</code></a></dt>
+							<dd>文字描边。</dd>
+							<dt><a href="measureText.html"><code>CanvasRenderingContext2D.measureText()</code></a></dt>
+							<dd>文字测量。返回TextMetrics对象，该对象的<code>width</code>属性值就是字符占据的宽度。</dd>
+						</dl>
+					</section>
+					<section class="section">
+						<h3 id="linestyles">线条样式</h3>
+						<p>下面就是与Canvas中与线条样式相关的若干属性和方法。</p>
+						<dl class="dl">
+							<dt><a href="lineWidth.html"><code>CanvasRenderingContext2D.lineWidth</code></a></dt>
+							<dd>线条宽度，主使用场景是描边，默认宽度是<code>1.0</code>，支持小数。</dd>
+							<dt><a href="lineCap.html"><code>CanvasRenderingContext2D.lineCap</code></a></dt>
+							<dd>线条端点的样式。支持如下属性值：<code>butt</code>（默认值，断头，无端帽），<code>round</code>（圆形端帽），<code>square</code>（方形端帽）。</dd>
+							<dt><a href="lineJoin.html"><code>CanvasRenderingContext2D.lineJoin</code></a></dt>
+							<dd>线条转角的样式。支持如下属性值：<code>miter</code>（默认值，尖角），<code>round</code>（圆角），<code>bevel</code>（平角）。</dd>
+							<dt><a href="miterLimit.html"><code>CanvasRenderingContext2D.miterLimit</code></a></dt>
+							<dd>尖角限制比率。线条的尖角如果没有限制，在线条粗角度小的情况下会很长很长，因此，需要一个限制比率。默认是<code>10</code>。</dd>
+							<dt><a href="getLineDash.html"><code>CanvasRenderingContext2D.getLineDash()</code></a></dt>
+							<dd>返回当前虚线数值。返回值是一个偶数个数的数组</dd>
+							<dt><a href="setLineDash.html"><code>CanvasRenderingContext2D.setLineDash()</code></a></dt>
+							<dd>设置线条为虚线。</dd>
+							<dt><a href="lineDashOffset.html"><code>CanvasRenderingContext2D.lineDashOffset</code></a></dt>
+							<dd>设置虚线的起始偏移。</dd>
+						</dl>
+					</section>
+					<section class="section">
+						<h3 id="textstyles">文本样式</h3>
+						<p>下面就是与Canvas中与文本样式相关的若干属性和方法。</p>
+						<dl class="dl">
+							<dt><a href="font.html"><code>CanvasRenderingContext2D.font</code></a></dt>
+							<dd>设置字体相关样式，包括字号，字体信息。默认值是<code>10px sans-serif</code>。</dd>
+							<dt><a href="textAlign.html"><code>CanvasRenderingContext2D.textAlign</code></a></dt>
+							<dd>设置文本水平对齐方式。支持属性值有：<code>start</code>（默认值），<code>end</code>，<code>left</code>，<code>right</code>以及<code>center</code>。</dd>
+							<dt><a href="textBaseline.html"><code>CanvasRenderingContext2D.textBaseline</code></a></dt>
+							<dd>设置文本基线对齐方式。支持属性值有：<code>top</code>，<code>hanging</code>，<code>middle</code>，<code>alphabetic</code>（默认值），<code>ideographic</code>，<code>bottom</code>。</dd>
+							<dt><a href="javascript:;"><code>CanvasRenderingContext2D.direction</code></a></dt>
+							<dd>设置文本显示方向。支持属性值有：<code>inherit</code>（默认值），<code>ltr</code>和<code>rtl</code>。</dd>
+						</dl>
+					</section>
+					<section class="section">
+						<h3 id="fillstroke">填充和描边</h3>
+						<p>就是下面这两个属性和两个方法，是高频使用的API。</p>
+						<dl class="dl">
+							<dt><a href="fillStyle.html"><code>CanvasRenderingContext2D.fillStyle</code></a></dt>
+							<dd>填充样式。默认值是<code>#000000</code>纯黑色。</dd>
+							<dt><a href="fill.html"><code>CanvasRenderingContext2D.fill()</code></a></dt>
+							<dd>填充。</dd>
+							<dt><a href="strokeStyle.html"><code>CanvasRenderingContext2D.strokeStyle</code></a></dt>
+							<dd>描边样式。默认值是<code>#000000</code>纯黑色。</dd>
+							<dt><a href="stroke.html"><code>CanvasRenderingContext2D.stroke()</code></a></dt>
+							<dd>描边。</dd>
+						</dl>
+					</section>
+					<section class="section">
+						<h3 id="gradients">渐变相关</h3>
+						<p>Canvas中与渐变相关的方法就是创建线性渐变和径向渐变这两个方法。</p>
+						<dl class="dl">
+							<dt><a href="createLinearGradient.html"><code>CanvasRenderingContext2D.createLinearGradient()</code></a></dt>
+							<dd>创建线性渐变。</dd>
+							<dt><a href="createRadialGradient.html"><code>CanvasRenderingContext2D.createRadialGradient()</code></a></dt>
+							<dd>创建径向渐变。</dd>
+						</dl>
+					</section>
+					<section class="section">
+						<h3 id="patterns">图案相关</h3>
+						<p>Canvas中与图案相关的方法就是创建图案对象方法。</p>
+						<dl class="dl">
+							<dt><a href="createPattern.html"><code>CanvasRenderingContext2D.createPattern()</code></a></dt>
+							<dd>创建图案。图案内容可以是图片，可以是<code>&lt;canvas&gt;</code>元素，也可以是渐变。此方法返回<code>CanvasPattern</code>对象。</dd>
+						</dl>
+					</section>
+					<section class="section">
+						<h3 id="patterns">阴影相关</h3>
+						<p>Canvas中与阴影相关的属性就是下面这些。</p>
+						<dl class="dl">
+							<dt><a href="shadowBlur.html"><code>CanvasRenderingContext2D.shadowBlur</code></a></dt>
+							<dd>阴影模糊大小。默认值是<code>0</code>。</dd>
+							<dt><a href="shadowColor.html"><code>CanvasRenderingContext2D.shadowColor</code></a></dt>
+							<dd>阴影颜色。默认值是全透明黑色。</dd>
+							<dt><a href="shadowOffsetX.html"><code>CanvasRenderingContext2D.shadowOffsetX</code></a></dt>
+							<dd>阴影水平偏移大小。默认值是<code>0</code>。</dd>
+							<dt><a href="shadowOffsetY.html"><code>CanvasRenderingContext2D.shadowOffsetY</code></a></dt>
+							<dd>阴影垂直偏移大小。默认值是<code>0</code>。</dd>
+						</dl>
+					</section>
+					<section class="section">
+						<h3 id="paths">绘制路径</h3>
+						<p>下面的方法可以用来处理路径对象。</p>
+						<dl class="dl">
+							<dt><a href="beginPath.html"><code>CanvasRenderingContext2D.beginPath()</code></a></dt>
+							<dd>开始一个新路径。</dd>
+							<dt><a href="closePath.html"><code>CanvasRenderingContext2D.closePath()</code></a></dt>
+							<dd>闭合一个路径。</dd>
+							<dt><a href="moveTo.html"><code>CanvasRenderingContext2D.moveTo()</code></a></dt>
+							<dd>路径绘制起始点。</dd>
+							<dt><a href="lineTo.html"><code>CanvasRenderingContext2D.lineTo()</code></a></dt>
+							<dd>绘制直线到指定坐标点。</dd>
+							<dt><a href="bezierCurveTo.html"><code>CanvasRenderingContext2D.bezierCurveTo()</code></a></dt>
+							<dd>绘制贝赛尔曲线到指定坐标点。</dd>
+							<dt><a href="quadraticCurveTo.html"><code>CanvasRenderingContext2D.quadraticCurveTo()</code></a></dt>
+							<dd>绘制二次贝赛尔曲线到指定坐标点。</dd>
+							<dt><a href="arc.html"><code>CanvasRenderingContext2D.arc()</code></a></dt>
+							<dd>绘制圆弧（包括圆）。</dd>
+							<dt><a href="arcTo.html"><code>CanvasRenderingContext2D.arcTo()</code></a></dt>
+							<dd>绘制圆弧，和之前的点以直线相连。</dd>
+							<dt><a href="rect.html"><code>CanvasRenderingContext2D.rect()</code></a></dt>
+							<dd>绘制矩形路径。</dd>
+							<dt><a href="ellipse.html"><code>CanvasRenderingContext2D.ellipse()</code></a></dt>
+							<dd>绘制椭圆路径。</dd>
+							<dt><a href="clip.html"><code>CanvasRenderingContext2D.clip()</code></a></dt>
+							<dd>创建剪裁路径，之后绘制的路径只有在里面的才会显示。</dd>
+						</dl>
+					</section>
+					<section class="section">
+						<h3 id="pointin">位置检测</h3>
+						<p>下面这两个方法可以判定某个坐标点是否路径或者描边中。</p>
+						<dl class="dl">
+							<dt><a href="isPointInPath.html"><code>CanvasRenderingContext2D.isPointInPath()</code></a></dt>
+							<dd>当前点是否在指定路径内。</dd>
+							<dt><a href="isPointInStroke.html"><code>CanvasRenderingContext2D.isPointInStroke()</code></a></dt>
+							<dd>当前点是否在指定路径描边上。</dd>
+						</dl>
+					</section>
+					<section class="section">
+						<h3 id="transformations">变换</h3>
+						<p>旋转缩放等变换方法。</p>
+						<dl class="dl">
+							<dt><a href="rotate.html"><code>CanvasRenderingContext2D.rotate()</code></a></dt>
+							<dd>旋转。</dd>
+							<dt><a href="scale.html"><code>CanvasRenderingContext2D.scale()</code></a></dt>
+							<dd>缩放。</dd>
+							<dt><a href="translate.html"><code>CanvasRenderingContext2D.translate()</code></a></dt>
+							<dd>位移。</dd>
+							<dt><a href="transform.html"><code>CanvasRenderingContext2D.transform()</code></a></dt>
+							<dd>当前矩阵变换基础上再次矩阵变换。</dd>
+							<dt><a href="setTransform.html"><code>CanvasRenderingContext2D.setTransform()</code></a></dt>
+							<dd>直接重置为当前设置的矩阵变换。</dd>
+						</dl>
+					</section>
+					<section class="section">
+						<h3 id="compositing">透明度和层级</h3>
+						<p>一个是控制全局透明度，另外一个可以改变层级关系，设置混合模式，以及实现遮罩效果等。</p>
+						<dl class="dl">
+							<dt><a href="globalAlpha.html"><code>CanvasRenderingContext2D.globalAlpha</code></a></dt>
+							<dd>全局透明度。</dd>
+							<dt><a href="globalCompositeOperation.html"><code>CanvasRenderingContext2D.globalCompositeOperation</code></a></dt>
+							<dd>设置图形叠加时候的混合方式，可以用来改变绘制元素上下叠加关系，也就是层级。</dd>
+						</dl>
+					</section>
+					<section class="section">
+						<h3 id="compositing">图片与像素</h3>
+						<p>绘制图片和图像像素信息处理方法。</p>
+						<dl class="dl">
+							<dt><a href="drawImage.html"><code>CanvasRenderingContext2D.drawImage()</code></a></dt>
+							<dd>图片绘制在画布上。</dd>
+							<dt><a href="createImageData.html"><code>CanvasRenderingContext2D.createImageData()</code></a></dt>
+							<dd>创建一个新的空白的<code>ImageData</code>对象。</dd>
+							<dt><a href="getImageData.html"><code>CanvasRenderingContext2D.getImageData()</code></a></dt>
+							<dd>获取Canvas画布的设定区域的<code>ImageData</code>对象。</dd>
+							<dt><a href="putImageData.html"><code>CanvasRenderingContext2D.putImageData()</code></a></dt>
+							<dd>给定的<code>ImageData</code>对象应用在Canvas画布上。</dd>
+						</dl>
+					</section>
+					<section class="section">
+						<h3 id="compositing">Canvas状态</h3>
+						<p>Canvas状态管理几个方法。</p>
+						<dl class="dl">
+							<dt><a href="save.html"><code>CanvasRenderingContext2D.save()</code></a></dt>
+							<dd>存储当前Canvas的状态。</dd>
+							<dt><a href="restore.html"><code>CanvasRenderingContext2D.restore()</code></a></dt>
+							<dd>恢复Canvas到前一次存储的状态。</dd>
+							<dt><a href="canvas.html"><code>CanvasRenderingContext2D.canvas</code></a></dt>
+							<dd>反向识别当前上下文源自哪个<code><a href="index1.html">HTMLCanvasElement</a></code>。</dd>
+						</dl>
+					</section>
+					<section class="section">
+						<h3 id="compositing">其他方法</h3>
+						<p>其他一些不常用的API方法。</p>
+						<dl class="dl">							
+							<dt><a href="drawFocusIfNeeded.html"><code>CanvasRenderingContext2D.drawFocusIfNeeded()</code></a></dt>
+							<dd>如果给定元素被聚焦，则该方法在当前路径周围绘制焦点环。</dd>
+							<dt><a href="javascript:;"><code>CanvasRenderingContext2D.scrollPathIntoView()</code></a></dt>
+							<dd>将当前路径或给定路径滚动到视图中。</dd>
+						</dl>
+					</section>
+
+					<section class="section">
+						<p>&nbsp;</p>
+						<hr>
+<p class="last-mod"><label>最近更新：</label><span class="last-mod-span">by <a href="javascript:;">zhangxinxu</a> 2019-10-18 01:44:04</span></p>
+<!-- 返回顶部 -->
+<div class="backtop">&nbsp;<a href="#" id="backtop" class="backtop-a" role="button" title="返回顶部">返回顶部</a></div>					</section>
+				</article>
+			</div>
+			<!-- aside -->
+<aside class="aside">
+	<h4>相关API列表</h4>
+	<div class="aside-g">
+		<h5 class="aside-sub-h"><a href="">CanvasRenderingContext2D</a></h5>
+		<dl class="aside-dl"><dt class="aside-dt">属性</dt><dd class="aside-dd">
+							<a href="canvas.html" class="aside-dd-a">canvas</a>
+						</dd><dd class="aside-dd">
+							<a href="fillStyle.html" class="aside-dd-a">fillStyle</a>
+						</dd><dd class="aside-dd">
+							<a href="font.html" class="aside-dd-a">font</a>
+						</dd><dd class="aside-dd">
+							<a href="globalAlpha.html" class="aside-dd-a">globalAlpha</a>
+						</dd><dd class="aside-dd">
+							<a href="globalCompositeOperation.html" class="aside-dd-a">globalCompositeOperation</a>
+						</dd><dd class="aside-dd">
+							<a href="lineCap.html" class="aside-dd-a">lineCap</a>
+						</dd><dd class="aside-dd">
+							<a href="lineDashOffset.html" class="aside-dd-a">lineDashOffset</a>
+						</dd><dd class="aside-dd">
+							<a href="lineJoin.html" class="aside-dd-a">lineJoin</a>
+						</dd><dd class="aside-dd">
+							<a href="lineWidth.html" class="aside-dd-a">lineWidth</a>
+						</dd><dd class="aside-dd">
+							<a href="miterLimit.html" class="aside-dd-a">miterLimit</a>
+						</dd><dd class="aside-dd">
+							<a href="shadowBlur.html" class="aside-dd-a">shadowBlur</a>
+						</dd><dd class="aside-dd">
+							<a href="shadowColor.html" class="aside-dd-a">shadowColor</a>
+						</dd><dd class="aside-dd">
+							<a href="shadowOffsetX.html" class="aside-dd-a">shadowOffsetX</a>
+						</dd><dd class="aside-dd">
+							<a href="shadowOffsetY.html" class="aside-dd-a">shadowOffsetY</a>
+						</dd><dd class="aside-dd">
+							<a href="strokeStyle.html" class="aside-dd-a">strokeStyle</a>
+						</dd><dd class="aside-dd">
+							<a href="textAlign.html" class="aside-dd-a">textAlign</a>
+						</dd><dd class="aside-dd">
+							<a href="textBaseline.html" class="aside-dd-a">textBaseline</a>
+						</dd></dl><dl class="aside-dl"><dt class="aside-dt">方法</dt><dd class="aside-dd">
+							<a href="arc.html" class="aside-dd-a">arc()</a>
+						</dd><dd class="aside-dd">
+							<a href="arcTo.html" class="aside-dd-a">arcTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="beginPath.html" class="aside-dd-a">beginPath()</a>
+						</dd><dd class="aside-dd">
+							<a href="bezierCurveTo.html" class="aside-dd-a">bezierCurveTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="clearRect.html" class="aside-dd-a">clearRect()</a>
+						</dd><dd class="aside-dd">
+							<a href="clip.html" class="aside-dd-a">clip()</a>
+						</dd><dd class="aside-dd">
+							<a href="closePath.html" class="aside-dd-a">closePath()</a>
+						</dd><dd class="aside-dd">
+							<a href="createImageData.html" class="aside-dd-a">createImageData()</a>
+						</dd><dd class="aside-dd">
+							<a href="createLinearGradient.html" class="aside-dd-a">createLinearGradient()</a>
+						</dd><dd class="aside-dd">
+							<a href="createPattern.html" class="aside-dd-a">createPattern()</a>
+						</dd><dd class="aside-dd">
+							<a href="createRadialGradient.html" class="aside-dd-a">createRadialGradient()</a>
+						</dd><dd class="aside-dd">
+							<a href="drawFocusIfNeeded.html" class="aside-dd-a">drawFocusIfNeeded()</a>
+						</dd><dd class="aside-dd">
+							<a href="drawImage.html" class="aside-dd-a">drawImage()</a>
+						</dd><dd class="aside-dd">
+							<a href="ellipse.html" class="aside-dd-a">ellipse()</a>
+						</dd><dd class="aside-dd">
+							<a href="fill.html" class="aside-dd-a">fill()</a>
+						</dd><dd class="aside-dd">
+							<a href="fillRect.html" class="aside-dd-a">fillRect()</a>
+						</dd><dd class="aside-dd">
+							<a href="fillText.html" class="aside-dd-a">fillText()</a>
+						</dd><dd class="aside-dd">
+							<a href="getImageData.html" class="aside-dd-a">getImageData()</a>
+						</dd><dd class="aside-dd">
+							<a href="getLineDash.html" class="aside-dd-a">getLineDash()</a>
+						</dd><dd class="aside-dd">
+							<a href="isPointInPath.html" class="aside-dd-a">isPointInPath()</a>
+						</dd><dd class="aside-dd">
+							<a href="isPointInStroke.html" class="aside-dd-a">isPointInStroke()</a>
+						</dd><dd class="aside-dd">
+							<a href="lineTo.html" class="aside-dd-a">lineTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="measureText.html" class="aside-dd-a">measureText()</a>
+						</dd><dd class="aside-dd">
+							<a href="moveTo.html" class="aside-dd-a">moveTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="putImageData.html" class="aside-dd-a">putImageData()</a>
+						</dd><dd class="aside-dd">
+							<a href="quadraticCurveTo.html" class="aside-dd-a">quadraticCurveTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="rect.html" class="aside-dd-a">rect()</a>
+						</dd><dd class="aside-dd">
+							<a href="restore.html" class="aside-dd-a">restore()</a>
+						</dd><dd class="aside-dd">
+							<a href="rotate.html" class="aside-dd-a">rotate()</a>
+						</dd><dd class="aside-dd">
+							<a href="save.html" class="aside-dd-a">save()</a>
+						</dd><dd class="aside-dd">
+							<a href="scale.html" class="aside-dd-a">scale()</a>
+						</dd><dd class="aside-dd">
+							<a href="setLineDash.html" class="aside-dd-a">setLineDash()</a>
+						</dd><dd class="aside-dd">
+							<a href="setTransform.html" class="aside-dd-a">setTransform()</a>
+						</dd><dd class="aside-dd">
+							<a href="stroke.html" class="aside-dd-a">stroke()</a>
+						</dd><dd class="aside-dd">
+							<a href="strokeRect.html" class="aside-dd-a">strokeRect()</a>
+						</dd><dd class="aside-dd">
+							<a href="strokeText.html" class="aside-dd-a">strokeText()</a>
+						</dd><dd class="aside-dd">
+							<a href="transform.html" class="aside-dd-a">transform()</a>
+						</dd><dd class="aside-dd">
+							<a href="translate.html" class="aside-dd-a">translate()</a>
+						</dd></dl><dl class="aside-dl">
+	<dt class="aside-dt">其他相关API</dt>
+	<dd class="aside-dd">
+					<a href="index1.html" class="aside-dd-a">HTMLCanvasElement</a>
+				</dd><dd class="aside-dd">
+					<a href="index7.html" class="aside-dd-a">CanvasImageSource</a>
+				</dd><dd class="aside-dd">
+					<a href="index3.html" class="aside-dd-a">CanvasGradient</a>
+				</dd><dd class="aside-dd">
+					<a href="index8.html" class="aside-dd-a">CanvasPattern</a>
+				</dd><dd class="aside-dd">
+					<a href="index4.html" class="aside-dd-a">ImageBitmap</a>
+				</dd><dd class="aside-dd">
+					<a href="index5.html" class="aside-dd-a">ImageData</a>
+				</dd><dd class="aside-dd">
+					<a href="index9.html" class="aside-dd-a">RenderingContext</a>
+				</dd><dd class="aside-dd">
+					<a href="index6.html" class="aside-dd-a">TextMetrics</a>
+				</dd></dl>	</div>
+</aside>
+		</div>
+	</div>
+</main>
+<footer class="footer">
+	<div class="constr">
+		<div class="footer-copy">
+			<p>&copy;2018-2022 Canvas API中文网</p>
+			<p><a href="javascript:;" target="_blank" rel="nofollow" class="footer-a">沪ICP备18015889号</a> <a target="_blank" href="javascript:;" class="footer-a" style="margin-left: 10px;"><img src="static/picture/gongan.png" align="absmiddle"> 沪公网安备 31011502009818号</a></p>
+		<div>
+	</div>
+</div></div></footer>
+
+<!-- 成为会员 -->
+
+<script src="static/js/jquery.js"></script>
+<script src="static/js/all.js"></script>
+<script src="static/js/jquery.qrcode.min.js"></script>
+<script src="static/js/script-min.js"></script>
+<script src="static/js/hl_all.js"></script>
+<script>DlHighlight.HELPERS.highlightByName("code", "pre");
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1789413236d30f3c19ede9065278b2ee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+canvasapi.initArticleNav();
+</script>
+</body>
+</html>

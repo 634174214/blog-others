@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="description" content="canvas API中文网，ImageBitmap.close()，提供详尽的canvas API使用指南和学习案例">
+<meta name="description" content="canvas API中文网 ImageBitmap.close()，提供详尽的canvas API使用指南和学习案例">
+<meta name="keywords" content="canvas, api, documents, 文档, 中文, ImageBitmap.close(), 前端">
+<meta name="author" content="张鑫旭,zhangxixnu">
+<title>canvas API中文网 - 中文文档 - ImageBitmap.close()</title>
+<link rel="stylesheet" type="text/css" href="static/css/ui.css">
+<link rel="stylesheet" type="text/css" href="static/css/style.css"></head>
+
+<body>
+<header class="header">
+	<a href="index.html" class="logo">Canvas API中文网 - 不只是文档</a>
+	<nav class="header-nav">
+		<a href="index.html" id="jsNavItf" class="header-nav-a">canvas接口</a>
+		<!-- <a href="?map=tutorials" class="header-nav-a">canvas教程</a>
+		<a href="?map=examples" class="header-nav-a">canvas案例</a> -->
+		<!-- <i class="header-nav-i"></i>
+		<span>兄弟站点：</span>
+		<a href="//www.svg8.com" class="header-nav-a">SVG吧</a>
+		<a href="//www.cssvv.com" class="header-nav-a">CSS微微</a> -->
+		<!-- 第三方登录 -->
+				<a href="login69.html" class="header-login-a">
+			<svg class="icon icon-github" xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewbox="0 0 24 28"><title>Github</title><path d="M12 2c6.625 0 12 5.375 12 12 0 5.297-3.437 9.797-8.203 11.391-.609.109-.828-.266-.828-.578 0-.391.016-1.687.016-3.297 0-1.125-.375-1.844-.812-2.219 2.672-.297 5.484-1.313 5.484-5.922 0-1.313-.469-2.375-1.234-3.219.125-.313.531-1.531-.125-3.187-1-.313-3.297 1.234-3.297 1.234a11.28 11.28 0 0 0-6 0S6.704 6.656 5.704 6.969c-.656 1.656-.25 2.875-.125 3.187-.766.844-1.234 1.906-1.234 3.219 0 4.594 2.797 5.625 5.469 5.922-.344.313-.656.844-.766 1.609-.688.313-2.438.844-3.484-1-.656-1.141-1.844-1.234-1.844-1.234-1.172-.016-.078.734-.078.734.781.359 1.328 1.75 1.328 1.75.703 2.141 4.047 1.422 4.047 1.422 0 1 .016 1.937.016 2.234 0 .313-.219.688-.828.578C3.439 23.796.002 19.296.002 13.999c0-6.625 5.375-12 12-12zM4.547 19.234c.031-.063-.016-.141-.109-.187-.094-.031-.172-.016-.203.031-.031.063.016.141.109.187.078.047.172.031.203-.031zm.484.532c.063-.047.047-.156-.031-.25-.078-.078-.187-.109-.25-.047-.063.047-.047.156.031.25.078.078.187.109.25.047zm.469.703c.078-.063.078-.187 0-.297-.063-.109-.187-.156-.266-.094-.078.047-.078.172 0 .281s.203.156.266.109zm.656.656c.063-.063.031-.203-.063-.297-.109-.109-.25-.125-.313-.047-.078.063-.047.203.063.297.109.109.25.125.313.047zm.891.391c.031-.094-.063-.203-.203-.25-.125-.031-.266.016-.297.109s.063.203.203.234c.125.047.266 0 .297-.094zm.984.078c0-.109-.125-.187-.266-.172-.141 0-.25.078-.25.172 0 .109.109.187.266.172.141 0 .25-.078.25-.172zm.906-.156c-.016-.094-.141-.156-.281-.141-.141.031-.234.125-.219.234.016.094.141.156.281.125s.234-.125.219-.219z"></path>
+			</svg><span class="header-login-txt">登录</span>
+		</a>
+			</nav>
+</header>
+
+<div class="header-title">
+	<div class="constr">
+		<h1 class="header-h1">ImageBitmap.close()</h1>
+	</div>
+</div>
+
+<main class="main" role="main">
+	<div class="container">
+		<nav class="crumbs" role="navigation">
+  	<div class="constr" aria-label="面包屑">    
+      	<h6 class="crumb-h">
+        	<a href="index.html" class="crumb-a">Canvas API</a>
+      	</h6><i class="crumb-joiner"></i>
+	  	<h6 class="crumb-h">
+        	<a href="index4.html" class="crumb-a">ImageBitmap</a>
+      	</h6>
+      <i class="crumb-joiner"></i>
+	  	<h6 class="crumb-h">
+        	<a href="" class="crumb-a">close</a>
+      	</h6>
+        	</div>
+</nav>		<div class="constr">
+			<div class="content">
+				<article id="article" class="article">
+					<div class="jumpto-nav">
+						&nbsp;<ol id="jumptoNav" class="jumpto-ol"></ol>
+				    </div>
+					<section class="section">
+						<h2>了解ImageBitmap.close()</h2>
+						<h3 id="introduction" class="abs vh">简介</h3>
+						<style>.section p.vh{overflow: hidden;}</style><iframe id="taIframe" frameborder="0" style="display:none;"></iframe>
+	<span target="_blank" title="点击右上角" class="jsTips" onclick="taIframe.src='https://www.zhangxinxu.com/sp/ta.php?from=canvasapi&type=article&r=' + Math.random();" rel="nofollow noopener" style="float:right;width:120px;height:240px;margin-left:20px;background:url(static/image/star-bg2.jpg) no-repeat;"></span>			
+						<p><code>ImageBitmap.close()</code>方法用来处置所有与<code>ImageBitmap</code>关联的图形资源。</p>
+						<p>主要用在WebGL开发中。</p>
+					</section>
+					<section class="section">
+						<h3 id="syntax">语法</h3>
+						<pre name="code" class="js">bitmap.close()</pre>
+					</section>
+					<section class="section">
+						<h3 id="examples">案例</h3>
+						<pre name="code" class="js">var offscreen } new OffscreenCanvas:256' 256.;
+var gl } offscreen)getContext:,webgl,.;
+
+// )))使用gl上下文进行绘制)))
+
+var bitmap } offscreen)transferToImageBitmap:.;
+// ImageBitmap { width( 256' height( 256 =
+
+bitmap)close:.;
+// ImageBitmap { width( 0' height( 0 = -- disposed<input type="hidden" value="PTAoMCwwKTA7MC4wJzA6MH0="></pre>
+					</section>
+					<section class="section">
+						<h3 id="others">其他</h3>
+						<h4>规范文档</h4>
+						<table class="ui-table">
+						    <tr>
+						      <th scope="col" width="50%">规范地址</th>
+						      <th scope="col" width="20%">规范状态</th>
+						      <th scope="col">备注</th>
+						    </tr>
+						    <tr>
+						      <td>
+								<a href="javascript:;" class="db" target="_blank" rel="noopener">HTML现行标准<br><small>这个规范中定义了'ImageBitmap.close()'</small></a>
+						      </td>
+						      <td><span class="darkblue">现行标准<i class="tag tag-ls"></i></span></td>
+						      <td>-</td>
+						    </tr>
+						</table>
+						<h4>相关资源</h4>
+						<p class="gray">暂无</p>
+						<h4>兼容性</h4>
+						<p>IE不支持。</p>
+						<hr>
+<p class="last-mod"><label>最近更新：</label><span class="last-mod-span">by <a href="javascript:;">zhangxinxu</a> 2019-10-18 01:44:10</span></p>
+<!-- 返回顶部 -->
+<div class="backtop">&nbsp;<a href="#" id="backtop" class="backtop-a" role="button" title="返回顶部">返回顶部</a></div>					</section>
+				</article>
+			</div>
+			<!-- aside -->
+<aside class="aside">
+	<h4>相关API列表</h4>
+	<div class="aside-g">
+		<h5 class="aside-sub-h"><a href="index4.html">ImageBitmap</a></h5>
+		<dl class="aside-dl"><dt class="aside-dt">属性</dt><dd class="aside-dd">
+							<a href="height1.html" class="aside-dd-a">height</a>
+						</dd><dd class="aside-dd">
+							<a href="width1.html" class="aside-dd-a">width</a>
+						</dd></dl><dl class="aside-dl"><dt class="aside-dt">方法</dt><dd class="aside-dd">
+							<span class="aside-dd-span">close()</span>
+						</dd></dl><dl class="aside-dl">
+	<dt class="aside-dt">其他相关API</dt>
+	<dd class="aside-dd">
+					<a href="index1.html" class="aside-dd-a">HTMLCanvasElement</a>
+				</dd><dd class="aside-dd">
+					<a href="index2.html" class="aside-dd-a">CanvasRenderingContext2D</a>
+				</dd><dd class="aside-dd">
+					<a href="index7.html" class="aside-dd-a">CanvasImageSource</a>
+				</dd><dd class="aside-dd">
+					<a href="index3.html" class="aside-dd-a">CanvasGradient</a>
+				</dd><dd class="aside-dd">
+					<a href="index8.html" class="aside-dd-a">CanvasPattern</a>
+				</dd><dd class="aside-dd">
+					<a href="index5.html" class="aside-dd-a">ImageData</a>
+				</dd><dd class="aside-dd">
+					<a href="index9.html" class="aside-dd-a">RenderingContext</a>
+				</dd><dd class="aside-dd">
+					<a href="index6.html" class="aside-dd-a">TextMetrics</a>
+				</dd></dl>	</div>
+</aside>
+		</div>
+	</div>
+</main>
+<footer class="footer">
+	<div class="constr">
+		<div class="footer-copy">
+			<p>&copy;2018-2022 Canvas API中文网</p>
+			<p><a href="javascript:;" target="_blank" rel="nofollow" class="footer-a">沪ICP备18015889号</a> <a target="_blank" href="javascript:;" class="footer-a" style="margin-left: 10px;"><img src="static/picture/gongan.png" align="absmiddle"> 沪公网安备 31011502009818号</a></p>
+		<div>
+	</div>
+</div></div></footer>
+
+<!-- 成为会员 -->
+
+<script src="static/js/jquery.js"></script>
+<script src="static/js/all.js"></script>
+<script src="static/js/jquery.qrcode.min.js"></script>
+<script src="static/js/script-min.js"></script>
+<script src="static/js/hl_all.js"></script>
+<script>DlHighlight.HELPERS.highlightByName("code", "pre");
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1789413236d30f3c19ede9065278b2ee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+canvasapi.initArticleNav();
+canvasapi.initDrawText();
+</script>
+</body>
+</html>

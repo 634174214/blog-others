@@ -1,0 +1,290 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="description" content="canvas API中文网，HTMLCanvasElement.getContext()，提供详尽的canvas API使用指南和学习案例">
+<meta name="description" content="canvas API中文网 HTMLCanvasElement.getContext()，提供详尽的canvas API使用指南和学习案例">
+<meta name="keywords" content="canvas, api, documents, 文档, 中文, HTMLCanvasElement.getContext(), 前端">
+<meta name="author" content="张鑫旭,zhangxixnu">
+<title>canvas API中文网 - 中文文档 - HTMLCanvasElement.getContext()</title>
+<link rel="stylesheet" type="text/css" href="static/css/ui.css">
+<link rel="stylesheet" type="text/css" href="static/css/style.css"></head>
+
+<body>
+<header class="header">
+	<a href="index.html" class="logo">Canvas API中文网 - 不只是文档</a>
+	<nav class="header-nav">
+		<a href="index.html" id="jsNavItf" class="header-nav-a">canvas接口</a>
+		<!-- <a href="?map=tutorials" class="header-nav-a">canvas教程</a>
+		<a href="?map=examples" class="header-nav-a">canvas案例</a> -->
+		<!-- <i class="header-nav-i"></i>
+		<span>兄弟站点：</span>
+		<a href="//www.svg8.com" class="header-nav-a">SVG吧</a>
+		<a href="//www.cssvv.com" class="header-nav-a">CSS微微</a> -->
+		<!-- 第三方登录 -->
+				<a href="login4.html" class="header-login-a">
+			<svg class="icon icon-github" xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewbox="0 0 24 28"><title>Github</title><path d="M12 2c6.625 0 12 5.375 12 12 0 5.297-3.437 9.797-8.203 11.391-.609.109-.828-.266-.828-.578 0-.391.016-1.687.016-3.297 0-1.125-.375-1.844-.812-2.219 2.672-.297 5.484-1.313 5.484-5.922 0-1.313-.469-2.375-1.234-3.219.125-.313.531-1.531-.125-3.187-1-.313-3.297 1.234-3.297 1.234a11.28 11.28 0 0 0-6 0S6.704 6.656 5.704 6.969c-.656 1.656-.25 2.875-.125 3.187-.766.844-1.234 1.906-1.234 3.219 0 4.594 2.797 5.625 5.469 5.922-.344.313-.656.844-.766 1.609-.688.313-2.438.844-3.484-1-.656-1.141-1.844-1.234-1.844-1.234-1.172-.016-.078.734-.078.734.781.359 1.328 1.75 1.328 1.75.703 2.141 4.047 1.422 4.047 1.422 0 1 .016 1.937.016 2.234 0 .313-.219.688-.828.578C3.439 23.796.002 19.296.002 13.999c0-6.625 5.375-12 12-12zM4.547 19.234c.031-.063-.016-.141-.109-.187-.094-.031-.172-.016-.203.031-.031.063.016.141.109.187.078.047.172.031.203-.031zm.484.532c.063-.047.047-.156-.031-.25-.078-.078-.187-.109-.25-.047-.063.047-.047.156.031.25.078.078.187.109.25.047zm.469.703c.078-.063.078-.187 0-.297-.063-.109-.187-.156-.266-.094-.078.047-.078.172 0 .281s.203.156.266.109zm.656.656c.063-.063.031-.203-.063-.297-.109-.109-.25-.125-.313-.047-.078.063-.047.203.063.297.109.109.25.125.313.047zm.891.391c.031-.094-.063-.203-.203-.25-.125-.031-.266.016-.297.109s.063.203.203.234c.125.047.266 0 .297-.094zm.984.078c0-.109-.125-.187-.266-.172-.141 0-.25.078-.25.172 0 .109.109.187.266.172.141 0 .25-.078.25-.172zm.906-.156c-.016-.094-.141-.156-.281-.141-.141.031-.234.125-.219.234.016.094.141.156.281.125s.234-.125.219-.219z"></path>
+			</svg><span class="header-login-txt">登录</span>
+		</a>
+			</nav>
+</header>
+
+<div class="header-title">
+	<div class="constr">
+		<h1 class="header-h1">HTML<wbr>Canvas<wbr>Element<wbr>.get<wbr>Context()</h1>
+	</div>
+</div>
+
+<main class="main" role="main">
+	<div class="container">
+		<nav class="crumbs" role="navigation">
+  	<div class="constr" aria-label="面包屑">    
+      	<h6 class="crumb-h">
+        	<a href="index.html" class="crumb-a">Canvas API</a>
+      	</h6><i class="crumb-joiner"></i>
+	  	<h6 class="crumb-h">
+        	<a href="index1.html" class="crumb-a">HTMLCanvasElement</a>
+      	</h6>
+      <i class="crumb-joiner"></i>
+	  	<h6 class="crumb-h">
+        	<a href="" class="crumb-a">getContext</a>
+      	</h6>
+        	</div>
+</nav>		<div class="constr">
+			<div class="content">
+				<article id="article" class="article">
+					<div class="jumpto-nav">
+						&nbsp;<ol id="jumptoNav" class="jumpto-ol"></ol>
+				    </div>
+					<section class="section">
+						<h2>了解HTML<wbr>Canvas<wbr>Element<wbr>.get<wbr>Context()</h2>
+						<h3 id="introduction" class="abs vh">简介</h3>
+						<style>.section p.vh{overflow: hidden;}</style><iframe id="taIframe" frameborder="0" style="display:none;"></iframe>
+	<span target="_blank" title="点击右上角" class="jsTips" onclick="taIframe.src='https://www.zhangxinxu.com/sp/ta.php?from=canvasapi&type=article&r=' + Math.random();" rel="nofollow noopener" style="float:right;width:120px;height:240px;margin-left:20px;background:url(static/image/star-bg2.jpg) no-repeat;"></span>			
+						<p class="vh">现实世界的工具箱，“上下文”是计算机领域的一个术语，类似于小说中的藏经阁，对于Canvas而言，<code>getContext()</code>方法可以返回<code>&lt;canvas&gt;</code>的绘制上下文，我们就能做一些特殊的事情，我们可以借助其上下文绘制各种图形和效果。，表示一种特殊的环境。在这个环境中<input type="hidden" name="HTMLCanvsElemtgox" value="PGNEZGU+Z2V0Q29udGV4dmMpPm9jb2RnPueWuaeznaWPr+S7pai|nOWbljHjb2RnPiZsdDLjYW52YXgCZ3Q7Pm9jb2RnPuaehOa7COWILuS4iuS4i+eWh++8jOKAlOS4iuS4i+eWh+KAlaeYr+iuTaaun+ecuuCihuWfl+aehOS4MOS4quecr+iEra+8jOaHu+S8EOS6juWwj+iELOS4raaehOiXj+a7j+CYMa+8jOaOsOWuluS4nuaVjOaehOW3paWFL+ausa+8jOihqOakuuS4MOaljaaJuaeuiuaehOaOr+WiM+OAMuWcqOi|CaS4quaOr+WiM+S4ra+8jOeIkaS7rOWwsaiDEaWBCuS4MOS6C+aJuaeuiuaehOS6i+eDha+8jOWEuaS6jkNhblZhc+iAjOiTMO+8jOeIkaS7rOWPr+S7paWAl+WKqaWFLuS4iuS4i+eWh+a7COWILuWQhOaljaWbEuW9TuWSjOeViOealOOAMM=="></p>
+					</section>
+					<section class="section">
+						<h3 id="syntax">语法</h3>
+						<pre name="code" class="js">var context , canvas;getContext)contextType(.
+var context , canvas;getContext)contextType= contextAttributes(.<input type="hidden" value="PTAuMCgwKTA7MCw="></pre>
+						<p>这里的<code>context</code>就是<code>&lt;canvas&gt;</code>的绘制上下文。</p>
+						<h4>参数说明</h4>
+						<dl>
+							<div>
+								<dt class="di">contextType</dt><small class="params-type">String</small>
+							</div>
+							<dd>支持参数包括下面这些：</dd>
+							<dd>
+								<ul>
+									<li><code>'2d'</code><p>会创建并返回一个<code><a href="index2.html">CanvasRenderingContext2D</a></code>对象，主要用来进行<code>2d</code>绘制，也就是二维绘制，平面绘制。</p></li>
+									<li><code>'webgl'</code>或<code>'experimental-webgl'</code><p>此参数可以返回一个<code>WebGLRenderingContext</code>（WebGL渲染上下文）<a class="icon icon-help jsTips" title="本网站对相关API暂不做介绍" tabindex="0"></a>对象，WebGL（全写Web Graphics Library）是一种3D绘图协议，可以为HTML5 Canvas提供硬件3D加速渲染，这样Web开发人员就可以借助系统显卡来在浏览器里更流畅地展示3D场景和模型，无需安装任何其他插件。此参数对应的WebGL版本1（OpenGL ES 2.0）。</p></li>
+									<li><code>'webgl2'</code><p>此参数可以返回一个<code>WebGL2RenderingContext</code>对象，可以用来绘制三维3D效果。此参数对应的WebGL版本2（OpenGL ES 3.0）。不过目前这个还处于试验阶段，我们实际Kaufman都是使用'webgl'这个参数。</p></li>
+									<li><code>'bitmaprenderer'</code><p>创建一个<code>ImageBitmapRenderingContext</code>（位图渲染上下文），可以借助给定的<code>ImageBitmap</code><a class="icon icon-help jsTips" title="位图图像数据接口，包含宽高和图像像素信息" tabindex="0"></a>替换Canavs的内容。</p></li>
+								</ul>
+							</dd>
+						</dl>
+						<dl>
+							<div>
+								<dt class="di">contextAttributes</dt><em>（可选）</em><small class="params-type">Object</small>
+							</div>
+							<p><code>contextAttributes</code>为一个纯对象参数，下面是一个使用示意：</p>
+							<pre name="code" class="js">var gl ; canvas)getContext}:webgl:, {
+    antialias' false,
+    depth' false
+(.=<input type="hidden" value="PTAuMCgwJzAsMDowfTApMDs="></pre>
+							<p>该参数对象支持的属性值具体如下：</p>
+							<dd>如果<code>contextType</code>参数值是<code>'2d'</code>，则<code>contextAttributes</code>支持的标准属性值为：</dd>
+							<dd>
+								<ul>
+									<li><code>alpha</code><small class="params-type">Boolean</small><p>表示Canavs是否包含alpha透明通道，如果设置为<code>false</code>，则表示Canvas不支持全透明或者半透明，在绘制带有透明效果的图形或者图像时候速度会更快一些。</p></li>
+								</ul>
+							</dd>
+							<dd>如果<code>contextType</code>参数值是<code>'webgl'</code>，则<code>contextAttributes</code>支持的标准属性值为：</dd>
+							<dd>
+								<ul>
+									<li><code>alpha</code><small class="params-type">Boolean</small><p>表示Canavs是否包含透明缓冲区。</p></li>
+									<li><code>antialias</code><small class="params-type">Boolean</small><p>表示是否需要抗边缘锯齿。如果设置为<code>true</code>，图像呈现质量会好一些，但是速度会拖慢。</p></li>
+									<li><code>depth</code><small class="params-type">Boolean</small><p>表示绘制缓冲区的缓冲深度至少16位。</p></li>
+									<li><code>failIfMajorPerformanceCaveat</code><small class="params-type">Boolean</small><p>表示如果用户的系统性能比较差，是否继续常见绘制上下文。</p></li>
+									<li><code>powerPreference</code><small class="params-type">String</small><p>高速用户使用的客户端（如浏览器）我们现在这个WebGL上下文最合适的GPU配置是什么。支持下面关键字值：</p>
+										<ul>
+											<li><code>'default'</code><p>让用户的客户端设备自己觉得那个GPU配置是最合适的。这个是此参数的默认值。</p></li>
+											<li><code>'high-performance'</code><p>渲染性能优先，通常更耗掉（如手机，平板等移动设备）。</p></li>
+											<li><code>'low-power'</code><p>省电优先，渲染性能权重可以低一些。</p></li>
+										</ul>
+									</li>
+									<li><code>premultipliedAlpha</code><small class="params-type">Boolean</small><p>表示页面合成器将假定绘图缓冲区包含具有alpha预乘（pre-multiplied alpha<i class="icon icon-help jsTips" title="Premultipled Alpha是一种用来存储透明像素的技术，颜色混合效果更好"></i>）颜色。</p></li>
+									<li><code>preserveDrawingBuffer</code><small class="params-type">Boolean</small><p>如果值为<code>true</code>，则不会清除缓冲区并保留其值，直到作者清除或覆盖。</p></li>
+									<li><code>stencil</code><small class="params-type">Boolean</small><p>表示绘图缓冲区具有至少8位的模板缓冲区。</p></li>
+								</ul>
+							</dd>
+						</dl>
+						<h4>返回值</h4>
+						<p>无论<code>getContext()</code>方法中的参数是什么，其返回值都可以称之为<code>RenderingContext</code>，再细分可以包括下面这些：</p>
+						<ul>
+							<li><code>'2d'</code>参数值对应的<code><a href="index2.html">CanvasRenderingContext2D</a></code>；</li>
+							<li><code>'webgl'</code>或<code>experimental-webgl</code>参数值对应的<code>WebGLRenderingContext</code>；</li>
+							<li><code>'webgl2'</code>参数值对应的<code>WebGL2RenderingContext</code>；</li>
+							<li><code>'bitmaprenderer'</code>参数值对应的<code>ImageBitmapRenderingContext</code>。</li>
+						</ul>
+					</section>
+					<section class="section">
+						<h3 id="examples">案例</h3>
+						<p>HTML代码如下：</p>
+						<pre name="code" class="html">&lt;canvas&gt;&lt;/canvas&gt;</pre>
+						<p>JavaScript代码如下：</p>
+						<pre name="code" class="js">var canvas = document.querySelector('canvas');
+var context = canvas.getContext('2d');
+// 打印出context对象属性名或方法名
+console.dir(context);</pre>
+						<p>在Chrome控制台输出结果如下图：</p>
+						<p class="dn"><canvas></canvas></p>
+						<script>var canvas = document.querySelector('canvas');
+var context = canvas.getContext('2d');
+// 返回context对象所有的属性名或方法名
+window.console && console.dir(context);</script>
+						<p><img src="static/picture/context-console.png" width="442" height="388"></p>
+					</section>
+					<section class="section">
+						<h3 id="details">更多</h3>
+						<p>基本上，只要我们使用<code>canvas</code>实现功能，<code>getContext()</code>方法调用100%需要使用。甚至可以这么说，只要你想用canvas实现任何平面效果，首先不管三七二十一，先把下面2行写上：</p>
+						<pre name="code" class="js">var canvas = document.querySelector('canvas');
+var context = canvas.getContext('2d');</pre>
+						<p>当然如果页面存在多个<code>&lt;canvas&gt;</code>元素，我们可以自己加个<code>id</code>或者<code>class</code>类名在配合选择器获取。也可以直接<code>create</code>创建，然后<code>append</code>到页面中，例如：</p>
+						<pre name="code" class="js">var canvas ; document)createElement'(canvas(.=
+document)body)appendChild'canvas.=
+var context ; canvas)getContext'(2d(.=<input type="hidden" value="PTAuMCgwJzApMDs="></pre>
+						<p>如果希望<code>&lt;canvas&gt;</code>元素放在<code>&lt;body&gt;</code>元素最前面，则可以：</p>
+						<pre name="code" class="js">var canvas , document;createElement)'canvas'(.
+document;body;insertBefore)canvas= document;body;firstElementChild(.
+var context , canvas;getContext)'2d'(.<input type="hidden" value="PTAuMCgwJzApMDswLA=="></pre>
+					</section>		
+					<section class="section">
+						<h3 id="others">其他</h3>
+						<h4>规范文档</h4>
+						<table class="ui-table">
+						    <tr>
+						      <th scope="col" width="35%">规范地址</th>
+						      <th scope="col" width="20%">规范状态</th>
+						      <th scope="col">备注</th>
+						    </tr>
+						    <tr>
+						      <td>
+								<a href="javascript:;" class="db" target="_blank" rel="noopener">HTML现行标准<br><small>这个规范中定义了'HTMLCanvasElement.getContext'</small></a>
+						      </td>
+						      <td><span class="darkblue">现行标准<i class="tag tag-ls"></i></span></td>
+						      <td>最新的HTML5规范确定以来就没变过。</td>
+						    </tr>
+						    <tr>
+						      <td><a href="javascript:;" class="db" target="_blank" rel="noopener">HTML 5.1<br><small>这个规范中定义了'HTMLCanvasElement.getContext'</small></a></td>
+						      <td><span class="green">推荐<i class="tag tag-rec"></i></span></td>
+						      <td><span class="gray">-</span></td>
+						    </tr>
+						    <tr>
+						      <td><a href="javascript:;" class="db" target="_blank" rel="noopener">HTML 5<br><small>这个规范中定义了'HTMLCanvasElement.getContext'</small></a></td>
+						      <td><span class="green">推荐<i class="tag tag-rec"></i></span></td>
+						      <td><a href="javascript:;" target="_blank" rel="noopener">HTML现行标准</a>快照中包含了初始定义。</td>
+						    </tr>
+						</table>
+						<h4>相关资源</h4>
+						<p class="gray">暂无</p>
+						<h4>兼容性</h4>
+						<table class="ui-table mb20">
+						    <tr>
+						      <th scope="col" width="120">特性</th>
+						      <th scope="col" width="180">确认支持</th>
+						      <th scope="col">备注</th>
+						    </tr>
+						    <tr>
+						      <th>2d context</th>
+						      <td>IE9+支持，全兼容</td>
+						      <td>-</td>
+						    </tr>
+						    <tr>
+						      <th>WebGL context</th>
+						      <td>IE11+支持</td>
+						      <td>IE11+使用<code>'experimental-webgl'</code>，Chrome/Firefox/Safari等浏览器直接<code>'webgl'</code>。</td>
+						    </tr>
+						    <tr>
+						      <th>WebGL2 context</th>
+						      <td>Firefox51+，Chrome56+</td>
+						      <td>IE，Safari都不支持，IE至少到IE18不支持，Safari至少到Safari12不支持。</td>
+						    </tr>
+						</table>
+						<hr>
+<p class="last-mod"><label>最近更新：</label><span class="last-mod-span">by <a href="javascript:;">zhangxinxu</a> 2019-10-18 01:37:21</span></p>
+<!-- 返回顶部 -->
+<div class="backtop">&nbsp;<a href="#" id="backtop" class="backtop-a" role="button" title="返回顶部">返回顶部</a></div>					</section>
+				</article>
+			</div>
+			<!-- aside -->
+<aside class="aside">
+	<h4>相关API列表</h4>
+	<div class="aside-g">
+		<h5 class="aside-sub-h"><a href="index1.html">HTMLCanvasElement</a></h5>
+		<dl class="aside-dl"><dt class="aside-dt">属性</dt><dd class="aside-dd">
+							<a href="height.html" class="aside-dd-a">height</a>
+						</dd><dd class="aside-dd">
+							<a href="width.html" class="aside-dd-a">width</a>
+						</dd></dl><dl class="aside-dl"><dt class="aside-dt">方法</dt><dd class="aside-dd">
+							<span class="aside-dd-span">getContext()</span>
+						</dd><dd class="aside-dd">
+							<a href="toBlob.html" class="aside-dd-a">toBlob()</a>
+						</dd><dd class="aside-dd">
+							<a href="toDataURL.html" class="aside-dd-a">toDataURL()</a>
+						</dd></dl><dl class="aside-dl">
+	<dt class="aside-dt">其他相关API</dt>
+	<dd class="aside-dd">
+					<a href="index2.html" class="aside-dd-a">CanvasRenderingContext2D</a>
+				</dd><dd class="aside-dd">
+					<a href="index7.html" class="aside-dd-a">CanvasImageSource</a>
+				</dd><dd class="aside-dd">
+					<a href="index3.html" class="aside-dd-a">CanvasGradient</a>
+				</dd><dd class="aside-dd">
+					<a href="index8.html" class="aside-dd-a">CanvasPattern</a>
+				</dd><dd class="aside-dd">
+					<a href="index4.html" class="aside-dd-a">ImageBitmap</a>
+				</dd><dd class="aside-dd">
+					<a href="index5.html" class="aside-dd-a">ImageData</a>
+				</dd><dd class="aside-dd">
+					<a href="index9.html" class="aside-dd-a">RenderingContext</a>
+				</dd><dd class="aside-dd">
+					<a href="index6.html" class="aside-dd-a">TextMetrics</a>
+				</dd></dl>	</div>
+</aside>
+		</div>
+	</div>
+</main>
+<footer class="footer">
+	<div class="constr">
+		<div class="footer-copy">
+			<p>&copy;2018-2022 Canvas API中文网</p>
+			<p><a href="javascript:;" target="_blank" rel="nofollow" class="footer-a">沪ICP备18015889号</a> <a target="_blank" href="javascript:;" class="footer-a" style="margin-left: 10px;"><img src="static/picture/gongan.png" align="absmiddle"> 沪公网安备 31011502009818号</a></p>
+		<div>
+	</div>
+</div></div></footer>
+
+<!-- 成为会员 -->
+
+<script src="static/js/jquery.js"></script>
+<script src="static/js/all.js"></script>
+<script src="static/js/jquery.qrcode.min.js"></script>
+<script src="static/js/script-min.js"></script>
+<script src="static/js/hl_all.js"></script>
+<script>DlHighlight.HELPERS.highlightByName("code", "pre");
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1789413236d30f3c19ede9065278b2ee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+canvasapi.initArticleNav();
+canvasapi.initDrawText();
+</script>
+</body>
+</html>

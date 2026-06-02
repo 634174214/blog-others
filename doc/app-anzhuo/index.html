@@ -1,0 +1,509 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title># 安卓应用市场应用发布研究</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><h1><a name="安卓应用市场应用发布研究报告" class="md-header-anchor"></a><span>安卓应用市场应用发布研究报告</span></h1><p><span>要上架的App商店：华为、小米、应用宝（备选：360商店）</span></p><blockquote><p><span>电子版权认证证书颁发：</span></p><p><a href='http://www.yibanquan.com.cn/product/approved.at' target='_blank' class='url'>http://www.yibanquan.com.cn/product/approved.at</a></p></blockquote><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n2"><a class="md-toc-inner" href="#安卓应用市场应用发布研究报告">安卓应用市场应用发布研究报告</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n5"><a class="md-toc-inner" href="#一华为">一、华为</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n6"><a class="md-toc-inner" href="#1准备">1、准备</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n18"><a class="md-toc-inner" href="#2流程">2、流程</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n21"><a class="md-toc-inner" href="#1-登录华为开发者联盟httpsdeveloperhuaweicom-管理中心-应用服务点击appgallery-connect卡片进入appgallery-connect页面">1-登录华为开发者联盟&gt; 管理中心&gt; 应用服务&gt;点击“AppGallery Connect”卡片进入AppGallery Connect页面。</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n23"><a class="md-toc-inner" href="#2-点击我的应用进入列表可查看开发者帐号下的所有应用">2-点击“我的应用“进入列表，可查看开发者帐号下的所有应用。</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n32"><a class="md-toc-inner" href="#3-在产品列表页面点击新建按钮">3-在产品列表页面，点击“新建”按钮。</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n39"><a class="md-toc-inner" href="#4-完善创建产品列表信息确认无误点确定进入应用信息页面">4-完善创建产品列表信息，确认无误点“确定”，进入应用信息页面。</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n46"><a class="md-toc-inner" href="#5-应用信息填写完毕后点击保存">5-应用信息填写完毕后点击“保存”。</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n53"><a class="md-toc-inner" href="#6-在弹窗中点击确认进入准备提交页面">6-在弹窗中点击“确认”进入准备提交页面。</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n60"><a class="md-toc-inner" href="#7-在软件版本目录下点击软件包管理上传并选择需要提交的apk包">7-在软件版本目录下点击“软件包管理”，上传并选择需要提交的APK包。</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n67"><a class="md-toc-inner" href="#8-点击提交审核">8-点击“提交审核”。</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n73"><a class="md-toc-inner" href="#9-提交成功进入审核状态">9-提交成功，进入审核状态。</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n81"><a class="md-toc-inner" href="#二小米">二、小米</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n141"><a class="md-toc-inner" href="#1准备-n141">1、准备</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n149"><a class="md-toc-inner" href="#2流程-n149">2、流程</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n221"><a class="md-toc-inner" href="#1登录小米应用商店开发者站官网httpsdevmicomdistribute点击创建应用即可开始应用首次创建">1、登录小米应用商店开发者站官网，点击“创建应用”，即可开始应用首次创建。</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n226"><a class="md-toc-inner" href="#2点击创建应用及进入创建包名页面在此页面您需要填写语言操作系统应用名称应用包名等信息">2、点击“创建应用”及进入创建包名页面，在此页面您需要填写语言、操作系统、应用名称、应用包名等信息。</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n262"><a class="md-toc-inner" href="#3创建包名后进入到完善资料页完成应用安装包的上传如应用包括拓展包与安装包请一并上传">3、创建包名后，进入到完善资料页，完成应用安装包的上传，如应用包括拓展包与安装包，请一并上传。</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n477"><a class="md-toc-inner" href="#4若您的应用被检测到需要获取用户的敏感权限请您按照相关权限项目进行说明以便用户理解您获得权限的目的">4、若您的应用被检测到需要获取用户的敏感权限，请您按照相关权限项目进行说明，以便用户理解您获得权限的目的。</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n300"><a class="md-toc-inner" href="#5完善应用的发布设置根据需要选择应用的兼容设备分类发布地区与上线时间方式">5、完善应用的发布设置，根据需要选择应用的兼容设备、分类、发布地区与上线时间方式。</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n336"><a class="md-toc-inner" href="#6填写应用本地化语言信息星号标注为必填项填写完毕请阅读小米应用商店应用品牌展示图注意事项并勾选我已阅读并同意">6、填写应用本地化语言信息，星号标注为必填项，填写完毕请阅读小米应用商店应用品牌展示图注意事项并勾选“我已阅读并同意”。</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n414"><a class="md-toc-inner" href="#7完善行业资质证明">7、完善行业资质证明。</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n446"><a class="md-toc-inner" href="#8完善联系人信息并提交审核">8、完善联系人信息并提交审核。</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n451"><a class="md-toc-inner" href="#9提交审核后应用状态更新为等待审核我们会在1-3个工作日内为您审核">9、提交审核后应用状态更新为等待审核，我们会在1-3个工作日内为您审核。</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n474"><a class="md-toc-inner" href="#三应用宝">三、应用宝</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n475"><a class="md-toc-inner" href="#1准备-n475">1、准备</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n635"><a class="md-toc-inner" href="#2流程-n635">2、流程</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n496"><a class="md-toc-inner" href="#1-创建应用">1-创建应用</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n517"><a class="md-toc-inner" href="#2-应用信息">2-应用信息</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n538"><a class="md-toc-inner" href="#3-提交审核">3-提交审核</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n544"><a class="md-toc-inner" href="#4-ios应用">4-ios应用</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n567"><a class="md-toc-inner" href="#5-上传安装包">5-上传安装包</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n607"><a class="md-toc-inner" href="#附32位64位安装包说明">附：32位、64位安装包说明</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n585"><a class="md-toc-inner" href="#总结企业需要提供的材料">总结企业需要提供的材料</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n639"><a class="md-toc-inner" href="#1加盖公章的营业执照">1、加盖公章的营业执照</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n646"><a class="md-toc-inner" href="#2公司全称">2、公司全称</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n648"><a class="md-toc-inner" href="#3-统一社会信用代码">3、 统一社会信用代码</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n650"><a class="md-toc-inner" href="#4主要联系人">4、主要联系人</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n652"><a class="md-toc-inner" href="#5公司邮箱">5、公司邮箱</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n657"><a class="md-toc-inner" href="#6联系地址">6、联系地址</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n661"><a class="md-toc-inner" href="#7财务打款认证华为">7、财务打款认证【华为】</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n664"><a class="md-toc-inner" href="#8法定代表人手持身份证正反面照片或法人人脸识别认证无需提供法人证件）华为">8、.法定代表人手持身份证正反面照片或法人人脸识别认证（无需提供法人证件）【华为】</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n668"><a class="md-toc-inner" href="#9app电子版权认证证书">9、APP电子版权认证证书</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n680"><a class="md-toc-inner" href="#10可能随申请进度进行还需要其他企业材料请领导协助协调">10、可能随申请进度进行，还需要其他企业材料，请领导协助协调。</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n683"><a class="md-toc-inner" href="#发布的工作流程规划">发布的工作流程规划</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n685"><a class="md-toc-inner" href="#1申请app软著">1、申请App软著</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n691"><a class="md-toc-inner" href="#2在要发布的开放平台依次申请企业认证的资质">2、在要发布的开放平台，依次申请企业认证的资质</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n699"><a class="md-toc-inner" href="#3将测试验证后的app包依次发布到各个平台等待审核">3、将测试验证后的App包，依次发布到各个平台，等待审核</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n703"><a class="md-toc-inner" href="#附录">附录：</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n705"><a class="md-toc-inner" href="#一app软件著作权申请流程">一、App软件著作权申请流程</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n709"><a class="md-toc-inner" href="#1上版权局官网填写软著申请表">1、上版权局官网填写软著申请表</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n712"><a class="md-toc-inner" href="#2准备软著申请材料">2、准备软著申请材料</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n720"><a class="md-toc-inner" href="#3打印前注意事项">3、打印前注意事项</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n726"><a class="md-toc-inner" href="#4材料邮寄地址">4、材料邮寄地址</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n730"><a class="md-toc-inner" href="#5软著申请下证周期">5、软著申请下证周期</a></span></p></div><h2><a name="一华为" class="md-header-anchor"></a><span>一、华为</span></h2><h3><a name="1准备" class="md-header-anchor"></a><span>1、准备</span></h3><p><strong><span>发布管理平台</span></strong></p><p><a href='https://developer.huawei.com/consumer/cn/appgallery/' target='_blank' class='url'>https://developer.huawei.com/consumer/cn/appgallery/</a></p><p><strong><span>操作指南</span></strong></p><p><a href='https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-createapp-0000001146718717' target='_blank' class='url'>https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-createapp-0000001146718717</a></p><p><strong><span>华为开发者帐号注册</span></strong></p><p><a href='https://developer.huawei.com/consumer/cn/' target='_blank' class='url'>https://developer.huawei.com/consumer/cn/</a></p><p><strong><span>创建应用发布流程</span></strong></p><p><a href='https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-createapp-0000001146718717#section290652121712' target='_blank' class='url'>https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-createapp-0000001146718717#section290652121712</a></p><p><strong><span>企业认证所需材料</span></strong></p><p><a href='https://developer.huawei.com/consumer/cn/doc/start/itrna-0000001076878172' target='_blank' class='url'>https://developer.huawei.com/consumer/cn/doc/start/itrna-0000001076878172</a></p><p><span>方式一：打款认证（</span><strong><span>推荐</span></strong><span>使用，最快30分钟）</span></p><p><span>企业对公账号，详见：</span><a href='https://developer.huawei.com/consumer/cn/doc/start/atpopb-0000001062836624'><span>对公银行打款认证</span></a></p><p><span>方式二：人工审核</span></p><p><span>1.营业执照原件扫描件或照片</span></p><p><span>2.法定代表人手持身份证正反面照片或法人人脸识别认证（无需提供法人证件）</span></p><p><span>详见：</span><a href='https://developer.huawei.com/consumer/cn/doc/start/mracoei-0000001062678404'><span>企业资料人工审核认证</span></a></p><blockquote><p><strong><span>帐号注册完后，需要完成实名认证才能享受华为开放的各类能力和服务，您可以选择认证成为企业开发者或个人开发者，企业开发者比个人开发者享受的服务更多，具体介绍请参见</span><a href='https://developer.huawei.com/consumer/cn/doc/start/itrna-0000001076878172'><span>实名认证介绍</span></a><span>。</span></strong></p></blockquote><h3><a name="2流程" class="md-header-anchor"></a><span>2、流程</span></h3><p><span>当您的应用开发和测试完成后，您可以在AppGallery Connect（以下简称AGC）正式提交应用上架申请，华为审核人员审核通过后应用就会变为“已上架”状态，用户可在华为应用市场搜索到您的应用。</span></p><p><span>在注册帐号，并进行实名认证后:</span></p><h4><a name="1-登录华为开发者联盟httpsdeveloperhuaweicom-管理中心-应用服务点击appgallery-connect卡片进入appgallery-connect页面" class="md-header-anchor"></a><span>1-登录</span><a href='https://developer.huawei.com/'><span>华为开发者联盟</span></a><span>&gt; 管理中心&gt; 应用服务&gt;点击“AppGallery Connect”卡片进入AppGallery Connect页面。</span></h4><p><img src="https://developer.huawei.com/consumer/cn/devunion/openPlatform/refactor/vendors/ucd/resources/default/images-asyn/guide/help/createapp/pic_guide_publish_01.jpg" referrerpolicy="no-referrer" alt="img"></p><h4><a name="2-点击我的应用进入列表可查看开发者帐号下的所有应用" class="md-header-anchor"></a><span>2-点击“我的应用“进入列表，可查看开发者帐号下的所有应用。</span></h4><p><img src="https://developer.huawei.com/consumer/cn/devunion/openPlatform/refactor/vendors/ucd/resources/default/images-asyn/guide/help/createapp/pic_guide_publish_02.jpg" referrerpolicy="no-referrer" alt="img"></p><h4><a name="3-在产品列表页面点击新建按钮" class="md-header-anchor"></a><span>3-在产品列表页面，点击“新建”按钮。</span></h4><p><img src="https://developer.huawei.com/consumer/cn/devunion/openPlatform/refactor/vendors/ucd/resources/default/images-asyn/guide/help/createapp/pic_guide_publish_03.jpg" referrerpolicy="no-referrer" alt="img"></p><h4><a name="4-完善创建产品列表信息确认无误点确定进入应用信息页面" class="md-header-anchor"></a><span>4-完善创建产品列表信息，确认无误点“确定”，进入应用信息页面。</span></h4><p><img src="https://developer.huawei.com/consumer/cn/devunion/openPlatform/refactor/vendors/ucd/resources/default/images-asyn/guide/help/createapp/pic_guide_publish_04.jpg" referrerpolicy="no-referrer" alt="img"></p><h4><a name="5-应用信息填写完毕后点击保存" class="md-header-anchor"></a><span>5-应用信息填写完毕后点击“保存”。</span></h4><p><img src="https://developer.huawei.com/consumer/cn/devunion/openPlatform/refactor/vendors/ucd/resources/default/images-asyn/guide/help/createapp/pic_guide_publish_05.jpg" referrerpolicy="no-referrer" alt="img"></p><h4><a name="6-在弹窗中点击确认进入准备提交页面" class="md-header-anchor"></a><span>6-在弹窗中点击“确认”进入准备提交页面。</span></h4><p><img src="https://developer.huawei.com/consumer/cn/devunion/openPlatform/refactor/vendors/ucd/resources/default/images-asyn/guide/help/createapp/pic_guide_publish_06.jpg" referrerpolicy="no-referrer" alt="img"></p><h4><a name="7-在软件版本目录下点击软件包管理上传并选择需要提交的apk包" class="md-header-anchor"></a><span>7-在软件版本目录下点击“软件包管理”，上传并选择需要提交的APK包。</span></h4><p><img src="https://developer.huawei.com/consumer/cn/devunion/openPlatform/refactor/vendors/ucd/resources/default/images-asyn/guide/help/createapp/pic_guide_publish_07.jpg" referrerpolicy="no-referrer" alt="img"></p><h4><a name="8-点击提交审核" class="md-header-anchor"></a><span>8-点击“提交审核”。</span></h4><p><img src="https://developer.huawei.com/consumer/cn/devunion/openPlatform/refactor/vendors/ucd/resources/default/images-asyn/guide/help/createapp/pic_guide_publish_08.jpg" referrerpolicy="no-referrer" alt="img"></p><h4><a name="9-提交成功进入审核状态" class="md-header-anchor"></a><span>9-提交成功，进入审核状态。</span></h4><p><img src="https://developer.huawei.com/consumer/cn/devunion/openPlatform/refactor/vendors/ucd/resources/default/images-asyn/guide/help/createapp/pic_guide_publish_09.jpg" referrerpolicy="no-referrer" alt="img"></p><h2><a name="二小米" class="md-header-anchor"></a><span>二、小米</span></h2><h3><a name="1准备-n141" class="md-header-anchor"></a><span>1、准备</span></h3><p><strong><span>小米开放平台</span></strong></p><p><a href='https://dev.mi.com/console/' target='_blank' class='url'>https://dev.mi.com/console/</a></p><p><span>登录后，小米只能选择企业开发者。必须进行企业认证。</span></p><p><strong><span>应用创建操作指南</span></strong></p><p><a href='https://dev.mi.com/distribute/doc/details?pId=1072' target='_blank' class='url'>https://dev.mi.com/distribute/doc/details?pId=1072</a></p><p><strong><span>应用更新指南</span></strong></p><p><a href='https://dev.mi.com/distribute/doc/details?pId=1248' target='_blank' class='url'>https://dev.mi.com/distribute/doc/details?pId=1248</a></p><h3><a name="2流程-n149" class="md-header-anchor"></a><span>2、流程</span></h3><p><span>首先注册小米开放平台账号，并进行认证。认证为企业开发者。</span></p><p><img src="mi-1.jpg" referrerpolicy="no-referrer"></p><p>&nbsp;</p><blockquote><p><strong><span>由于必须认证为企业资质成功后，才能查看应用中心的相关信息，所以以下内容均来自网络搜集</span></strong><span>。</span></p></blockquote><h4><a name="1登录小米应用商店开发者站官网httpsdevmicomdistribute点击创建应用即可开始应用首次创建" class="md-header-anchor"></a><span>1、登录</span><a href='https://dev.mi.com/distribute'><span>小米应用商店开发者站官网</span></a><span>，点击“创建应用”，即可开始应用首次创建。</span></h4><p><img src="http://f2.market.xiaomi.com/download/MiPass/0674c256276764dce0fcd41b314da40b159091562/%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A81.png" referrerpolicy="no-referrer" alt="img"></p><h4><a name="2点击创建应用及进入创建包名页面在此页面您需要填写语言操作系统应用名称应用包名等信息" class="md-header-anchor"></a><span>2、点击“创建应用”及进入创建包名页面，在此页面您需要填写语言、操作系统、应用名称、应用包名等信息。</span></h4><p><img src="http://f4.market.mi-img.com/download/MiPass/0913b5b4723685c7f6dd506de7a2bcb8ccd43378e/%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A82.png" referrerpolicy="no-referrer" alt="img"></p><figure><table><thead><tr><th><span>项目</span></th><th><span>说明</span></th><th><span>备注</span></th></tr></thead><tbody><tr><td><span>默认语言</span></td><td><span>应用展示与操作时默认呈现给用户的语言类别</span></td><td><span> </span></td></tr><tr><td><span>操作系统</span></td><td><span>应用适用的系统</span></td><td><span> </span></td></tr><tr><td><span>应用名称</span></td><td><span>上传应用的官方全称</span></td><td><span> </span></td></tr><tr><td><span>应用包名</span></td><td><span>应用的唯一标识</span></td><td><span>不可创建已存在包名</span></td></tr></tbody></table></figure><p><strong><span>应用名称</span></strong><span>：不重复，不包含敏感信息，长度有限制</span></p><p><span>应用包名：com.xxx.xxx （比如com.zan.video   ，com.zan是域名  ，video是描述信息，这样避免重复）</span></p><blockquote><p><span>注意发布完app后，不能修改包名，不然就会被当作一个新的应用，旧版用户无法收到应用商店的升级提醒</span></p></blockquote><h4><a name="3创建包名后进入到完善资料页完成应用安装包的上传如应用包括拓展包与安装包请一并上传" class="md-header-anchor"></a><span>3、创建包名后，进入到完善资料页，完成应用安装包的上传，如应用包括拓展包与安装包，请一并上传。</span></h4><p><img src="http://file.market.xiaomi.com/download/AppStore/04b569b683eec43568f33fee29f88c0ff1296db57/image.png" referrerpolicy="no-referrer" alt="上传文件"></p><figure><table><thead><tr><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></tr></thead><tbody><tr><td><span>项目</span></td><td><span>说明</span></td><td><span>备注</span></td></tr><tr><td><span>单包上传</span></td><td><span>支持上传64位安装包或32/64位兼容包</span></td><td><span>具体相关内容请参考</span><a href='https://dev.mi.com/distribute/doc/details?pId=1245'><span>32/64分包上传说明</span></a></td></tr><tr><td><span>双包上传</span></td><td><span>需同时上传32位和64位两个安装包</span></td><td>&nbsp;</td></tr><tr><td><span>主扩展包</span></td><td><span>基本包的补充扩展软件</span></td><td>&nbsp;</td></tr><tr><td><span>副扩展包</span></td><td><span>若您需要上传两个扩展包，请将第二个扩展包上传至副扩展包处</span></td><td>&nbsp;</td></tr></tbody></table></figure><p><strong><span>32位或32/64位兼容包 和 64位安装包的区别</span></strong></p><p><span>答：目前手机构架基本都是ARM的，那么它的构架分arm64-v8a ，arm64-v7a，不过你可以解压apk，查看lib文件夹，我的包含四种架构，所以我就选择兼容包上传即可</span></p><h4><a name="4若您的应用被检测到需要获取用户的敏感权限请您按照相关权限项目进行说明以便用户理解您获得权限的目的" class="md-header-anchor"></a><span>4、若您的应用被检测到需要获取用户的敏感权限，请您按照相关权限项目进行说明，以便用户理解您获得权限的目的。</span></h4><p><img src="http://file.market.xiaomi.com/download/AppStore/070770b9cda7a4c118ef0d4c4b439c75472192991/image.png" referrerpolicy="no-referrer" alt="上传文件"></p><h4><a name="5完善应用的发布设置根据需要选择应用的兼容设备分类发布地区与上线时间方式" class="md-header-anchor"></a><span>5、完善应用的发布设置，根据需要选择应用的兼容设备、分类、发布地区与上线时间方式。</span></h4><p><img src="http://file.market.xiaomi.com/download/AppStore/01ce25fa8ab2846f283eced9b549ea32c473fee40/Lark20211105-170754.png" referrerpolicy="no-referrer" alt="上传文件"></p><figure><table><thead><tr><th><span>兼容设备 </span></th><th style='text-align:left;' ><span>您的应用可下载与使用的设备类型</span></th><th><span> </span></th></tr></thead><tbody><tr><td><span>一级分类</span></td><td style='text-align:left;' ><span>包含VR、实用工具、影音视听、聊天社交、图书阅读、学习教育、效率办公、时尚购物、居家生活、旅行交通、摄影摄像、医疗健康、体育运动、新闻咨询、娱乐消遣、金融理财等分类</span></td><td><span>选择符合应用主要功能的分类项目，如应用符合多个分类，则可以自由选择，但不能选择无关的分类</span></td></tr><tr><td><span>二级分类</span></td><td style='text-align:left;' ><span>根据一级分类对您的应用进行再次细分</span></td><td><span> </span></td></tr><tr><td><span>分发地区</span></td><td style='text-align:left;' ><span>应用可以下载并适用的地区</span></td><td><span>如勾选其他海外地区，审核通过后，应用将会根据选择发布到对应海外地区</span></td></tr><tr><td><span>上线时间方式</span></td><td style='text-align:left;' ><span>应用通过审核后上线时间方式选择</span></td><td><span>如对上线时间无特殊要求，可选择“审核通过后立即上线”。如选择定时发布，则无法取消或更改时间。</span></td></tr></tbody></table></figure><h4><a name="6填写应用本地化语言信息星号标注为必填项填写完毕请阅读小米应用商店应用品牌展示图注意事项并勾选我已阅读并同意" class="md-header-anchor"></a><span>6、填写应用本地化语言信息，星号标注为必填项，填写完毕请阅读小米应用商店应用品牌展示图注意事项并勾选“我已阅读并同意”。</span></h4><p><img src="http://file.market.xiaomi.com/download/AppStore/0ff48e0b8984a4396943d7f974bbe100e0452c6fd/image.png" referrerpolicy="no-referrer" alt="上传文件"></p><figure><table><thead><tr><th><span>项目</span></th><th><span>说明</span></th><th><span>备注</span></th></tr></thead><tbody><tr><td><span>应用名称</span></td><td><span>上传应用的官方全称</span></td><td><span>具体审核规范请参考</span><a href='https://dev.mi.com/distribute/doc/details?pId=1080'><span>应用审核规范</span></a></td></tr><tr><td><span>应用图标</span></td><td><span>展示在用户桌面的应用图标，需与apk包内图标一致</span></td><td><span>具体审核规范请参考</span><a href='https://dev.mi.com/distribute/doc/details?pId=1080'><span>应用审核规范</span></a></td></tr><tr><td><span>版本名</span></td><td><span>应用版本的标识号</span></td><td><span> </span></td></tr><tr><td><span>开发者名称</span></td><td><span>展示给用户的开发者名称</span></td><td><span>应用信息内填写的开发者名称与提交应用审核使用的账号主体内开发者信息需保持一致</span></td></tr><tr><td><span>关键字</span></td><td><span>用户通过关键字搜索到应用</span></td><td><span>可以提供多个关键字，以空格隔开</span></td></tr><tr><td><span>一句话简介</span></td><td><span>以一句话简单介绍应用</span></td><td><span>勿使用极限词和虚假承诺等违反新广告法的内容；勿使用疑问、反问等句式；保持在17个汉字或34个字符之内，句末勿加标点。</span></td></tr><tr><td><span>应用介绍</span></td><td><span>对应用功能、亮点的准确介绍，吸引用户</span></td><td><span>如实介绍应用功能和亮点，方便用户快速上手，勿呈现过多的SEO优化和空行。</span></td></tr><tr><td><span>隐私政策</span></td><td><span>为了保护用户隐私而制定的政策措施，内容须包括该APP收集使用个人信息的目的、方式和范围</span></td><td><span>具体政策参考</span><a href='https://dev.mi.com/distribute/doc/details?pId=1170'><span>应用添加隐私政策声明的重要通知</span></a></td></tr><tr><td><span>官网链接</span></td><td><span>非必填。您公司官方网站的地址</span></td><td><span> </span></td></tr><tr><td><span>测试账号</span></td><td><span>非必填。若您的应用需要注册账号才能使用，请提供可以用于测试的账号与密码</span></td><td><span>该账号将用于应用审核流程，将不会展示给用户</span></td></tr></tbody></table></figure><p><img src="http://file.market.xiaomi.com/download/AppStore/0f5107b04a21b4296b10ff6539328c5f3d1024226/image.png" referrerpolicy="no-referrer" alt="上传文件"></p><figure><table><thead><tr><th><span>项目</span></th><th><span>说明</span></th><th><span>备注</span></th></tr></thead><tbody><tr><td><span>应用截图</span></td><td><span>应用内相关场景截图</span></td><td><span> </span></td></tr><tr><td><span>手机截图</span></td><td><span>使用手机操作应用时呈现的截图</span></td><td><span>应用图片信息如需使用到手机外观图片，禁止使用 iPhone 或其他品牌手机外观素材，应用图片信息中系统状态栏禁止存在与本应用无关的第三方应用图标。</span></td></tr><tr><td><span>应用视频介绍</span></td><td><span>非必填。以视频的形式介绍您的应用</span></td><td><span>应用视频在驳回状态是无法删除的，请在重新提交审核后发送应用视频删除申请至</span><strong><a href='https://www.sobot.com/chat/pc/v2/index.html?sysnum=5d7e332c4f994cf295cbfb0e81851038'><span>问题工单系统</span></a></strong><span>。</span></td></tr><tr><td><span>应用品牌展示图</span></td><td><span>非必填。是小米应用商店为开发者提供的一项对应用品牌的直观展示服务</span></td><td><span>该项已不展示给用户</span></td></tr></tbody></table></figure><h4><a name="7完善行业资质证明" class="md-header-anchor"></a><span>7、完善行业资质证明。</span></h4><p><img src="http://file.market.xiaomi.com/download/AppStore/005b229e5e83c42729c3e00bb2914b1d79980acac/image.png" referrerpolicy="no-referrer" alt="上传文件"></p><figure><table><thead><tr><th><span>项目</span></th><th><span>说明</span></th><th><span>备注</span></th></tr></thead><tbody><tr><td><span>ICP 备案号</span></td><td><span>国家对经营性</span><a href='https://baike.baidu.com/item/互联网信息服务/15589594'><span>互联网信息服务</span></a><span>实行许可制度；对非经营性互联网信息服务实行备案制度。未取得许可或者未履行备案手续的，不得从事互联网信息服务</span></td><td><span>开发者需要提供ICP备案截图，或ICP证和ICP备案号以证明资质</span></td></tr><tr><td><span>版权证明</span></td><td><span>APP电子版权认证证书为您的app电子版的著作权证明，纸质软件著作权证书为您的app知识产权证明文件</span></td><td><span> </span></td></tr><tr><td><span>免责承诺函</span></td><td><span>对于承诺书的中提到的内容免除责任的一种形式</span></td><td><span>相关承诺函模板请参考</span><a href='https://dev.mi.com/distribute/doc/details?pId=1138'><span>常见保证（承诺）函模板</span></a><span>，若应用不符合单本图书/书城类、理财类、医疗类三种中的一种，建议开发者提供书城类承诺函</span></td></tr><tr><td><span>特殊资质代理证书</span></td><td><span>金融理财类、影音视听类、图书阅读类、新闻资讯类、实用工具类、聊天社交类、医疗健康类应用需提交ICP证或ICP备案截图等资质或代理授权书</span></td><td><span>具体要求请参考</span><a href='https://dev.mi.com/distribute/doc/details?pId=1139'><span>特殊行业资质要求</span></a></td></tr><tr><td><span>应用安全评估报告</span></td><td><span>针对具有舆论属性或社会动员能力的互联网信息服务的主体进行评估后产出的报告  </span></td><td><span>非必填项，按需填写</span></td></tr></tbody></table></figure><h4><a name="8完善联系人信息并提交审核" class="md-header-anchor"></a><span>8、完善联系人信息并提交审核。</span></h4><p><img src="http://file.market.xiaomi.com/download/AppStore/05507e78971684f209cbcd0f639f23eb3624b390f/image.png" referrerpolicy="no-referrer" alt="上传文件"></p><h4><a name="9提交审核后应用状态更新为等待审核我们会在1-3个工作日内为您审核" class="md-header-anchor"></a><span>9、提交审核后应用状态更新为等待审核，我们会在1-3个工作日内为您审核。</span></h4><p><img src="http://file.market.xiaomi.com/download/AppStore/0f599601f356a451a9a910625c1f075042d302477/image.png" referrerpolicy="no-referrer" alt="上传文件"></p><h2><a name="三应用宝" class="md-header-anchor"></a><span>三、应用宝</span></h2><h3><a name="1准备-n475" class="md-header-anchor"></a><span>1、准备</span></h3><p><strong><span>在发布前，需要获得app的软著或者电子版权证书。</span></strong></p><p><strong><span>应用宝开放平台</span></strong></p><p><a href='https://open.tencent.com/' target='_blank' class='url'>https://open.tencent.com/</a></p><p><strong><span>应用接入指南：</span></strong></p><p><a href='https://wikinew.open.qq.com/index.html#/iwiki/863415304' target='_blank' class='url'>https://wikinew.open.qq.com/index.html#/iwiki/863415304</a></p><p><strong><span>审核规范</span></strong></p><p><a href='https://wikinew.open.qq.com/index.html#/iwiki/870033963' target='_blank' class='url'>https://wikinew.open.qq.com/index.html#/iwiki/870033963</a></p><p><strong><span>版权证明提交</span></strong></p><p><a href='https://wikinew.open.qq.com/index.html#/iwiki/889016882' target='_blank' class='url'>https://wikinew.open.qq.com/index.html#/iwiki/889016882</a></p><p><strong><span>安装包管理</span></strong></p><p><a href='https://wikinew.open.qq.com/index.html#/iwiki/863415733' target='_blank' class='url'>https://wikinew.open.qq.com/index.html#/iwiki/863415733</a></p><p><strong><span>应用宝企业资质认证：</span></strong></p><p><img src="qq-1.jpg" referrerpolicy="no-referrer"></p><p><span>营业执照示例：</span></p><p><img src="https://yybopen.material.qq.com/wiki/21dbfc8a9bd120d18f46d8aa8c4641c4.jpg" referrerpolicy="no-referrer" alt="img"></p><h3><a name="2流程-n635" class="md-header-anchor"></a><span>2、流程</span></h3><h4><a name="1-创建应用" class="md-header-anchor"></a><span>1-创建应用</span></h4><p><img src="https://yybopen.material.qq.com/wiki/2cb0dfeafbde0a854061d80284a6489d" referrerpolicy="no-referrer" alt="img"></p><p><img src="https://yybopen.material.qq.com/wiki/824c604a68336943dfe2861cf6f55226" referrerpolicy="no-referrer" alt="img"></p><p><strong><span>申请QQ互联功能</span></strong></p><p><span>请进入</span><a href='https://connect.qq.com/index.html' target='_blank' class='url'>https://connect.qq.com/index.html</a><span>—应用管理—关联腾讯开放平台进行操作</span></p><p><img src="https://yybopen.material.qq.com/wiki/4c1d9228b7364cb2897dc0eeb464946a" referrerpolicy="no-referrer" alt="img"></p><h4><a name="2-应用信息" class="md-header-anchor"></a><span>2-应用信息</span></h4><p><span>创建应用需根据应用实际，完善应用基本信息、安装包、图标素材、适配信息等，版权证明为可选项（即开发者提交的应用审核涉及需要提供相关版权证明的情况，可上传至此）</span></p><blockquote><p><strong><span>注：</span></strong></p><p><strong><span>(1) 应用提供方与研发公司区别</span></strong></p><p><strong><span>应用提供方：负责APP在应用商店上传的公司</span></strong></p><p><strong><span>研发公司名称：负责APP开发、更新和维护的公司</span></strong></p><p><strong><span>若两者均一致，公司名字填写同一个即可</span></strong></p><p><strong><span>(2) 版权证明资料过多无法上传</span></strong></p><p><strong><span>可以把多个图片进行拼接后上传，拼接的图片内容清晰完整即可</span></strong></p></blockquote><p><img src="https://yybopen.material.qq.com/wiki/6cb288c66f8187a7d0e6062bf646bb56" referrerpolicy="no-referrer" alt="img"></p><h4><a name="3-提交审核" class="md-header-anchor"></a><span>3-提交审核</span></h4><p><span>完善应用信息并确定无误后，点击保存并提交审核，首次创建应用的开发者资质和应用信息会同步提交审核，24小时内会完成审核，审核结果请留意注册验证的邮箱和站内信消息。</span></p><p><span>（如上传的应用不对外注册使用，则需要在应用后台的“安装包-登录账号”处填写“测试账号： 和密码：”；如应用是对外开放的，则无需填写。）</span></p><h4><a name="4-ios应用" class="md-header-anchor"></a><span>4-ios应用</span></h4><blockquote><p><strong><span>注：创建IOS应用仅用于获取QQ登录、QQ分享能力，并不会直接上架App Store</span></strong></p></blockquote><p><strong><span>创建与安卓APPID一致</span></strong></p><p><span>点击：</span><a href='https://connect.qq.com/index.html' target='_blank' class='url'>https://connect.qq.com/index.html</a><span>进行申请</span></p><p><img src="https://yybopen.material.qq.com/wiki/0031cf91498c1ca62e57fb4beaf6ee73" referrerpolicy="no-referrer" alt="img"></p><p><img src="https://yybopen.material.qq.com/wiki/789155c5fa7b7870718465c6a842732d" referrerpolicy="no-referrer" alt="img"></p><p><img src="https://yybopen.material.qq.com/wiki/6b3923ab3f9a836dc46f67e4db5a5e1e" referrerpolicy="no-referrer" alt="img"></p><p><img src="https://yybopen.material.qq.com/wiki/49112facef4fa7451e5b223840d0db07" referrerpolicy="no-referrer" alt="###"></p><h4><a name="5-上传安装包" class="md-header-anchor"></a><span>5-上传安装包</span></h4><p><span>进入安装包页面—上传64位安装包选择是—根据页面提示上传64位安装包。</span></p><p><span>注：为了用户体验，32位安装包为必填项，且64位安装包仅能在64位安装包入口上传，32位、64位安装包需保证包名、版本、签名一致。</span></p><p><img src="https://yybopen.material.qq.com/wiki/af038098795df4524d4d09328606e9f3" referrerpolicy="no-referrer" alt="img"></p><p><strong><span>更新新版本</span></strong></p><p><span>进入安装包页面—上传64位安装包选择是—根据页面提示上传64位安装包。</span></p><p><span>注：为了用户体验，32位安装包为必填项，且64位安装包仅能在64位安装包入口上传，32位、64位安装包需保证包名、版本、签名一致。</span></p><p><span>2021年12月底：现有和新发布的应用/游戏，需上传包含64位包体的APK包（支持双包在架，和64位兼容32位的两个形式）。</span></p><p><span>2022年8月底：硬件支持64位的系统，将仅接收含64位版本的APK包。</span></p><p><span>2023年底：硬件将仅支持64位APK，32位应用无法在终端上运行。</span></p><p><img src="https://yybopen.material.qq.com/wiki/af038098795df4524d4d09328606e9f3" referrerpolicy="no-referrer" alt="img"></p><h4><a name="附32位64位安装包说明" class="md-header-anchor"></a><span>附：32位、64位安装包说明</span></h4><p><a href='https://wikinew.open.qq.com/index.html#/iwiki/863415733' target='_blank' class='url'>https://wikinew.open.qq.com/index.html#/iwiki/863415733</a></p><h1><a name="总结企业需要提供的材料" class="md-header-anchor"></a><span>总结企业需要提供的材料</span></h1><h2><a name="1加盖公章的营业执照" class="md-header-anchor"></a><span>1、加盖公章的营业执照</span></h2><p><img src="https://yybopen.material.qq.com/wiki/21dbfc8a9bd120d18f46d8aa8c4641c4.jpg" referrerpolicy="no-referrer" alt="img"></p><blockquote><p><strong><span>注意，为了广泛适用，请不要添加 用于xxx开放平台。初步需要2张无水印的营业执照，</span></strong></p><p><strong><span>一张需要打印并手写后扫描，用于应用宝，用后归还财务部，并进行销毁。</span></strong></p><p><strong><span>一张需要原件电子版（或者扫描件），用于其他发布平台，不要添加水印。</span></strong></p></blockquote><h2><a name="2公司全称" class="md-header-anchor"></a><span>2、公司全称</span></h2><h2><a name="3-统一社会信用代码" class="md-header-anchor"></a><span>3、 统一社会信用代码</span></h2><h2><a name="4主要联系人" class="md-header-anchor"></a><span>4、主要联系人</span></h2><p><span>企业法人姓名、负责app的主要负责人姓名、手机号</span></p><h2><a name="5公司邮箱" class="md-header-anchor"></a><span>5、公司邮箱</span></h2><p><span>用于验证信息</span></p><h2><a name="6联系地址" class="md-header-anchor"></a><span>6、联系地址</span></h2><p><span>公司的有效联系地址</span></p><h2><a name="7财务打款认证华为" class="md-header-anchor"></a><span>7、财务打款认证【华为】</span></h2><h2><a name="8法定代表人手持身份证正反面照片或法人人脸识别认证无需提供法人证件）华为" class="md-header-anchor"></a><span>8、.法定代表人手持身份证正反面照片或法人人脸识别认证（无需提供法人证件）【华为】</span></h2><h2><a name="9app电子版权认证证书" class="md-header-anchor"></a><span>9、APP电子版权认证证书</span></h2><p><span>电子版权认证证书颁发：</span></p><p><a href='http://www.yibanquan.com.cn/product/approved.at' target='_blank' class='url'>http://www.yibanquan.com.cn/product/approved.at</a></p><p><strong><span>需要APP提前获得 已软件著作权登记证书！！</span></strong></p><h2><a name="10可能随申请进度进行还需要其他企业材料请领导协助协调" class="md-header-anchor"></a><span>10、可能随申请进度进行，还需要其他企业材料，请领导协助协调。</span></h2><h1><a name="发布的工作流程规划" class="md-header-anchor"></a><span>发布的工作流程规划</span></h1><h4><a name="1申请app软著" class="md-header-anchor"></a><span>1、申请App软著</span></h4><blockquote><p><span>安卓应用市场基本上都需要软著，ios目前不需要。</span></p></blockquote><p><span>APP上架必须要版权证明，国内各大应用商店上架都需要提供版权证明，电子认证适用于APP上架，用于证明您对该APP拥有所有权的一个电子证明文件PDF。</span></p><h4><a name="2在要发布的开放平台依次申请企业认证的资质" class="md-header-anchor"></a><span>2、在要发布的开放平台，依次申请企业认证的资质</span></h4><h4><a name="3将测试验证后的app包依次发布到各个平台等待审核" class="md-header-anchor"></a><span>3、将测试验证后的App包，依次发布到各个平台，等待审核</span></h4><p>&nbsp;</p><h1><a name="附录" class="md-header-anchor"></a><span>附录：</span></h1><h2><a name="一app软件著作权申请流程" class="md-header-anchor"></a><span>一、App软件著作权申请流程</span></h2><h3><a name="1上版权局官网填写软著申请表" class="md-header-anchor"></a><span>1、上版权局官网填写软著申请表</span></h3><p><span>版权局官网在线填报地址：</span><a href='https://link.zhihu.com/?target=https%3A//register.ccopyright.com.cn/r11.html%23/identity'><span>中国版权登记业务平台</span></a></p><p><span>中国版权保护中心是国家版权局指定的软件著作权官方登记机构，目前只有一家总代理公司——北京华代版权代理有限公司[</span><a href='https://zhuanlan.zhihu.com/p/337809025#ref_1'><span>1</span><span>]</span></a><span>，成立于2016年总部位于北京主要负责软件著作权登记、作品著作权登记、商标代理、版权代理等服务，所以市面上绝大多数的知识产权代理都是属于二、三级代理公司。</span></p><h3><a name="2准备软著申请材料" class="md-header-anchor"></a><span>2、准备软著申请材料</span></h3><p><span>1、软件的源代码</span></p><p><span>打印要求：软件的源代码前、后各连续30页，共60页。如果不足60页全部提交，每页不少于30行代码，在每页的左侧预留装订线，右上角应标注页码。</span></p><p><span>2、软件用户手册说明书</span></p><p><span>打印要求：软件用户手册说明书的格式要求和软件源代码的打印要求一致。</span></p><p><span>3、身份信息</span></p><p><span>个人身份申请(身份证原件复印件一份)</span></p><p><span>单位或公司身份申请(法人身份证原件复印件以及营业执照复印件并加盖单位公章）</span></p><h3><a name="3打印前注意事项" class="md-header-anchor"></a><span>3、打印前注意事项</span></h3><p><span>1、打印材料纸张只能打印单面，必须A4大小。</span></p><p><span>2、执照副本必须是复印件，不能是照片打印，不能是缩印件(如果是A3大小的执照，缩成A4打印盖章)。</span></p><p><span>3、盖章清晰，必须也只能是公司公章，不能是合同章、财务章或者法人章。</span></p><p><span>4、邮寄之前，请将申请表按照顺序整理好且与营业执照相对应。</span></p><p><span>5、不要盖骑缝章。</span></p><h3><a name="4材料邮寄地址" class="md-header-anchor"></a><span>4、材料邮寄地址</span></h3><p><span>收件人：中国版权保护中心软件登记部</span></p><p><span>地址：北京市西城区天桥南大街1号天桥艺术大厦A座三层302</span></p><p><span>邮编：100050</span></p><h3><a name="5软著申请下证周期" class="md-header-anchor"></a><span>5、软著申请下证周期</span></h3><p><span>个人申请的话一般需要2个月左右(45个工作日左右)，通过软著代办公司申请的话1-2个月(3-31个工作日不等根据选择的加急梯度决定)。</span></p><p><span>参考链接：</span><a href='https://zhuanlan.zhihu.com/p/337809025' target='_blank' class='url'>https://zhuanlan.zhihu.com/p/337809025</a></p><p>&nbsp;</p><script src="https://634174214.gitee.io/lib-wubin-work/js/markdown-html2doc/markdown_html2doc.js"></script></div>
+</body>
+</html>

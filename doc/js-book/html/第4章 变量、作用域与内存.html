@@ -1,0 +1,139 @@
+
+        <html>
+        <head>
+            <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+            <title>第4章 变量、作用域与内存</title>
+            <meta name="keywords" content="JS高级设计第四版">
+            <meta name="description" content="JS高级设计第四版，读书笔记- 第4章 变量、作用域与内存">
+            <link rel="stylesheet" type="text/css" href="markdown.css">
+            <script src="https://www.qdxin.cn/js/xinquery.js"></script>
+        </head>
+        <body>
+            <h1>第4章 变量、作用域与内存</h1>
+<p>JS 变量是弱类型的，变量的值和数据类型在脚本生命周期内可以改变</p>
+<h2>原始值与引用值</h2>
+<ul>
+<li>原始值(primitive value)是最简单的数据</li>
+<li>引用值(reference value)是由多个值构成的对象</li>
+</ul>
+<p>保存原始值的变量是按值访问的，操作的就是存储在变量中的实际值</p>
+<p>保存引用值的变量是按引用访问的，引用值是保存在内存中的对象，JavaScript 不允许直接访问内存位置，因此也就不能直接操作对象所在的内存空间。在操作对象时，实际上操作的是对该对象的引用(reference)而非实际的对象本身</p>
+<p>只有引用值可以动态添加属性</p>
+<pre><code class="language-javascript">let person = new Object();
+person.name = "Nicholas";
+console.log(person.name); // "Nicholas"
+
+let name = "Nicholas";
+name.age = 27;
+console.log(name.age);  // undefined</code></pre>
+<p>原始类型的初始化可以只使用原始字面量形式。如果使用的是 new 关键字，则 JS 会创建一个 Object 类型的实例，但其行为类似原始值</p>
+<pre><code class="language-javascript">let name1 = "Nicholas";
+let name2 = new String("Matt");
+name1.age = 27;
+name2.age = 26;
+console.log(name1.age);    // undefined
+console.log(name2.age);    // 26
+console.log(typeof name1); // string
+console.log(typeof name2); // object</code></pre>
+<p>通过变量把一个原始值赋值到另一个变量时，原始值会被复制到新变量的位置</p>
+<p>把引用值从一个变量赋给另一个变量时，复制的值实际上是一个指针，它指向存储在堆内存中的对象</p>
+<p><strong>所有函数的参数都是按值传递的</strong>，函数外的值会被复制到函数内部的参数中，就像从一个变量复制到另一个变量一样。如果是原始值，那么就跟原始值变量的复制一样，如果是引用值，那么就跟引用值变量的复制一样。</p>
+<pre><code class="language-javascript">// 原始值传递参数
+function addTen(num) {
+  num += 10;
+  return num;
+}
+let count = 20;
+let result = addTen(count);
+console.log(count); // 20，没有变化
+console.log(result); // 30
+// 引用值传递参数
+function setName(obj) {
+  obj.name = "Nicholas";
+}
+let person = new Object();
+setName(person);
+console.log(person.name);  // "Nicholas"</code></pre>
+<p><strong>很多开发者错误地认为，当在局部作用域中修改对象而变化反映到全局时，就意味着参数是按引用传递的</strong>。为证明对象是按值传递的，我们再来看看下面这个修改后的例子：</p>
+<pre><code class="language-javascript">function setName(obj) {
+  obj.name = "Nicholas";
+  obj = new Object();
+  obj.name = "Greg";
+}
+let person = new Object();
+setName(person);
+console.log(person.name);  // "Nicholas"</code></pre>
+<p>以上代码表示，当 person 传入 setName() 时，其 name 属性被设置为"Nicholas"。然后变量 obj 被设置为一个新对象且 name 属性被设置为"Greg"。如果 person 是按引用传递的，那么 person 应该自动将指针改为指向 name 为"Greg"的对象。可是，当我们再次访问 person.name 时，它的值是"Nicholas"，这表明函数中参数的值改变之后，原始的引用仍然没变。当 obj 在函数内部被重写时，它变成了一个指向本地对象的指针，而那个本地对象在函数执行结束时就被销毁了。</p>
+<p>JS 提供 typeOf 操作符获取变量类型，但是它对引用值的意义不大。我们通常不关心一个值是不是对象，而是关心它是什么类型的对象。此时需要用 instanceof 操作符，如果变量是给定引用类型的实例，则返回 true</p>
+<pre><code class="language-javascript">// 变量 person 是Object吗?
+console.log(person instanceof Object);
+// 变量 colors 是 Array 吗?
+console.log(colors instanceof Array);
+// 变量 pattern 是 RegExp 吗?
+console.log(pattern instanceof RegExp);</code></pre>
+<p>所有引用值都是 Object 的实例，因此通过 instanceof 操作符检测任何引用值和Object 构造函数都会返回 true。类似地，如果用 instanceof 检测原始值，则始终会返回 false，因为原始值不是对象</p>
+<h2>执行上下文与作用域</h2>
+<p>变量或函数的上下文决定了它们可以访问哪些数据，以及它们的行为。每个上下文都有一个关联的变量对象，而这个上下文中定义的所有变量和函数都存在于这个对象上。</p>
+<p>全局上下文是最外层的上下文。在浏览器中，全局上下文就是 window 对象，因此所有通过 var 定义的全局变量和函数都会成为 window 对象的属性和方法。使用 let 和 const 的顶级声明不会定义在全局上下文中，但在作用域链解析上效果是一样的。</p>
+<p>上下文在其所有代码都执行完毕后会被销毁，包括定义在它上面的所有变量和函数(全局上下文在应用程序退出前才会被销毁，比如关闭网页或退出浏览器)。每个函数调用都有自己的上下文。当代码执行流进入函数时，函数的上下文被推到一个上下文栈上。在函数执行完之后，上下文栈会弹出该函数上下文，将控制权返还给之前的执行上下文。</p>
+<p>内部上下文可以通过作用域链访问外部上下文中的一切，但外部上下文无法访问内部上下文中的任何东西。</p>
+<p><strong>变量声明时的作用域</strong></p>
+<p>使用 var 声明变量时，变量会被自动添加到最接近的上下文。在函数中，最接近的上下文就是函数的局部上下文。在 with 语句中，最接近的上下文也是函数上下文。如果变量未经声明就被初始化了，那么它就会自动被添加到全局上下文：</p>
+<pre><code class="language-javascript">function add(num1, num2) {
+  var sum = num1 + num2;
+  return sum;
+}
+let result = add(10, 20); // 30
+console.log(sum); // 报错:sum 在这里不是有效变量</code></pre>
+<p>这里变量 sum 在函数外部是访问不到的，但是如果省略关键字 var ，那么在 add() 方法被调用后，sum 就可以被访问了：</p>
+<pre><code class="language-javascript">function add(num1, num2) {
+  sum = num1 + num2;
+  return sum;
+}
+let result = add(10, 20); // 30
+console.log(sum); // 30</code></pre>
+<p>var 声明会被拿到函数或全局作用域的顶部，位于作用域中所有代码之前，这个现象叫作“提升。以下代码是等价的：</p>
+<pre><code class="language-javascript">var name = "Jake";
+// 等价于
+name = "Jake";
+var name;
+
+// 另一个例子
+function fn1() {
+  var name = "Jake";
+}
+// 等价于
+function fn2() {
+  var name;
+  name = "Jake"
+}</code></pre>
+<p>以上代码虽然合法，但是却很奇怪，即在变量声明之前使用了变量，在实际开发中不建议使用</p>
+<p>使用 let 声明的变量具有块级作用域，推荐使用：</p>
+<pre><code class="language-javascript">function foo() {
+  let a;
+}
+console.log(a); // ReferenceError: a 没有定义</code></pre>
+<p>使用 const 声明的变量同样具有块级作用域，与 let 的区别在于，使用 const 声明的变量必须同时进行初始化，一经声明不能再重新赋值，其他用法与 let 一致</p>
+<pre><code class="language-javascript">const a; // SyntaxError: 常量声明时没有初始化
+const b = 3;
+console.log(b); // 3
+b = 4; // TypeError: 给常量赋值</code></pre>
+<p>const 声明的对象变量不能再被重新赋值，但对象的键则不受限制</p>
+<pre><code class="language-javascript">const o1 = {};
+o1 = {}; // TypeError: 给常量赋值
+
+const o2 = {};
+o2.name = 'Jake';
+console.log(o2.name); // 'Jake'
+
+// 如果想让整个对象都不能修改，可以使用 Object.freeze()
+// 这样再给属性赋值时虽然不会报错， 但会赋值失败
+const o3 = Object.freeze({});
+o3.name = 'Jake';
+console.log(o3.name); // undefined</code></pre>
+<h2>垃圾回收及内存管理</h2>
+<p>JS 会自动进行垃圾回收和内存管理，这部分略过</p>
+        </body>
+        </html>
+    

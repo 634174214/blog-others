@@ -1,0 +1,415 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="description" content="canvas API中文网，CanvasRenderingContext2D.arcTo()，提供详尽的canvas API使用指南和学习案例">
+<meta name="description" content="canvas API中文网 CanvasRenderingContext2D.arcTo()，提供详尽的canvas API使用指南和学习案例">
+<meta name="keywords" content="canvas, api, documents, 文档, 中文, CanvasRenderingContext2D.arcTo(), 前端">
+<meta name="author" content="张鑫旭,zhangxixnu">
+<title>canvas API中文网 - 中文文档 - CanvasRenderingContext2D.arcTo()</title>
+<link rel="stylesheet" type="text/css" href="static/css/ui.css">
+<link rel="stylesheet" type="text/css" href="static/css/style.css"><style>
+canvas[id]{outline: 1px dotted;}
+.control-1,.control-2,.control-3{position: absolute; width: 10px; height: 10px; -ms-transform: translate(-5px, -5px); transform: translate(-5px, -5px);}
+/*left, top就是控制点坐标*/
+.control-1{
+	left: 150px; top: 100px;
+	background-color:red;
+}
+.control-2 {
+	left: 200px; top: 40px;
+	background-color:green;
+}
+.control-3 {
+	left: 50px; top: 50px;
+	background-color:gray;
+}
+span.control-1,span.control-2,span.control-3{position: static; display: inline-block; vertical-align: -5px;}
+[data-coord]:active::after{content:attr(data-coord); position: absolute; font-size:12px; opacity: 0.5; color:#4c5161; left: 50%; bottom: 100%; transform: translate(-50%, 0) scale(0.8333); white-space: nowrap;}
+</style>
+</head>
+
+<body>
+<header class="header">
+	<a href="index.html" class="logo">Canvas API中文网 - 不只是文档</a>
+	<nav class="header-nav">
+		<a href="index.html" id="jsNavItf" class="header-nav-a">canvas接口</a>
+		<!-- <a href="?map=tutorials" class="header-nav-a">canvas教程</a>
+		<a href="?map=examples" class="header-nav-a">canvas案例</a> -->
+		<!-- <i class="header-nav-i"></i>
+		<span>兄弟站点：</span>
+		<a href="//www.svg8.com" class="header-nav-a">SVG吧</a>
+		<a href="//www.cssvv.com" class="header-nav-a">CSS微微</a> -->
+		<!-- 第三方登录 -->
+				<a href="login27.html" class="header-login-a">
+			<svg class="icon icon-github" xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewbox="0 0 24 28"><title>Github</title><path d="M12 2c6.625 0 12 5.375 12 12 0 5.297-3.437 9.797-8.203 11.391-.609.109-.828-.266-.828-.578 0-.391.016-1.687.016-3.297 0-1.125-.375-1.844-.812-2.219 2.672-.297 5.484-1.313 5.484-5.922 0-1.313-.469-2.375-1.234-3.219.125-.313.531-1.531-.125-3.187-1-.313-3.297 1.234-3.297 1.234a11.28 11.28 0 0 0-6 0S6.704 6.656 5.704 6.969c-.656 1.656-.25 2.875-.125 3.187-.766.844-1.234 1.906-1.234 3.219 0 4.594 2.797 5.625 5.469 5.922-.344.313-.656.844-.766 1.609-.688.313-2.438.844-3.484-1-.656-1.141-1.844-1.234-1.844-1.234-1.172-.016-.078.734-.078.734.781.359 1.328 1.75 1.328 1.75.703 2.141 4.047 1.422 4.047 1.422 0 1 .016 1.937.016 2.234 0 .313-.219.688-.828.578C3.439 23.796.002 19.296.002 13.999c0-6.625 5.375-12 12-12zM4.547 19.234c.031-.063-.016-.141-.109-.187-.094-.031-.172-.016-.203.031-.031.063.016.141.109.187.078.047.172.031.203-.031zm.484.532c.063-.047.047-.156-.031-.25-.078-.078-.187-.109-.25-.047-.063.047-.047.156.031.25.078.078.187.109.25.047zm.469.703c.078-.063.078-.187 0-.297-.063-.109-.187-.156-.266-.094-.078.047-.078.172 0 .281s.203.156.266.109zm.656.656c.063-.063.031-.203-.063-.297-.109-.109-.25-.125-.313-.047-.078.063-.047.203.063.297.109.109.25.125.313.047zm.891.391c.031-.094-.063-.203-.203-.25-.125-.031-.266.016-.297.109s.063.203.203.234c.125.047.266 0 .297-.094zm.984.078c0-.109-.125-.187-.266-.172-.141 0-.25.078-.25.172 0 .109.109.187.266.172.141 0 .25-.078.25-.172zm.906-.156c-.016-.094-.141-.156-.281-.141-.141.031-.234.125-.219.234.016.094.141.156.281.125s.234-.125.219-.219z"></path>
+			</svg><span class="header-login-txt">登录</span>
+		</a>
+			</nav>
+</header>
+
+<div class="header-title">
+	<div class="constr">
+		<h1 class="header-h1">Canvas<wbr>Rendering<wbr>Context2D<wbr>.arcTo()</h1>
+	</div>
+</div>
+
+<main class="main" role="main">
+	<div class="container">
+		<nav class="crumbs" role="navigation">
+  	<div class="constr" aria-label="面包屑">    
+      	<h6 class="crumb-h">
+        	<a href="index.html" class="crumb-a">Canvas API</a>
+      	</h6><i class="crumb-joiner"></i>
+	  	<h6 class="crumb-h">
+        	<a href="index2.html" class="crumb-a">CanvasRenderingContext2D</a>
+      	</h6>
+      <i class="crumb-joiner"></i>
+	  	<h6 class="crumb-h">
+        	<a href="" class="crumb-a">arcTo</a>
+      	</h6>
+        	</div>
+</nav>		<div class="constr">
+			<div class="content">
+				<article id="article" class="article">
+					<div class="jumpto-nav">
+						&nbsp;<ol id="jumptoNav" class="jumpto-ol"></ol>
+				    </div>
+					<section class="section">
+						<h2>了解Canvas<wbr>Rendering<wbr>Context2D<wbr>.arcTo()</h2>
+						<h3 id="introduction" class="abs vh">简介</h3>	
+						<style>.section p.vh{overflow: hidden;}</style><iframe id="taIframe" frameborder="0" style="display:none;"></iframe>
+	<span target="_blank" title="点击右上角" class="jsTips" onclick="taIframe.src='https://www.zhangxinxu.com/sp/ta.php?from=canvasapi&type=article&r=' + Math.random();" rel="nofollow noopener" style="float:right;width:120px;height:240px;margin-left:20px;background:url(static/image/star-bg2.jpg) no-repeat;"></span>			
+						<p><code>Canvas<wbr>Rendering<wbr>Context2D<wbr>.arcTo()</code>作用是给路径添加圆弧，需要指定控制点和半径。</p>
+						<p>绘制的弧为正圆的一部分，绝不可能是椭圆的一部分，如果想要绘制椭圆弧，可以试试<a href="bezierCurveTo.html"><code>bezierCurveTo()</code></a>方法。<code>arcTo()</code>方法比较多的用途是绘制标准圆角。</p>
+						<p class="vh">并不总能成功绘制满足设定的圆弧。例如，实际绘制的时候，则路径线条可能表现得更接近于直线；亦或者控制点2坐标在起始点和控制点1的中间，则我们的圆弧可能会飞到非常远的地方。具体表现可以操作下面的案例进行复现。，不足以绘制圆弧，我们起始点和两个控制点呈现角度过小<input type="hidden" name="CanvsRedrigotx2DcT" value="5c6o6ZmF57uY5Yrv55qE5pov5YTZ77yM5bmv5LrN5eT76IO95erQ5Yqf57uY5Yrv5iuh6Lcz6K6+5c6c55qE5ZyG5byD44TT5L6L5ccT77yM5ert5Lux6LW35coL54K55ZKM5Lrk5Lrq5e6D5Yrv54K55ZGI546w6KoS5bqm6L+H5bTP77yM5LrN6Lcz5Lul57uY5Yrv5ZyG5byD77yM5YrZ6Lo25b6E57q|5pvh5Y+26IO96KGe546w5b6X5pu05e6l6L+t5LqO55u057q|77yb5Lqm5erW6ITF5e6D5Yrv54K5MuWgkOcdh+WaqOr1R+WDr+oTuoWSjOcOp+WIRuoTuCHDmeCkuK3pl7C22IzlrJDmrJHku6zDmeClDIbl2Kflj6|ed73k2Jipe57lrLnpDZ7luLje25zDmeClDLnmliDjdILlhbfk2ZPeecjDjinlj6|ku6Xmk43k2ZzkuI2pDcLDmeCmeYjk2e2e252eeYzlpI3DjinjdII="></p>
+					</section>
+					<section class="section">
+						<h3 id="syntax">语法</h3>
+						<pre name="code" class="js">context.arcTo(x1, y1, x2, y2, radius);</pre>
+						<h4>参数</h4>
+						<p>各个参数含义和作用如下：</p>
+						<dl class="dl">
+							<div><dt class="di">x1</dt><small class="params-type">Number</small></div>
+							<dd>第1个控制点的横坐标。</dd>
+							<div><dt class="di">y1</dt><small class="params-type">Number</small></div>
+							<dd>第1个控制点的纵坐标。</dd>
+							<div><dt class="di">x2</dt><small class="params-type">Number</small></div>
+							<dd>第2个控制点的横坐标。</dd>
+							<div><dt class="di">y2</dt><small class="params-type">Number</small></div>
+							<dd>第2个控制点的纵坐标。</dd>
+							<div><dt class="di">radius</dt><small class="params-type">Number</small></div>
+							<dd>圆弧的半径大小。</dd>
+						</dl>
+					</section>
+					<section class="section">
+						<h3 id="examples">案例</h3>
+						<p>下面这个案例主要演示两个控制点在圆弧生成时候的作用。其中包含两个控制点和一个位置固定的起始点：</p>
+						<p><span class="control-1"></span><span class="f14">控制点1</span><span class="control-2 ml30"></span><span class="f14">控制点2</span><span class="control-3 ml30"></span><span class="f14">起始点</span></p>
+						<p>拖动控制点1和控制点2，可以看到实时生成的圆弧效果（半径大小<code>40</code>），相信对<code>arcTo()</code>方法的渲染会有更直观的了解。</p>
+						<p class="rel">
+							<a href="javascript:" id="control1" class="control-1" draggable="false" data-coord="150,100"></a>
+							<a href="javascript:" id="control2" class="control-2" draggable="false" data-coord="200,40"></a>
+							<i class="control-3"></i>
+							<canvas id="arcTo"></canvas>
+						</p>
+						<p>JavaScript实时运行代码：</p>
+						<pre class="DlHighlight js"><span class="operand">context</span>.<span class="operand apis">beginPath</span><span class="paren">(</span><span class="paren">)</span>;
+<span class="operand">context</span>.<span class="operand apis">moveTo</span><span class="paren">(</span><span class="operand number">50</span><span class="comma">,</span> <span class="operand number">50</span><span class="paren">)</span>;
+<span class="operand">context</span>.<span class="operand apis">arcTo</span><span class="paren">(</span><span class="operand number x1">150</span><span class="comma">,</span> <span class="operand number y1">100</span><span class="comma">,</span> <span class="operand number x2">200</span><span class="comma">,</span> <span class="operand number y2">40</span><span class="comma">,</span> <span class="operand number">40</span><span class="paren">)</span>;
+<span class="operand">context</span>.<span class="operand apis">lineTo</span><span class="paren">(</span><span class="operand number x2">200</span><span class="comma">,</span> <span class="operand number y2">40</span><span class="paren">)</span>;
+<span class="operand">context</span>.<span class="operand apis">stroke</span><span class="paren">(</span><span class="paren">)</span>;</pre>
+					</section>				
+					<section class="section">
+						<h3 id="others">其他</h3>
+						<h4>规范文档</h4>
+						<table class="ui-table">
+						    <tr>
+						      <th scope="col" width="50%">规范地址</th>
+						      <th scope="col" width="20%">规范状态</th>
+						      <th scope="col">备注</th>
+						    </tr>
+						    <tr>
+						      <td>
+								<a href="javascript:;" class="db" target="_blank" rel="noopener nofollow">HTML现行标准<br><small>这个规范中定义了'CanvasRenderingContext2D.arcTo'</small></a>
+						      </td>
+						      <td><span class="darkblue">现行标准<i class="tag tag-ls"></i></span></td>
+						      <td>-</td>
+						    </tr>
+						</table>
+						<h4>相关资源</h4>
+						<p class="gray">暂无</p>
+						<h4>兼容性</h4>
+						<p>IE9+支持，全兼容。</p>
+						<hr>
+<p class="last-mod"><label>最近更新：</label><span class="last-mod-span">by <a href="javascript:;">zhangxinxu</a> 2019-10-18 01:44:03</span></p>
+<!-- 返回顶部 -->
+<div class="backtop">&nbsp;<a href="#" id="backtop" class="backtop-a" role="button" title="返回顶部">返回顶部</a></div>					</section>
+				</article>
+			</div>
+			<!-- aside -->
+<aside class="aside">
+	<h4>相关API列表</h4>
+	<div class="aside-g">
+		<h5 class="aside-sub-h"><a href="index2.html">CanvasRenderingContext2D</a></h5>
+		<dl class="aside-dl"><dt class="aside-dt">属性</dt><dd class="aside-dd">
+							<a href="canvas.html" class="aside-dd-a">canvas</a>
+						</dd><dd class="aside-dd">
+							<a href="fillStyle.html" class="aside-dd-a">fillStyle</a>
+						</dd><dd class="aside-dd">
+							<a href="font.html" class="aside-dd-a">font</a>
+						</dd><dd class="aside-dd">
+							<a href="globalAlpha.html" class="aside-dd-a">globalAlpha</a>
+						</dd><dd class="aside-dd">
+							<a href="globalCompositeOperation.html" class="aside-dd-a">globalCompositeOperation</a>
+						</dd><dd class="aside-dd">
+							<a href="lineCap.html" class="aside-dd-a">lineCap</a>
+						</dd><dd class="aside-dd">
+							<a href="lineDashOffset.html" class="aside-dd-a">lineDashOffset</a>
+						</dd><dd class="aside-dd">
+							<a href="lineJoin.html" class="aside-dd-a">lineJoin</a>
+						</dd><dd class="aside-dd">
+							<a href="lineWidth.html" class="aside-dd-a">lineWidth</a>
+						</dd><dd class="aside-dd">
+							<a href="miterLimit.html" class="aside-dd-a">miterLimit</a>
+						</dd><dd class="aside-dd">
+							<a href="shadowBlur.html" class="aside-dd-a">shadowBlur</a>
+						</dd><dd class="aside-dd">
+							<a href="shadowColor.html" class="aside-dd-a">shadowColor</a>
+						</dd><dd class="aside-dd">
+							<a href="shadowOffsetX.html" class="aside-dd-a">shadowOffsetX</a>
+						</dd><dd class="aside-dd">
+							<a href="shadowOffsetY.html" class="aside-dd-a">shadowOffsetY</a>
+						</dd><dd class="aside-dd">
+							<a href="strokeStyle.html" class="aside-dd-a">strokeStyle</a>
+						</dd><dd class="aside-dd">
+							<a href="textAlign.html" class="aside-dd-a">textAlign</a>
+						</dd><dd class="aside-dd">
+							<a href="textBaseline.html" class="aside-dd-a">textBaseline</a>
+						</dd></dl><dl class="aside-dl"><dt class="aside-dt">方法</dt><dd class="aside-dd">
+							<a href="arc.html" class="aside-dd-a">arc()</a>
+						</dd><dd class="aside-dd">
+							<span class="aside-dd-span">arcTo()</span>
+						</dd><dd class="aside-dd">
+							<a href="beginPath.html" class="aside-dd-a">beginPath()</a>
+						</dd><dd class="aside-dd">
+							<a href="bezierCurveTo.html" class="aside-dd-a">bezierCurveTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="clearRect.html" class="aside-dd-a">clearRect()</a>
+						</dd><dd class="aside-dd">
+							<a href="clip.html" class="aside-dd-a">clip()</a>
+						</dd><dd class="aside-dd">
+							<a href="closePath.html" class="aside-dd-a">closePath()</a>
+						</dd><dd class="aside-dd">
+							<a href="createImageData.html" class="aside-dd-a">createImageData()</a>
+						</dd><dd class="aside-dd">
+							<a href="createLinearGradient.html" class="aside-dd-a">createLinearGradient()</a>
+						</dd><dd class="aside-dd">
+							<a href="createPattern.html" class="aside-dd-a">createPattern()</a>
+						</dd><dd class="aside-dd">
+							<a href="createRadialGradient.html" class="aside-dd-a">createRadialGradient()</a>
+						</dd><dd class="aside-dd">
+							<a href="drawFocusIfNeeded.html" class="aside-dd-a">drawFocusIfNeeded()</a>
+						</dd><dd class="aside-dd">
+							<a href="drawImage.html" class="aside-dd-a">drawImage()</a>
+						</dd><dd class="aside-dd">
+							<a href="ellipse.html" class="aside-dd-a">ellipse()</a>
+						</dd><dd class="aside-dd">
+							<a href="fill.html" class="aside-dd-a">fill()</a>
+						</dd><dd class="aside-dd">
+							<a href="fillRect.html" class="aside-dd-a">fillRect()</a>
+						</dd><dd class="aside-dd">
+							<a href="fillText.html" class="aside-dd-a">fillText()</a>
+						</dd><dd class="aside-dd">
+							<a href="getImageData.html" class="aside-dd-a">getImageData()</a>
+						</dd><dd class="aside-dd">
+							<a href="getLineDash.html" class="aside-dd-a">getLineDash()</a>
+						</dd><dd class="aside-dd">
+							<a href="isPointInPath.html" class="aside-dd-a">isPointInPath()</a>
+						</dd><dd class="aside-dd">
+							<a href="isPointInStroke.html" class="aside-dd-a">isPointInStroke()</a>
+						</dd><dd class="aside-dd">
+							<a href="lineTo.html" class="aside-dd-a">lineTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="measureText.html" class="aside-dd-a">measureText()</a>
+						</dd><dd class="aside-dd">
+							<a href="moveTo.html" class="aside-dd-a">moveTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="putImageData.html" class="aside-dd-a">putImageData()</a>
+						</dd><dd class="aside-dd">
+							<a href="quadraticCurveTo.html" class="aside-dd-a">quadraticCurveTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="rect.html" class="aside-dd-a">rect()</a>
+						</dd><dd class="aside-dd">
+							<a href="restore.html" class="aside-dd-a">restore()</a>
+						</dd><dd class="aside-dd">
+							<a href="rotate.html" class="aside-dd-a">rotate()</a>
+						</dd><dd class="aside-dd">
+							<a href="save.html" class="aside-dd-a">save()</a>
+						</dd><dd class="aside-dd">
+							<a href="scale.html" class="aside-dd-a">scale()</a>
+						</dd><dd class="aside-dd">
+							<a href="setLineDash.html" class="aside-dd-a">setLineDash()</a>
+						</dd><dd class="aside-dd">
+							<a href="setTransform.html" class="aside-dd-a">setTransform()</a>
+						</dd><dd class="aside-dd">
+							<a href="stroke.html" class="aside-dd-a">stroke()</a>
+						</dd><dd class="aside-dd">
+							<a href="strokeRect.html" class="aside-dd-a">strokeRect()</a>
+						</dd><dd class="aside-dd">
+							<a href="strokeText.html" class="aside-dd-a">strokeText()</a>
+						</dd><dd class="aside-dd">
+							<a href="transform.html" class="aside-dd-a">transform()</a>
+						</dd><dd class="aside-dd">
+							<a href="translate.html" class="aside-dd-a">translate()</a>
+						</dd></dl><dl class="aside-dl">
+	<dt class="aside-dt">其他相关API</dt>
+	<dd class="aside-dd">
+					<a href="index1.html" class="aside-dd-a">HTMLCanvasElement</a>
+				</dd><dd class="aside-dd">
+					<a href="index7.html" class="aside-dd-a">CanvasImageSource</a>
+				</dd><dd class="aside-dd">
+					<a href="index3.html" class="aside-dd-a">CanvasGradient</a>
+				</dd><dd class="aside-dd">
+					<a href="index8.html" class="aside-dd-a">CanvasPattern</a>
+				</dd><dd class="aside-dd">
+					<a href="index4.html" class="aside-dd-a">ImageBitmap</a>
+				</dd><dd class="aside-dd">
+					<a href="index5.html" class="aside-dd-a">ImageData</a>
+				</dd><dd class="aside-dd">
+					<a href="index9.html" class="aside-dd-a">RenderingContext</a>
+				</dd><dd class="aside-dd">
+					<a href="index6.html" class="aside-dd-a">TextMetrics</a>
+				</dd></dl>	</div>
+</aside>
+		</div>
+	</div>
+</main>
+<footer class="footer">
+	<div class="constr">
+		<div class="footer-copy">
+			<p>&copy;2018-2022 Canvas API中文网</p>
+			<p><a href="javascript:;" target="_blank" rel="nofollow" class="footer-a">沪ICP备18015889号</a> <a target="_blank" href="javascript:;" class="footer-a" style="margin-left: 10px;"><img src="static/picture/gongan.png" align="absmiddle"> 沪公网安备 31011502009818号</a></p>
+		<div>
+	</div>
+</div></div></footer>
+
+<!-- 成为会员 -->
+
+<script src="static/js/jquery.js"></script>
+<script src="static/js/all.js"></script>
+<script src="static/js/jquery.qrcode.min.js"></script>
+<script src="static/js/script-min.js"></script>
+<script src="static/js/hl_all.js"></script>
+<script>DlHighlight.HELPERS.highlightByName("code", "pre");
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1789413236d30f3c19ede9065278b2ee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+(function () {
+	// 案例
+	var canvas = document.getElementById('arcTo');
+	var context = canvas.getContext('2d');
+	// 绘制方法
+	var draw = function (x1, y1, x2, y2) {
+		// 清除画布
+		context.clearRect(0, 0, 300, 150);
+		// 开始绘制
+		context.beginPath();
+		context.moveTo(50, 50);
+		context.arcTo(x1, y1, x2, y2, 40);
+		context.lineTo(x2, y2);
+		context.stroke();
+	};
+	draw(150, 100, 200, 40);
+
+	// 拖拽
+	var store = {};
+	[control1, control2].forEach(function (control) {		
+		control.addEventListener('mousedown', function (event) {
+			store.target = this;
+			var coord = this.getAttribute('data-coord');
+			if (!coord) {
+				console.lerror('坐标缺失');
+				return;
+			}
+			// 记住当前按下的坐标
+			store.coord = coord.split(',');
+			// 记住当下相对页面偏移
+			store.pageX = event.pageX;
+			store.pageY = event.pageY;
+			// 跟随移动标志量
+			store.moving = true;
+		});
+	});
+
+	document.addEventListener('mousemove', function (event) {
+		if (store.moving == true) {
+			event.preventDefault();
+			// 此时移动距离
+			var moveX = event.pageX - store.pageX;
+			var moveY = event.pageY - store.pageY;
+
+			// 可以知道此时控制点的位置了
+			var currentX = +store.coord[0] + moveX;
+			var currentY = +store.coord[1] + moveY;
+			// 范围限制
+			if (currentX < 0) {
+				currentX = 0;
+			} else if (currentX > 300) {
+				currentX = 300;
+			}
+			if (currentY < 0) {
+				currentY = 0;
+			} else if (currentY > 150) {
+				currentY = 150;
+			}
+			// 设置位置
+			store.target.style.left = currentX + 'px';
+			store.target.style.top = currentY + 'px';
+			// 改变坐标
+			store.target.setAttribute('data-coord', [currentX, currentY].join());
+
+			// 实时绘制
+			var coordAll = '', arrCoord = [];
+			[control1, control2].forEach(function (control) {
+				var coord = control.getAttribute('data-coord');
+				if (coordAll) {
+					coordAll = coordAll + ',' + coord;
+				} else {
+					coordAll = coord;
+				}
+			});
+			arrCoord = coordAll.split(',');
+			draw.apply(null, arrCoord);
+
+			// 代码展示的坐标同步
+			['x1', 'y1', 'x2', 'y2'].forEach(function (cl, index) {
+				var value = arrCoord[index];
+				[].slice.call(document.getElementsByClassName(cl)).forEach(function (ele) {
+					ele.innerHTML = value;
+				});
+			});
+		}
+	});
+
+	document.addEventListener('mouseup', function () {
+		if (store.moving == true) {
+			store.moving = false;
+		}
+	});
+})();
+</script>
+<script>
+canvasapi.initArticleNav();
+canvasapi.initDrawText();
+</script>
+</body>
+</html>

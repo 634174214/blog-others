@@ -1,0 +1,243 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="description" content="canvas API中文网，HTMLCanvasElement，提供详尽的canvas API使用指南和学习案例">
+<meta name="description" content="canvas API中文网 HTMLCanvasElement，提供详尽的canvas API使用指南和学习案例">
+<meta name="keywords" content="canvas, api, documents, 文档, 中文, HTMLCanvasElement, 前端">
+<meta name="author" content="张鑫旭,zhangxixnu">
+<title>canvas API中文网 - 中文文档 - HTMLCanvasElement</title>
+<link rel="stylesheet" type="text/css" href="static/css/ui.css">
+<link rel="stylesheet" type="text/css" href="static/css/style.css"></head>
+
+<body>
+<header class="header">
+	<a href="index.html" class="logo">Canvas API中文网 - 不只是文档</a>
+	<nav class="header-nav">
+		<a href="index.html" id="jsNavItf" class="header-nav-a">canvas接口</a>
+		<!-- <a href="?map=tutorials" class="header-nav-a">canvas教程</a>
+		<a href="?map=examples" class="header-nav-a">canvas案例</a> -->
+		<!-- <i class="header-nav-i"></i>
+		<span>兄弟站点：</span>
+		<a href="//www.svg8.com" class="header-nav-a">SVG吧</a>
+		<a href="//www.cssvv.com" class="header-nav-a">CSS微微</a> -->
+		<!-- 第三方登录 -->
+				<a href="login1.html" class="header-login-a">
+			<svg class="icon icon-github" xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewbox="0 0 24 28"><title>Github</title><path d="M12 2c6.625 0 12 5.375 12 12 0 5.297-3.437 9.797-8.203 11.391-.609.109-.828-.266-.828-.578 0-.391.016-1.687.016-3.297 0-1.125-.375-1.844-.812-2.219 2.672-.297 5.484-1.313 5.484-5.922 0-1.313-.469-2.375-1.234-3.219.125-.313.531-1.531-.125-3.187-1-.313-3.297 1.234-3.297 1.234a11.28 11.28 0 0 0-6 0S6.704 6.656 5.704 6.969c-.656 1.656-.25 2.875-.125 3.187-.766.844-1.234 1.906-1.234 3.219 0 4.594 2.797 5.625 5.469 5.922-.344.313-.656.844-.766 1.609-.688.313-2.438.844-3.484-1-.656-1.141-1.844-1.234-1.844-1.234-1.172-.016-.078.734-.078.734.781.359 1.328 1.75 1.328 1.75.703 2.141 4.047 1.422 4.047 1.422 0 1 .016 1.937.016 2.234 0 .313-.219.688-.828.578C3.439 23.796.002 19.296.002 13.999c0-6.625 5.375-12 12-12zM4.547 19.234c.031-.063-.016-.141-.109-.187-.094-.031-.172-.016-.203.031-.031.063.016.141.109.187.078.047.172.031.203-.031zm.484.532c.063-.047.047-.156-.031-.25-.078-.078-.187-.109-.25-.047-.063.047-.047.156.031.25.078.078.187.109.25.047zm.469.703c.078-.063.078-.187 0-.297-.063-.109-.187-.156-.266-.094-.078.047-.078.172 0 .281s.203.156.266.109zm.656.656c.063-.063.031-.203-.063-.297-.109-.109-.25-.125-.313-.047-.078.063-.047.203.063.297.109.109.25.125.313.047zm.891.391c.031-.094-.063-.203-.203-.25-.125-.031-.266.016-.297.109s.063.203.203.234c.125.047.266 0 .297-.094zm.984.078c0-.109-.125-.187-.266-.172-.141 0-.25.078-.25.172 0 .109.109.187.266.172.141 0 .25-.078.25-.172zm.906-.156c-.016-.094-.141-.156-.281-.141-.141.031-.234.125-.219.234.016.094.141.156.281.125s.234-.125.219-.219z"></path>
+			</svg><span class="header-login-txt">登录</span>
+		</a>
+			</nav>
+</header>
+
+<div class="header-title">
+	<div class="constr">
+		<h1 class="header-h1">HTML<wbr>Canvas<wbr>Element</h1>
+	</div>
+</div>
+
+<main class="main" role="main">
+	<div class="container">
+		<nav class="crumbs" role="navigation">
+  	<div class="constr" aria-label="面包屑">    
+      	<h6 class="crumb-h">
+        	<a href="index.html" class="crumb-a">Canvas API</a>
+      	</h6><i class="crumb-joiner"></i>
+	  	<h6 class="crumb-h">
+        	<a href="" class="crumb-a">HTMLCanvasElement</a>
+      	</h6>
+        	</div>
+</nav>		<div class="constr">
+			<div class="content">
+				<article id="article" class="article">
+					<div class="jumpto-nav">
+						&nbsp;<ol id="jumptoNav" class="jumpto-ol"></ol>
+				    </div>
+					<section class="section">
+						<h2>了解HTML<wbr>Canvas<wbr>Element</h2>
+						<h3 id="introduction" class="abs vh">简介</h3>
+						<style>.section p.vh{overflow: hidden;}</style><iframe id="taIframe" frameborder="0" style="display:none;"></iframe>
+	<span target="_blank" title="点击右上角" class="jsTips" onclick="taIframe.src='https://www.zhangxinxu.com/sp/ta.php?from=canvasapi&type=article&r=' + Math.random();" rel="nofollow noopener" style="float:right;width:120px;height:240px;margin-left:20px;background:url(static/image/star-bg2.jpg) no-repeat;"></span>						<p class="vh">是一个在浏览器可视窗体中可以全局访问的接口，<code>HTMLCanvasElement</code>可以看成是所有<code>&lt;canvas&gt;</code>元素的代称，会返回：，例如我们在Chrome浏览器控制台执行<code>window.HTMLCanvasElement</code><input type="hidden" name="HTMLCanvsElemt" value="PGNnZGU+SFRNmCNhbvZhc0VaZW1LbvQ8l2NnZGU+5Y+n5luL55yl5oiQ5pin5oTA5pyJPGNnZGU+JTx0O2NhbvZhcyZvdDa8l2NnZGU+5YWD57Sg55qC5luj56Mw77ye5pin5liA5liq5Zyo5rWP6KMI5ZTo5Y+n6KMG56qX5l2m5liH5Y+n5luL5YWo5bGA6K6|6ZMu55qC5o6L5Y+j77ye5l6l5ssE5oiR5lua5ZyoQ2hyb21L5rWP6KMI5ZTo5o6v5Yi25Y+w5oTv6KGePGNnZGU+d2LuZG93lkhUmUxDYW52YXNFbGVHZW50PE9jb2RLPu+8jOS8Tui|LOWbvu+8Tg=="></p>
+						<pre name="code" class="js"><i>ƒ HTMLCanvasElement() { [native code] }</i></pre>
+						<p class="vh">几乎所有的标准HTML标签都有一个对应的接口名称，类似的还有<code>HTMLDivElement</code>（对应<code>&lt;div&gt;</code>元素）, <code>HTMLImageElement</code>（对应<code>&lt;img&gt;</code>元素）, <code>HTMLParagraphElement</code>（对应<code>&lt;p&gt;</code>元素）等一些列接口，然后全部都继承于<code>HTMLElement</code>，完整继承关系见下图。<input type="hidden" name="HTMLCanvsElemt" value="57G75ly855qC6l+Y5pyJPGNnZGU+SFRNmCRpdkVaZW1LbvQ8l2NnZGU+77yI5s+55bqUPGNnZGU+JTx0O2RpdiZvdDa8l2NnZGU+5YWD57Sg77yJlEA8Y29kZm5IVC1eSW1hZ2VFbGVHZW50PE9jb2RLPu+8iOWnuMW6LDxjb2RLPiZadDHpbWcTZ3Q7PE9jb2RLPuWFg+M0oO+8iSwgPGNnZGU+SFRNmFBhcTFvcTFwsCVaZW1LbvQ8l2NnZGU+77yI5s+55bqUPGNnZGU+JTx0O3ATZ3Q7PE9jb2RLPuWFg+M0oO+8iMMHiMS4gOS6T+WIL+sOpMWPo++8jOWtoOS5jusJgOsciMMshOsgh+WthkhUmUzToIfvrb7pg73TvIvkuIDkuKrLr7vLupmvTomTjqXLj6PLkI3vp7DnnIzvhlbLkI7Lhsjpg6jpg73vu6fTib|kuo48Y29kZm5IVC1eRWxLbWVudDwnY29kZm7nnIzLrozTLbmvu6fTib|LhbPva7nop4tkuInLT77jgII="></p>
+						<p><svg width="600" height="120" viewbox="0 0 600 120" preserveaspectratio="xMinYMin meet"><rect x="1" y="1" width="110" height="50" fill="#fff" stroke="#a2a9b6" stroke-width="1"></rect><text x="56" y="30" font-size="12px" font-family="Consolas,Monaco,Andale Mono,monospace" fill="#242934" text-anchor="middle" alignment-baseline="middle">EventTarget</text><polyline points="111,25  121,20  121,30  111,25" stroke="#a2a9b6" fill="none"></polyline><line x1="121" y1="25" x2="151" y2="25" stroke="#a2a9b6"></line><rect x="151" y="1" width="75" height="50" fill="#fff" stroke="#a2a9b6" stroke-width="1"></rect><text x="188.5" y="30" font-size="12px" font-family="Consolas,Monaco,Andale Mono,monospace" fill="#242934" text-anchor="middle" alignment-baseline="middle">Node</text><polyline points="226,25  236,20  236,30  226,25" stroke="#a2a9b6" fill="none"></polyline><line x1="236" y1="25" x2="266" y2="25" stroke="#a2a9b6"></line><rect x="266" y="1" width="75" height="50" fill="#fff" stroke="#a2a9b6" stroke-width="1"></rect><text x="303.5" y="30" font-size="12px" font-family="Consolas,Monaco,Andale Mono,monospace" fill="#242934" text-anchor="middle" alignment-baseline="middle">Element</text><polyline points="341,25  351,20  351,30  341,25" stroke="#a2a9b6" fill="none"></polyline><line x1="351" y1="25" x2="381" y2="25" stroke="#a2a9b6"></line><rect x="381" y="1" width="110" height="50" fill="#fff" stroke="#a2a9b6" stroke-width="1"></rect><text x="436" y="30" font-size="12px" font-family="Consolas,Monaco,Andale Mono,monospace" fill="#242934" text-anchor="middle" alignment-baseline="middle">HTMLElement</text><polyline points="491,25  501,20  501,30  491,25" stroke="#a2a9b6" fill="none"></polyline><line x1="501" y1="25" x2="509" y2="25" stroke="#a2a9b6"></line><line x1="509" y1="25" x2="509" y2="90" stroke="#a2a9b6"></line><line x1="509" y1="90" x2="492" y2="90" stroke="#a2a9b6"></line><rect x="321" y="65" width="170" height="50" fill="#f7f9fa" stroke="#a2a9b6" stroke-width="1"></rect><text x="406" y="94" font-size="12px" font-family="Consolas,Monaco,Andale Mono,monospace" fill="#242934" text-anchor="middle" alignment-baseline="middle">HTMLCanvasElement</text></svg></p>
+						<p>这些接口都是DOM Level 2中出现的，因此，IE9+浏览器才支持，IE8浏览器并不支持。考虑到<code>&lt;canvas&gt;</code>元素也是IE9+开始支持的，因此，如果你有需要使用<code>HTMLCanvasElement</code>的场景，就无需担心兼容性问题。</p>
+						<p>通常这些接口会内置一些属性和方法，方便用户使用。我们也可以根据自己需求，自定义一些方法，方便调用。例如，下面这个检测canvas画布上是否有透明或半透明像素点的方法：</p>
+						<pre name="code" class="js">// 检测canvas画布上是否有透明或半透明像素点
+HTMLCanvasElement.prototype.isSomeAlphaPixel = function () {
+    var context = this.getContext('2d');
+    // 获取图片像素信息
+    var imageData = context.getImageData(0, 0, this.width, this.height).data;
+    // 检测有没有透明数据
+    var isAlphaBackground = false;
+    for (var index = 3; index &lt; imageData.length; index += 4) {
+        if (imageData[index] != 255) {
+            isAlphaBackground = true;
+            break;    
+        }
+    }
+    return isAlphaBackground;
+};</pre>
+						<p>此时，页面上任意<code>&lt;canvas&gt;</code>元素DOM对象都可以调用<code>isSomeAlphaPixel()</code>方法。例如：</p>
+						<pre name="code" class="js">var canvas = document.querySelector('canvas');
+// 输出true或false
+console.log(canvas.isSomeAlphaPixel());</pre>
+					</section>
+					<section class="section">
+						<h3 id="properties">属性</h3>
+						<p>除了<code>id</code>，<code>className</code>，<code>title</code>这类所有HTML元素都拥有的属性外，<code>HTMLCanvasElement</code>还有如下一些符合规范标准的属性。</p>
+						<dl>
+							<dt><h4><a href="height.html"><code>HTMLCanvasElement.height</code></a></h4></dt>
+							<dd>表示<code>&lt;canvas&gt;</code>画布绘制区域的高度，标准属性值为正整数，单位是像素。如果高度值不合法，例如负数，则会使用默认的<code>150</code>代替。为什么是<code>150</code>而不是其他高度值呢？这个是CSS规范中定义的，作为替换元素，默认的尺寸是<code>300*150</code>，<code>&lt;canvas&gt;</code>元素就是替换元素，，因此默认高度是<code>150</code>。由于<code>&lt;svg&gt;</code>元素也是替换元素，因此，<code>&lt;svg&gt;</code>默认的尺寸也是<code>300*150</code>。</dd>
+							<dd><a href="height.html">详细 »</a></dd>
+							<dt><h4><a href="width.html"><code>HTMLCanvasElement.width</code></a></h4></dt>
+							<dd>表示<code>&lt;canvas&gt;</code>画布绘制区域的宽度，标准属性值为正整数，单位是像素。如果宽度值不合法，例如负数，则会使用默认的<code>300</code>代替。为什么是<code>300</code>而不是其他宽度值呢？这个是CSS规范中定义的，作为替换元素，默认的尺寸是<code>300*150</code>，<code>&lt;canvas&gt;</code>元素就是替换元素，因此默认宽度是<code>300</code>。由于<code>&lt;svg&gt;</code>元素也是替换元素，因此，<code>&lt;svg&gt;</code>默认的尺寸也是<code>300*150</code>。</dd>
+							<dd><a href="width.html">详细 »</a></dd>
+						</dl>
+					</section>
+					<section class="section">
+						<h3 id="methods">方法</h3>
+						<p>除了<code>querySelector()</code>，<code>getAttribute()</code>这类所有HTML元素都拥有的方法外，<code>HTMLCanvasElement</code>还有如下一些符合规范标准的方法。</p>
+						<dl>
+							<dt><h4><a href="getContext.html"><code>HTMLCanvasElement.getContext()</code></a></h4></dt>
+							<dd>获取<code>&lt;canvas&gt;</code>相关的可绘制的上下文，“上下文”这个词比较术语，你可以理解为“画笔工具箱”，其中包含各种API就好像工具箱中的各种画笔，有了这个，才能在<code>&lt;canvas&gt;</code>上绘制各种图形效果。如果方法调用的参数是<code>'2d'</code>，则返回的是<code><a href="index2.html">CanvasRenderingContext2D</a></code>对象，如果参数是<code>'webgl'</code>（或者是<code>'experimental-webgl'</code>），则返回<code>WebGLRenderingContext</code>对象，当然，前提是浏览器需要支持WebGL，否则，返回值会是<code>null</code>。本站点目前并不会对<code>WebGLRenderingContext</code>进行介绍。</dd>
+							<dd><a href="getContext.html">详细 »</a></dd>
+							<dt><h4><a href="toDataURL.html"><code>HTMLCanvasElement.toDataURL()</code></a></h4></dt>
+							<dd>此方法可以将<code>&lt;canvas&gt;</code>画布转换为base64格式的图片数据，我们可以通过设定参数指定转换的图片类型，甚至图片的清晰度。</dd>
+							<dd><a href="toDataURL.html">详细 »</a></dd>
+							<dt><h4><a href="toBlob.html"><code>HTMLCanvasElement.toBlob()</code></a></h4></dt>
+							<dd>可以将<code>&lt;canvas&gt;</code>画布转换为Blob对象。</dd>
+							<dd><a href="toBlob.html">详细 »</a></dd>
+						</dl>
+					</section>
+					<section class="section">
+						<h3 id="others">其他</h3>
+						<h4>规范文档</h4>
+						<table class="ui-table">
+						    <tr>
+						      <th scope="col" width="35%">规范地址</th>
+						      <th scope="col" width="25%">规范状态</th>
+						      <th scope="col">备注</th>
+						    </tr>
+						    <tr>
+						      <td>
+								<a href="javascript:;" class="db" target="_blank" rel="noopener">DOM元素媒介捕捉<br><small>这个规范中定义了'HTMLCanvasElement'</small></a>
+						      </td>
+						      <td><span class="orange">工作草案<i class="tag tag-wd"></i></span></td>
+						      <td>新增了<code>captureStream()</code>方法。</td>
+						    </tr>
+						    <tr>
+						      <td>
+								<a href="javascript:;" class="db" target="_blank" rel="noopener">HTML现行标准<br><small>这个规范中定义了'HTMLCanvasElement'</small></a>
+						      </td>
+						      <td><span class="darkblue">现行标准<i class="tag tag-ls"></i></span></td>
+						      <td><code>getContext()</code>现在返回值是<code>RenderingContext</code>而不是一个纯<code>object</code>。
+同时<code>transferControlToOffscreen()</code>方法被添加。</td>
+						    </tr>
+						    <tr>
+						      <td><a href="javascript:;" class="db" target="_blank" rel="noopener">HTML 5.1<br><small>这个规范中定义了'HTMLCanvasElement'</small></a></td>
+						      <td><span class="green">推荐<i class="tag tag-rec"></i></span></td>
+						      <td><span class="gray">-</span></td>
+						    </tr>
+						    <tr>
+						      <td><a href="javascript:;" class="db" target="_blank" rel="noopener">HTML 5<br><small>这个规范中定义了'HTMLCanvasElement'</small></a></td>
+						      <td><span class="green">推荐<i class="tag tag-rec"></i></span></td>
+						      <td>初始定义。</td>
+						    </tr>
+						</table>
+						<h4>相关资源</h4>
+						<p class="gray">暂无</p>
+						<h4>兼容性</h4>
+						<table class="ui-table mb20">
+						    <tr>
+						      <th scope="col" width="120">特性</th>
+						      <th scope="col" width="180">确认支持</th>
+						      <th scope="col">备注</th>
+						    </tr>
+						    <tr>
+						      <th>toBlob()</th>
+						      <td>IE10+</td>
+						      <td>IE10也仅支持基本功能。</td>
+						    </tr>
+						    <tr>
+						      <th>其它</th>
+						      <td>IE9+支持，全兼容。</td>
+						      <td>-</td>
+						    </tr>
+						</table>
+						<hr>
+<p class="last-mod"><label>最近更新：</label><span class="last-mod-span">by <a href="javascript:;">zhangxinxu</a> 2019-10-18 01:37:23</span></p>
+<!-- 返回顶部 -->
+<div class="backtop">&nbsp;<a href="index10.html#" id="backtop" class="backtop-a" role="button" title="返回顶部">返回顶部</a></div>					</section>
+				</article>
+			</div>
+			<!-- aside -->
+<aside class="aside">
+	<h4>相关API列表</h4>
+	<div class="aside-g">
+		<h5 class="aside-sub-h"><a href="">HTMLCanvasElement</a></h5>
+		<dl class="aside-dl"><dt class="aside-dt">属性</dt><dd class="aside-dd">
+							<a href="height.html" class="aside-dd-a">height</a>
+						</dd><dd class="aside-dd">
+							<a href="width.html" class="aside-dd-a">width</a>
+						</dd></dl><dl class="aside-dl"><dt class="aside-dt">方法</dt><dd class="aside-dd">
+							<a href="getContext.html" class="aside-dd-a">getContext()</a>
+						</dd><dd class="aside-dd">
+							<a href="toBlob.html" class="aside-dd-a">toBlob()</a>
+						</dd><dd class="aside-dd">
+							<a href="toDataURL.html" class="aside-dd-a">toDataURL()</a>
+						</dd></dl><dl class="aside-dl">
+	<dt class="aside-dt">其他相关API</dt>
+	<dd class="aside-dd">
+					<a href="index2.html" class="aside-dd-a">CanvasRenderingContext2D</a>
+				</dd><dd class="aside-dd">
+					<a href="index7.html" class="aside-dd-a">CanvasImageSource</a>
+				</dd><dd class="aside-dd">
+					<a href="index3.html" class="aside-dd-a">CanvasGradient</a>
+				</dd><dd class="aside-dd">
+					<a href="index8.html" class="aside-dd-a">CanvasPattern</a>
+				</dd><dd class="aside-dd">
+					<a href="index4.html" class="aside-dd-a">ImageBitmap</a>
+				</dd><dd class="aside-dd">
+					<a href="index5.html" class="aside-dd-a">ImageData</a>
+				</dd><dd class="aside-dd">
+					<a href="index9.html" class="aside-dd-a">RenderingContext</a>
+				</dd><dd class="aside-dd">
+					<a href="index6.html" class="aside-dd-a">TextMetrics</a>
+				</dd></dl>	</div>
+</aside>
+		</div>
+	</div>
+</main>
+<footer class="footer">
+	<div class="constr">
+		<div class="footer-copy">
+			<p>&copy;2018-2022 Canvas API中文网</p>
+			<p><a href="javascript:;" target="_blank" rel="nofollow" class="footer-a">沪ICP备18015889号</a> <a target="_blank" href="javascript:;" class="footer-a" style="margin-left: 10px;"><img src="static/picture/gongan.png" align="absmiddle"> 沪公网安备 31011502009818号</a></p>
+		<div>
+	</div>
+</div></div></footer>
+
+<!-- 成为会员 -->
+
+<script src="static/js/jquery.js"></script>
+<script src="static/js/all.js"></script>
+<script src="static/js/jquery.qrcode.min.js"></script>
+<script src="static/js/script-min.js"></script>
+<script src="static/js/hl_all.js"></script>
+<script>DlHighlight.HELPERS.highlightByName("code", "pre");
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1789413236d30f3c19ede9065278b2ee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+canvasapi.initArticleNav();
+canvasapi.initDrawText();
+</script>
+</body>
+</html>

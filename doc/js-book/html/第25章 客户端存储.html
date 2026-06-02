@@ -1,0 +1,57 @@
+
+        <html>
+        <head>
+            <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+            <title>第25章 客户端存储</title>
+            <meta name="keywords" content="JS高级设计第四版">
+            <meta name="description" content="JS高级设计第四版，读书笔记- 第25章 客户端存储">
+            <link rel="stylesheet" type="text/css" href="markdown.css">
+            <script src="https://www.qdxin.cn/js/xinquery.js"></script>
+        </head>
+        <body>
+            <h1>第25章 客户端存储</h1>
+<p>浏览器使用 cookie 存储客户端会话信息，cookie 由以下参数构成：</p>
+<ul>
+<li>名称：唯一标识 cookie 的名称，不区分大小写，必须经过 URL 编码</li>
+<li>值：存储在 cookie 里的字符串值，必须经过 URL 编码</li>
+<li>域：cookie 有效的域</li>
+<li>路径：请求 URL 中包含这个路径才会把 cookie 发送到服务器</li>
+<li>过期时间：表示何时删除 cookie 的时间戳</li>
+<li>安全标志：设置之后，只在使用 SSL 安全连接的情况下才会把 cookie 发送到服务器</li>
+</ul>
+<p>这些参数在 Set-Cookie 头部中使用分号加空格隔开：</p>
+<pre><code class="language-html">HTTP/1.1 200 OK
+Content-type: text/html
+Set-Cookie: name=value; expires=Mon, 22-Jan-07 07:10:24 GMT; domain=.wrox.com Other-header: other-header-value</code></pre>
+<p>Web Storage 提供在 cookie 之外的存储会话数据的途经，可以跨会话持久化存储大量数据的机制。它定义了两个对象：localStorage 和 sessionStorage。localStorage 是永久存储机制，sessionStorage 是跨会话的存储机制。</p>
+<p>Storage 类型用于保存名/值对数据，Storage 的实例与其他对象一样，但增加了以下方法：</p>
+<ul>
+<li>clear()：删除所有值</li>
+<li>getItem(name)：取得给定 name 的值</li>
+<li>key(index)：取得给定数值位置的名称</li>
+<li>removeItem(name)：删除给定 name 的名/值对</li>
+<li>setItem(name, value)：设置给定 name 的值</li>
+</ul>
+<p>sessionStorage 对象只存储会话数据，这意味着数据只会存储到浏览器关闭。存储在 sessionStorage 对象中的数据只能由最初存储数据的页面使用，在多页应用程序中的用处有限。</p>
+<pre><code class="language-javascript">// 使用方法存储数据 
+sessionStorage.setItem("name", "Nicholas");
+// 使用属性存储数据
+sessionStorage.book = "Professional JavaScript";
+// 使用方法取得数据
+let name = sessionStorage.getItem("name");
+// 使用属性取得数据
+let book = sessionStorage.book;</code></pre>
+<p>在 HTML5 规范中，localStorage 对象取代了 globalStorage，作为在客户端持久存储数据的机制。要访问同一个 localStorage 对象，页面必须来自同一个域(子域不可以)、在相同的端口上使用相同的协议。用法与 sessionStorage 一致：</p>
+<pre><code class="language-javascript">// 使用方法存储数据
+localStorage.setItem("name", "Nicholas");
+// 使用属性存储数据
+localStorage.book = "Professional JavaScript";
+// 使用方法取得数据
+let name = localStorage.getItem("name");
+// 使用属性取得数据
+let book = localStorage.book;</code></pre>
+<p>两种存储方法的区别在于，存储在 localStorage 中的数据会保留到通过 JavaScript 删除或者用户清除浏览器缓存。localStorage 数据不受页面刷新影响，也不会因关闭窗口、标签页或重新启动浏览器而丢失。</p>
+        </body>
+        </html>
+    

@@ -1,0 +1,478 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="description" content="canvas API中文网，CanvasRenderingContext2D.filter，提供详尽的canvas API使用指南和学习案例">
+<meta name="description" content="canvas API中文网 CanvasRenderingContext2D.filter，提供详尽的canvas API使用指南和学习案例">
+<meta name="keywords" content="canvas, api, documents, 文档, 中文, CanvasRenderingContext2D.filter, 前端">
+<meta name="author" content="张鑫旭,zhangxixnu">
+<title>canvas API中文网 - 中文文档 - CanvasRenderingContext2D.filter</title>
+<link rel="stylesheet" type="text/css" href="static/css/ui.css">
+<link rel="stylesheet" type="text/css" href="static/css/style.css"><style type="text/css">
+canvas[id] {
+	border: 1px dotted;
+}
+.filter-list-table {
+    max-width: 480px;
+}
+</style>
+</head>
+
+<body>
+<header class="header">
+	<a href="index.html" class="logo">Canvas API中文网 - 不只是文档</a>
+	<nav class="header-nav">
+		<a href="index.html" id="jsNavItf" class="header-nav-a">canvas接口</a>
+		<!-- <a href="?map=tutorials" class="header-nav-a">canvas教程</a>
+		<a href="?map=examples" class="header-nav-a">canvas案例</a> -->
+		<!-- <i class="header-nav-i"></i>
+		<span>兄弟站点：</span>
+		<a href="//www.svg8.com" class="header-nav-a">SVG吧</a>
+		<a href="//www.cssvv.com" class="header-nav-a">CSS微微</a> -->
+		<!-- 第三方登录 -->
+				<a href="login10.html" class="header-login-a">
+			<svg class="icon icon-github" xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewbox="0 0 24 28"><title>Github</title><path d="M12 2c6.625 0 12 5.375 12 12 0 5.297-3.437 9.797-8.203 11.391-.609.109-.828-.266-.828-.578 0-.391.016-1.687.016-3.297 0-1.125-.375-1.844-.812-2.219 2.672-.297 5.484-1.313 5.484-5.922 0-1.313-.469-2.375-1.234-3.219.125-.313.531-1.531-.125-3.187-1-.313-3.297 1.234-3.297 1.234a11.28 11.28 0 0 0-6 0S6.704 6.656 5.704 6.969c-.656 1.656-.25 2.875-.125 3.187-.766.844-1.234 1.906-1.234 3.219 0 4.594 2.797 5.625 5.469 5.922-.344.313-.656.844-.766 1.609-.688.313-2.438.844-3.484-1-.656-1.141-1.844-1.234-1.844-1.234-1.172-.016-.078.734-.078.734.781.359 1.328 1.75 1.328 1.75.703 2.141 4.047 1.422 4.047 1.422 0 1 .016 1.937.016 2.234 0 .313-.219.688-.828.578C3.439 23.796.002 19.296.002 13.999c0-6.625 5.375-12 12-12zM4.547 19.234c.031-.063-.016-.141-.109-.187-.094-.031-.172-.016-.203.031-.031.063.016.141.109.187.078.047.172.031.203-.031zm.484.532c.063-.047.047-.156-.031-.25-.078-.078-.187-.109-.25-.047-.063.047-.047.156.031.25.078.078.187.109.25.047zm.469.703c.078-.063.078-.187 0-.297-.063-.109-.187-.156-.266-.094-.078.047-.078.172 0 .281s.203.156.266.109zm.656.656c.063-.063.031-.203-.063-.297-.109-.109-.25-.125-.313-.047-.078.063-.047.203.063.297.109.109.25.125.313.047zm.891.391c.031-.094-.063-.203-.203-.25-.125-.031-.266.016-.297.109s.063.203.203.234c.125.047.266 0 .297-.094zm.984.078c0-.109-.125-.187-.266-.172-.141 0-.25.078-.25.172 0 .109.109.187.266.172.141 0 .25-.078.25-.172zm.906-.156c-.016-.094-.141-.156-.281-.141-.141.031-.234.125-.219.234.016.094.141.156.281.125s.234-.125.219-.219z"></path>
+			</svg><span class="header-login-txt">登录</span>
+		</a>
+			</nav>
+</header>
+
+<div class="header-title">
+	<div class="constr">
+		<h1 class="header-h1">Canvas<wbr>Rendering<wbr>Context<wbr>2D<wbr>.filter</h1>
+	</div>
+</div>
+
+<main class="main" role="main">
+	<div class="container">
+		<nav class="crumbs" role="navigation">
+  	<div class="constr" aria-label="面包屑">    
+      	<h6 class="crumb-h">
+        	<a href="index.html" class="crumb-a">Canvas API</a>
+      	</h6><i class="crumb-joiner"></i>
+	  	<h6 class="crumb-h">
+        	<a href="index2.html" class="crumb-a">CanvasRenderingContext2D</a>
+      	</h6>
+      <i class="crumb-joiner"></i>
+	  	<h6 class="crumb-h">
+        	<a href="" class="crumb-a">filter</a>
+      	</h6>
+        	</div>
+</nav>		<div class="constr">
+			<div class="content">
+				<article id="article" class="article">
+					<div class="jumpto-nav">
+						&nbsp;<ol id="jumptoNav" class="jumpto-ol"></ol>
+				    </div>
+					<section class="section">
+						<h2>了解Canvas<wbr>Rendering<wbr>Context<wbr>2D<wbr>.filter</h2>
+						<h3 id="introduction" class="abs vh">简介</h3>	
+						<style>.section p.vh{overflow: hidden;}</style><iframe id="taIframe" frameborder="0" style="display:none;"></iframe>
+	<span target="_blank" title="点击右上角" class="jsTips" onclick="taIframe.src='https://www.zhangxinxu.com/sp/ta.php?from=canvasapi&type=article&r=' + Math.random();" rel="nofollow noopener" style="float:right;width:120px;height:240px;margin-left:20px;background:url(static/image/star-bg2.jpg) no-repeat;"></span>			
+						<p class="vh">使用的滤镜函数和CSS <code>filter</code>属性一样。，<code>CanvasRenderingContext2D.filter</code>可以给Canvas图形设置各类滤镜效果<input type="hidden" name="CanvsRedrigotx2Dfl" value="PGN2ZGU+QvFugmFzUmVuZGVyfW5DQv9ugGV4gnJELmZpbHtCcjw2Yv9kZT7Cj6|ku6XDu5CnYW5vYXPCm77C2fLeii7D2f7CkITDxb2mu6TpCZzmCYjmDpz22Izk2b|DCKjDmeTmu6TpCZzCh73mCbnCkesnU1MdPGN2ZGU+ZmCxgGVyPl9jbvtCPuWsDufAp+S4dOfdR+OAdd=="></p>
+					</section>
+					<section class="section">
+						<h3 id="syntax">语法</h3>
+						<pre name="code" class="js">context.filter = &lt;filter-function1&gt; [&lt;filter-function2] [&lt;filter-functionN]";
+context.filter = none;</pre>
+						<p>其中：</p>
+						<dl class="dl">
+							<dt><code>&lt;filter-function&gt;</code></dt>
+							<dd>表示滤镜函数，详见<a href="#filters">这里</a>，可以任意多个叠加。</dd>
+							<dt><code>none</code></dt>
+							<dd>表示不使用滤镜效果。</dd>
+						</dl>
+					</section>
+                    <section class="section">
+                        <h3 id="filters">滤镜函数</h3>
+                        <p>支持的滤镜函数如下表所示：</p>
+                        <table class="ui-table filter-list-table">
+    <thead>
+<tr>
+<th>滤镜函数</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url(#someId)</td>
+<td>使用ID是someId的SVG滤镜</td>
+</tr>
+<tr>
+<td>blur(5px)</td>
+<td>模糊</td>
+</tr>
+<tr>
+<td>brightness(2.4)</td>
+<td>亮度</td>
+</tr>
+<tr>
+<td>contrast(200%)</td>
+<td>对比度</td>
+</tr>
+<tr>
+<td>drop-shadow(4px 4px 8px blue)</td>
+<td>投影</td>
+</tr>
+<tr>
+<td>grayscale(50%)</td>
+<td>灰度</td>
+</tr>
+<tr>
+<td>hue-rotate(90deg)</td>
+<td>色调变化</td>
+</tr>
+<tr>
+<td>invert(75%)</td>
+<td>反相</td>
+</tr>
+<tr>
+<td>opacity(25%)</td>
+<td>透明度</td>
+</tr>
+<tr>
+<td>saturate(230%)</td>
+<td>饱和度</td>
+</tr>
+<tr>
+<td>sepia(60%)</td>
+<td>褐色</td>
+</tr>
+</tbody>
+</table>
+                        <p>各个滤镜的渲染效果如下所示：</p>
+                        <h4>1. 模糊</h4>
+                        <pre>context.filter = 'blur(5px)';</pre>
+                        <p><img id="image" src="static/picture/1.jpg" alt="示例图片" width="250" height="167" style="filter:blur(5px)"></p>
+                        <h4>2. 亮度</h4>
+                        <p>数值越大越明亮，100%是原始亮度。</p>
+                        <pre>context.filter = 'brightness(240%)';</pre>
+                        <p><img src="static/picture/1.jpg" alt="示例图片" width="250" height="167" style="filter:brightness(240%)"></p>
+                        <h4>3. 对比度</h4>
+                        <p>数值越大对比度越大，100%是原始对比度。</p>
+                        <pre>context.filter = 'contrast(200%)';</pre>
+                        <p><img src="static/picture/1.jpg" alt="示例图片" width="250" height="167" style="filter:contrast(200%)"></p>
+                        <h4>4. 投影</h4>
+                        <p>支持4个参数值，分别是水平偏移大小、垂直偏移大小、模糊半径大小和投影的颜色。</p>
+                        <pre>context.filter = 'drop-shadow(4px 4px 8px blue)';</pre>
+                        <p><img src="static/picture/1.jpg" alt="示例图片" width="250" height="167" style="filter:drop-shadow(4px 4px 8px blue)"></p>
+                        <h4>5. 灰度</h4>
+                        <p>0%表示完全灰度。</p>
+                        <pre>context.filter = 'grayscale(50%)';</pre>
+                        <p><img src="static/picture/1.jpg" alt="示例图片" width="250" height="167" style="filter:grayscale(50%)"></p>
+                        <h4>6. 色调变化</h4>
+                        <p>任意的角度单位都可以，例如圈数、弧度、百分度等。</p>
+                        <pre>context.filter = 'hue-rotate(90deg)';</pre>
+                        <p><img src="static/picture/1.jpg" alt="示例图片" width="250" height="167" style="filter:hue-rotate(90deg)"></p>
+                        <h4>7. 反相</h4>
+                        <p>指色调完全翻转。</p>
+                        <pre>context.filter = 'invert(75%)';</pre>
+                        <p><img src="static/picture/1.jpg" alt="示例图片" width="250" height="167" style="filter:invert(75%)"></p>
+                        <h4>8. 透明度</h4>
+                        <p>建议使用<a href="globalAlpha.html">globalAlpha</a>属性实现Canvas的半透明效果，因为兼容性更好。</p>
+                        <pre>context.filter = 'opacity(25%)';</pre>
+                        <p><img src="static/picture/1.jpg" alt="示例图片" width="250" height="167" style="filter:opacity(25%)"></p>
+                        <h4>9. 饱和度</h4>
+                        <p>数值越大，饱和度越高，100%是默认饱和度。</p>
+                        <pre>context.filter = 'saturate(230%)';</pre>
+                        <p><img src="static/picture/1.jpg" alt="示例图片" width="250" height="167" style="filter:saturate(230%)"></p>
+                        <h4>10. 褐色</h4>
+                        <p>让图形表现为褐色，默认是0%。</p>
+                        <pre>context.filter = 'sepia(60%)';</pre>
+                        <p><img src="static/picture/1.jpg" alt="示例图片" width="250" height="167" style="filter:sepia(60%)"></p>
+                    </section>
+					<section class="section">
+						<h3 id="examples">案例</h3>
+						<h4>局部高斯模糊的实现</h4>
+                        <p>由于IE和Safari浏览器并不支持这里的滤镜属性，因此，需要借助<a href="javascript:;" target="_blank">第三方的JS算法</a>实现。</p>
+                        <pre name="code" class="js">var eleImg = document.getElementById('image');
+var canvasBlur = document.getElementById('localBlur');
+if (eleImg &amp;&amp; canvasBlur) {
+    var contextBlur = canvasBlur.getContext('2d');
+    var funDrawBlur = function () {
+        // 填充底部图像
+        contextBlur.drawImage(eleImg, 0, 0);
+        // 创建一个屏外canvas
+        var canvasOff = document.createElement('canvas');
+        canvasOff.width = canvasBlur.width;
+        canvasOff.height = canvasBlur.height;
+        var contextOff = canvasOff.getContext('2d');
+        
+        // 执行模糊
+        if (typeof contextBlur.filter == 'string') {
+            // 支持canvas滤镜
+            contextOff.filter = 'blur(10px)';
+            // 绘制局部图像
+            contextOff.drawImage(eleImg, 100, 60, 300, 213, 100, 60, 300, 213);
+            // 上层图像绘制
+            contextBlur.drawImage(canvasOff, 0, 0);
+        } else {
+            // 不支持Canvas滤镜
+            // 使用第三方方法
+            var blurFixed = new Blur({
+                radius: 10,
+                // 高斯算法性能较差
+                gaussian : false
+            });
+            blurFixed.init();
+            // 先绘制局部图像
+            contextOff.drawImage(eleImg, 100, 60, 300, 213, 100, 60, 300, 213);
+            // 再执行模糊
+            var imgBlured = blurFixed.blurRGBA(canvasOff, null, true);
+            // 上层图像绘制
+            contextBlur.drawImage(imgBlured, 0, 0);
+        }
+    };
+    if (eleImg.naturalWidth) {
+        funDrawBlur();
+    } else {
+        eleImg.onload = funDrawBlur;
+    }
+}</pre>						
+						<p><canvas id="localBlur" width="500" height="333"></canvas></p>
+					</section>				
+					<section class="section">
+						<h3 id="others">其他</h3>
+						<h4>规范文档</h4>
+						<table class="ui-table">
+						    <tr>
+						      <th scope="col" width="50%">规范地址</th>
+						      <th scope="col" width="20%">规范状态</th>
+						      <th scope="col">备注</th>
+						    </tr>
+						    <tr>
+						      <td>
+								<a href="javascript:;" class="db" target="_blank" rel="noopener nofollow">HTML现行标准<br><small>这个规范中定义了'CanvasRenderingContext2D.filter'</small></a>
+						      </td>
+						      <td><span class="darkblue">实验阶段<i class="tag tag-dev"></i></span></td>
+						      <td>-</td>
+						    </tr>
+						</table>
+						<h4>相关资源</h4>
+						<p class="gray">暂无</p>
+						<h4>兼容性</h4>
+						<p>Chrome 52+、Firefox 49+，IE 不支持、Safari不支持、部分 Android 移动设备不支持。</p>
+						<hr>
+<p class="last-mod"><label>最近更新：</label><span class="last-mod-span">by <a href="javascript:;">zhangxinxu</a> 2021-09-26 22:06:00</span></p>
+<!-- 返回顶部 -->
+<div class="backtop">&nbsp;<a href="#" id="backtop" class="backtop-a" role="button" title="返回顶部">返回顶部</a></div>					</section>
+				</article>
+			</div>
+			<!-- aside -->
+<aside class="aside">
+	<h4>相关API列表</h4>
+	<div class="aside-g">
+		<h5 class="aside-sub-h"><a href="index2.html">CanvasRenderingContext2D</a></h5>
+		<dl class="aside-dl"><dt class="aside-dt">属性</dt><dd class="aside-dd">
+							<a href="canvas.html" class="aside-dd-a">canvas</a>
+						</dd><dd class="aside-dd">
+							<a href="fillStyle.html" class="aside-dd-a">fillStyle</a>
+						</dd><dd class="aside-dd">
+							<a href="font.html" class="aside-dd-a">font</a>
+						</dd><dd class="aside-dd">
+							<a href="globalAlpha.html" class="aside-dd-a">globalAlpha</a>
+						</dd><dd class="aside-dd">
+							<a href="globalCompositeOperation.html" class="aside-dd-a">globalCompositeOperation</a>
+						</dd><dd class="aside-dd">
+							<a href="lineCap.html" class="aside-dd-a">lineCap</a>
+						</dd><dd class="aside-dd">
+							<a href="lineDashOffset.html" class="aside-dd-a">lineDashOffset</a>
+						</dd><dd class="aside-dd">
+							<a href="lineJoin.html" class="aside-dd-a">lineJoin</a>
+						</dd><dd class="aside-dd">
+							<a href="lineWidth.html" class="aside-dd-a">lineWidth</a>
+						</dd><dd class="aside-dd">
+							<a href="miterLimit.html" class="aside-dd-a">miterLimit</a>
+						</dd><dd class="aside-dd">
+							<a href="shadowBlur.html" class="aside-dd-a">shadowBlur</a>
+						</dd><dd class="aside-dd">
+							<a href="shadowColor.html" class="aside-dd-a">shadowColor</a>
+						</dd><dd class="aside-dd">
+							<a href="shadowOffsetX.html" class="aside-dd-a">shadowOffsetX</a>
+						</dd><dd class="aside-dd">
+							<a href="shadowOffsetY.html" class="aside-dd-a">shadowOffsetY</a>
+						</dd><dd class="aside-dd">
+							<a href="strokeStyle.html" class="aside-dd-a">strokeStyle</a>
+						</dd><dd class="aside-dd">
+							<a href="textAlign.html" class="aside-dd-a">textAlign</a>
+						</dd><dd class="aside-dd">
+							<a href="textBaseline.html" class="aside-dd-a">textBaseline</a>
+						</dd></dl><dl class="aside-dl"><dt class="aside-dt">方法</dt><dd class="aside-dd">
+							<a href="arc.html" class="aside-dd-a">arc()</a>
+						</dd><dd class="aside-dd">
+							<a href="arcTo.html" class="aside-dd-a">arcTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="beginPath.html" class="aside-dd-a">beginPath()</a>
+						</dd><dd class="aside-dd">
+							<a href="bezierCurveTo.html" class="aside-dd-a">bezierCurveTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="clearRect.html" class="aside-dd-a">clearRect()</a>
+						</dd><dd class="aside-dd">
+							<a href="clip.html" class="aside-dd-a">clip()</a>
+						</dd><dd class="aside-dd">
+							<a href="closePath.html" class="aside-dd-a">closePath()</a>
+						</dd><dd class="aside-dd">
+							<a href="createImageData.html" class="aside-dd-a">createImageData()</a>
+						</dd><dd class="aside-dd">
+							<a href="createLinearGradient.html" class="aside-dd-a">createLinearGradient()</a>
+						</dd><dd class="aside-dd">
+							<a href="createPattern.html" class="aside-dd-a">createPattern()</a>
+						</dd><dd class="aside-dd">
+							<a href="createRadialGradient.html" class="aside-dd-a">createRadialGradient()</a>
+						</dd><dd class="aside-dd">
+							<a href="drawFocusIfNeeded.html" class="aside-dd-a">drawFocusIfNeeded()</a>
+						</dd><dd class="aside-dd">
+							<a href="drawImage.html" class="aside-dd-a">drawImage()</a>
+						</dd><dd class="aside-dd">
+							<a href="ellipse.html" class="aside-dd-a">ellipse()</a>
+						</dd><dd class="aside-dd">
+							<a href="fill.html" class="aside-dd-a">fill()</a>
+						</dd><dd class="aside-dd">
+							<a href="fillRect.html" class="aside-dd-a">fillRect()</a>
+						</dd><dd class="aside-dd">
+							<a href="fillText.html" class="aside-dd-a">fillText()</a>
+						</dd><dd class="aside-dd">
+							<a href="getImageData.html" class="aside-dd-a">getImageData()</a>
+						</dd><dd class="aside-dd">
+							<a href="getLineDash.html" class="aside-dd-a">getLineDash()</a>
+						</dd><dd class="aside-dd">
+							<a href="isPointInPath.html" class="aside-dd-a">isPointInPath()</a>
+						</dd><dd class="aside-dd">
+							<a href="isPointInStroke.html" class="aside-dd-a">isPointInStroke()</a>
+						</dd><dd class="aside-dd">
+							<a href="lineTo.html" class="aside-dd-a">lineTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="measureText.html" class="aside-dd-a">measureText()</a>
+						</dd><dd class="aside-dd">
+							<a href="moveTo.html" class="aside-dd-a">moveTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="putImageData.html" class="aside-dd-a">putImageData()</a>
+						</dd><dd class="aside-dd">
+							<a href="quadraticCurveTo.html" class="aside-dd-a">quadraticCurveTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="rect.html" class="aside-dd-a">rect()</a>
+						</dd><dd class="aside-dd">
+							<a href="restore.html" class="aside-dd-a">restore()</a>
+						</dd><dd class="aside-dd">
+							<a href="rotate.html" class="aside-dd-a">rotate()</a>
+						</dd><dd class="aside-dd">
+							<a href="save.html" class="aside-dd-a">save()</a>
+						</dd><dd class="aside-dd">
+							<a href="scale.html" class="aside-dd-a">scale()</a>
+						</dd><dd class="aside-dd">
+							<a href="setLineDash.html" class="aside-dd-a">setLineDash()</a>
+						</dd><dd class="aside-dd">
+							<a href="setTransform.html" class="aside-dd-a">setTransform()</a>
+						</dd><dd class="aside-dd">
+							<a href="stroke.html" class="aside-dd-a">stroke()</a>
+						</dd><dd class="aside-dd">
+							<a href="strokeRect.html" class="aside-dd-a">strokeRect()</a>
+						</dd><dd class="aside-dd">
+							<a href="strokeText.html" class="aside-dd-a">strokeText()</a>
+						</dd><dd class="aside-dd">
+							<a href="transform.html" class="aside-dd-a">transform()</a>
+						</dd><dd class="aside-dd">
+							<a href="translate.html" class="aside-dd-a">translate()</a>
+						</dd></dl><dl class="aside-dl">
+	<dt class="aside-dt">其他相关API</dt>
+	<dd class="aside-dd">
+					<a href="index1.html" class="aside-dd-a">HTMLCanvasElement</a>
+				</dd><dd class="aside-dd">
+					<a href="index7.html" class="aside-dd-a">CanvasImageSource</a>
+				</dd><dd class="aside-dd">
+					<a href="index3.html" class="aside-dd-a">CanvasGradient</a>
+				</dd><dd class="aside-dd">
+					<a href="index8.html" class="aside-dd-a">CanvasPattern</a>
+				</dd><dd class="aside-dd">
+					<a href="index4.html" class="aside-dd-a">ImageBitmap</a>
+				</dd><dd class="aside-dd">
+					<a href="index5.html" class="aside-dd-a">ImageData</a>
+				</dd><dd class="aside-dd">
+					<a href="index9.html" class="aside-dd-a">RenderingContext</a>
+				</dd><dd class="aside-dd">
+					<a href="index6.html" class="aside-dd-a">TextMetrics</a>
+				</dd></dl>	</div>
+</aside>
+		</div>
+	</div>
+</main>
+<footer class="footer">
+	<div class="constr">
+		<div class="footer-copy">
+			<p>&copy;2018-2022 Canvas API中文网</p>
+			<p><a href="javascript:;" target="_blank" rel="nofollow" class="footer-a">沪ICP备18015889号</a> <a target="_blank" href="javascript:;" class="footer-a" style="margin-left: 10px;"><img src="static/picture/gongan.png" align="absmiddle"> 沪公网安备 31011502009818号</a></p>
+		<div>
+	</div>
+</div></div></footer>
+
+<!-- 成为会员 -->
+
+<script src="static/js/jquery.js"></script>
+<script src="static/js/all.js"></script>
+<script src="static/js/jquery.qrcode.min.js"></script>
+<script src="static/js/script-min.js"></script>
+<script src="static/js/hl_all.js"></script>
+<script>DlHighlight.HELPERS.highlightByName("code", "pre");
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1789413236d30f3c19ede9065278b2ee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script src="static/js/Blur.js"></script>
+<script>
+var eleImg = document.getElementById('image');
+var canvasBlur = document.getElementById('localBlur');
+if (eleImg && canvasBlur) {
+    var contextBlur = canvasBlur.getContext('2d');
+    var funDrawBlur = function () {
+        // 填充底部图像
+        contextBlur.drawImage(eleImg, 0, 0);
+        // 创建一个屏外canvas
+        var canvasOff = document.createElement('canvas');
+        canvasOff.width = canvasBlur.width;
+        canvasOff.height = canvasBlur.height;
+        var contextOff = canvasOff.getContext('2d');
+        
+        // 执行模糊
+        if (typeof contextBlur.filter == 'string') {
+            // 支持canvas滤镜
+            contextOff.filter = 'blur(10px)';
+            // 绘制局部图像
+            contextOff.drawImage(eleImg, 100, 60, 300, 213, 100, 60, 300, 213);
+            // 上层图像绘制
+            contextBlur.drawImage(canvasOff, 0, 0);
+        } else {
+            // 不支持Canvas滤镜
+            // 使用第三方方法
+            var blurFixed = new Blur({
+                radius: 10,
+                // 高斯算法性能较差
+                gaussian : false
+            });
+            blurFixed.init();
+            // 先绘制局部图像
+            contextOff.drawImage(eleImg, 100, 60, 300, 213, 100, 60, 300, 213);
+            // 再执行模糊
+            var imgBlured = blurFixed.blurRGBA(canvasOff, null, true);
+            // 上层图像绘制
+            contextBlur.drawImage(imgBlured, 0, 0);
+        }
+    };
+    if (eleImg.naturalWidth) {
+        funDrawBlur();
+    } else {
+        eleImg.onload = funDrawBlur;
+    }
+}
+</script>
+<script>
+canvasapi.initArticleNav();
+canvasapi.initDrawText();
+</script>
+</body>
+</html>

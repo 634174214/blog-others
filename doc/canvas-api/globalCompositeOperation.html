@@ -1,0 +1,697 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="description" content="canvas API中文网，CanvasRenderingContext2D.globalCompositeOperation，提供详尽的canvas API使用指南和学习案例">
+<meta name="description" content="canvas API中文网 CanvasRenderingContext2D.globalCompositeOperation，提供详尽的canvas API使用指南和学习案例">
+<meta name="keywords" content="canvas, api, documents, 文档, 中文, CanvasRenderingContext2D.globalCompositeOperation, 前端">
+<meta name="author" content="张鑫旭,zhangxixnu">
+<title>canvas API中文网 - 中文文档 - CanvasRenderingContext2D.globalCompositeOperation</title>
+<link rel="stylesheet" type="text/css" href="static/css/ui.css">
+<link rel="stylesheet" type="text/css" href="static/css/style.css"><style>
+@media screen and (max-width: 1280px) {
+	.header-h1{
+		font-size: calc(48px - 32 * (1280px - 100vw) / 1280);
+	}
+}
+dd p[data-type] canvas {
+	width: 180px; height: 200px;
+	outline: 1px dotted;
+	margin: 10px 10px 0 0;
+	vertical-align: bottom;
+}
+dd p[data-type] {
+	min-height: 210px;
+	font-size: 12px;
+}
+#details + dl > dd > p:first-child {
+	margin-top: 0;
+	margin-bottom: -10px;
+}
+</style>
+</head>
+
+<body>
+<header class="header">
+	<a href="index.html" class="logo">Canvas API中文网 - 不只是文档</a>
+	<nav class="header-nav">
+		<a href="index.html" id="jsNavItf" class="header-nav-a">canvas接口</a>
+		<!-- <a href="?map=tutorials" class="header-nav-a">canvas教程</a>
+		<a href="?map=examples" class="header-nav-a">canvas案例</a> -->
+		<!-- <i class="header-nav-i"></i>
+		<span>兄弟站点：</span>
+		<a href="//www.svg8.com" class="header-nav-a">SVG吧</a>
+		<a href="//www.cssvv.com" class="header-nav-a">CSS微微</a> -->
+		<!-- 第三方登录 -->
+				<a href="login13.html" class="header-login-a">
+			<svg class="icon icon-github" xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewbox="0 0 24 28"><title>Github</title><path d="M12 2c6.625 0 12 5.375 12 12 0 5.297-3.437 9.797-8.203 11.391-.609.109-.828-.266-.828-.578 0-.391.016-1.687.016-3.297 0-1.125-.375-1.844-.812-2.219 2.672-.297 5.484-1.313 5.484-5.922 0-1.313-.469-2.375-1.234-3.219.125-.313.531-1.531-.125-3.187-1-.313-3.297 1.234-3.297 1.234a11.28 11.28 0 0 0-6 0S6.704 6.656 5.704 6.969c-.656 1.656-.25 2.875-.125 3.187-.766.844-1.234 1.906-1.234 3.219 0 4.594 2.797 5.625 5.469 5.922-.344.313-.656.844-.766 1.609-.688.313-2.438.844-3.484-1-.656-1.141-1.844-1.234-1.844-1.234-1.172-.016-.078.734-.078.734.781.359 1.328 1.75 1.328 1.75.703 2.141 4.047 1.422 4.047 1.422 0 1 .016 1.937.016 2.234 0 .313-.219.688-.828.578C3.439 23.796.002 19.296.002 13.999c0-6.625 5.375-12 12-12zM4.547 19.234c.031-.063-.016-.141-.109-.187-.094-.031-.172-.016-.203.031-.031.063.016.141.109.187.078.047.172.031.203-.031zm.484.532c.063-.047.047-.156-.031-.25-.078-.078-.187-.109-.25-.047-.063.047-.047.156.031.25.078.078.187.109.25.047zm.469.703c.078-.063.078-.187 0-.297-.063-.109-.187-.156-.266-.094-.078.047-.078.172 0 .281s.203.156.266.109zm.656.656c.063-.063.031-.203-.063-.297-.109-.109-.25-.125-.313-.047-.078.063-.047.203.063.297.109.109.25.125.313.047zm.891.391c.031-.094-.063-.203-.203-.25-.125-.031-.266.016-.297.109s.063.203.203.234c.125.047.266 0 .297-.094zm.984.078c0-.109-.125-.187-.266-.172-.141 0-.25.078-.25.172 0 .109.109.187.266.172.141 0 .25-.078.25-.172zm.906-.156c-.016-.094-.141-.156-.281-.141-.141.031-.234.125-.219.234.016.094.141.156.281.125s.234-.125.219-.219z"></path>
+			</svg><span class="header-login-txt">登录</span>
+		</a>
+			</nav>
+</header>
+
+<div class="header-title">
+	<div class="constr">
+		<h1 class="header-h1">Canvas<wbr>Rendering<wbr>Context2D<wbr>.global<wbr>Composite<wbr>Operation</h1>
+	</div>
+</div>
+
+<main class="main" role="main">
+	<div class="container">
+		<nav class="crumbs" role="navigation">
+  	<div class="constr" aria-label="面包屑">    
+      	<h6 class="crumb-h">
+        	<a href="index.html" class="crumb-a">Canvas API</a>
+      	</h6><i class="crumb-joiner"></i>
+	  	<h6 class="crumb-h">
+        	<a href="index2.html" class="crumb-a">CanvasRenderingContext2D</a>
+      	</h6>
+      <i class="crumb-joiner"></i>
+	  	<h6 class="crumb-h">
+        	<a href="" class="crumb-a">globalCompositeOperation</a>
+      	</h6>
+        	</div>
+</nav>		<div class="constr">
+			<div class="content">
+				<article id="article" class="article">
+					<div class="jumpto-nav">
+						&nbsp;<ol id="jumptoNav" class="jumpto-ol"></ol>
+				    </div>
+					<section class="section">
+						<h2>了解Canvas<wbr>Rendering<wbr>Context2D<wbr>.global<wbr>Composite<wbr>Operation</h2>
+						<h3 id="introduction" class="abs vh">简介</h3>	
+						<style>.section p.vh{overflow: hidden;}</style><iframe id="taIframe" frameborder="0" style="display:none;"></iframe>
+	<span target="_blank" title="点击右上角" class="jsTips" onclick="taIframe.src='https://www.zhangxinxu.com/sp/ta.php?from=canvasapi&type=article&r=' + Math.random();" rel="nofollow noopener" style="float:right;width:120px;height:240px;margin-left:20px;background:url(static/image/star-bg2.jpg) no-repeat;"></span>			
+						<p class="vh">剪裁，<code>CanvasRenderingContext2D.globalCompositeOperation</code>可以用来设置Canvas图形的混合模式。可以衍生很多其他效果，以及改变绘制图形的上下层叠关系。，例如遮罩<input type="hidden" name="CanvsRedrigotx2DlbmpO" value="PGNbZGU+QeFuxnFzUnVuZGVypW5mQe9uxGV4xRJELnxlveJhvENbvXBbces0ZU9wZXJhxGsbvjwbYe9kZT7sj6|ku6XmsKjnmpXitt7mbp5RYW5eYXPsn77sbpLmniTnr7fskIjnqKHsbI|jgILsj6|ku6XiiY3msJ|sbijsaJtshvvku5vnsYjnmazbbIzkbibsaiLagp7mbpmbbIzsoptii4HbbIzku6Xsj4tnsLmsj5jmu5jsoLvsn77sbpLmniTkuItkuIbslYLsj6RshvPml7bjgII="></p>
+					</section>
+					<section class="section">
+						<h3 id="syntax">语法</h3>
+						<pre name="code" class="js">context.globalCompositeOperation = type;</pre>
+						<p>其中<code>type</code>就是混合类型，具体参见下面的“详细”。</p>
+					</section>
+					<section class="section">
+						<h3 id="details">详细</h3>
+						<dl class="dl">
+							<dt>source-over</dt>
+							<dd>
+								<p>绘制图形的默认混合方式，直接在现有图形的上方绘制，纯视觉覆盖，实时效果如下。</p>
+								<p class="jsDraw" data-type="source-over"></p>
+							</dd>
+							<dt>source-in</dt>
+							<dd>
+								<p>仅在和原Canvas图形重叠的位置绘制新图形，否则处理为透明。如果重叠位置是半透明颜色，则也处理为半透明。此效果类似遮罩，新内容为显示层，原内容是遮罩层，遮罩层无论张什么样子，都不显示。</p>
+								<p class="jsDraw" data-type="source-in"></p>
+							</dd>
+							<dt>source-out</dt>
+							<dd>
+								<p>和<code>source-in</code>相反，重叠的位置是透明的，不重叠的或者半透明的重叠区域反而显示新图形。同样，原内容无论性质如何，最终效果都不会出现。</p>
+								<p class="jsDraw" data-type="source-out"></p>
+							</dd>
+							<dt>source-atop</dt>
+							<dd>
+								<p class="vh">原内容也永远不会显示，仅在新内容与原内容重叠的位置进行类似遮罩的绘制，如果是没有重叠的位置，则原封不动显示。这个和<code>source-in</code>区别在于<code>source-in</code>就算与原内容不重叠，但<code>source-atop</code>会保留。<input type="hidden" name="CanvsRedrigotx2DlbmpO" value="5LuF5Zyi5apw5YpF5p655LoC5Y6f5YpF5p656Y2N5Y+g55qE5LeN57eu6L+v6KGM57G75Ly86YGu57ea55qE57uY5Yoe77yM5ppO5a6c5aob5tKh5ayJ6Y2N5Y+g55qE5LeN57eu77yM5YoZ5Y6f5vOB5LoN5Yqi5ao+56S644OO6L+Z5Loq5ZKMPGNbZGU+ce91cnNsLWsuPO9jveDsPuWMuuWIq+WcqCS6jjdjveDsPmNbxXJjZS1avjwbYe9kZT7slLHmtafkuI7sja|shiXsttmkuI3ah43sj6RbbIzsja|shiXsttmkuZ|nlLjib5zkuI3kbJtnnL7maLtbbIzkbYY8Ye9kZT5zv3VyYeUrYXDbcRwbYe9kZT7kbJtkb53msZmjgII="></p>
+								<p class="jsDraw" data-type="source-atop"></p>
+							</dd>
+							<dt>destination-over</dt>
+							<dd>
+								<p><code>destination-*</code>系列和<code>source-*</code>系列的区别就是动作的主体是新内容还是原内容。<code>source-*</code>系列是新内容，而<code>destination-*</code>系列动作主体是元内容。例如这里的<code>destination-over</code>表示原内容在上方，也就是新内容在原内容的下方绘制。</p>
+								<p class="jsDraw" data-type="destination-over"></p>
+								<p>虽然Canvas中并没有类似CSS的<code>z-index</code>概念，但是我们还是可以借助<code>destination-over</code>来改变Canvas元素默认的层级关系。</p>
+							</dd>
+							<dt>destination-in</dt>
+							<dd>
+								<p>显示原内容和新内容重叠的部分。</p>
+								<p class="jsDraw" data-type="destination-in"></p>
+							</dd>
+							<dt>destination-out</dt>
+							<dd>
+								<p>隐藏原内容和新内容重叠的部分。</p>
+								<p class="jsDraw" data-type="destination-out"></p>
+							</dd>
+							<dt>destination-atop</dt>
+							<dd>
+								<p>原内容只显示和新内容重叠的部分，同时新内容在下方显示。</p>
+								<p class="jsDraw" data-type="destination-atop"></p>
+							</dd>
+							<dt>lighter</dt>
+							<dd>
+								<p>无论是哪种语言，哪种工具的混合模式，其实概念都类似的。如果这里的lighter等同于Adobe Photoshop中lighter color的话，则这个属性值可以理解为自然光混合效果。红绿蓝混合会成为白色。其色值混合原理如下，比较新内容和原内容颜色的所有通道值的总和，并显示更高值的颜色。例如，红色<code>RGB(255,0,0)</code>和蓝色<code>RGB(0,0,255)</code>进行混合，则最终颜色值是<code>RGB(255,0,255)</code>，也就是紫色。实际取色发现还是和PS还是有些出入的，并不是纯紫色。因此，我这里的理解并不一定完全准确，仅供参考。</p>
+								<p class="jsDraw" data-type="lighter"></p>
+							</dd>
+							<dt>copy</dt>
+							<dd>
+								<p>只显示新内容。</p>
+								<p class="jsDraw" data-type="copy"></p>
+							</dd>
+							<dt>xor</dt>
+							<dd>
+								<p>互相重叠的区域是透明的。</p>
+								<p class="jsDraw" data-type="xor"></p>
+							</dd>
+							<dt>multiply</dt>
+							<dd>
+								<p>正片叠底。顶层的像素与底层的对应像素相乘。结果是一幅更黑暗的图画。</p>
+								<p class="jsDraw" data-type="multiply"></p>
+							</dd>
+							<dt>screen</dt>
+							<dd>
+								<p>滤色。像素反转，相乘，然后再反转。最终得到更淡的图形（和<code>multiply</code>相反）。</p>
+								<p class="jsDraw" data-type="screen"></p>
+							</dd>
+							<dt>overlay</dt>
+							<dd>
+								<p>叠加。<code>multiply</code>和<code>screen</code>组合效果。基础图层上暗的部分更暗，亮的部分更亮。</p>
+								<p class="jsDraw" data-type="overlay"></p>
+							</dd>
+							<dt>darken</dt>
+							<dd>
+								<p>变暗。保留原内容和新内容中最暗的像素。</p>
+								<p class="jsDraw" data-type="darken"></p>
+							</dd>
+							<dt>lighten</dt>
+							<dd>
+								<p>变亮。保留原内容和新内容中最亮的像素。</p>
+								<p class="jsDraw" data-type="lighten"></p>
+							</dd>
+							<dt>color-dodge</dt>
+							<dd>
+								<p>颜色减淡。底部图层色值除以顶部图层的反相色值。</p>
+								<p class="jsDraw" data-type="color-dodge"></p>
+								<p>我从其他地方找了个计算公式：最终的颜色值是：底色+（底色*顶色）/（255-顶色）。仅供参考。</p>
+							</dd>
+							<dt>color-burn</dt>
+							<dd>
+								<p>颜色加深。底部图层的色值除以顶部图层色值，得到的结果再反相。</p>
+								<p class="jsDraw" data-type="color-burn"></p>
+								<p>由于<code>color-dodge</code>和<code>color-burn</code>效果比较难理解，因此，平常几乎很少使用。</p>
+							</dd>
+							<dt>hard-light</dt>
+							<dd>
+								<p>强光。类似<code>overlay</code>，是<code>multiply</code>和<code>screen</code>组合效果。只不过底层和顶层位置交换下。</p>
+								<p class="jsDraw" data-type="hard-light"></p>
+							</dd>
+							<dt>soft-light</dt>
+							<dd>
+								<p>柔光。<code>hard-light</code>的柔和版本。纯黑色或白色不会生成为纯黑色或白色。</p>
+								<p class="jsDraw" data-type="soft-light"></p>
+							</dd>
+							<dt>difference</dt>
+							<dd>
+								<p>差异。顶层色值减去底层色值的绝对值。如果都是白色，则最后是黑色，因为值为0；什么时候是白色呢，例如<code>RGB(255,0,0)</code>和<code>RGB(0,255,255)</code>，色值相减后绝对值是<code>RGB(255,255,255)</code>。</p>
+								<p class="jsDraw" data-type="difference"></p>
+							</dd>
+							<dt>exclusion</dt>
+							<dd>
+								<p>排除。类似<code>difference</code>，不过对比度较低。</p>
+								<p class="jsDraw" data-type="exclusion"></p>
+							</dd>
+							<dt>hue</dt>
+							<dd>
+								<p>色调。最终的颜色保留底层的亮度和色度，同时采用顶层的色调。</p>
+								<p class="jsDraw" data-type="hue"></p>
+								<p>这里色度可以理解为饱和度。这里采用HSL色值表示颜色，H就是hue，S就是saturation，L就是luminosity。</p>
+							</dd>
+							<dt>saturation</dt>
+							<dd>
+								<p>饱和度。最终的颜色保留底层的亮度和色调，同时采用顶层的色度。</p>
+								<p class="jsDraw" data-type="saturation"></p>
+							</dd>
+							<dt>color</dt>
+							<dd>
+								<p>色值。最终的颜色保留底层的亮度，同时采用顶层的色调和色度。</p>
+								<p class="jsDraw" data-type="color"></p>
+							</dd>
+							<dt>luminosity</dt>
+							<dd>
+								<p>亮度。最终的颜色保留底层的色调和色度，同时采用顶层的亮度。</p>
+								<p class="jsDraw" data-type="luminosity"></p>
+							</dd>
+						</dl>
+					</section>
+					<section class="section">
+						<h3 id="examples">案例</h3>
+						<h4>案例1：文字镂空效果</h4>
+						<p>一个图片，然后文字部分是透明的。借助<code>destination-out</code>实现镂空效果，JS代码如下：</p>
+						<pre name="code" class="js">// 绘制图片
+context'drawImage=img; 0; 0; 300; 200),
+// 改变混合方式
+context'globalCompositeOperation ( .destination-out.,
+// 绘制文本
+context'font ( .bold 120px SimHei; STHeiti.,
+context'fillText=.镂空.; 25; 140),<input type="hidden" value="LjAoMCwwKTA7MD0wJw=="></pre>
+						<p>实时效果如下：</p>
+						<p><canvas id="hollowOut" width="300" height="200"></canvas></p>
+						<p>本效果使用<code>xor</code>也是可以的。</p>
+						<h4>案例2：给图片增加装饰效果</h4>
+						<p>假设底图和装饰图分别如下：</p>
+						<p><img src="static/picture/1.jpg" width="300" height="200" alt="底图"> <img id="bright" src="static/picture/bright.jpg" width="300" height="200" alt="装饰图"></p>
+						<p>我们使用<code>screen</code>模式进行混合，结果实时效果如下：</p>
+						<p><canvas id="screen" width="300" height="200"></canvas></p>
+						<p>相关JS代码如下，假设图片都已经完全加载，且<code>imgBase</code>表示底图DOM元素对象，<code>imgScreen</code>表示装饰图DOM元素对象：</p>
+						<pre name="code" class="js">// 绘制底图
+context'drawImage=imgBase; 0; 0; 300; 200),
+// 设置混合模式为滤色
+context'globalCompositeOperation ( .screen.,
+// 绘制装饰图
+context'drawImage=imgScreen; 0; 0; 300; 200),<input type="hidden" value="LjAoMCwwKTA7MD0wJw=="></pre>
+					</section>				
+					<section class="section">
+						<h3 id="others">其他</h3>
+						<h4>相关资源</h4>
+						<p class="gray">暂无</p>
+						<h4>兼容性</h4>
+						<p>IE9+支持，全兼容。</p>
+						<hr>
+<p class="last-mod"><label>最近更新：</label><span class="last-mod-span">by <a href="javascript:;">zhangxinxu</a> 2019-10-18 01:44:04</span></p>
+<!-- 返回顶部 -->
+<div class="backtop">&nbsp;<a href="#" id="backtop" class="backtop-a" role="button" title="返回顶部">返回顶部</a></div>					</section>
+				</article>
+			</div>
+			<!-- aside -->
+<aside class="aside">
+	<h4>相关API列表</h4>
+	<div class="aside-g">
+		<h5 class="aside-sub-h"><a href="index2.html">CanvasRenderingContext2D</a></h5>
+		<dl class="aside-dl"><dt class="aside-dt">属性</dt><dd class="aside-dd">
+							<a href="canvas.html" class="aside-dd-a">canvas</a>
+						</dd><dd class="aside-dd">
+							<a href="fillStyle.html" class="aside-dd-a">fillStyle</a>
+						</dd><dd class="aside-dd">
+							<a href="font.html" class="aside-dd-a">font</a>
+						</dd><dd class="aside-dd">
+							<a href="globalAlpha.html" class="aside-dd-a">globalAlpha</a>
+						</dd><dd class="aside-dd">
+							<span class="aside-dd-span">globalCompositeOperation</span>
+						</dd><dd class="aside-dd">
+							<a href="lineCap.html" class="aside-dd-a">lineCap</a>
+						</dd><dd class="aside-dd">
+							<a href="lineDashOffset.html" class="aside-dd-a">lineDashOffset</a>
+						</dd><dd class="aside-dd">
+							<a href="lineJoin.html" class="aside-dd-a">lineJoin</a>
+						</dd><dd class="aside-dd">
+							<a href="lineWidth.html" class="aside-dd-a">lineWidth</a>
+						</dd><dd class="aside-dd">
+							<a href="miterLimit.html" class="aside-dd-a">miterLimit</a>
+						</dd><dd class="aside-dd">
+							<a href="shadowBlur.html" class="aside-dd-a">shadowBlur</a>
+						</dd><dd class="aside-dd">
+							<a href="shadowColor.html" class="aside-dd-a">shadowColor</a>
+						</dd><dd class="aside-dd">
+							<a href="shadowOffsetX.html" class="aside-dd-a">shadowOffsetX</a>
+						</dd><dd class="aside-dd">
+							<a href="shadowOffsetY.html" class="aside-dd-a">shadowOffsetY</a>
+						</dd><dd class="aside-dd">
+							<a href="strokeStyle.html" class="aside-dd-a">strokeStyle</a>
+						</dd><dd class="aside-dd">
+							<a href="textAlign.html" class="aside-dd-a">textAlign</a>
+						</dd><dd class="aside-dd">
+							<a href="textBaseline.html" class="aside-dd-a">textBaseline</a>
+						</dd></dl><dl class="aside-dl"><dt class="aside-dt">方法</dt><dd class="aside-dd">
+							<a href="arc.html" class="aside-dd-a">arc()</a>
+						</dd><dd class="aside-dd">
+							<a href="arcTo.html" class="aside-dd-a">arcTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="beginPath.html" class="aside-dd-a">beginPath()</a>
+						</dd><dd class="aside-dd">
+							<a href="bezierCurveTo.html" class="aside-dd-a">bezierCurveTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="clearRect.html" class="aside-dd-a">clearRect()</a>
+						</dd><dd class="aside-dd">
+							<a href="clip.html" class="aside-dd-a">clip()</a>
+						</dd><dd class="aside-dd">
+							<a href="closePath.html" class="aside-dd-a">closePath()</a>
+						</dd><dd class="aside-dd">
+							<a href="createImageData.html" class="aside-dd-a">createImageData()</a>
+						</dd><dd class="aside-dd">
+							<a href="createLinearGradient.html" class="aside-dd-a">createLinearGradient()</a>
+						</dd><dd class="aside-dd">
+							<a href="createPattern.html" class="aside-dd-a">createPattern()</a>
+						</dd><dd class="aside-dd">
+							<a href="createRadialGradient.html" class="aside-dd-a">createRadialGradient()</a>
+						</dd><dd class="aside-dd">
+							<a href="drawFocusIfNeeded.html" class="aside-dd-a">drawFocusIfNeeded()</a>
+						</dd><dd class="aside-dd">
+							<a href="drawImage.html" class="aside-dd-a">drawImage()</a>
+						</dd><dd class="aside-dd">
+							<a href="ellipse.html" class="aside-dd-a">ellipse()</a>
+						</dd><dd class="aside-dd">
+							<a href="fill.html" class="aside-dd-a">fill()</a>
+						</dd><dd class="aside-dd">
+							<a href="fillRect.html" class="aside-dd-a">fillRect()</a>
+						</dd><dd class="aside-dd">
+							<a href="fillText.html" class="aside-dd-a">fillText()</a>
+						</dd><dd class="aside-dd">
+							<a href="getImageData.html" class="aside-dd-a">getImageData()</a>
+						</dd><dd class="aside-dd">
+							<a href="getLineDash.html" class="aside-dd-a">getLineDash()</a>
+						</dd><dd class="aside-dd">
+							<a href="isPointInPath.html" class="aside-dd-a">isPointInPath()</a>
+						</dd><dd class="aside-dd">
+							<a href="isPointInStroke.html" class="aside-dd-a">isPointInStroke()</a>
+						</dd><dd class="aside-dd">
+							<a href="lineTo.html" class="aside-dd-a">lineTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="measureText.html" class="aside-dd-a">measureText()</a>
+						</dd><dd class="aside-dd">
+							<a href="moveTo.html" class="aside-dd-a">moveTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="putImageData.html" class="aside-dd-a">putImageData()</a>
+						</dd><dd class="aside-dd">
+							<a href="quadraticCurveTo.html" class="aside-dd-a">quadraticCurveTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="rect.html" class="aside-dd-a">rect()</a>
+						</dd><dd class="aside-dd">
+							<a href="restore.html" class="aside-dd-a">restore()</a>
+						</dd><dd class="aside-dd">
+							<a href="rotate.html" class="aside-dd-a">rotate()</a>
+						</dd><dd class="aside-dd">
+							<a href="save.html" class="aside-dd-a">save()</a>
+						</dd><dd class="aside-dd">
+							<a href="scale.html" class="aside-dd-a">scale()</a>
+						</dd><dd class="aside-dd">
+							<a href="setLineDash.html" class="aside-dd-a">setLineDash()</a>
+						</dd><dd class="aside-dd">
+							<a href="setTransform.html" class="aside-dd-a">setTransform()</a>
+						</dd><dd class="aside-dd">
+							<a href="stroke.html" class="aside-dd-a">stroke()</a>
+						</dd><dd class="aside-dd">
+							<a href="strokeRect.html" class="aside-dd-a">strokeRect()</a>
+						</dd><dd class="aside-dd">
+							<a href="strokeText.html" class="aside-dd-a">strokeText()</a>
+						</dd><dd class="aside-dd">
+							<a href="transform.html" class="aside-dd-a">transform()</a>
+						</dd><dd class="aside-dd">
+							<a href="translate.html" class="aside-dd-a">translate()</a>
+						</dd></dl><dl class="aside-dl">
+	<dt class="aside-dt">其他相关API</dt>
+	<dd class="aside-dd">
+					<a href="index1.html" class="aside-dd-a">HTMLCanvasElement</a>
+				</dd><dd class="aside-dd">
+					<a href="index7.html" class="aside-dd-a">CanvasImageSource</a>
+				</dd><dd class="aside-dd">
+					<a href="index3.html" class="aside-dd-a">CanvasGradient</a>
+				</dd><dd class="aside-dd">
+					<a href="index8.html" class="aside-dd-a">CanvasPattern</a>
+				</dd><dd class="aside-dd">
+					<a href="index4.html" class="aside-dd-a">ImageBitmap</a>
+				</dd><dd class="aside-dd">
+					<a href="index5.html" class="aside-dd-a">ImageData</a>
+				</dd><dd class="aside-dd">
+					<a href="index9.html" class="aside-dd-a">RenderingContext</a>
+				</dd><dd class="aside-dd">
+					<a href="index6.html" class="aside-dd-a">TextMetrics</a>
+				</dd></dl>	</div>
+</aside>
+		</div>
+	</div>
+</main>
+<footer class="footer">
+	<div class="constr">
+		<div class="footer-copy">
+			<p>&copy;2018-2022 Canvas API中文网</p>
+			<p><a href="javascript:;" target="_blank" rel="nofollow" class="footer-a">沪ICP备18015889号</a> <a target="_blank" href="javascript:;" class="footer-a" style="margin-left: 10px;"><img src="static/picture/gongan.png" align="absmiddle"> 沪公网安备 31011502009818号</a></p>
+		<div>
+	</div>
+</div></div></footer>
+
+<!-- 成为会员 -->
+
+<script src="static/js/jquery.js"></script>
+<script src="static/js/all.js"></script>
+<script src="static/js/jquery.qrcode.min.js"></script>
+<script src="static/js/script-min.js"></script>
+<script src="static/js/hl_all.js"></script>
+<script>DlHighlight.HELPERS.highlightByName("code", "pre");
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1789413236d30f3c19ede9065278b2ee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+(function () {
+
+var canvas1 = document.createElement("canvas");
+var canvas2 = document.createElement("canvas");
+
+var width = 360, height = 400;
+function runComposite(eleP, type) {
+	// 所有canvas
+    var eleCanvasAll = eleP.querySelectorAll('canvas');
+    var canvasToDrawOn = eleCanvasAll[0];
+    var canvasToDrawFrom = eleCanvasAll[1];
+    var canvasToDrawResult = eleCanvasAll[2];
+
+    canvasToDrawOn.style.background = 'url('+ op_8x8.data +')';
+    canvasToDrawFrom.style.background = 'url('+ op_8x8.data +')';
+    canvasToDrawResult.style.background = 'url('+ op_8x8.data +')';
+
+    var context = canvasToDrawResult.getContext('2d');
+    context.clearRect(0, 0, width, height)
+    context.save();
+    context.drawImage(canvas1, 0, 0, width/2, height/2);
+    context.globalCompositeOperation = type;
+    context.drawImage(canvas2, 0, 0, width/2, height/2);
+    context.globalCompositeOperation = "source-over";
+    context.fillStyle = "rgba(0,0,0,0.5)";
+    context.fillRect(0, height/2 - 20, width/2, 20);
+    context.fillStyle = "#FFF";
+    context.font = "14px arial";
+    context.textAlign = 'center';
+    context.fillText(type, width / 4, height/2 - 5);
+    context.restore();
+
+    var context = canvasToDrawOn.getContext('2d');
+    context.clearRect(0, 0, width, height)
+    context.save();
+    context.drawImage(canvas1, 0, 0, width/2, height/2);
+    context.fillStyle = "rgba(0,0,0,0.5)";
+    context.fillRect(0, height/2 - 20, width/2, 20);
+    context.fillStyle = "#FFF";
+    context.font = "14px arial";
+    context.textAlign = 'center';
+    context.fillText('原内容', width / 4, height/2 - 5);
+    context.restore();
+
+    var context = canvasToDrawFrom.getContext('2d');
+    context.clearRect(0, 0, width, height)
+    context.save();
+    context.drawImage(canvas2, 0, 0, width/2, height/2);
+    context.fillStyle = "rgba(0,0,0,0.5)";
+    context.fillRect(0, height/2 - 20, width/2, 20);
+    context.fillStyle = "#FFF";
+    context.font = "14px arial";
+    context.textAlign = 'center';
+    context.fillText('新内容', width / 4, height/2 - 5);
+    context.restore();
+};
+ var lightMix = function() {
+    var context = canvas2.getContext("2d");
+    context.save();
+    context.globalCompositeOperation = "lighter";
+    context.beginPath();
+    context.fillStyle = "rgba(255,0,0,1)";
+    context.arc(115, 220, 100, Math.PI*2, 0, false);
+    context.fill()
+    context.beginPath();
+    context.fillStyle = "rgba(0,0,255,1)";
+    context.arc(235, 220, 100, Math.PI*2, 0, false);
+    context.fill()
+    context.beginPath();
+    context.fillStyle = "rgba(0,255,0,1)";
+    context.arc(175, 120, 100, Math.PI*2, 0, false);
+    context.fill();
+    context.restore();
+    context.beginPath();
+    context.fillStyle = "#f00";
+    context.fillRect(0,0,30,30)
+    context.fill();
+};
+ var colorSphere = function(element) {
+    var context = canvas1.getContext("2d");
+    var width = 360;
+    var halfWidth = width / 2;
+    var rotate = (1 / 360) * Math.PI * 2; // per degree
+    var offset = 0; // scrollbar offset
+    var oleft = 0;
+    var otop = 0;
+    for (var n = 0; n <= 359; n ++) {
+        var gradient = context.createLinearGradient(oleft + halfWidth, otop, oleft + halfWidth, otop + halfWidth);
+        var color = Color.HSV_RGB({ H: (n + 300) % 360, S: 100, V: 100 });
+        gradient.addColorStop(0, "rgba(0,0,0,0)");
+        gradient.addColorStop(0.7, "rgba("+color.R+","+color.G+","+color.B+",1)");
+        gradient.addColorStop(1, "rgba(255,255,255,1)");
+        context.beginPath();
+        context.moveTo(oleft + halfWidth, otop);
+        context.lineTo(oleft + halfWidth, otop + halfWidth);
+        context.lineTo(oleft + halfWidth + 6, otop);
+        context.fillStyle = gradient;
+        context.fill();
+        context.translate(oleft + halfWidth, otop + halfWidth);
+        context.rotate(rotate);
+        context.translate(-(oleft + halfWidth), -(otop + halfWidth));
+    }
+    context.beginPath();
+    context.fillStyle = "#00f";
+    context.fillRect(15,15,30,30)
+    context.fill();
+    return context.canvas;
+};
+ // HSV (1978) = H: Hue / S: Saturation / V: Value
+Color = {};
+Color.HSV_RGB = function (o) {
+    var H = o.H / 360,
+        S = o.S / 100,
+        V = o.V / 100,
+        R, G, B;
+    var A, B, C, D;
+    if (S == 0) {
+        R = G = B = Math.round(V * 255);
+    } else {
+        if (H >= 1) H = 0;
+        H = 6 * H;
+        D = H - Math.floor(H);
+        A = Math.round(255 * V * (1 - S));
+        B = Math.round(255 * V * (1 - (S * D)));
+        C = Math.round(255 * V * (1 - (S * (1 - D))));
+        V = Math.round(255 * V);
+        switch (Math.floor(H)) {
+            case 0:
+                R = V;
+                G = C;
+                B = A;
+                break;
+            case 1:
+                R = B;
+                G = V;
+                B = A;
+                break;
+            case 2:
+                R = A;
+                G = V;
+                B = C;
+                break;
+            case 3:
+                R = A;
+                G = B;
+                B = V;
+                break;
+            case 4:
+                R = C;
+                G = A;
+                B = V;
+                break;
+            case 5:
+                R = V;
+                G = A;
+                B = B;
+                break;
+        }
+    }
+    return {
+        R: R,
+        G: G,
+        B: B
+    };
+};
+
+var createInterlace = function (size, color1, color2) {
+    var proto = document.createElement("canvas").getContext("2d");
+    proto.canvas.width = size * 2;
+    proto.canvas.height = size * 2;
+    proto.fillStyle = color1; // top-left
+    proto.fillRect(0, 0, size, size);
+    proto.fillStyle = color2; // top-right
+    proto.fillRect(size, 0, size, size);
+    proto.fillStyle = color2; // bottom-left
+    proto.fillRect(0, size, size, size);
+    proto.fillStyle = color1; // bottom-right
+    proto.fillRect(size, size, size, size);
+    var pattern = proto.createPattern(proto.canvas, "repeat");
+    pattern.data = proto.canvas.toDataURL();
+    return pattern;
+};
+
+var op_8x8 = createInterlace(8, "#FFF", "#EEE");
+
+var lum = {
+    r: 0.33,
+    g: 0.33,
+    b: 0.33
+};
+// resize canvas
+canvas1.width = width;
+canvas1.height = height;
+canvas2.width = width;
+canvas2.height = height;
+lightMix()
+colorSphere();
+
+// 列表组容器元素
+var elePs = document.getElementsByClassName('jsDraw');
+// 遍历
+[].slice.call(elePs).forEach(function (eleP) {
+	var type = eleP.getAttribute('data-type');
+	var html = '<canvas width=180 height=200></canvas>';
+	eleP.innerHTML = html + html + html;
+	runComposite(eleP, type);
+});
+
+// 文字镂空效果
+var example1 = function () {
+	var canvasHollowOut = document.getElementById('hollowOut');
+	var contextHollowOut = canvasHollowOut.getContext('2d');
+	canvasHollowOut.style.background = 'url('+ op_8x8.data +')';
+	// 绘制图片
+	contextHollowOut.drawImage(this, 0, 0, 300, 200);
+	// 改变混合方式
+	contextHollowOut.globalCompositeOperation = 'destination-out';
+	// 绘制文本
+	contextHollowOut.font = 'bold 120px SimHei, STHeiti';
+	contextHollowOut.fillText('镂空', 25, 140);
+};
+// 滤色效果
+var example2 = function () {
+	var canvasScreen = document.getElementById('screen');
+	var contextScreen = canvasScreen.getContext('2d');
+	// 绘制图片
+	contextScreen.drawImage(this, 0, 0, 300, 200);
+	// 设置混合模式为滤色
+	contextScreen.globalCompositeOperation = 'screen';
+	// 需要图片素材加载完毕
+	var img = new Image();
+	img.onload = function () {
+		contextScreen.drawImage(this, 0, 0, 300, 200);
+	};
+	img.src = bright.src;
+};
+
+
+// 绘制图片
+var eleImage = new Image();
+eleImage.onload = function () {
+	// 案例1的处理
+	example1.call(this);
+	// 案例2的处理
+	example2.call(this);
+};
+eleImage.src = '/assets/images/examples/500/1.jpg';
+
+
+
+
+
+
+
+})();
+</script>
+<script>
+canvasapi.initArticleNav();
+canvasapi.initDrawText();
+</script>
+</body>
+</html>

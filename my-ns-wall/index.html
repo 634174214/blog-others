@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>我的游戏墙</title>
+    <meta name="keywords" content="游戏墙,gamewall,game">
+    <meta name="description" content="欢迎来到我的游戏墙，这是一个汇聚了游戏热情与创意的独特网页。">
+    <link rel="stylesheet" href="css/style.css?t=20260213">
+    <link rel="stylesheet" href="css/wudialog.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- 全屏骨架屏 -->
+        <transition name="fade">
+            <div v-if="waitingStatus" class="skeleton-screen">
+                <nav class="skeleton-tabs">
+                    <div class="skeleton-tab"></div>
+                    <div class="skeleton-tab"></div>
+                    <div class="skeleton-tab"></div>
+                </nav>
+                <div class="skeleton-console">
+                    <div class="skeleton-bar"></div>
+                    <div class="skeleton-bar"></div>
+                </div>
+                <div class="skeleton-grid">
+                    <!-- 手动写4个避免vue.js加载慢 -->
+                    <div class="skeleton-card">
+                        <div class="skeleton-image"></div>
+                        <div class="skeleton-info">
+                            <div class="skeleton-title"></div>
+                            <div class="skeleton-date"></div>
+                        </div>
+                    </div>
+                    <div class="skeleton-card" id="skeleton-card-lock">
+                        <div class="skeleton-image"></div>
+                        <div class="skeleton-info">
+                            <div class="skeleton-title"></div>
+                            <div class="skeleton-date"></div>
+                        </div>
+                    </div>
+                    <div class="skeleton-card">
+                        <div class="skeleton-image"></div>
+                        <div class="skeleton-info">
+                            <div class="skeleton-title"></div>
+                            <div class="skeleton-date"></div>
+                        </div>
+                    </div>
+                    <div class="skeleton-card">
+                        <div class="skeleton-image"></div>
+                        <div class="skeleton-info">
+                            <div class="skeleton-title"></div>
+                            <div class="skeleton-date"></div>
+                        </div>
+                    </div>
+                    <div class="skeleton-card" v-for="n in 4" :key="'skeleton-'+n">
+                        <div class="skeleton-image"></div>
+                        <div class="skeleton-info">
+                            <div class="skeleton-title"></div>
+                            <div class="skeleton-date"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+        <!-- 全屏骨架屏结束 -->
+
+        <template v-if="!waitingStatus">
+            <header class="header" id="header">
+                <div class="links">
+                    <ul class="links-ul">
+                        <li>
+                            <a href="http://ns.wubin.work/huilv-ns/" target="_blank" class="rate">汇率</a>
+                        </li>
+                        <li>
+                            <a href="http://ns.wubin.work/switch-japan-translate/" target="_blank"
+                                class="how-buy">eshop</a>
+                        </li>
+                        <li>
+                            <a href="http://ns.wubin.work/" target="_blank" class="how-friend">游小圈</a>
+                        </li>
+                    </ul>
+                </div>
+                <h1 class="textnoselect">我的游戏墙</h1>
+                <div class="switch-section">
+                    <button class="switch-button" @click="openSearch">
+                        <em class="switch-search"></em>
+                        <span>switch</span>
+                    </button>
+                </div>
+                <div class="stats">
+                    <p class="textnoselect">
+                        共 <span class="highlight">{{ totalGames }}款</span> 游戏</p>
+                    <p class="textnoselect">总价值约 <span class="highlight">{{ totalValue }}</span> 元</p>
+
+                </div>
+            </header>
+
+            <nav class="tabs-wrapper" id="tabs-wrapper" ref="tabsWrapperRef">
+                <div class="tabs" id="tabs-scroll">
+                    <div class="tabs-content">
+                        <div v-for="tab in tabs" :data-label="tab.label" :key="tab.label" class="tab"
+                            :class="{ active: tabCurrentLabel === tab.label }"
+                            @click.stop="setActiveTab(tab.label, $event)">
+                            <span class="textnoselect">{{ tab.cn }}</span>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <section class="console-info">
+                <div class="console-title">
+                    <img src="imgs/icon-switch.svg" alt="Switch">
+                    <span>主机信息（Switch 1代 OLED）</span>
+                </div>
+
+                <div class="serial-number">
+                    <span class="textnoselect">序列号：{{ serialNumberNS1 }}</span>
+                    <button class="copy-button" @click="copyContent(serialNumberNS1, '序列号已复制')">复制</button>
+                </div>
+
+                <div class="storage-info">
+                    <div>主机内存</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill"
+                            :style="{ width: calculateStoragePercentage(systemStorageNS1.used, systemStorageNS1.total) + '%' }">
+                        </div>
+                    </div>
+                    <div class="storage-details">
+                        <span>共{{ systemStorageNS1.total }}G | 已用 {{ systemStorageNS1.used }}G</span>
+                        <span>剩余空间 {{ systemStorageNS1.available }}G</span>
+                    </div>
+                </div>
+
+                <div class="storage-info">
+                    <div>内存卡</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill"
+                            :style="{ width: calculateStoragePercentage(sdCardStorageNS1.used, sdCardStorageNS1.total) + '%' }">
+                        </div>
+                    </div>
+                    <div class="storage-details">
+                        <span>共{{ sdCardStorageNS1.total }}G | 已用 {{ sdCardStorageNS1.used }}G</span>
+                        <span>剩余空间 {{ sdCardStorageNS1.available }}G</span>
+                    </div>
+                </div>
+
+                <div class="last-update">
+                    最后更新于：{{ lastUpdate }}
+                </div>
+            </section>
+
+            <section class="console-info-pure">
+                <!-- 轮播外层容器 -->
+                <div class="carousel-wrapper"
+                     id="carousel-wrapper"
+                     ref="carouselWrapperRef"
+                >
+                    <!-- 滚动容器 -->
+                    <ul class="carousel-content">
+                        <li class="carousel-item" 
+                            v-for="(account, key) in account‌sArr" 
+                            :key="key"
+                        >
+                            <div class="strong-label">
+                                <strong>{{ account.label }}</strong>
+                            </div>
+                            <div class="account-row">
+                                <div class="account-row-left">账户名称：</div>
+                                <p>{{ account.username }}</p>
+                            </div>
+                            <div class="account-row">
+                                <div class="account-row-left">账户邮箱：</div>
+                                <p>{{ account.email }}</p>
+                            </div>
+                            <div class="account-row">
+                                <div class="account-row-left">关联主机账户：</div>
+                                <p>{{ account.ns_account }}</p>
+                            </div>
+                            <div class="account-row">
+                                <div class="account-row-left">所属store链接：</div>
+                                <a :href="account.link" target="_blank">打开nintendo store</a>
+                            </div>
+                            <div class="account-row">
+                                <div class="account-row-left">备注：</div>
+                                <p>{{ account.note ? account.note : '无' }}</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 轮播指示点 -->
+                <div class="carousel-dots" v-if="account‌sArr.length > 0">
+                    <span
+                        class="dot"
+                        :class="{ active: accountSlidersCurrent === idx }"
+                        v-for="(item, idx) in account‌sArr"
+                        :key="idx"
+                    ></span>
+                </div>
+            </section>
+
+            <section v-show="tabCurrentLabel !== 'all'" class="current-tab-games-count">
+                <span v-if="currentTabGamesCount" v-html="currentTabGamesCount"></span>
+                <span v-if="currentTabTotalPrice">总价值约 ￥{{ currentTabTotalPrice }}</span>
+            </section>
+
+            <section class="games-sort">
+
+                <div class="left" @click="randomSort">排序</div>
+                <div class="right" :class="{ 
+                        'desc': sortOrder === 'desc',
+                        'asc': sortOrder === 'asc'
+                    }">
+                    <div class="sort-item" :class="{ active: sortType === 'price_buy' }"
+                        @click="setSortType('price_buy')">
+                        价格
+                    </div>
+                    <div class="sort-item" :class="{ active: sortType === 'discount' }"
+                        @click="setSortType('discount')">
+                        折扣
+                    </div>
+                    <div class="sort-item" :class="{ active: sortType === 'price_origin' }"
+                        @click="setSortType('price_origin')">
+                        原价
+                    </div>
+                    <div class="sort-item" :class="{ active: sortType === 'bug_date' }"
+                        @click="setSortType('bug_date')">
+                        购买日期
+                    </div>
+                </div>
+            </section>
+
+            <div class="games-grid" v-if="!loading">
+                <div v-for="(game, gindex) in games" :key="gindex" class="game-card"
+                    :class="{ 'game-card-no-color': getNocolorResult(game) }" @click="showGameDetail(game)">
+                    <div class="game-image-wrapper">
+                        <img :src="game.preview" :alt="game.cn_name" class="game-image img-noselect"
+                            :class="{ 'no-color': getNocolorResult(game) }">
+                    </div>
+                    <div class="game-info">
+                        <div class="game-title">
+                            <div class="game-belong">
+                                <span class="game-belong-dlc" v-if="game.is_dlc"></span>
+                                <span class="game-belong-card" v-if="game.type === 'card'"></span>
+                                <span class="game-has-played" v-if="gameHasPlayed(game.cn_name)"></span>
+                            </div>
+                            {{ game.cn_name }}
+                        </div>
+                        <div class="game-date" v-if="game.bug_date">{{ game.bug_date }}</div>
+                    </div>
+                    <span v-if="game.tag" class="game-tag">{{ game.price_buy }}</span>
+                </div>
+            </div>
+
+            <div class="go-top" @click="scrollToTop" id="go-top"></div>
+
+            <div class="game-detail-close textnoselect" @click="closeDetail" v-show="showDetailClose">
+                ×
+            </div>
+
+            <transition name="slide">
+                <section v-if="showSearch" class="search">
+                    <div class="search-header">
+                        <div class="search-top">
+                            <div class="search-input-wrapper">
+                                <!-- @keyup.enter="handleSearch" -->
+                                <input type="text" class="search-input" v-model="searchKeyword" placeholder="搜索游戏...">
+                                <div class="search-clear" @click="clearSearch">×</div>
+                            </div>
+                            <button class="search-close" @click="closeSearch">关闭</button>
+                        </div>
+                    </div>
+                    <div class="search-scroll-wrapper" ref="searchScrollWrapperRef">
+                        <div class="search-scroll">
+                            <!-- search-history -->
+                            <div class="search-history" v-if="searchHistory.length > 0">
+                                <div class="history-header">
+                                    <h3>搜索历史</h3>
+                                    <button class="clear-history" @click="clearHistory">清空</button>
+                                </div>
+                                <div class="history-list">
+                                    <div v-for="(item, index) in searchHistory" :key="index" class="history-item"
+                                        @click="searchFromHistory(item)">
+                                        {{ item }}
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- search-history end -->
+                            <!-- search-results -->
+                            <div class="search-results" :class="{'search-results-margtop': searchHistory.length <= 0}"
+                                v-if="searchResults.length > 0">
+                                <div class="results-list">
+                                    <div v-for="game in searchResults" :key="game.id" class="result-item"
+                                        @click="showGameDetailFromSearch(game)">
+                                        <img :src="game.preview" :class="{'no-color': getNocolorResult(game) }">
+                                        <div class="result-info">
+                                            <div class="result-title" v-html="game.cn_name"></div>
+                                            <div class="result-meta" v-html="game.en_name"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- search-results end -->
+                            <div class="search-empty" v-if="searchResults.length <= 0 && searchKeyword">
+                                {{ isSearching ? '搜索中...' : '抱歉，没有找到匹配的结果' }}
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            </transition>
+
+            <transition name="slide" @after-enter="detailAfterEnter">
+                <div v-if="showDetail" class="game-detail-layer">
+                    <div class="detail-image" :style="detailImageBg">
+                        <div class="filter" :style="filterStyle"></div>
+                    </div>
+                    <div class="detail-content" ref="detailContentRef">
+                        <div class="detail-wrapper">
+                            <div class="detail-info">
+                                <h3 @click="copyContent(currentGame.cn_name, '游戏中文名已复制')">{{ currentGame.cn_name }}</h3>
+                                <div class="h3-small">
+                                    <span v-if="currentGame.ns1_ok" class="h3-small-ns">
+                                        <img src="imgs/icon-switch.svg">
+                                    </span>
+                                    <span v-if="currentGame.ns2_ok" class="">
+                                        <img src="imgs/icon-switch2.svg">
+                                    </span>
+                                    <span v-if="currentGame.type === 'card'" class="h3-small-card">
+                                        <img src="imgs/icon-card.png">
+                                    </span>
+                                    <span v-if="currentGame.type === 'digital'" class="h3-small-digital">
+                                        <img src="imgs/icon-digital.png">
+                                    </span>
+                                    <span v-if="currentGame.is_dlc" class="h3-small-isdlc">
+                                        <img src="imgs/icon-dlc.png">
+                                    </span>
+                                    <span v-if="currentGame.type === 'card' && !currentGame.is_dlc"
+                                        class="h3-small-gameself">
+                                        <img src="imgs/icon-gameself.png">
+                                    </span>
+                                    <span v-if="currentGame.type === 'digital' && currentGame.virtual_card_out"
+                                        class="">
+                                        <img src="imgs/icon-virtual-card-out.svg">
+                                    </span>
+                                    <span v-if="currentGame.type === 'digital' && !currentGame.virtual_card_out"
+                                        class="">
+                                        <img src="imgs/icon-virtual-card-in.svg">
+                                    </span>
+                                    <span v-if="currentGame.lended" class="">
+                                        <img src="imgs/icon-lended.svg">
+                                    </span>
+                                    <span v-if="currentGame.game_delete" class="">
+                                        <img src="imgs/icon-gamedelete.svg">
+                                    </span>
+                                    <span v-if="gameHasPlayed(currentGame.cn_name)">
+                                        <img src="imgs/icon-has-played.svg">
+                                    </span>
+                                </div>
+                                <div class="info-item" v-if="currentGame.en_name"
+                                    @click="copyContent(currentGame.en_name, '游戏英文名已复制')">
+                                    <label>英文名称：</label>
+                                    <span>{{ currentGame.en_name }}</span>
+                                </div>
+                                <div class="info-item" v-if="currentGame.jp_name"
+                                    @click="copyContent(currentGame.jp_name, '游戏日文名已复制')">
+                                    <label>日文名称：</label>
+                                    <span>{{ currentGame.jp_name }}</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>所属大区：</label>
+                                    <span>{{ currentGame.area }}</span>
+                                </div>
+                                <div class="info-item" v-if="detailServerCnName(currentGame.label)">
+                                    <label>所在区服：</label>
+                                    <span>{{ detailServerCnName(currentGame.label) }}</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>类型：</label>
+                                    <span>{{ getGameType(currentGame.type) }}</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>安装主机：</label>
+                                    <template v-if="currentGame.virtual_card_out">
+                                        <span v-if="!currentGame.lended">尚未设置到任何主机</span>
+                                        <span v-else>{{ currentGame.lended_to }} 的主机</span>
+                                    </template>
+                                    <span v-else>{{ currentGame.installed_on }}</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>购入价格：</label>
+                                    <span>{{ currentGame.price_buy }}</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>价格RMB：</label>
+                                    <span>{{ currentGame.price_buy_rmb }}</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>原价：</label>
+                                    <span>{{ currentGame.price_origin }}</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>原价RMB：</label>
+                                    <span>{{ currentGame.price_origin_rmb }}</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>折扣：</label>
+                                    <span>{{ currentGame.discount }}</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>购入日期：</label>
+                                    <span>{{ currentGame.bug_date ? currentGame.bug_date : '暂无' }}</span>
+                                </div>
+                                <div v-if="currentGame.is_dlc !== undefined" class="info-item">
+                                    <label>DLC：</label>
+                                    <span>{{ currentGame.is_dlc ? '是' : '否' }}</span>
+                                </div>
+                                <div class="info-item" v-if="currentGame.type === 'digital'">
+                                    <label>虚拟卡：</label>
+                                    <span>{{ currentGame.virtual_card_out ? '虚拟卡已拔出' : '虚拟卡已插入' }}</span>
+                                </div>
+                                <div class="info-item"> 
+                                    <label>游玩账号：</label>
+                                    <div v-if="currentGame?.gaming_ns_account" class="item-line-center">
+                                        <img :src="`imgs/flag-${currentGame.gaming_ns_account.label_en}.jpg`" height="14">
+                                        <em>{{ currentGame.gaming_ns_account.text }}</em>
+                                    </div>
+                                    <div v-else class="item-line-center">
+                                        <img :src="`imgs/flag-${defaultGamingAccount.label_en}.jpg`" height="14">
+                                        <em>{{ defaultGamingAccount.text }}</em>
+                                    </div>
+                                </div>
+                                <div v-if="currentGame.notes" class="info-item">
+                                    <label>备注：</label>
+                                    <span v-html="currentGame.notes"></span>
+                                </div>
+                                <div class="info-item">
+                                    <label>游戏删除：</label>
+                                    <span>{{ currentGame.game_delete ? '是，已经删除或清空软体数据' : '否' }}</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>是否借出：</label>
+                                    <span>{{ currentGame.lended ? '是' : '否' }}</span>
+                                </div>
+                                <div class="info-item" v-if="currentGame.lended">
+                                    <label>借给：</label>
+                                    <span>{{ currentGame.lended_to }}</span>
+                                </div>
+                                <div class="info-item" v-if="currentGame.lended">
+                                    <label>借出日期：</label>
+                                    <span>{{ currentGame.lended_date }}</span>
+                                </div>
+                                <div class="info-item" v-if="currentGame.lended">
+                                    <label>今天日期：</label>
+                                    <span>{{ today }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </transition>
+        </template>
+
+    </div>
+
+    <script src="js/better-scroll.min.js"></script>
+    <script src="js/wudialog.js"></script>
+    <script src="js/axios-0.21.4.min.js"></script>
+    <!-- <script src="js/vue.global.js"></script> -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/app.js?t=20260213"></script>
+</body>
+
+</html>

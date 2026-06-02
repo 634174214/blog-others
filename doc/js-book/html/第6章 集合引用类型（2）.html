@@ -1,0 +1,358 @@
+
+        <html>
+        <head>
+            <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+            <title>第6章 集合引用类型（2）</title>
+            <meta name="keywords" content="JS高级设计第四版">
+            <meta name="description" content="JS高级设计第四版，读书笔记- 第6章 集合引用类型（2）">
+            <link rel="stylesheet" type="text/css" href="markdown.css">
+            <script src="https://www.qdxin.cn/js/xinquery.js"></script>
+        </head>
+        <body>
+            <h1>第6章 集合引用类型(2)</h1>
+<h2>Map类型</h2>
+<p>Map 是 ES6 新增的集合类型，大多数特性都可以通过 Object 类型实现，但是两者还有一些细微差异</p>
+<p>使用 new 关键字和 Map 构造函数创建空的实例</p>
+<pre><code class="language-javascript">const m = new Map();</code></pre>
+<p>如果想在创建的同时初始化实例，可以给 Map 构造函数传入一个可迭代对象</p>
+<pre><code class="language-javascript">// 使用嵌套数组初始化映射 
+const m1 = new Map([
+  ["key1", "val1"],
+  ["key2", "val2"],
+  ["key3", "val3"]
+]);
+alert(m1.size); // 3
+
+// 使用自定义迭代器初始化映射 
+const m2 = new Map({
+  [Symbol.iterator]: function*() {
+    yield ["key1", "val1"];
+    yield ["key2", "val2"];
+    yield ["key3", "val3"];
+  } 
+});
+alert(m2.size); // 3</code></pre>
+<p>初始化之后，可以使用 set() 方法再添加键/值对；可以使用 get() 和 has() 进行查询；可以通过 size 属性获取映射中的键/值对的数量；可以使用 delete() 和 clear() 删除值。</p>
+<pre><code class="language-javascript">const m = new Map();
+alert(m.has("firstName"));  // false
+alert(m.get("firstName"));  // undefined
+alert(m.size);              // 0
+
+// set()方法返回映射实例，因此可以把多个操作连缀起来
+m.set("firstName", "Matt").set("lastName", "Frisbie");
+alert(m.has("firstName")); // true
+alert(m.get("firstName")); // Matt
+alert(m.size);             // 2
+
+m.delete("firstName"); // 只删除这一个键/值对
+alert(m.has("firstName")); // false
+alert(m.has("lastName"));  // true
+alert(m.size);             // 1
+
+m.clear(); // 清除这个映射实例中的所有键/值对
+alert(m.has("firstName")); // false
+alert(m.has("lastName"));  // false
+alert(m.size);             // 0</code></pre>
+<p>与 Object 只能使用数值、字符串或符号作为键不同，Map 可以使用任何 JavaScript 数据类型作为键。与 Object 类似，映射的值是没有限制的。</p>
+<pre><code class="language-javascript">const m = new Map();
+const functionKey = function() {};
+const symbolKey = Symbol();
+const objectKey = new Object();
+m.set(functionKey, "functionValue");
+m.set(symbolKey, "symbolValue");
+m.set(objectKey, "objectValue");
+alert(m.get(functionKey));  // functionValue
+alert(m.get(symbolKey));    // symbolValue
+alert(m.get(objectKey));    // objectValue
+// 即使看起来相同的key，实际也是不相等的
+alert(m.get(function() {})); // undefined</code></pre>
+<p>与 Object 类型的一个主要差异是，Map 实例会维护键值对的插入顺序，因此可以根据插入顺序执行迭代操作</p>
+<pre><code class="language-javascript">const m = new Map([
+  ["key1", "val1"],
+  ["key2", "val2"],
+  ["key3", "val3"]
+]);
+alert(m.entries === m[Symbol.iterator]); // true
+
+for (let pair of m.entries()) {
+  alert(pair);
+}
+// [key1,val1]
+// [key2,val2]
+// [key3,val3]
+for (let pair of m[Symbol.iterator]()) {
+  alert(pair);
+}
+// [key1,val1]
+// [key2,val2]
+// [key3,val3]</code></pre>
+<p>开发中具体使用 Object 还是 Map 因人而异，考虑到需要兼容老版本浏览器，可能还是使用 Object 会更合适一些，但是随着技术的发展，可能会逐步的用 Map 进行替换，在此希望读者了解，至少能够读懂高手们的代码和思路</p>
+<h2>WeakMap类型</h2>
+<p>前面之所以介绍 Map 类型，有一部分原因也是为了引出 WeakMap 类型。WeakMap 是 Map 的“兄弟”类型，其 API 也是 Map 的子集。</p>
+<p>使用 new 关键字实例化一个空的 WeakMap：</p>
+<pre><code class="language-javascript">const wm = new WeakMap();</code></pre>
+<p>WeakMap 中的键只能是 Object 或者继承自 Object 的类型，其他类型会抛出 TypeError，但是值的类型没有限制。</p>
+<pre><code class="language-javascript">const key1 = {id: 1},
+      key2 = {id: 2},
+      key3 = {id: 3};
+const wm1 = new WeakMap([
+  [key1, "val1"],
+  [key2, "val2"],
+  [key3, "val3"]
+]);
+alert(wm1.get(key1)); // val1
+alert(wm1.get(key2)); // val2
+alert(wm1.get(key3)); // val3
+
+// 只要有一个键无效就会抛出错误，导致整个初始化失败
+const wm2 = new WeakMap([
+  [key1, "val1"],
+  ["BADKEY", "val2"],
+  [key3, "val3"]
+]);
+// TypeError: Invalid value used as WeakMap key
+typeof wm2;
+// ReferenceError: wm2 is not defined
+
+// 实在需要用原始值做键，可以先包装成对象再用
+const stringKey = new String("key1"); 
+const wm3 = new WeakMap([
+  stringKey, "val1"
+]);
+alert(wm3.get(stringKey)); // "val1"</code></pre>
+<p>初始化之后可以使用 set() 再添加键/值对，可以使用 get() 和 has() 查询，还可以使用 delete() 删除，用法与 Map 一致。</p>
+<p>WeakMap 中“weak”表示弱映射的键是“弱弱地拿着”。意思就是，这些键不属于正式的引用，不会阻止垃圾回收。但要注意的是，弱映射中值的引用可不是“弱弱地拿着”。只要键存在，键/值对就会存在于映射中，并被当作对值的引用，因此就不会被当作垃圾回收。</p>
+<pre><code class="language-javascript">const wm = new WeakMap();
+wm.set({}, "val"); // 定义键/值对</code></pre>
+<p>以上例子中，因为没有指向 wm 的其他引用，所以当这行代码执行完成后，这个对象键就会被当作垃圾回收，这个键/值对就从弱映射中消失了，使其成为一个空映射。因为值也没有被引用，所以这对键/值被破坏以后，值本身也会成为垃圾回收的目标</p>
+<pre><code class="language-javascript">const wm = new WeakMap();
+const container = {
+  key: {}
+};
+wm.set(container.key, "val");
+
+function removeReference() {
+  container.key = null;
+}</code></pre>
+<p>这一次，container 对象维护着一个对弱映射键的引用，因此这个对象键不会成为垃圾回收的目标。不过，如果调用了 removeReference()，就会摧毁键对象的最后一个引用，垃圾回收程序就可以把这个键/值对清理掉。</p>
+<p>因为 WeakMap 中的键/值对任何时候都可能被销毁，所以其键/值对是不可迭代的</p>
+<p>对于 WeakMap 的应用</p>
+<ol>
+<li>
+<p>维护私有变量：私有变量会存储在弱映射中，以对象实例为键，以私有成员的字典为值</p>
+<pre><code class="language-javascript">const wm = new WeakMap();
+
+class User {
+  constructor(id) {
+    this.idProperty = Symbol('id');
+    this.setId(id);
+  }
+
+  setId(id) {
+    this.setPrivate(this.idProperty, id);
+  }
+
+  getId() {
+    return this.getPrivate(this.idProperty);
+  }
+
+  setPrivate(property, value) {
+    const privateMembers = wm.get(this) || {};
+    privateMembers[property] = value;
+    wm.set(this, privateMembers);
+  }
+
+  getPrivate(property) {
+    return wm.get(this)[property];
+  }
+}
+
+const user = new User(123);
+alert(user.getId()); // 123
+user.setId(456);
+alert(user.getId()); // 456
+// 并不是真正私有的，外部依然可以访问到idProperty属性
+alert(wm.get(user)[user.idProperty]); // 456</code></pre>
+<p>为了避免外部访问私有变量，可以使用闭包将 WeakMap 包装一下</p>
+<pre><code class="language-javascript">const User = (() =&gt; {
+  const wm = new WeakMap();
+
+ class User {
+    constructor(id) {
+      this.idProperty = Symbol('id');
+      this.setId(id);
+    }
+
+    setId(id) {
+      this.setPrivate(this.idProperty, id);
+    }
+
+    getId() {
+      return this.getPrivate(this.idProperty);
+    }
+
+    setPrivate(property, value) {
+      const privateMembers = wm.get(this) || {};
+      privateMembers[property] = value;
+      wm.set(this, privateMembers);
+    }
+
+    getPrivate(property) {
+      return wm.get(this)[property];
+    }
+  }
+})();
+
+const user = new User(123);
+alert(user.getId()); // 123
+user.setId(456);
+alert(user.getId()); // 456
+// 此时无法访问wm了，也就取不到user的idProperty属性了
+alert(wm.get(user)[user.idProperty]);
+// Uncaught ReferenceError: wm is not defined</code></pre>
+</li>
+<li>
+<p>保存DOM节点元数据</p>
+<pre><code class="language-javascript">const m = new Map();
+const loginButton = document.querySelector('#login');
+// 给这个节点关联一些元数据 
+m.set(loginButton, {disabled: true});</code></pre>
+<p>如果页面经过 JS 修改，登录按钮从 DOM 树中删掉了，但是由于映射中还保存着按钮的引用，所以对应的 DOM 节点仍然会逗留在内存中。如果改成下方代码，可以解决这个问题：</p>
+<pre><code class="language-javascript">const wm = new WeakMap();
+const loginButton = document.querySelector('#login');
+// 给这个节点关联一些元数据 
+wm.set(loginButton, {disabled: true});</code></pre>
+<p>当登录按钮节点从 DOM 树中被删除后，垃圾回收程序就可以立即释放其内存</p>
+</li>
+</ol>
+<h2>Set类型</h2>
+<p>Set 也是 ES6 新增的集合类型，在很多方面像是加强的 Map</p>
+<p>使用 new 关键字和 Set 构造函数创建一个空集合：</p>
+<pre><code class="language-javascript">const m = new Set();</code></pre>
+<p>如果想在创建的同时初始化实例，则可以给 Set 构造函数传入一个可迭代对象</p>
+<pre><code class="language-javascript">// 使用数组初始化集合
+const s1 = new Set(["val1", "val2", "val3"]);
+alert(s1.size); // 3
+
+// 使用自定义迭代器初始化集合
+const s2 = new Set({
+  [Symbol.iterator]: function*() {
+    yield "val1";
+    yield "val2";
+    yield "val3";
+  }
+});
+alert(s2.size); // 3</code></pre>
+<p>初始化完成后，可以使用 add() 增加值，使用 has() 查询，通过 size 取得元素数量，以及使用 delete() 和 clear() 删除元素:</p>
+<pre><code class="language-javascript">const s = new Set();
+alert(s.has("Matt")); // false
+alert(s.size); // 0
+s.add("Matt")
+ .add("Frisbie");
+alert(s.has("Matt")); // true
+alert(s.size); // 2
+s.delete("Matt");
+alert(s.has("Matt")); // false
+alert(s.has("Frisbie")); // true
+alert(s.size); // 1
+s.clear(); // 销毁集合实例中的所有值
+alert(s.has("Matt")); // false
+alert(s.has("Frisbie")); // false
+alert(s.size); // 0</code></pre>
+<p>与 Map 类似，Set 可以包含任何 JS 数据类型作为值</p>
+<pre><code class="language-javascript">const s = new Set();
+const functionVal = function() {};
+const symbolVal = Symbol();
+const objectVal = new Object();
+s.add(functionVal);
+s.add(symbolVal);
+s.add(objectVal);
+alert(s.has(functionVal)); // true
+alert(s.has(symbolVal)); // true
+alert(s.has(objectVal)); // true
+// SameValueZero 检查意味着独立的实例不会冲突 
+alert(s.has(function() {})); // false</code></pre>
+<p>用作值的对象和其他“集合”类型在自己的内容或属性被修改时也不会改变</p>
+<pre><code class="language-javascript">const s = new Set();
+const objVal = {}, arrVal = [];
+s.add(objVal);
+s.add(arrVal);
+objVal.bar = "bar";
+arrVal.push("bar");
+alert(s.has(objVal)); // true
+alert(s.has(arrVal)); // true</code></pre>
+<p>delete() 返回一个布尔值，表示集合中是否存在要删除的值：</p>
+<pre><code class="language-javascript">const s = new Set();
+s.add('foo');
+alert(s.size); // 1
+s.add('foo');
+alert(s.size); // 1
+// 集合里有这个值 
+alert(s.delete('foo')); // true
+// 集合里没有这个值 
+alert(s.delete('foo')); // false</code></pre>
+<p>Set 会维护值插入时的顺序，因此支持按顺序迭代，迭代方式与 Map 类似</p>
+<pre><code class="language-javascript">const s = new Set(["val1", "val2", "val3"]);
+alert(s.values === s[Symbol.iterator]); // true
+alert(s.keys === s[Symbol.iterator]); // true
+for (let value of s.values()) {
+  alert(value);
+}
+// val1
+// val2
+// val3
+
+for (let value of s[Symbol.iterator]()) {
+  alert(value);
+}
+// val1
+// val2
+// val3
+
+for (let pair of s.entries()) { 
+  console.log(pair);
+}
+// ["val1", "val1"]
+// ["val2", "val2"]
+// ["val3", "val3"]
+
+// 使用回调方式进行迭代
+s.forEach((val, dupVal) =&gt; alert(`${val} -&gt; ${dupVal}`));
+// val1 -&gt; val1
+// val2 -&gt; val2
+// val3 -&gt; val3</code></pre>
+<h2>WeakSet类型</h2>
+<p>WeakSet 是 Set 的“兄弟”类型，其 API 也是 Set 的子集。</p>
+<p>使用 new 关键字实例化一个空的 WeakSet：</p>
+<pre><code class="language-javascript">const ws = new WeakSet();</code></pre>
+<p>弱集合中的值只能是 Object 或者继承自 Object 的类型，尝试使用非对象设置值会抛出 TypeError</p>
+<p>构造函数可以接收一个可迭代对象，其中需要包含有效的值</p>
+<pre><code class="language-javascript">const val1 = {id: 1},
+      val2 = {id: 2},
+      val3 = {id: 3};
+// 使用数组初始化弱集合
+const ws1 = new WeakSet([val1, val2, val3]);
+alert(ws1.has(val1)); // true
+alert(ws1.has(val2)); // true
+alert(ws1.has(val3)); // true
+
+// 只要有一个值无效就会抛出错误，导致整个初始化失败
+const ws2 = new WeakSet([val1, "BADVAL", val3]); // TypeError: Invalid value used in WeakSet typeof ws2;
+// 原始值可以先包装成对象再用作值
+const stringVal = new String("val1"); 
+const ws3 = new WeakSet([stringVal]); alert(ws3.has(stringVal)); // true</code></pre>
+<p>初始化之后可以使用 add() 再添加新值，可以使用 has() 查询，还可以使用 delete() 删除：</p>
+<pre><code class="language-javascript">const ws = new WeakSet();
+const val1 = {id: 1}, val2 = {id: 2};
+alert(ws.has(val1)); // false
+ws.add(val1).add(val2);
+alert(ws.has(val1)); // true
+alert(ws.has(val2)); // true
+ws.delete(val1); // 只删除这一个值 
+alert(ws.has(val1)); // false
+alert(ws.has(val2)); // true </code></pre>
+<p>WeakSet 对于“weak”的解释与 WeakMap 基本一致，不再赘述，感兴趣直接看书上原文</p>
+        </body>
+        </html>
+    

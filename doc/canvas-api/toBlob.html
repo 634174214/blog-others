@@ -1,0 +1,344 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="description" content="canvas API中文网，HTMLCanvasElement.toBlob()，提供详尽的canvas API使用指南和学习案例">
+<meta name="description" content="canvas API中文网 HTMLCanvasElement.toBlob()，提供详尽的canvas API使用指南和学习案例">
+<meta name="keywords" content="canvas, api, documents, 文档, 中文, HTMLCanvasElement.toBlob(), 前端">
+<meta name="author" content="张鑫旭,zhangxixnu">
+<title>canvas API中文网 - 中文文档 - HTMLCanvasElement.toBlob()</title>
+<link rel="stylesheet" type="text/css" href="static/css/ui.css">
+<link rel="stylesheet" type="text/css" href="static/css/style.css"><style>
+#x:empty::before {content: '合成图片将出现在这里'; display: inline-block; width: 400px; height: 300px; background-color:#eee; outline: 1px solid #ddd; line-height: 300px; text-align: center; color: #666;}
+</style>
+</head>
+
+<body>
+<header class="header">
+	<a href="index.html" class="logo">Canvas API中文网 - 不只是文档</a>
+	<nav class="header-nav">
+		<a href="index.html" id="jsNavItf" class="header-nav-a">canvas接口</a>
+		<!-- <a href="?map=tutorials" class="header-nav-a">canvas教程</a>
+		<a href="?map=examples" class="header-nav-a">canvas案例</a> -->
+		<!-- <i class="header-nav-i"></i>
+		<span>兄弟站点：</span>
+		<a href="//www.svg8.com" class="header-nav-a">SVG吧</a>
+		<a href="//www.cssvv.com" class="header-nav-a">CSS微微</a> -->
+		<!-- 第三方登录 -->
+				<a href="login5.html" class="header-login-a">
+			<svg class="icon icon-github" xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewbox="0 0 24 28"><title>Github</title><path d="M12 2c6.625 0 12 5.375 12 12 0 5.297-3.437 9.797-8.203 11.391-.609.109-.828-.266-.828-.578 0-.391.016-1.687.016-3.297 0-1.125-.375-1.844-.812-2.219 2.672-.297 5.484-1.313 5.484-5.922 0-1.313-.469-2.375-1.234-3.219.125-.313.531-1.531-.125-3.187-1-.313-3.297 1.234-3.297 1.234a11.28 11.28 0 0 0-6 0S6.704 6.656 5.704 6.969c-.656 1.656-.25 2.875-.125 3.187-.766.844-1.234 1.906-1.234 3.219 0 4.594 2.797 5.625 5.469 5.922-.344.313-.656.844-.766 1.609-.688.313-2.438.844-3.484-1-.656-1.141-1.844-1.234-1.844-1.234-1.172-.016-.078.734-.078.734.781.359 1.328 1.75 1.328 1.75.703 2.141 4.047 1.422 4.047 1.422 0 1 .016 1.937.016 2.234 0 .313-.219.688-.828.578C3.439 23.796.002 19.296.002 13.999c0-6.625 5.375-12 12-12zM4.547 19.234c.031-.063-.016-.141-.109-.187-.094-.031-.172-.016-.203.031-.031.063.016.141.109.187.078.047.172.031.203-.031zm.484.532c.063-.047.047-.156-.031-.25-.078-.078-.187-.109-.25-.047-.063.047-.047.156.031.25.078.078.187.109.25.047zm.469.703c.078-.063.078-.187 0-.297-.063-.109-.187-.156-.266-.094-.078.047-.078.172 0 .281s.203.156.266.109zm.656.656c.063-.063.031-.203-.063-.297-.109-.109-.25-.125-.313-.047-.078.063-.047.203.063.297.109.109.25.125.313.047zm.891.391c.031-.094-.063-.203-.203-.25-.125-.031-.266.016-.297.109s.063.203.203.234c.125.047.266 0 .297-.094zm.984.078c0-.109-.125-.187-.266-.172-.141 0-.25.078-.25.172 0 .109.109.187.266.172.141 0 .25-.078.25-.172zm.906-.156c-.016-.094-.141-.156-.281-.141-.141.031-.234.125-.219.234.016.094.141.156.281.125s.234-.125.219-.219z"></path>
+			</svg><span class="header-login-txt">登录</span>
+		</a>
+			</nav>
+</header>
+
+<div class="header-title">
+	<div class="constr">
+		<h1 class="header-h1">HTML<wbr>Canvas<wbr>Element<wbr>.to<wbr>Blob()</h1>
+	</div>
+</div>
+
+<main class="main" role="main">
+	<div class="container">
+		<nav class="crumbs" role="navigation">
+  	<div class="constr" aria-label="面包屑">    
+      	<h6 class="crumb-h">
+        	<a href="index.html" class="crumb-a">Canvas API</a>
+      	</h6><i class="crumb-joiner"></i>
+	  	<h6 class="crumb-h">
+        	<a href="index1.html" class="crumb-a">HTMLCanvasElement</a>
+      	</h6>
+      <i class="crumb-joiner"></i>
+	  	<h6 class="crumb-h">
+        	<a href="" class="crumb-a">toBlob</a>
+      	</h6>
+        	</div>
+</nav>		<div class="constr">
+			<div class="content">
+				<article id="article" class="article">
+					<div class="jumpto-nav">
+						&nbsp;<ol id="jumptoNav" class="jumpto-ol"></ol>
+				    </div>
+					<section class="section">
+						<h2>了解HTML<wbr>Canvas<wbr>Element<wbr>.to<wbr>Blob()</h2>
+						<h3 id="introduction" class="abs vh">简介</h3>
+						<style>.section p.vh{overflow: hidden;}</style><iframe id="taIframe" frameborder="0" style="display:none;"></iframe>
+	<span target="_blank" title="点击右上角" class="jsTips" onclick="taIframe.src='https://www.zhangxinxu.com/sp/ta.php?from=canvasapi&type=article&r=' + Math.random();" rel="nofollow noopener" style="float:right;width:120px;height:240px;margin-left:20px;background:url(static/image/star-bg2.jpg) no-repeat;"></span>			
+						<p><code>toBlob()</code>方法可以Canvas图像对应的Blob对象（binary large object）<a class="icon icon-help jsTips" title="Blob对象是个二进制对象，以二进制形式存储文件，在web中是一个不可变、原始数据的类文件对象。" tabindex="0"></a>。此方法可以把Canvas图像缓存在磁盘上，或者存储在内存中，这个往往由浏览器决定。</p>
+					</section>
+					<section class="section">
+						<h3 id="syntax">语法</h3>
+						<pre name="code" class="js">void canvas.toBlob(callback, mimeType, quality);</pre>
+						<p>这里的<code>void</code>表示无返回值。</p>
+						<h4>参数说明</h4>
+						<dl>
+							<div>
+								<dt class="di">callback</dt><small class="params-type">Function</small>
+							</div>
+							<dd><code>toBlob()</code>方法执行成功后的回调方法，支持一个参数，表示当前转换的Blob对象。</dd>
+						</dl>
+						<dl>
+							<div>
+								<dt class="di">mimeType</dt><em>（可选）</em><small class="params-type">String</small>
+							</div>
+							<dd><code>mimeType</code>表示需要转换的图像的mimeType类型。默认值是<code>image/png</code>，还可以是<code>image/jpeg</code>，甚至<code>image/webp</code>（前提浏览器支持）等。</dd>
+						</dl>
+						<dl>
+							<div>
+								<dt class="di">quality</dt><em>（可选）</em><small class="params-type">Number</small>
+							</div>
+							<dd><code>quality</code>表示转换的图片质量。范围是<code>0</code>到<code>1</code>。由于Canvas的<code>toBlob()</code>方法转PNG是无损的，因此，此参数默认是没有效的，除非，指定图片<code>mimeType</code>是<code>image/jpeg</code>或者<code>image/webp</code>，此时默认压缩值是<code>0.92</code>。</dd>
+						</dl>
+					</section>
+					<section class="section">
+						<h3 id="examples">案例</h3>
+						<h4>案例1：Blob图像上传</h4>
+						<p>这个案例演示的是Canvas图像转换成Blob二进制对象并使用HTML5 FormData进行Ajax上传。</p>
+						<pre name="code" class="html">&lt;canvas&gt;&lt;/canvas&gt;</pre>
+						<p>假设上面<code>&lt;canvas&gt;</code>是已经绘制好的图形，我们需要Ajax提交到后台进行保存，则JavaScript代码可以这样：</p>
+						<pre name="code" class="js">var canvas } document,querySelector;)canvas)'(
+// canvas转为blob并上传
+canvas,toBlob;function ;blob' {
+    var data } new FormData;'(
+    // 装载图片数据
+    data,append;)image). blob'(
+    // 图片ajax上传，字段名是image
+    var xhr } new XMLHttpRequest;'(
+    // 文件上传成功
+    xhr,onload } function;' {
+        // xhr,responseText就是返回的数据
+    =(
+    // 开始上传
+    xhr,open;)POST). )upload,php). true'(
+    xhr,send;data'(    
+='(<input type="hidden" value="PTAuMCgwJzApMDswLDB9"></pre>
+						<h4>案例2：IMG图像数据为Blob</h4>
+						<p>如果我们希望把<code>&lt;canvas&gt;</code>元素图像使用<code>&lt;img&gt;</code>元素显示，<code>toBlob()</code>和<code><a href="">toDataURL()</a></code>方法都是可以的，但个人推荐使用<code>toBlob()</code>方法（如果不用顾及兼容性）。</p>
+						<p><code>blob</code>数据对象是无法直接作为<code>&lt;img&gt;</code>的<code>src</code>属性值呈现的，需要<code>URL.createObjectURL()</code>方法处理下。</p>
+						<p>具体使用可参见下面一个图片水印合成的例子，点击下面的按钮选择合适的图片，会得到一个Blob形式的合成图片：</p>
+						<p>
+							<input type="file" id="file" class="clip" accept="image/jpeg, image/png">
+							<label class="ui-button ui-button-primary" for="file">选择图片</label><span class="ml20 gray f14">建议比例4:3</span>
+						</p>						
+						<p id="x"></p>
+						<p>当我们打开开发者工具查看上图（假设你已经选择了图片），会发现其<code>src</code>是一个<code>blob</code>地址，如下截图示意：</p>
+						<p><img src="static/picture/blob.png" width="485" height="80"></p>
+						<p>可以看到Blob形式的图片地址更简洁，隐藏了具体的数据细节。如果我们想要存储图片Blob数据在本地，可以使用indexedDB本地数据库。</p>
+						<p>Blob数据转URL地址关键JavaScript代码如下：</p>
+						<pre name="code" class="js">canvas.toBlob(function(blob) {
+    var url = URL.createObjectURL(blob);
+    p.innerHTML = '&lt;img src="'+ url +'"&gt;';
+}, 'image/jpeg');</pre>
+						<p>另外，如果图片转换交互频繁，性能开销比较大，且图片仅展示无其它数据层面的交互，我们可以使用<code>URL.revokeObjectURL(url)</code>释放资源。不过实际开发页面通常都不复杂，不释放也没关系。</p>
+					</section>
+					<section class="section">
+						<h3 id="compatibility">兼容</h3>
+						<p>首先，<code>toBlob()</code>方法IE9浏览器不支持，因为Blob数据格式IE10+才支持。</p>
+						<p>然后，对于IE浏览器，<code>toBlob()</code>的兼容性有些奇怪，IE10浏览器支持<code>ms</code>私有前缀的<code>toBlob()</code>方法，完整方法名称是<code>msToBlob()</code>。而IE11+，<code>toBlob()</code>方法却不支持。</p>	
+						<p>但是，我们可以基于<code>toDataURL()</code>方法进行polyfill，性能相对会差一些，JavaScript代码如下，参考自MDN：</p>
+						<pre name="code" class="js">if (!HTMLCanvasElement.prototype.toBlob) {
+  Object.defineProperty(HTMLCanvasElement.prototype, 'toBlob', {
+    value: function (callback, type, quality) {
+      var canvas = this;
+      setTimeout(function() {
+        var binStr = atob( canvas.toDataURL(type, quality).split(',')[1] );
+        var len = binStr.length;
+        var arr = new Uint8Array(len);
+
+        for (var i = 0; i &lt; len; i++) {
+          arr[i] = binStr.charCodeAt(i);
+        }
+
+        callback(new Blob([arr], { type: type || 'image/png' }));
+      });
+    }
+  });
+}</pre>
+					</section>
+					<section class="section">
+						<h3 id="others">其他</h3>
+						<h4>规范文档</h4>
+						<table class="ui-table">
+						    <tr>
+						      <th scope="col" width="35%">规范地址</th>
+						      <th scope="col" width="20%">规范状态</th>
+						      <th scope="col">备注</th>
+						    </tr>
+						    <tr>
+						      <td>
+								<a href="javascript:;" class="db" target="_blank" rel="nofollow">HTML现行标准<br><small>这个规范中定义了'HTMLCanvasElement.toBlob'</small></a>
+						      </td>
+						      <td><span class="darkblue">现行标准<i class="tag tag-ls"></i></span></td>
+						      <td>最新的HTML5规范确定以来就没变过。</td>
+						    </tr>
+						    <tr>
+						      <td><a href="javascript:;" class="db" target="_blank" rel="nofollow">HTML 5.1<br><small>这个规范中定义了'HTMLCanvasElement.toBlob'</small></a></td>
+						      <td><span class="green">推荐<i class="tag tag-rec"></i></span></td>
+						      <td><span class="gray">-</span></td>
+						    </tr>
+						    <tr>
+						      <td><a href="javascript:;" class="db" target="_blank" rel="nofollow">HTML 5<br><small>这个规范中定义了'HTMLCanvasElement.toBlob'</small></a></td>
+						      <td><span class="green">推荐<i class="tag tag-rec"></i></span></td>
+						      <td><a href="javascript:;" target="_blank" rel="nofollow">HTML现行标准</a>快照中包含了初始定义。</td>
+						    </tr>
+						</table>
+						<h4>相关资源</h4>
+						<p class="gray">暂无</p>
+						<h4>兼容性</h4>
+						<table class="ui-table mb20">
+						    <tr>
+						      <th scope="col" width="120">特性</th>
+						      <th scope="col" width="180">确认支持</th>
+						      <th scope="col">备注</th>
+						    </tr>
+						    <tr>
+						      <th>msToBlob</th>
+						      <td>仅IE10</td>
+						      <td>仅支持基本功能</td>
+						    </tr>
+						    <tr>
+						      <th>toBlob</th>
+						      <td>Chrome 50+，Firefox 25+</td>
+						      <td>IE edge不支持，使用需polyfill。</td>
+						    </tr>
+						</table>
+						<hr>
+<p class="last-mod"><label>最近更新：</label><span class="last-mod-span">by <a href="javascript:;">zhangxinxu</a> 2019-10-18 01:37:25</span></p>
+<!-- 返回顶部 -->
+<div class="backtop">&nbsp;<a href="#" id="backtop" class="backtop-a" role="button" title="返回顶部">返回顶部</a></div>					</section>
+				</article>
+			</div>
+			<!-- aside -->
+<aside class="aside">
+	<h4>相关API列表</h4>
+	<div class="aside-g">
+		<h5 class="aside-sub-h"><a href="index1.html">HTMLCanvasElement</a></h5>
+		<dl class="aside-dl"><dt class="aside-dt">属性</dt><dd class="aside-dd">
+							<a href="height.html" class="aside-dd-a">height</a>
+						</dd><dd class="aside-dd">
+							<a href="width.html" class="aside-dd-a">width</a>
+						</dd></dl><dl class="aside-dl"><dt class="aside-dt">方法</dt><dd class="aside-dd">
+							<a href="getContext.html" class="aside-dd-a">getContext()</a>
+						</dd><dd class="aside-dd">
+							<span class="aside-dd-span">toBlob()</span>
+						</dd><dd class="aside-dd">
+							<a href="toDataURL.html" class="aside-dd-a">toDataURL()</a>
+						</dd></dl><dl class="aside-dl">
+	<dt class="aside-dt">其他相关API</dt>
+	<dd class="aside-dd">
+					<a href="index2.html" class="aside-dd-a">CanvasRenderingContext2D</a>
+				</dd><dd class="aside-dd">
+					<a href="index7.html" class="aside-dd-a">CanvasImageSource</a>
+				</dd><dd class="aside-dd">
+					<a href="index3.html" class="aside-dd-a">CanvasGradient</a>
+				</dd><dd class="aside-dd">
+					<a href="index8.html" class="aside-dd-a">CanvasPattern</a>
+				</dd><dd class="aside-dd">
+					<a href="index4.html" class="aside-dd-a">ImageBitmap</a>
+				</dd><dd class="aside-dd">
+					<a href="index5.html" class="aside-dd-a">ImageData</a>
+				</dd><dd class="aside-dd">
+					<a href="index9.html" class="aside-dd-a">RenderingContext</a>
+				</dd><dd class="aside-dd">
+					<a href="index6.html" class="aside-dd-a">TextMetrics</a>
+				</dd></dl>	</div>
+</aside>
+		</div>
+	</div>
+</main>
+<footer class="footer">
+	<div class="constr">
+		<div class="footer-copy">
+			<p>&copy;2018-2022 Canvas API中文网</p>
+			<p><a href="javascript:;" target="_blank" rel="nofollow" class="footer-a">沪ICP备18015889号</a> <a target="_blank" href="javascript:;" class="footer-a" style="margin-left: 10px;"><img src="static/picture/gongan.png" align="absmiddle"> 沪公网安备 31011502009818号</a></p>
+		<div>
+	</div>
+</div></div></footer>
+
+<!-- 成为会员 -->
+
+<script src="static/js/jquery.js"></script>
+<script src="static/js/all.js"></script>
+<script src="static/js/jquery.qrcode.min.js"></script>
+<script src="static/js/script-min.js"></script>
+<script src="static/js/hl_all.js"></script>
+<script>DlHighlight.HELPERS.highlightByName("code", "pre");
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1789413236d30f3c19ede9065278b2ee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+canvasapi.initArticleNav();
+canvasapi.initDrawText();
+</script>
+<script>
+if (!HTMLCanvasElement.prototype.toBlob) {
+  Object.defineProperty(HTMLCanvasElement.prototype, 'toBlob', {
+    value: function (callback, type, quality) {
+      var canvas = this;
+      setTimeout(function() {
+        var binStr = atob( canvas.toDataURL(type, quality).split(',')[1] );
+        var len = binStr.length;
+        var arr = new Uint8Array(len);
+
+        for (var i = 0; i < len; i++) {
+          arr[i] = binStr.charCodeAt(i);
+        }
+
+        callback(new Blob([arr], { type: type || 'image/png' }));
+      });
+    }
+  });
+}
+(function () {
+	// 文档页脚本
+	var eleFile = document.getElementById('file');
+	var eleLogo = document.createElement('img');
+	var eleX = document.getElementById('x');
+
+	var canvas = document.createElement('canvas');
+	var context = canvas.getContext('2d');
+	// 屏幕外canvas尺寸
+	var width = 400, height = 300;
+	canvas.width = width;
+	canvas.height = height;
+
+	eleFile.addEventListener('change', function (event) {
+		if (!event.target.files) {
+			$.lightTip.error('当前浏览器不支持此功能');
+			return;
+		}
+	    var reader = new FileReader();
+	    var file = event.target.files[0];
+	    reader.onload = function(e) {
+	      	var base64 = e.target.result;
+	      	// 新图片
+	      	var img = document.createElement('img');
+	      	img.onload = function () {
+		        // 绘制底图
+		        context.drawImage(this, 0, 0, width, height);
+		        // 绘制logo水印
+		        context.drawImage(eleLogo, 90, 126, 221, 48);
+		        // 变成Blob
+		        canvas.toBlob(function(blob) {
+				    var url = URL.createObjectURL(blob);
+				  	eleX.innerHTML = '<img src="'+ url +'" width="'+ width +'" height="'+ height +'">';
+				}, 'image/jpeg');
+		    };
+		    img.src = base64;
+	    };
+	    reader.readAsDataURL(file);
+	});
+	// logo图片先加载
+	eleLogo.src = '/assets/images/logo.png';
+})();
+
+</script>
+</body>
+</html>

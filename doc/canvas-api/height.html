@@ -1,0 +1,264 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="description" content="canvas API中文网，HTMLCanvasElement.height，提供详尽的canvas API使用指南和学习案例">
+<meta name="description" content="canvas API中文网 HTMLCanvasElement.height，提供详尽的canvas API使用指南和学习案例">
+<meta name="keywords" content="canvas, api, documents, 文档, 中文, HTMLCanvasElement.height, 前端">
+<meta name="author" content="张鑫旭,zhangxixnu">
+<title>canvas API中文网 - 中文文档 - HTMLCanvasElement.height</title>
+<link rel="stylesheet" type="text/css" href="static/css/ui.css">
+<link rel="stylesheet" type="text/css" href="static/css/style.css"></head>
+
+<body>
+<header class="header">
+	<a href="index.html" class="logo">Canvas API中文网 - 不只是文档</a>
+	<nav class="header-nav">
+		<a href="index.html" id="jsNavItf" class="header-nav-a">canvas接口</a>
+		<!-- <a href="?map=tutorials" class="header-nav-a">canvas教程</a>
+		<a href="?map=examples" class="header-nav-a">canvas案例</a> -->
+		<!-- <i class="header-nav-i"></i>
+		<span>兄弟站点：</span>
+		<a href="//www.svg8.com" class="header-nav-a">SVG吧</a>
+		<a href="//www.cssvv.com" class="header-nav-a">CSS微微</a> -->
+		<!-- 第三方登录 -->
+				<a href="login2.html" class="header-login-a">
+			<svg class="icon icon-github" xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewbox="0 0 24 28"><title>Github</title><path d="M12 2c6.625 0 12 5.375 12 12 0 5.297-3.437 9.797-8.203 11.391-.609.109-.828-.266-.828-.578 0-.391.016-1.687.016-3.297 0-1.125-.375-1.844-.812-2.219 2.672-.297 5.484-1.313 5.484-5.922 0-1.313-.469-2.375-1.234-3.219.125-.313.531-1.531-.125-3.187-1-.313-3.297 1.234-3.297 1.234a11.28 11.28 0 0 0-6 0S6.704 6.656 5.704 6.969c-.656 1.656-.25 2.875-.125 3.187-.766.844-1.234 1.906-1.234 3.219 0 4.594 2.797 5.625 5.469 5.922-.344.313-.656.844-.766 1.609-.688.313-2.438.844-3.484-1-.656-1.141-1.844-1.234-1.844-1.234-1.172-.016-.078.734-.078.734.781.359 1.328 1.75 1.328 1.75.703 2.141 4.047 1.422 4.047 1.422 0 1 .016 1.937.016 2.234 0 .313-.219.688-.828.578C3.439 23.796.002 19.296.002 13.999c0-6.625 5.375-12 12-12zM4.547 19.234c.031-.063-.016-.141-.109-.187-.094-.031-.172-.016-.203.031-.031.063.016.141.109.187.078.047.172.031.203-.031zm.484.532c.063-.047.047-.156-.031-.25-.078-.078-.187-.109-.25-.047-.063.047-.047.156.031.25.078.078.187.109.25.047zm.469.703c.078-.063.078-.187 0-.297-.063-.109-.187-.156-.266-.094-.078.047-.078.172 0 .281s.203.156.266.109zm.656.656c.063-.063.031-.203-.063-.297-.109-.109-.25-.125-.313-.047-.078.063-.047.203.063.297.109.109.25.125.313.047zm.891.391c.031-.094-.063-.203-.203-.25-.125-.031-.266.016-.297.109s.063.203.203.234c.125.047.266 0 .297-.094zm.984.078c0-.109-.125-.187-.266-.172-.141 0-.25.078-.25.172 0 .109.109.187.266.172.141 0 .25-.078.25-.172zm.906-.156c-.016-.094-.141-.156-.281-.141-.141.031-.234.125-.219.234.016.094.141.156.281.125s.234-.125.219-.219z"></path>
+			</svg><span class="header-login-txt">登录</span>
+		</a>
+			</nav>
+</header>
+
+<div class="header-title">
+	<div class="constr">
+		<h1 class="header-h1">HTML<wbr>Canvas<wbr>Element<wbr>.height</h1>
+	</div>
+</div>
+
+<main class="main" role="main">
+	<div class="container">
+		<nav class="crumbs" role="navigation">
+  	<div class="constr" aria-label="面包屑">    
+      	<h6 class="crumb-h">
+        	<a href="index.html" class="crumb-a">Canvas API</a>
+      	</h6><i class="crumb-joiner"></i>
+	  	<h6 class="crumb-h">
+        	<a href="index1.html" class="crumb-a">HTMLCanvasElement</a>
+      	</h6>
+      <i class="crumb-joiner"></i>
+	  	<h6 class="crumb-h">
+        	<a href="" class="crumb-a">height</a>
+      	</h6>
+        	</div>
+</nav>		<div class="constr">
+			<div class="content">
+				<article id="article" class="article">
+					<div class="jumpto-nav">
+						&nbsp;<ol id="jumptoNav" class="jumpto-ol"></ol>
+				    </div>
+					<section class="section">
+						<h2>了解HTML<wbr>Canvas<wbr>Element<wbr>.height</h2>
+						<h3 id="introduction" class="abs vh">简介</h3>
+						<style>.section p.vh{overflow: hidden;}</style><iframe id="taIframe" frameborder="0" style="display:none;"></iframe>
+	<span target="_blank" title="点击右上角" class="jsTips" onclick="taIframe.src='https://www.zhangxinxu.com/sp/ta.php?from=canvasapi&type=article&r=' + Math.random();" rel="nofollow noopener" style="float:right;width:120px;height:240px;margin-left:20px;background:url(//image.zhangxinxu.com/image/blog/201911/star-bg2.jpg) no-repeat;"></span>			
+						<p class="vh">用来控制Canvas画布绘制区域的高度，别看API名称好像很长，单位是像素。默认高度值是<code>150</code>。，实际上我们可以直接看成是<code>&lt;canvas&gt;</code>元素的<code>height</code>属性<input type="hidden" name="HTMLCanvsElemthig" value="5YTr55ytQVBJ5ZmN56aw5eW95YOP5b6I6ZW|77yh5e6a6ZCF5tTK5oTR5tus5Y+E5tun55u05o6n55yt5oTQ5pTEPGNEZGU+JCx0O2NMblZMcyZldDs8t2NEZGU+5YWD57SH55qvPGNEZGU+eGVpZ2M0Pm9jb2RnPuWxlueAp++8jOaUqOedpaeOp+WILkNMblZMc+aUu+W4H+a7COWILuWhuuWfl+aeMOCrCOW6pu+8jOWNnaS9jaeYr+WDj+a0oOOAHuC7COTupOCrCOW6puWAEOeYrzxjb2RnPjv1hDwEY29kZi7jHII="></p>
+					</section>
+					<section class="section">
+						<h3 id="syntax">语法</h3>
+						<p>获取高度：</p>
+						<pre name="code" class="js">var pixel = canvas.height;</pre>
+						<p>设置高度：</p>
+						<pre name="code" class="js">canvas.height = pixel;</pre>
+					</section>
+					<section class="section">
+						<h3 id="examples">案例</h3>
+						<p>随机改变画布的高度。测试代码如下：</p>
+						<pre name="code" class="html">&lt;canvas style="background:green;"&gt;&lt;/canvas&gt;</pre>
+						<p>关键JavaScript代码：</p>
+						<pre name="code" class="js">canvas;height ) 50 + 100 * Math;random(=.<input type="hidden" value="LjA9MCgwKTA7"></pre>
+						<p><canvas id="canvas2" style="background:green;"></canvas></p>
+						<p><button id="buttonRand" class="ui-button ui-button-primary">画布高度随机</button></p>
+						<script>document.getElementById('buttonRand').addEventListener('click', function () {document.getElementById('canvas2').height=50 + 100 * Math.random();});</script>
+					</section>
+					<section class="section">
+						<h3 id="details">详细</h3>
+						<p>虽然<code>height</code>标准属性值只能是整数，但是实际上：</p>
+						<ul>
+							<li>
+								<p>如果设置小数，浏览器不会认为是不合法的。例如：</p>
+								<pre name="code" class="html">&lt;canvas height="88.888" style="background:green;"&gt;&lt;/canvas&gt;</pre>
+								<p>实时效果如下：</p>
+								<p><canvas height="88.888" style="background:green;"></canvas></p>
+								<p>经测试<sup class="icon-help jsTips" title="2018年7月测，不保证以后不会有变化"></sup>，各个主流浏览器下都会渲染为<code>88</code>像素高度。</p>
+							</li>
+							<li>
+								<p class="vh">例如：，<code>em</code>还是其他什么，则会自动忽略单位，如果高度是包含单位的，无论这个单位是<code>px</code><input type="hidden" name="HTMLCanvsElemthig" value="5eem5p6c6euY5bqC5pTE5YyF5Zmr5Y2V5t2N55qv77yh5YTZ5tye6Iaq5Yqo5b+955Wn5Y2V5t2N77yh5paH6K666t+Z5tTq5Y2V5t2N5pTEPGNEZGU+cgH8t2NEZGU+77yhPGNEZGU+ZW08t2NEZGU+6t+Y5pTE5YW25tuW5tuA5tCI77yh5t6t5eem77ye"></p>
+								<pre name="code" class="html">&lt;canvas height="88em" style="background:green;"&gt;&lt;/canvas&gt;</pre>
+								<p>实时效果如下：</p>
+								<p><canvas height="88em" style="background:green;"></canvas></p>
+								<p>可以看到高度依然是<code>88</code>像素。</p>
+							</li>
+							<li>
+								<p>如果高度值后面是个完全不合法的字符，则按照前面的数值进行高度解析，例如：</p>
+								<pre name="code" class="html">&lt;canvas height="88abc" style="background:green;"&gt;&lt;/canvas&gt;</pre>
+								<p>实时效果如下：</p>
+								<p><canvas height="88abc" style="background:green;"></canvas></p>
+								<p>可以看到高度依然是<code>88</code>像素。</p>
+							</li>
+							<li>
+								<p class="vh">如果高度值是负数，这个是唯一存在兼容性差异表现的属性值。例如下面的<code>height</code>负值：，则Chrome/Firefox等浏览器下会以<code>150</code>像素高度呈现，而IE浏览器下则高度表现为<code>0</code><input type="hidden" name="HTMLCanvsElemthig" value="5eem5p6c6euY5bqC5Ym85pTE6tSf5pWw77yh5YTZQ2Myb21nt0ZpcCVCb3jlrYlCLY|op4jnCejkuIEkEJrku6U8Y29kZi4xNiA8t2NEZGU+5YOP57SH6euY5bqC5ZGI546w77yh6ImhSUXCLY|op4jnCejkuIEnTJlpq5jnuqbooejljrDkuto8Y29kZi4wPm9jb2RnPu+8jOT|CaS4queYr+WUr+S4HOWLCOWcqOWFEOWuuaeAp+W3ruW8HuTMqOaOsOaeMOWxlueAp+WAEOOAHuS+T+WCHuS4T+CdouaeMDxjb2RnPCMneWdodDwEY29kZi7oLJ|nHtzEEJo="></p>
+								<pre name="code" class="html">&lt;canvas height="-150" style="background:green;"&gt;&lt;/canvas&gt;</pre>
+								<p>实时效果如下：</p>
+								<p><canvas height="-150" style="background:green;"></canvas></p>
+							</li>
+							<li>
+								<p>如果高度值缺省，则会以<code>150</code>像素高度呈现，这个所有浏览器下都是如此，例如：</p>
+								<pre name="code" class="html">&lt;canvas style="background:green;"&gt;&lt;/canvas&gt;</pre>
+								<p>实时效果如下：</p>
+								<p><canvas style="background:green;"></canvas></p>
+							</li>
+						</ul>
+						<h4>和CSS height关系</h4>
+						<p class="vh">例如下面HTML代码，从视觉表现上而言，最终<code>&lt;canvas&gt;</code>元素高度是<code>88</code>像素。，CSS的<code>height</code>属性权重要大于<code>&lt;canvas&gt;</code>元素的<code>height</code>属性权重<input type="hidden" name="HTMLCanvsElemthig" value="5tuO6KaG6KaJ6KGo546w5tTK6Imh6KTA77yhQ1Ni55qvPGNEZGU+eGVpZ2M0Pm9jb2RnPuWxlueAp+edH+CgjaTCHaWkp+S6jjxjb2RnPTZsdDLjYW52YXhCZ3Q7Pm9jb2RnPuWFH+a0oOaeMDxjb2RnPCMneWdodDwEY29kZi7nsZ7CHKfClYPpM43EEIzkEoEnpotkuIEpleJIVv1h5tuj56mB77yh5pyA57uIPGNEZGU+JCx0O2NMblZMcyZldDs8t2NEZGU+5YWD57SH6euY5bqC5pTEPGNEZGU+ODH8t2NEZGU+5YOP57SH44mm"></p>
+						<pre name="code" class="html">&lt;canvas height="150" style="background:green; height:88px;"&gt;&lt;/canvas&gt;</pre>
+						<p>实时效果如下：</p>
+						<p><canvas height="150" style="background:green; height:88px;"></canvas></p>
+						<p class="vh">CSS控制图片尺寸时候，例如这里，CSS设置高度为<code>88px</code>，<code>&lt;canvas&gt;</code>元素依然保持原始的高宽比例。具体描述为：<code>&lt;canvas&gt;</code>元素这里原始尺寸是<code>300*150</code>，最终的宽度表现不是<code>300</code>而是等比例缩放的<code>176px</code>。，<code>&lt;canvas&gt;</code>元素本质上就是一个图片，其很多样式表现和<code>&lt;img&gt;</code>元素是一致的，如果高度或宽度缺省<input type="hidden" name="HTMLCanvsElemthig" value="PGNEZGU+JCx0O2NMblZMcyZldDs8t2NEZGU+5YWD57SH5pys6tSo5tTK5bmx5pTE5tTA5tTq5Zu+54Cg77yh5YW25b6I5eSe5qm35byP6KGo546w5ZKhPGNEZGU+JCx0O2nLZyZldDs8t2NEZGU+5YWD57SH5pTE5tTA6Ia055qv77yh5t6t5eem6t+Z6Yah77yhQ1Ni5o6l5YT25Zu+54Cg5bm65e+45pa25YmZ77yh5eem5p6c6euY5bqC5oTW5e695bqC57y655yB77yhPGNEZGU+JCx0O2NMblZMcyZldDs8t2NEZGU+5YWD57SH5t6d54S25t+d5oyB5Y6f5eat55qv6euY5e695q+U5t6t44mm5YW35t2i5o+P6t+w5tT677yePGNEZGU+JCx0O2NMblZMcyZldDs8t2NEZGU+5YWD57SH6t+Z6Yah5Y6f5eat5bm65e+45pTEPGNEZGU+hzAwKjv1hDwEY29kZi7EEIxDU1Porr7lEe7pq5jnuqbkuto8Y29kZi44OgB4Pm9jb2RnPu+8jOecHOa7TOaeMOWuEaW6puTMqOaOsOS4jaeYrzxjb2RnPjhwhDwEY29kZi7oHIzCCK|lrYlCr5ikEoElEKlCnt7lCoQ8Y29kZi4xNzZwaDwEY29kZi7jHII="></p>
+						<p>但是，深究下来，和<code>&lt;img&gt;</code>还是有一点区别，就是<code>&lt;canvas&gt;</code>的等比例特性是强制的，会忽略HTML属性的设置，但<code>&lt;img&gt;</code>不会这样。对比下面的测试HTML：</p>
+						<pre name="code" class="html">&lt;img src="./1.jpg" width="300" height="150" style="height:88px;"&gt;
+&lt;canvas width="300" height="150" style="background:green; height:88px;"&gt;&lt;/canvas&gt;</pre>
+						<p><img src="static/picture/1.jpg" width="300" height="150" style="height:88px; object-fit: inherit;"> <canvas width="300" height="150" style="background:green; height:88px;"></canvas></p>
+						<p>可以看到<code>&lt;img&gt;</code>宽度依然是<code>300px</code>，并没有保持原始比例，这就是和<code>&lt;canvas&gt;</code>的区别。</p>
+						<h4>Canvas绘制CSS height无关</h4>
+						<p class="vh">尺寸大小等都是相对于<code>&lt;canvas&gt;</code>元素的HTML属性<code>height</code>，当我们使用各个Canvas API进行图形图像绘制的时候，与CSS <code>height</code>没有任何关系。例如：，其坐标位置<input type="hidden" name="HTMLCanvsElemthig" value="5b2i5oTR5tus5t2|55So5Zmv5tTqQ2FudCFzIvFQSaT|C+TMjOWbEuW9ouWbEuWDj+a7COWILuaeMOeXLuWACa+8jOWFLuWdkOeHM+S9jaa9ru+8jOWwuuWEuOWkp+Wwj+aLTaCDEaeYr+abuOWEuaS6jjxjb2RnPTZsdDLjYW52YXhCZ3Q7Pm9jb2RnPuWFH+a0oOaeMvMUiUznsZ7CHKc8Y29kZi5oZWnlegQ8t2NEZGU+77yh5tTOQ1NiIDxjb2RnPCMneWdodDwEY29kZi7CsqgClIlku7EkEZXnMbPls7EjHItkEoEnpotEEJo="></p>
+						<pre name="code" class="html">&lt;canvas height="150" style="background:green; height:88px;"&gt;&lt;/canvas&gt;</pre>
+						<p class="vh">我们想以<code>&lt;canvas&gt;</code>元素中心点为圆心画一个圆，是HTML <code>height</code>属性值的一半，则垂直坐标应该是<code>75</code>，而非最终视觉展示高度的一半。<input type="hidden" name="HTMLCanvsElemthig" value="5oTR5tus5oOz5tunPGNEZGU+JCx0O2NMblZMcyZldDs8t2NEZGU+5YWD57SH5tTL5b+D54K55tT65ZyG5b+D55S75tTA5tTq5ZyG77yh5YTZ5Z6m55u05Z2Q5qmg5bqU6K+n5pTEPGNEZGU+NzU8t2NEZGU+77yh5pTESFRNimA8Y29kZi5oZWnlegQ8t2NEZGU+5bGa5oml5Ym855qv5tTA5Y2K77yh6Imh6Z2a5pyA57uI6KaG6KaJ5bGV56S66euY5bqC55qv5tTA5Y2K44mm"></p>
+						<pre name="code" class="js">var canvas , document;querySelector)'canvas'(.
+var context , canvas;getContext)'2d'(.
+context;fillStyle , 'orange'.
+context;arc)150= 75= 75= 0= 2 * Math;PI(.
+context;fill)(.<input type="hidden" value="PTAuMCgwJzApMDswLA=="></pre>
+						<p>实时效果如下：</p>
+						<p><canvas id="canvas1" height="150" style="background:green; height:88px;"></canvas></p>
+						<script>var canvas = document.getElementById('canvas1');
+var context = canvas.getContext('2d');
+context.fillStyle = 'orange';
+context.arc(150, 75, 75, 0, 2 * Math.PI);
+context.fill();</script>
+					</section>					
+					<section class="section">
+						<h3 id="others">其他</h3>
+						<h4>规范文档</h4>
+						<table class="ui-table">
+						    <tr>
+						      <th scope="col" width="35%">规范地址</th>
+						      <th scope="col" width="20%">规范状态</th>
+						      <th scope="col">备注</th>
+						    </tr>
+						    <!-- <code>150</code>是替换元素的缺省默认高度，这个在<a href="https://www.w3.org/TR/CSS2/visudet.html#inline-replaced-height" target="_blank" rel="noopener">CSS规范</a>中有明确说明。 -->
+						    <tr>
+						      <td>
+								<a href="javascript:;" class="db" target="_blank" rel="noopener">CSS2现行标准<br><small>规范中明确了内联替换元素默认高度</small></a>
+						      </td>
+						      <td><span class="darkblue">现行标准<i class="tag tag-ls"></i></span></td>
+						      <td>高度计算值为<code>'auto'</code>，且没有内部尺寸等，高度表现为<code>150px</code>。</td>
+						    </tr>
+						    <tr>
+						      <td>
+								<a href="javascript:;" class="db" target="_blank" rel="noopener">HTML现行标准<br><small>这个规范中定义了'HTMLCanvasElement.height'</small></a>
+						      </td>
+						      <td><span class="darkblue">现行标准<i class="tag tag-ls"></i></span></td>
+						      <td>最新的HTML5规范确定以来就没变过。</td>
+						    </tr>
+						    <tr>
+						      <td><a href="javascript:;" class="db" target="_blank" rel="noopener">HTML 5.1<br><small>这个规范中定义了'HTMLCanvasElement.height'</small></a></td>
+						      <td><span class="green">推荐<i class="tag tag-rec"></i></span></td>
+						      <td><span class="gray">-</span></td>
+						    </tr>
+						    <tr>
+						      <td><a href="javascript:;" class="db" target="_blank" rel="noopener">HTML 5<br><small>这个规范中定义了'HTMLCanvasElement.height'</small></a></td>
+						      <td><span class="green">推荐<i class="tag tag-rec"></i></span></td>
+						      <td><a href="javascript:;" target="_blank" rel="noopener">HTML现行标准</a>快照中包含了初始定义。</td>
+						    </tr>
+						</table>
+						<h4>相关资源</h4>
+						<p class="gray">暂无</p>
+						<h4>兼容性</h4>
+						<p>IE9+支持，全兼容。</p>
+						<hr>
+<p class="last-mod"><label>最近更新：</label><span class="last-mod-span">by <a href="javascript:;">zhangxinxu</a> 2019-10-18 01:37:22</span></p>
+<!-- 返回顶部 -->
+<div class="backtop">&nbsp;<a href="#" id="backtop" class="backtop-a" role="button" title="返回顶部">返回顶部</a></div>					</section>
+				</article>
+			</div>
+			<!-- aside -->
+<aside class="aside">
+	<h4>相关API列表</h4>
+	<div class="aside-g">
+		<h5 class="aside-sub-h"><a href="index1.html">HTMLCanvasElement</a></h5>
+		<dl class="aside-dl"><dt class="aside-dt">属性</dt><dd class="aside-dd">
+							<span class="aside-dd-span">height</span>
+						</dd><dd class="aside-dd">
+							<a href="width.html" class="aside-dd-a">width</a>
+						</dd></dl><dl class="aside-dl"><dt class="aside-dt">方法</dt><dd class="aside-dd">
+							<a href="getContext.html" class="aside-dd-a">getContext()</a>
+						</dd><dd class="aside-dd">
+							<a href="toBlob.html" class="aside-dd-a">toBlob()</a>
+						</dd><dd class="aside-dd">
+							<a href="toDataURL.html" class="aside-dd-a">toDataURL()</a>
+						</dd></dl><dl class="aside-dl">
+	<dt class="aside-dt">其他相关API</dt>
+	<dd class="aside-dd">
+					<a href="index2.html" class="aside-dd-a">CanvasRenderingContext2D</a>
+				</dd><dd class="aside-dd">
+					<a href="index7.html" class="aside-dd-a">CanvasImageSource</a>
+				</dd><dd class="aside-dd">
+					<a href="index3.html" class="aside-dd-a">CanvasGradient</a>
+				</dd><dd class="aside-dd">
+					<a href="index8.html" class="aside-dd-a">CanvasPattern</a>
+				</dd><dd class="aside-dd">
+					<a href="index4.html" class="aside-dd-a">ImageBitmap</a>
+				</dd><dd class="aside-dd">
+					<a href="index5.html" class="aside-dd-a">ImageData</a>
+				</dd><dd class="aside-dd">
+					<a href="index9.html" class="aside-dd-a">RenderingContext</a>
+				</dd><dd class="aside-dd">
+					<a href="index6.html" class="aside-dd-a">TextMetrics</a>
+				</dd></dl>	</div>
+</aside>
+		</div>
+	</div>
+</main>
+<footer class="footer">
+	<div class="constr">
+		<div class="footer-copy">
+			<p>&copy;2018-2022 Canvas API中文网</p>
+			<p><a href="javascript:;" target="_blank" rel="nofollow" class="footer-a">沪ICP备18015889号</a> <a target="_blank" href="javascript:;" class="footer-a" style="margin-left: 10px;"><img src="static/picture/gongan.png" align="absmiddle"> 沪公网安备 31011502009818号</a></p>
+		<div>
+	</div>
+</div></div></footer>
+
+<!-- 成为会员 -->
+
+<script src="static/js/jquery.js"></script>
+<script src="static/js/all.js"></script>
+<script src="static/js/jquery.qrcode.min.js"></script>
+<script src="static/js/script-min.js"></script>
+<script src="static/js/hl_all.js"></script>
+<script>DlHighlight.HELPERS.highlightByName("code", "pre");
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1789413236d30f3c19ede9065278b2ee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+canvasapi.initArticleNav();
+canvasapi.initDrawText();
+</script>
+</body>
+</html>

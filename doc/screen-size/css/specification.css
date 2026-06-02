@@ -1,0 +1,897 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+@font-face {
+    /*font-family: 'Material Icons';*/
+    font-style: normal;
+    font-weight: 400;
+    /*src: local('Material Icons'), local('MaterialIcons-Regular'), url(../fonts/2fcrYFNaTjcS6g4U3t-Y5UEw0lE80llgEseQY3FEmqw.woff2) format('woff2');*/
+}
+
+.material-icons {
+    /*font-family: 'Material Icons';*/
+/*    font-weight: normal;
+    font-style: normal;
+    font-size: 22px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;*/
+}
+
+
+/*=====Global BEGIN=====*/
+
+* {
+    transition: opacity 0.3s ease;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ul, li, ol, dl, dt, dd, form, fieldset, font {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font: 14px/1.231 "Microsoft Yahei", "Hiragino Sans GB", Tahoma, HELVETICA, Arial, sans-serif;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 1em;
+    overflow: hidden;
+}
+
+ul, li, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #7693FF;
+    outline: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #6384FF;
+}
+
+:focus {
+    outline: 0;
+}
+
+a img {
+    border: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+input, textarea, select, button {
+    font: 14px/1.231 "Microsoft Yahei", "Hiragino Sans GB", Tahoma, HELVETICA, Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+::-ms-clear {
+    display: none;
+}
+
+::-ms-reveal {
+    display: none;
+}
+
+textarea:focus, input:focus {
+    outline: none;
+}
+
+.wrap {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.height100 {
+    height: 100%;
+}
+
+.clearBox {
+    zoom: 1;
+}
+
+.clearBox:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+article, aside, dialog, footer, header, section, footer, nav, figure, menu {
+    display: block;
+}
+
+.gray01 {
+    color: #969696;
+}
+
+#device-screen #header {
+    background-color: #212121;
+    background: url(../images/device_back.jpg) no-repeat center;
+    background-size: cover;
+    padding: 15px 0 20px;
+    min-width: 1000px;
+}
+
+#android-guide #header {
+    background-color: #212121;
+    background: url(../images/android_guide_back.jpg) no-repeat center;
+    background-size: cover;
+    padding: 15px 0 20px;
+    min-width: 1000px;
+}
+
+#header {
+    background-color: #212121;
+    background: url(../images/ios_guide_back.jpg);
+    background-size: cover;
+    padding: 15px 0 20px;
+    min-width: 1000px;
+}
+
+#header .nav {
+    height: 42px;
+    line-height: 42px;
+    margin-bottom: 100px;
+    position: relative;
+}
+
+#header .nav a {
+    display: inline-block;
+    float: left;
+    margin-right: 40px;
+    color: #FFFFFF;
+    opacity: 0.8;
+    text-decoration: none;
+    transition: 0.3;
+}
+
+#header .nav a:hover {
+    opacity: 1;
+}
+
+#header .nav a.current {
+    opacity: 1;
+    border-bottom: 2px solid #FFFFFF;
+    color: #fff;
+}
+
+#header .titleBar {
+    line-height: 1.2;
+    position: relative;
+}
+
+#header .titleBar h4 {
+    padding-left: 2px;
+    font-weight: 500;
+    color: #FFFFFF;
+    letter-spacing: 2px;
+}
+
+#header .titleBar h1 {
+    margin-top: 6px;
+    font-weight: 300;
+    font-size: 34px;
+    letter-spacing: 1.88px;
+    color: #fff;
+}
+
+#header .titleBar .terminalType {
+    position: absolute;
+    left: 240px;
+    bottom: 0;
+    height: 42px;
+}
+
+#header .titleBar .terminalType a {
+    display: block;
+    float: left;
+    background: rgba(0, 0, 0, 0.7);
+    width: 40px;
+    height: 40px;
+    position: relative;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    margin-right: 15px;
+    text-align: center;
+}
+
+#header .titleBar .terminalType a i {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	overflow: hidden;
+	background-image:  url(../images/size-icon-squashed.png);
+	background-repeat: no-repeat;
+	font-size: 0;
+	line-height: 0;
+    margin-top: 9px;
+    color: #fff;
+    opacity: 0.6;
+}
+
+#header .titleBar .terminalType a i.phone{
+	background-position: -24px 0;
+}
+#header .titleBar .terminalType a i.tablet{
+	background-position: -24px -24px;
+}
+#header .titleBar .terminalType a i.watch{
+	background-position: -24px -50px;
+}
+#header .titleBar .terminalType a i.computer{
+	background-position: -24px -72px;
+}
+#header .titleBar .terminalType a i.display{
+	background-position: -24px -96px;
+}
+
+#header .titleBar .terminalType a:hover i {
+    opacity: 1;
+}
+
+#header .titleBar .terminalType a.current i {
+    opacity: 1;
+}
+
+#header .titleBar .terminalType a p {
+    display: none;
+    position: absolute;
+    left: 50%;
+    margin-left: -25px;
+    top: -30px;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    background-color: #ECECED;
+    text-align: center;
+    width: 50px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 12px;
+    color: #333;
+}
+
+#header .titleBar .terminalType a:hover p {
+    display: block;
+}
+
+footer {
+    height: 140px;
+    background-color: #FCFCFC;
+}
+
+/*footer .uisdc-logo {
+    background: url(../images/uisdc-logo.png) no-repeat;
+    width: 70px;
+    height: 29px;
+    margin-top: 54px;
+    background-size: cover;
+    display: inline-block;
+    opacity: .54;
+    margin-right: 10px;
+}*/
+
+
+
+footer .links>* {
+    float: left;
+}
+
+footer .links a {
+    text-decoration: none;
+    color: #000;
+    opacity: 0.6;
+    font-size: 12px;
+}
+
+footer .links a:hover {
+    opacity: 1;
+}
+
+footer .separate {
+    color: #AAAAAA;
+    width: 20px;
+    text-align: center;
+}
+
+footer .right {
+    float: right;
+    margin-top: 60px;
+}
+
+footer .copyright {
+    display: inline-block;
+    font-size: 12px;
+    text-decoration: none;
+    color: #000;
+    opacity: 0.6;
+    margin-top: 60px;
+}
+footer .copyright a {
+    color: #000;
+    opacity: 0.6;
+}
+footer .copyright a:hover {
+    opacity: 1;
+}
+
+/*==========屏幕尺寸大全============*/
+
+#screenSizeMain {
+    min-width: 1000px;
+    min-height: 520px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+#screenSizeMain .titleBox {
+    height: 59px;
+    border-bottom: #f2f2f2 1px solid;
+    background-color: #fff;
+    position: relative;
+    z-index: 20;
+}
+
+#screenSizeMain .titleBox span {
+    margin-left: 4px;
+    vertical-align: super;
+}
+
+#screenSizeMain .contentBox {
+    background-image: url(../images/specification/ie8Bg01.png)\0/;
+    +background-image: url(../images/specification/ie8Bg01.png);
+}
+
+#screenSizeMain table {
+    width: 100%;
+    margin: 0 auto;
+}
+#screenSizeMain table tbody tr:hover {
+    background-color: #F8F8F8;
+}
+
+#fixedTtitle {
+    position: relative;
+}
+
+#screenSizeMain .top_fixed_scroll {
+    overflow: hidden;
+    position: fixed;
+    border: 0px;
+    width: 100%;
+    top: 0px;
+    z-index: 21;
+}
+
+#screenSizeMain .top_fixed_scroll .titleBox {
+    height: 50px;
+    opacity: 0.95;
+}
+
+#screenSizeMain .top_fixed_scroll .equipName em {
+    top: 12px;
+}
+
+#screenSizeMain td {
+    height: 60px;
+    line-height: 16px;
+    font-size: 13px;
+    text-align: left;
+    border-bottom: 1px solid #f8f8f8;
+}
+
+#screenSizeMain td.td01 {
+    padding-left: 15px;
+}
+
+#screenSizeMain td.td02 {
+    width: 90px;
+}
+
+#screenSizeMain td.td03 {
+    width: 90px;
+}
+
+#screenSizeMain td.td04 {
+    width: 90px;
+}
+
+#screenSizeMain td.td05 {
+    width: 90px;
+}
+
+#screenSizeMain td.td06 {
+    width: 120px;
+}
+
+#screenSizeMain td.td07 {
+    width: 120px;
+}
+
+#screenSizeMain td.td08 {
+    width: 120px;
+}
+
+#screenSizeMain .titleBox td {
+    font-size: 12px;
+    font-weight: 700;
+    height: 59px;
+}
+
+#screenSizeMain .titleBox td .gray01 {
+    font-weight: normal;
+}
+
+#screenSizeMain .titleBox td .equipName {
+    position: relative;
+}
+
+#screenSizeMain .titleBox td .equipName span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#screenSizeMain .titleBox td .equipName .sequence {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 2px;
+    width: 18px;
+    height: 18px;
+    background-image: url(../images/specification/i.png);
+    background-position: 0 -120px;
+    cursor: pointer;
+}
+
+#screenSizeMain tr:last-child td {
+    border-bottom: none;
+}
+
+.titleBox th {
+    position: relative;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+    font-size: 13px;
+}
+.titleBox .equipName i.material-icons{ 
+	display: inline-block;
+    width: 24px;
+    height: 24px;
+    overflow: hidden;
+    background-image: url(../images/size-icon-squashed.png);
+    background-repeat: no-repeat;
+    
+    font-size: 0;
+    line-height: 0;
+    margin-top: 7px;
+    color: #fff;
+    opacity: 0.6;	
+}
+.titleBox .equipName i.phone{
+	background-position: 0 0;
+}
+.titleBox .equipName  i.tablet{
+	background-position: 0 -24px;
+}
+.titleBox .equipName  i.watch{
+	background-position: 0 -50px;
+}
+.titleBox .equipName  i.laptop{
+	background-position: 0 -72px;
+}
+.titleBox .equipName  i.display{
+	background-position: 0 -96px;
+}
+
+#screenSizeMain th.td01 {
+    width: 280px;
+}
+
+#screenSizeMain th.td02 {
+    width: 90px;
+}
+
+#screenSizeMain th.td03 {
+    width: 90px;
+}
+
+#screenSizeMain th.td04 {
+    width: 90px;
+}
+
+#screenSizeMain th.td05 {
+    width: 90px;
+}
+
+#screenSizeMain th.td06 {
+    width: 120px;
+}
+
+#screenSizeMain th.td07 {
+    width: 120px;
+}
+
+#screenSizeMain th.td08 {
+    width: 120px;
+}
+
+
+/*排序后聚焦效果*/
+
+#screenSizeMain .titleBox th:hover {
+    cursor: pointer;
+}
+
+#screenSizeMain .titleBox th:before {
+    position: absolute;
+    left: -20px;
+    top: 20px;
+    height: 16px;
+    width: 16px;
+    background-image: url(../images/ic_arrow_down_48px.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    content: "";
+    opacity: 0;
+    -webkit-transition: .2s opacity;
+}
+
+#screenSizeMain th.sorted:before, #screenSizeMain th:hover:before, .sorted:hover, .sorted:hover:before {
+    opacity: 1;
+}
+
+#screenSizeMain th.descending:before {
+    background-image: url(../images/ic_arrow_up_48px.svg);
+}
+
+
+/*==========设计尺寸规范============*/
+
+#designGuide {
+    min-width: 1000px;
+    padding-bottom: 100px;
+    border-bottom: 1px solid #EEEEEE;
+}
+#designGuide .tabBox {
+    height: 59px;
+    box-shadow: 0px 2px 40px 0px rgba(0, 0, 0, 0.08);
+    background-color: #fff;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+#designGuide .tabBox a {
+    display: block;
+    width: 60px;
+    padding: 6px 0;
+    height: 51px;
+    line-height: 51px;
+    text-align: center;
+    margin-right: 15px;
+    float: left;
+    color: #666;
+}
+
+#designGuide .tabBox a:hover {
+    color: #333;
+}
+
+#designGuide .tabBox a.current {
+    border-bottom: #7693FF 2px solid;
+    padding-bottom: 0;
+    color: #333;
+}
+
+#designGuide .top_fixed_scroll {
+    position: fixed;
+    width: 100%;
+    opacity: 0.95;
+    top: 0px;
+    left: 0;
+    z-index: 9999;
+}
+
+#designGuide .wrap {
+    position: relative;
+    overflow: hidden;
+}
+
+#designGuide .sideBox {
+    width: 160px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#designGuide .sideBox li {
+    margin-bottom: 5px;
+}
+
+#designGuide .sideBox a {
+    display: block;
+}
+
+#designGuide .sideBox .bClass a {
+    height: 30px;
+    line-height: 30px;
+    padding-left: 12px;
+    font-size: 14px;
+    color: #333;
+    font-weight: 700;
+}
+
+#designGuide .sideBox .sClass a {
+    height: 24px;
+    line-height: 24px;
+    padding-left: 12px;
+    font-size: 12px;
+    color: #666;
+}
+
+#designGuide .sideBox a:hover {
+    color: #7693FF;
+}
+
+#designGuide .sideBox .current a {
+    color: #7693FF;
+    border-left: #7693FF 2px solid;
+    padding-left: 10px;
+}
+
+#designGuide .contentBox {
+    width: 760px;
+    float: left;
+}
+
+#designGuide .contentBox h2 {
+    display: block;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: normal;
+    margin-bottom: 30px;
+}
+#designGuide .contentBox .cBox01 {
+    margin-bottom: 80px;
+}
+
+#designGuide .contentBox .cBox01 img {
+    display: block;
+}
+#designGuide .contentBox .cBox01 table:first-of-type {
+    margin-bottom: 40px;
+}
+
+#designGuide .contentBox h3 {
+    display: block;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: normal;
+    margin-bottom: 30px;
+    margin-top: 60px;
+}
+
+#designGuide .contentBox .fontFamilyInfo01 {
+    height: 200px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background: #3784C3;
+    background: -webkit-gradient(linear, left top, left bottom, from(#3874AF), to(#3598DB));
+    background: -moz-linear-gradient(top, #3874AF, #3598DB);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3874AF', endColorstr='#3598DB');
+    margin-bottom: 34px;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+}
+
+#designGuide .contentBox .fontFamilyInfo01 .p01 {
+    padding: 55px 0 25px 0;
+}
+
+#designGuide .contentBox .fontFamilyInfo01 .p03 {
+    padding: 45px 0 25px 0;
+}
+
+#designGuide .contentBox .fontFamilyInfo01 .p05 {
+    font-size: 14px;
+    margin-top: 10px;
+    color: #EBF3FA;
+}
+
+#designGuide .contentBox .txt01 {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 15px;
+}
+
+#designGuide .contentBox .txt01 p {
+    margin-bottom: 10px;
+}
+
+.tableList01 th, .tableList01 td {
+    font-size: 14px;
+    line-height: 18px;
+    padding: 15px;
+    border-bottom: #F2F2F2 1px solid;
+}
+
+.tableList01 th {
+    font-size: 12px;
+    padding: 8px 15px;
+    border-bottom: #E5E5E5 2px solid;
+    font-weight: 700;
+    text-align: left;
+}
+
+.picList01 {
+    overflow: hidden;
+    position: relative;
+}
+
+.picList01 ul {
+    display: block;
+    position: relative;
+    width: 780px;
+}
+
+.picList01 li {
+    float: left;
+    width: 175px;
+    margin-right: 20px;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.picList01 li .imgBox {
+    margin-bottom: 2px;
+}
+
+.picList01 li .imgBox img {
+    display: block;
+}
+
+.picList01 li p {
+    padding: 5px 0;
+}
+
+.picList01-2 li {
+    width: 240px;
+}
+
+
+/* Lizus 修改增加 */
+
+
+/*#header .has_fixed_scroll {
+    position:fixed;}
+#designGuide .has_fixed_scroll {
+	position:fixed;padding-top:20px;margin-top:231px;
+}*/
+
+#header {
+    /*position:fixed;*/
+    left: center;
+    top: 0;
+    width: 100%;
+    z-index: 111111111111999;
+}
+
+.nav-container {
+    position: relative;
+}
+
+.bs-docs-sidebar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 160px;
+    z-index: 1000;
+}
+
+.bs-docs-sidebar.affix {
+    position: fixed;
+    top: 0;
+    padding-top: 80px;
+    left: 50%;
+    margin-left: 340px;
+}
+
+.ui-holder {
+    position: relative;
+}
+
+.ui-holder .spec {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: .2s opacity ease
+}
+
+.ui-holder:hover .spec {
+    opacity: 1;
+}
+
+.side-nav .nav-stacked {
+    margin-top: 4px;
+}
+
+.side-nav a {
+    display: block;
+}
+
+.bs-docs-sidebar .nav>li>a {
+    color: #333;
+    border-left: 2px solid transparent;
+    padding-left: 12px;
+    font-size: 13px;
+    font-weight: bold;
+    transition: .2s color ease, .2s border-color ease;
+    line-height: 26px;
+}
+
+.bs-docs-sidebar .nav-container {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.bs-docs-sidebar .nav .nav>li>a {
+    line-height: 24px;
+    height: 24px;
+    padding: 3px 0 3px 12px;
+    font-size: 12x;
+    color: #666;
+    font-weight: normal;
+}
+
+.bs-docs-sidebar .nav>.active>a, .bs-docs-sidebar .nav>li>a:focus {
+    color: #7693FF;
+    border-left-color: #7693FF;
+}
+
+.bs-docs-sidebar .nav>li>a:hover {
+    color: #7693FF;
+}
+
+.bs-docs-sidebar .nav .nav>.active:focus>a, .bs-docs-sidebar .nav .nav>.active:hover>a, .bs-docs-sidebar .nav .nav>.active>a {
+    color: #7693FF;
+}
+
+.bs-docs-sidebar .nav ul.nav {
+    display: none;
+}
+
+.bs-docs-sidebar .nav>.active>ul.nav {
+    display: block;
+}
+
+.bs-docs-sidebar div>ul>li {
+    margin-bottom: 3px;
+}
+
+
+/*#designGuide{ margin-top:211px;}*/
+
+
+/*#screenSizeMain{ margin-top:210px;}*/

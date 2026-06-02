@@ -1,0 +1,256 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="description" content="canvas API中文网，HTMLCanvasElement.toDataURL()，提供详尽的canvas API使用指南和学习案例">
+<meta name="description" content="canvas API中文网 HTMLCanvasElement.toDataURL()，提供详尽的canvas API使用指南和学习案例">
+<meta name="keywords" content="canvas, api, documents, 文档, 中文, HTMLCanvasElement.toDataURL(), 前端">
+<meta name="author" content="张鑫旭,zhangxixnu">
+<title>canvas API中文网 - 中文文档 - HTMLCanvasElement.toDataURL()</title>
+<link rel="stylesheet" type="text/css" href="static/css/ui.css">
+<link rel="stylesheet" type="text/css" href="static/css/style.css"></head>
+
+<body>
+<header class="header">
+	<a href="index.html" class="logo">Canvas API中文网 - 不只是文档</a>
+	<nav class="header-nav">
+		<a href="index.html" id="jsNavItf" class="header-nav-a">canvas接口</a>
+		<!-- <a href="?map=tutorials" class="header-nav-a">canvas教程</a>
+		<a href="?map=examples" class="header-nav-a">canvas案例</a> -->
+		<!-- <i class="header-nav-i"></i>
+		<span>兄弟站点：</span>
+		<a href="//www.svg8.com" class="header-nav-a">SVG吧</a>
+		<a href="//www.cssvv.com" class="header-nav-a">CSS微微</a> -->
+		<!-- 第三方登录 -->
+				<a href="login6.html" class="header-login-a">
+			<svg class="icon icon-github" xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewbox="0 0 24 28"><title>Github</title><path d="M12 2c6.625 0 12 5.375 12 12 0 5.297-3.437 9.797-8.203 11.391-.609.109-.828-.266-.828-.578 0-.391.016-1.687.016-3.297 0-1.125-.375-1.844-.812-2.219 2.672-.297 5.484-1.313 5.484-5.922 0-1.313-.469-2.375-1.234-3.219.125-.313.531-1.531-.125-3.187-1-.313-3.297 1.234-3.297 1.234a11.28 11.28 0 0 0-6 0S6.704 6.656 5.704 6.969c-.656 1.656-.25 2.875-.125 3.187-.766.844-1.234 1.906-1.234 3.219 0 4.594 2.797 5.625 5.469 5.922-.344.313-.656.844-.766 1.609-.688.313-2.438.844-3.484-1-.656-1.141-1.844-1.234-1.844-1.234-1.172-.016-.078.734-.078.734.781.359 1.328 1.75 1.328 1.75.703 2.141 4.047 1.422 4.047 1.422 0 1 .016 1.937.016 2.234 0 .313-.219.688-.828.578C3.439 23.796.002 19.296.002 13.999c0-6.625 5.375-12 12-12zM4.547 19.234c.031-.063-.016-.141-.109-.187-.094-.031-.172-.016-.203.031-.031.063.016.141.109.187.078.047.172.031.203-.031zm.484.532c.063-.047.047-.156-.031-.25-.078-.078-.187-.109-.25-.047-.063.047-.047.156.031.25.078.078.187.109.25.047zm.469.703c.078-.063.078-.187 0-.297-.063-.109-.187-.156-.266-.094-.078.047-.078.172 0 .281s.203.156.266.109zm.656.656c.063-.063.031-.203-.063-.297-.109-.109-.25-.125-.313-.047-.078.063-.047.203.063.297.109.109.25.125.313.047zm.891.391c.031-.094-.063-.203-.203-.25-.125-.031-.266.016-.297.109s.063.203.203.234c.125.047.266 0 .297-.094zm.984.078c0-.109-.125-.187-.266-.172-.141 0-.25.078-.25.172 0 .109.109.187.266.172.141 0 .25-.078.25-.172zm.906-.156c-.016-.094-.141-.156-.281-.141-.141.031-.234.125-.219.234.016.094.141.156.281.125s.234-.125.219-.219z"></path>
+			</svg><span class="header-login-txt">登录</span>
+		</a>
+			</nav>
+</header>
+
+<div class="header-title">
+	<div class="constr">
+		<h1 class="header-h1">HTML<wbr>Canvas<wbr>Element<wbr>.to<wbr>Data<wbr>URL()</h1>
+	</div>
+</div>
+
+<main class="main" role="main">
+	<div class="container">
+		<nav class="crumbs" role="navigation">
+  	<div class="constr" aria-label="面包屑">    
+      	<h6 class="crumb-h">
+        	<a href="index.html" class="crumb-a">Canvas API</a>
+      	</h6><i class="crumb-joiner"></i>
+	  	<h6 class="crumb-h">
+        	<a href="index1.html" class="crumb-a">HTMLCanvasElement</a>
+      	</h6>
+      <i class="crumb-joiner"></i>
+	  	<h6 class="crumb-h">
+        	<a href="" class="crumb-a">toDataURL</a>
+      	</h6>
+        	</div>
+</nav>		<div class="constr">
+			<div class="content">
+				<article id="article" class="article">
+					<div class="jumpto-nav">
+						&nbsp;<ol id="jumptoNav" class="jumpto-ol"></ol>
+				    </div>
+					<section class="section">
+						<h2>了解HTML<wbr>Canvas<wbr>Element<wbr>.to<wbr>Data<wbr>URL()</h2>
+						<h3 id="introduction" class="abs vh">简介</h3>
+						<style>.section p.vh{overflow: hidden;}</style><iframe id="taIframe" frameborder="0" style="display:none;"></iframe>
+	<span target="_blank" title="点击右上角" class="jsTips" onclick="taIframe.src='https://www.zhangxinxu.com/sp/ta.php?from=canvasapi&type=article&r=' + Math.random();" rel="nofollow noopener" style="float:right;width:120px;height:240px;margin-left:20px;background:url(static/image/star-bg2.jpg) no-repeat;"></span>			
+						<p>Canvas本质上就是一个位图图像，因此，浏览器提供了若干API可以将Canvas图像转换成可以作为IMG呈现的数据，其中最老牌的方法就是<code>HTMLCanvasElement.toDataURL()</code>，此方法可以返回Canvas图像对应的data URI，也就是平常我们所说的base64地址。格式如下：</p>
+						<pre>data:[&lt;mime type&gt;][;base64],&lt;data&gt;</pre>
+						<p>我们可以指定转换的图片格式，转换后的图像的分辨率为96 dPI。</p>
+					</section>
+					<section class="section">
+						<h3 id="syntax">语法</h3>
+						<pre name="code" class="js">canvas.toDataURL(mimeType, quality);</pre>
+						<h4>参数说明</h4>
+						<dl>
+							<div>
+								<dt class="di">mimeType</dt><em>（可选）</em><small class="params-type">String</small>
+							</div>
+							<dd><code>mimeType</code>表示需要转换的图像的mimeType类型。默认值是<code>image/png</code>，还可以是<code>image/jpeg</code>，甚至<code>image/webp</code>（前提浏览器支持）等。</dd>
+						</dl>
+						<dl>
+							<div>
+								<dt class="di">quality</dt><em>（可选）</em><small class="params-type">Number</small>
+							</div>
+							<dd><code>quality</code>表示转换的图片质量。范围是<code>0</code>到<code>1</code>。此参数要想有效，图片的<code>mimeType</code>需要是<code>image/jpeg</code>或者<code>image/webp</code>，其他<code>mimeType</code>值无效。默认压缩质量是<code>0.92</code>。
+								<p>根据自己的肉眼分辨，如果使用<code>toDataURL()</code>的<code>quality</code>参数对图片进行压缩，同样的压缩百分比呈现效果要比Adobe Photoshop差一些。</p>
+							</dd>
+						</dl>
+						<h4>返回值</h4>
+						<p>返回base64 data图片数据。</p>
+					</section>
+					<section class="section">
+						<h3 id="examples">案例</h3>
+						<h4>案例1：最基础的使用</h4>
+						<p>如下，一个10x10纯透明Canvas：</p>
+						<p class="dn"><canvas width="10" height="10"></canvas></p>
+						<pre name="code" class="html">&lt;canvas width="10" height="10"&gt;&lt;/canvas&gt;</pre>
+						<p>如下JavaScript代码可以返回此Canvas的data-URL：</p>
+						<pre name="code" class="js" style="word-break: break-all;">var canvas , document:querySelector;)canvas)'(
+var dataURL , canvas:toDataURL;'(
+console:log;dataURL'(
+// 结果是："data.image/png(base64=iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAF0lEQVQoU2NkIBIwEqmOYVQh3pAiOngACmkAC5eMKzgAAAAASUVORK5CYII,"<input type="hidden" value="PTAuMCgwJzApMDswOjAs"></pre>
+						<h4>案例2：转换成JPG图片</h4>
+						<p>如果Canvas中颜色信息非常丰富，如实物照片，则建议指定mime type为<code>image/jpeg</code>，data-URL数据量会大大降低，但质量也依然很OK。例如：</p>
+						<pre name="code" class="js">canvas.toDataURL('image/jpeg');</pre>
+						<p>如果Canvas图像本身是2倍图（画布实际尺寸是CSS样式尺寸的2倍+），则图像理论质量<code>0.5~0.6</code>足矣。但考虑到Canvas本身压缩后的图像品质不算高，实际质量值建议0.6~0.7。如果是一倍图，则使用默认值即可。</p>
+						<pre name="code" class="js">canvas.toDataURL('image/jpeg', 0.6);</pre>
+						<h4>案例3：检测浏览器是否支持webp</h4>
+						<pre name="code" class="js" style="word-break: break-all;">var isSupportWebp = !![].map &amp;&amp; document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') == 0;
+
+console.log(isSupportWebp);   // true or false</pre>
+					</section>
+					<section class="section">
+						<h3 id="details">更多</h3>
+						<p>如果Canvas图像尺寸是<code>0x0</code>，则返回字符串是<code>"data:,"</code>。</p>
+						<p>图片的mime type类型较多，例如还有<code>image/gif</code>等。然后我们难免会疑问：<code>toDataURL('image/gif')</code>是不是可以返回GIF格式的图片数据。例如：</p>
+						<pre name="code" class="js">canvas.toDataURL('image/gif');</pre>
+						<p>不好意思，测试表明，返回的是PNG图片base64数据，如下截图：</p>
+						<p><img src="static/picture/data-uri-gif.png" width="495" height="110"></p>
+						<p>也就是<code>mimeType</code>参数值只要不是<code>image/jpeg</code>或者<code>image/webp</code>中的一个，最后一定都是当作<code>image/png</code>处理。</p>
+						<p>如果我就想把图像转成GIF格式该怎么办呢？</p>
+						<p>可以试试这个项目：<a href="javascript:;" rel="nofollow" target="_blank">gif.js</a></p>
+						<h4>跨域的问题</h4>
+						<p>如果Canvas中绘制的图片资源跨域，则浏览器会报跨域相关的错误，而导致<code>toDataURL()</code>方法执行失败。解决方法是：首先，图片服务器需要配置<code>Access-Control-Allow-Origin</code>，然后借助HTML <code>crossOrigin</code>属性设置图片匿名。</p>
+						<pre name="code" class="js">var img : new Image}'.
+img;crossOrigin : )).
+img;onload : function }' {(.
+img;src : )https=//www;otherdomain;com/example;jpg).<input type="hidden" value="PTAoMCkwOzAuMCcwfTA6"></pre>
+						<p>如果需要兼容IE10，还有其他解决方案，更详细内容可<a href="javascript:;" target="_blank">参见这里</a>。</p>
+						<h4>同步与异步</h4>
+						<p><code>toBlob()</code>方法是异步的，而<code>toDataURL()</code>方法是同步的，这就有个问题，如果需要转换的Canvas尺寸很大，则会阻塞脚本的运行，因此主要注意控制Canvas的尺寸。</p>
+						<p>一个图片，如果<code>src</code>是base64地址，则渲染速度几乎是毫秒级的，but，我要转折，虽然是毫秒级的，但依然是异步的。因此，<code>&lt;img&gt;</code>元素赋予base64地址的对图片的信息获取一定要在回调中执行。</p>
+						<pre name="code" class="js">var img , new Image:'}
+img.onload , function :' {
+    // 此时img.width是10
+    // drawImage等操作在这里执行
+;}
+img.src , )data(image/png}base64=iVBORw0KGgoA)}
+// 此时img.width是0<input type="hidden" value="PTAoMCkwOzAuMH0wJzA6MCw="></pre>
+					</section>
+					<section class="section">
+						<h3 id="others">其他</h3>
+						<h4>规范文档</h4>
+						<table class="ui-table">
+						    <tr>
+						      <th scope="col" width="35%">规范地址</th>
+						      <th scope="col" width="20%">规范状态</th>
+						      <th scope="col">备注</th>
+						    </tr>
+						    <tr>
+						      <td>
+								<a href="javascript:;" class="db" target="_blank" rel="nofollow">HTML现行标准<br><small>这个规范中定义了'HTMLCanvasElement.toDataURL'</small></a>
+						      </td>
+						      <td><span class="darkblue">现行标准<i class="tag tag-ls"></i></span></td>
+						      <td>最新的HTML5规范确定以来就没变过。</td>
+						    </tr>
+						    <tr>
+						      <td><a href="javascript:;" class="db" target="_blank" rel="nofollow">HTML 5.1<br><small>这个规范中定义了'HTMLCanvasElement.toDataURL'</small></a></td>
+						      <td><span class="green">推荐<i class="tag tag-rec"></i></span></td>
+						      <td><span class="gray">-</span></td>
+						    </tr>
+						    <tr>
+						      <td><a href="javascript:;" class="db" target="_blank" rel="nofollow">HTML 5<br><small>这个规范中定义了'HTMLCanvasElement.toDataURL'</small></a></td>
+						      <td><span class="green">推荐<i class="tag tag-rec"></i></span></td>
+						      <td><a href="javascript:;" target="_blank" rel="nofollow">HTML现行标准</a>快照中包含了初始定义。</td>
+						    </tr>
+						</table>
+						<h4>相关资源</h4>
+						<p class="gray">暂无</p>
+						<h4>兼容性</h4>
+						<table class="ui-table mb20">
+						    <tr>
+						      <th scope="col" width="120">特性</th>
+						      <th scope="col" width="180">确认支持</th>
+						      <th scope="col">备注</th>
+						    </tr>
+						    <tr>
+						      <th>toDataURL</th>
+						      <td>IE9+支持，全兼容</td>
+						      <td>-</td>
+						    </tr>
+						</table>
+						<hr>
+<p class="last-mod"><label>最近更新：</label><span class="last-mod-span">by <a href="javascript:;">zhangxinxu</a> 2019-10-18 01:37:25</span></p>
+<!-- 返回顶部 -->
+<div class="backtop">&nbsp;<a href="#" id="backtop" class="backtop-a" role="button" title="返回顶部">返回顶部</a></div>					</section>
+				</article>
+			</div>
+			<!-- aside -->
+<aside class="aside">
+	<h4>相关API列表</h4>
+	<div class="aside-g">
+		<h5 class="aside-sub-h"><a href="index1.html">HTMLCanvasElement</a></h5>
+		<dl class="aside-dl"><dt class="aside-dt">属性</dt><dd class="aside-dd">
+							<a href="height.html" class="aside-dd-a">height</a>
+						</dd><dd class="aside-dd">
+							<a href="width.html" class="aside-dd-a">width</a>
+						</dd></dl><dl class="aside-dl"><dt class="aside-dt">方法</dt><dd class="aside-dd">
+							<a href="getContext.html" class="aside-dd-a">getContext()</a>
+						</dd><dd class="aside-dd">
+							<a href="toBlob.html" class="aside-dd-a">toBlob()</a>
+						</dd><dd class="aside-dd">
+							<span class="aside-dd-span">toDataURL()</span>
+						</dd></dl><dl class="aside-dl">
+	<dt class="aside-dt">其他相关API</dt>
+	<dd class="aside-dd">
+					<a href="index2.html" class="aside-dd-a">CanvasRenderingContext2D</a>
+				</dd><dd class="aside-dd">
+					<a href="index7.html" class="aside-dd-a">CanvasImageSource</a>
+				</dd><dd class="aside-dd">
+					<a href="index3.html" class="aside-dd-a">CanvasGradient</a>
+				</dd><dd class="aside-dd">
+					<a href="index8.html" class="aside-dd-a">CanvasPattern</a>
+				</dd><dd class="aside-dd">
+					<a href="index4.html" class="aside-dd-a">ImageBitmap</a>
+				</dd><dd class="aside-dd">
+					<a href="index5.html" class="aside-dd-a">ImageData</a>
+				</dd><dd class="aside-dd">
+					<a href="index9.html" class="aside-dd-a">RenderingContext</a>
+				</dd><dd class="aside-dd">
+					<a href="index6.html" class="aside-dd-a">TextMetrics</a>
+				</dd></dl>	</div>
+</aside>
+		</div>
+	</div>
+</main>
+<footer class="footer">
+	<div class="constr">
+		<div class="footer-copy">
+			<p>&copy;2018-2022 Canvas API中文网</p>
+			<p><a href="javascript:;" target="_blank" rel="nofollow" class="footer-a">沪ICP备18015889号</a> <a target="_blank" href="javascript:;" class="footer-a" style="margin-left: 10px;"><img src="static/picture/gongan.png" align="absmiddle"> 沪公网安备 31011502009818号</a></p>
+		<div>
+	</div>
+</div></div></footer>
+
+<!-- 成为会员 -->
+
+<script src="static/js/jquery.js"></script>
+<script src="static/js/all.js"></script>
+<script src="static/js/jquery.qrcode.min.js"></script>
+<script src="static/js/script-min.js"></script>
+<script src="static/js/hl_all.js"></script>
+<script>DlHighlight.HELPERS.highlightByName("code", "pre");
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1789413236d30f3c19ede9065278b2ee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+canvasapi.initArticleNav();
+canvasapi.initDrawText();
+</script>
+</body>
+</html>

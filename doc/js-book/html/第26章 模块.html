@@ -1,0 +1,147 @@
+
+        <html>
+        <head>
+            <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+            <title>第26章 模块</title>
+            <meta name="keywords" content="JS高级设计第四版">
+            <meta name="description" content="JS高级设计第四版，读书笔记- 第26章 模块">
+            <link rel="stylesheet" type="text/css" href="markdown.css">
+            <script src="https://www.qdxin.cn/js/xinquery.js"></script>
+        </head>
+        <body>
+            <h1>第26章 模块</h1>
+<p>CommonJS 模块定义需要使用 require() 指定依赖，而使用 exports 对象定义自己的公共 API</p>
+<pre><code class="language-javascript">var moduleB = require('./moduleB');
+module.exports = {
+  stuff: moduleB.doStuff();
+}</code></pre>
+<p>无论一个模块在 require()中被引用多少次，模块永远是单例</p>
+<pre><code class="language-javascript">console.log('moduleA');
+var a1 = require('./moduleA');
+var a2 = require('./moduleA');
+console.log(a1 === a2); // true</code></pre>
+<p>模块的一个主要用途是托管类定义</p>
+<pre><code class="language-javascript">class A {}
+module.exports = A;
+var A = require('./moduleA');
+var a = new A();
+// 也可以将类实例作为导出值
+module.exports = new A();</code></pre>
+<p>ES6 模块是作为一整块 JavaScript 代码而存在的。带有 type="module" 属性的 <script> 标签会告诉浏览器相关代码应该作为模块执行，而不是作为传统的脚本执行。</p>
+<pre><code class="language-javascript">&lt;script type="module"&gt; 
+  // 模块代码
+&lt;/script&gt;
+
+&lt;script type="module" src="path/to/myModule.js"&gt;&lt;/script&gt;</code></pre>
+<p>解析到 <script type="module"> 标签后会立即下载模块文件，但执行会延迟到文档解析完成。</p>
+<pre><code class="language-javascript">&lt;!-- 第二个执行 --&gt;
+&lt;script type="module"&gt;&lt;/script&gt;
+&lt;!-- 第三个执行 --&gt;
+&lt;script type="module"&gt;&lt;/script&gt;
+&lt;!-- 第一个执行 --&gt; 
+&lt;script&gt;&lt;/script&gt;</code></pre>
+<p>也可以给模块标签添加 async 属性。这样影响就是双重的：不仅模块执行顺序不再与<script>标签在页面中的顺序绑定，模块也不会等待文档完成解析才执行。</p>
+<p>export 关键字用于声明一个值为命名导出。导出语句必须在模块顶级，不能嵌套在某个块中：</p>
+<pre><code class="language-javascript">// 允许
+export ... 
+// 不允许
+if (condition) {
+  export ...
+}</code></pre>
+<p>export 语句甚至可以出现在它要导出的值之前：</p>
+<pre><code class="language-javascript">// 允许
+const foo = 'foo'; 
+export { foo };
+// 允许
+export const foo = 'foo';
+// 允许，但应该避免 
+export { foo }; 
+const foo = 'foo';</code></pre>
+<p>导出时也可以提供别名，别名必须在 export 子句的大括号语法中指定：</p>
+<pre><code class="language-javascript">const foo = 'foo';
+export { foo as myFoo };</code></pre>
+<p>可以导出多个值：</p>
+<pre><code class="language-javascript">const foo = 'foo';
+const bar = 'bar';
+const baz = 'baz';
+export { foo, bar as myBar, baz };</code></pre>
+<p>默认导出(default export)就好像模块与被导出的值是一回事。默认导出使用 default 关键字将一个值声明为默认导出，每个模块只能有一个默认导出，重复的默认导出会导致 SyntaxError。</p>
+<pre><code class="language-javascript">const foo = 'foo';
+export default foo;
+// 等价于
+export { foo as default };</code></pre>
+<p>因为命名导出和默认导出不会冲突，所以 ES6 支持在一个模块中同时定义这两种导出：</p>
+<pre><code class="language-javascript">const foo = 'foo';
+const bar = 'bar';
+export { bar };
+export default foo;
+// 也可以合并为一行
+export { foo as default, bar };</code></pre>
+<p>常见的导出形式：</p>
+<pre><code class="language-javascript">// 命名行内导出
+export const baz = 'baz';
+export const foo = 'foo', bar = 'bar'; 
+export function foo() {}
+export function* foo() {}
+export class Foo {}
+
+// 命名子句导出
+export { foo };
+export { foo, bar };
+export { foo as myFoo, bar };
+
+// 默认导出
+export default 'foo';
+export default 123;
+export default /[a-z]*/; 
+export default { foo: 'foo' };
+export { foo, bar as default };
+export default foo
+export default function() {}
+export default function foo() {}
+export default function*() {}
+export default class {}
+
+// 会导致错误的不同形式:
+// 行内默认导出中不能出现变量声明
+export default const foo = 'bar';
+// 只有标识符可以出现在 export 子句中 
+export { 123 as foo }
+// 别名只能在 export 子句中出现
+export const foo = 'foo' as myFoo;</code></pre>
+<p>模块可以通过使用 import 关键字使用其他模块导出的值。与 export 类似，import 必须出现在模块的顶级：</p>
+<pre><code class="language-javascript">// 允许 
+import ...
+// 不允许
+if (condition) {
+  import ... 
+}</code></pre>
+<p>与 export 关键字类似，import 语句与使用导入值的语句的相对位置并不重要。不过，还是推荐把导入语句放在模块顶部。</p>
+<pre><code class="language-javascript">// 允许
+import { foo } from './fooModule.js'; 
+console.log(foo); // 'foo'
+// 允许，但应该避免
+console.log(foo); // 'foo'
+import { foo } from './fooModule.js';</code></pre>
+<p>导入对模块而言是只读的，实际上相当于 const 声明的变量。</p>
+<p>命名导出和默认导出的区别也反映在它们的导入上。命名导出可以使用 * 批量获取并赋值给保存导出集合的别名，而无须列出每个标识符：</p>
+<pre><code class="language-javascript">const foo = 'foo', bar = 'bar', baz = 'baz';
+export { foo, bar, baz }
+
+import * as Foo from './foo.js';
+console.log(Foo.foo); // foo
+console.log(Foo.bar); // bar
+console.log(Foo.baz); // baz</code></pre>
+<p>要指名导入，需要把标识符放在 import 子句中。使用 import 子句可以为导入的值指定别名：</p>
+<pre><code class="language-javascript">import { foo, bar, baz as myBaz } from './foo.js';
+console.log(foo);   // foo
+console.log(bar);   // bar
+console.log(myBaz); // baz</code></pre>
+<p>默认导出就好像整个模块就是导出的值一样。可以使用 default 关键字并提供别名来导入。也可以不使用大括号，此时指定的标识符就是默认导出的别名：</p>
+<pre><code class="language-javascript">// 等效
+import { default as foo } from './foo.js';
+import foo from './foo.js';</code></pre>
+        </body>
+        </html>
+    

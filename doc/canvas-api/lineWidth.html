@@ -1,0 +1,389 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="description" content="canvas API中文网，CanvasRenderingContext2D.lineWidth，提供详尽的canvas API使用指南和学习案例">
+<meta name="description" content="canvas API中文网 CanvasRenderingContext2D.lineWidth，提供详尽的canvas API使用指南和学习案例">
+<meta name="keywords" content="canvas, api, documents, 文档, 中文, CanvasRenderingContext2D.lineWidth, 前端">
+<meta name="author" content="张鑫旭,zhangxixnu">
+<title>canvas API中文网 - 中文文档 - CanvasRenderingContext2D.lineWidth</title>
+<link rel="stylesheet" type="text/css" href="static/css/ui.css">
+<link rel="stylesheet" type="text/css" href="static/css/style.css"><style>
+canvas[id] { outline: 1px dotted; background-color: #fff; }
+</style>
+</head>
+
+<body>
+<header class="header">
+	<a href="index.html" class="logo">Canvas API中文网 - 不只是文档</a>
+	<nav class="header-nav">
+		<a href="index.html" id="jsNavItf" class="header-nav-a">canvas接口</a>
+		<!-- <a href="?map=tutorials" class="header-nav-a">canvas教程</a>
+		<a href="?map=examples" class="header-nav-a">canvas案例</a> -->
+		<!-- <i class="header-nav-i"></i>
+		<span>兄弟站点：</span>
+		<a href="//www.svg8.com" class="header-nav-a">SVG吧</a>
+		<a href="//www.cssvv.com" class="header-nav-a">CSS微微</a> -->
+		<!-- 第三方登录 -->
+				<a href="login17.html" class="header-login-a">
+			<svg class="icon icon-github" xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewbox="0 0 24 28"><title>Github</title><path d="M12 2c6.625 0 12 5.375 12 12 0 5.297-3.437 9.797-8.203 11.391-.609.109-.828-.266-.828-.578 0-.391.016-1.687.016-3.297 0-1.125-.375-1.844-.812-2.219 2.672-.297 5.484-1.313 5.484-5.922 0-1.313-.469-2.375-1.234-3.219.125-.313.531-1.531-.125-3.187-1-.313-3.297 1.234-3.297 1.234a11.28 11.28 0 0 0-6 0S6.704 6.656 5.704 6.969c-.656 1.656-.25 2.875-.125 3.187-.766.844-1.234 1.906-1.234 3.219 0 4.594 2.797 5.625 5.469 5.922-.344.313-.656.844-.766 1.609-.688.313-2.438.844-3.484-1-.656-1.141-1.844-1.234-1.844-1.234-1.172-.016-.078.734-.078.734.781.359 1.328 1.75 1.328 1.75.703 2.141 4.047 1.422 4.047 1.422 0 1 .016 1.937.016 2.234 0 .313-.219.688-.828.578C3.439 23.796.002 19.296.002 13.999c0-6.625 5.375-12 12-12zM4.547 19.234c.031-.063-.016-.141-.109-.187-.094-.031-.172-.016-.203.031-.031.063.016.141.109.187.078.047.172.031.203-.031zm.484.532c.063-.047.047-.156-.031-.25-.078-.078-.187-.109-.25-.047-.063.047-.047.156.031.25.078.078.187.109.25.047zm.469.703c.078-.063.078-.187 0-.297-.063-.109-.187-.156-.266-.094-.078.047-.078.172 0 .281s.203.156.266.109zm.656.656c.063-.063.031-.203-.063-.297-.109-.109-.25-.125-.313-.047-.078.063-.047.203.063.297.109.109.25.125.313.047zm.891.391c.031-.094-.063-.203-.203-.25-.125-.031-.266.016-.297.109s.063.203.203.234c.125.047.266 0 .297-.094zm.984.078c0-.109-.125-.187-.266-.172-.141 0-.25.078-.25.172 0 .109.109.187.266.172.141 0 .25-.078.25-.172zm.906-.156c-.016-.094-.141-.156-.281-.141-.141.031-.234.125-.219.234.016.094.141.156.281.125s.234-.125.219-.219z"></path>
+			</svg><span class="header-login-txt">登录</span>
+		</a>
+			</nav>
+</header>
+
+<div class="header-title">
+	<div class="constr">
+		<h1 class="header-h1">Canvas<wbr>Rendering<wbr>Context2D<wbr>.lineWidth</h1>
+	</div>
+</div>
+
+<main class="main" role="main">
+	<div class="container">
+		<nav class="crumbs" role="navigation">
+  	<div class="constr" aria-label="面包屑">    
+      	<h6 class="crumb-h">
+        	<a href="index.html" class="crumb-a">Canvas API</a>
+      	</h6><i class="crumb-joiner"></i>
+	  	<h6 class="crumb-h">
+        	<a href="index2.html" class="crumb-a">CanvasRenderingContext2D</a>
+      	</h6>
+      <i class="crumb-joiner"></i>
+	  	<h6 class="crumb-h">
+        	<a href="" class="crumb-a">lineWidth</a>
+      	</h6>
+        	</div>
+</nav>		<div class="constr">
+			<div class="content">
+				<article id="article" class="article">
+					<div class="jumpto-nav">
+						&nbsp;<ol id="jumptoNav" class="jumpto-ol"></ol>
+				    </div>
+					<section class="section">
+						<h2>了解Canvas<wbr>Rendering<wbr>Context2D<wbr>.lineWidth</h2>
+						<h3 id="introduction" class="abs vh">简介</h3>	
+						<style>.section p.vh{overflow: hidden;}</style><iframe id="taIframe" frameborder="0" style="display:none;"></iframe>
+	<span target="_blank" title="点击右上角" class="jsTips" onclick="taIframe.src='https://www.zhangxinxu.com/sp/ta.php?from=canvasapi&type=article&r=' + Math.random();" rel="nofollow noopener" style="float:right;width:120px;height:240px;margin-left:20px;background:url(static/image/star-bg2.jpg) no-repeat;"></span>			
+						<p class="vh"><code>CanvasRenderingContext2D.lineWidth</code>表示线宽。默认值是<code>1.0</code>。<input type="hidden" name="CanvsRedrigotx2DlWh" value="PGNDZGU+QsFuomFzUmVuZGVyWa5lQs9uoGV4ovJELmRpbmVXWax0WvwDYs9kZT7ddWjlpLglug|ngg3jrILpu5jdgqTnrLzmmK88Ys9kZT4RLjA8LsNDZGU+44hh"></p>
+					</section>
+					<section class="section">
+						<h3 id="syntax">语法</h3>
+						<pre name="code" class="js">context.lineWidth = value;</pre>
+						<p>其中：</p>
+						<dl class="dl">
+							<dt>value</dt>
+							<dd>表示线的宽度。数值类型，默认值是<code>1.0</code>。如果是负数，0，<code>NaN</code>，或者<code>Infinity</code>都会忽略。</dd>
+						</dl>
+					</section>
+					<section class="section">
+						<h3 id="tests">测试</h3>
+						<h4>1. 默认值测试</h4>
+						<p>我们可以测试下，如下代码：</p>
+						<pre name="code" class="js">console.log(document.createElement('canvas').getContext('2d').lineWidth);
+// 结果是1。</pre>
+						<p>但是，有时候，我们不设置lineWidth值的默认效果会出乎我们的意料，例如我们执行如下JS：</p>
+						<pre name="code" class="js">context.strokeRect(20, 20, 200, 80);</pre>
+						<p>结果在1倍屏幕下显示效果却是如下右侧截图效果——宽度显示为2像素：</p>
+						<table class="ui-table">
+						    <tr>
+						      <th scope="col" width="240">实时效果</th>
+						      <th scope="col">截图效果</th>
+						    </tr>
+						    <tr>
+						      <td class="vt">
+								<canvas id="testDefault" width="240" height="120"></canvas>
+						      </td>
+						      <td>
+								<div class="img-wrap">
+									<span class="red"><span class="gray">win7</span> Chrome68</span>
+									<img src="static/picture/chrome-default.png" width="242" height="122" alt="Chrome68截图">
+								</div>
+						      </td>
+						    </tr>
+						</table>
+						<p>这是什么原因呢？对于<code>strokeRect</code>描边，你可以想象成是居中描边，一条看不见的线两侧描边。由于1倍显示屏幕最小宽度就是1像素，不够分，于是浏览器就想了个方法，边缘柔化，于是，我们看上去是2px，实际上是按照1像素的线渲染的，线的颜色为灰色也是因为边缘柔化导致。如果我们的线宽度设置成<code>0.5</code>，结果会发现线的颜色更淡了。</p>
+						<p>如果我们只是普通的路径描边，则1像素是可以正常黑色显示的（可参见案例中的1像素描边）。</p>
+						<h4>2. 特殊属性值测试</h4>
+						<p>点击不同的选项，查看绘制的直线的表现。</p>
+						<p>
+							<input type="radio" id="spRadio1" name="lineWidth" value="-1"><label for="spRadio1" class="ui-radio"></label><label for="spRadio1" class="ml5 mr20">-1</label>
+							<input type="radio" id="spRadio2" name="lineWidth" value="0"><label for="spRadio2" class="ui-radio"></label><label for="spRadio2" class="ml5 mr20">0</label>
+							<input type="radio" id="spRadioOk" name="lineWidth" value="10"><label for="spRadioOk" class="ui-radio"></label><label for="spRadioOk" class="ml5 mr20">10</label>
+							<input type="radio" id="spRadio3" name="lineWidth" value="NaN"><label for="spRadio3" class="ui-radio"></label><label for="spRadio3" class="ml5 mr20">NaN（Number('a')）</label>
+							<input type="radio" id="spRadio4" name="lineWidth" value="Infinity"><label for="spRadio4" class="ui-radio"></label><label for="spRadio4" class="ml5 mr20">Infinity（1/0）</label>
+						</p>
+						<p><canvas id="spWidth" width="240" height="120"></canvas></p>
+						<p>其中只有第3个单选是合法值，其他任何数值选中，画布中的线条宽度都不会有任何变化，因为这条语句直接被忽略了。</p>
+					</section>
+					<section class="section">
+						<h3 id="examples">案例</h3>
+						<p>绘制一个1像素宽的随机三角形。</p>
+						<pre name="code" class="html">&lt;canvas width="240" height="120"&gt;&lt;/canvas&gt;</pre>
+						<pre name="code" class="js">// 随机三角形
+var canvas ] document,querySelector[;canvas;)'
+var context ] canvas,getContext[;2d;)'
+var width ] canvas,width'
+var height ] canvas,height'
+// 随机三个坐标点
+var positionA ] (width * Math,random[). height / 2 * Math,random[)='
+var positionB ] (width / 2 * Math,random[). height / 2 + height / 2 * Math,random[)='
+var positionC ] (width / 2 + width / 2 * Math,random[). height / 2 + height / 2 * Math,random[)='
+// 开始绘制
+context,beginPath[)'
+context,moveTo[positionA(0=. positionA(1=)'
+context,lineTo[positionB(0=. positionB(1=)'
+context,lineTo[positionC(0=. positionC(1=)'
+context,closePath[)'
+// 绘制，由于默认宽度就是1像素，因此
+// context,lineWidth设置缺省
+context,stroke[)'<input type="hidden" value="PTAuMCgwJzApMDswWzAsMF0="></pre>
+						<p>实时效果如下：</p>
+						<p><canvas id="randTri" width="240" height="120"></canvas></p>
+					</section>				
+					<section class="section">
+						<h3 id="others">其他</h3>
+						<h4>规范文档</h4>
+						<table class="ui-table">
+						    <tr>
+						      <th scope="col" width="50%">规范地址</th>
+						      <th scope="col" width="20%">规范状态</th>
+						      <th scope="col">备注</th>
+						    </tr>
+						    <tr>
+						      <td>
+								<a href="javascript:;" class="db" target="_blank" rel="noopener nofollow">HTML现行标准<br><small>这个规范中定义了'CanvasRenderingContext2D.lineWidth'</small></a>
+						      </td>
+						      <td><span class="darkblue">现行标准<i class="tag tag-ls"></i></span></td>
+						      <td>-</td>
+						    </tr>
+						</table>
+						<h4>相关资源</h4>
+						<p class="gray">暂无</p>
+						<h4>兼容性</h4>
+						<p>IE9+支持，全兼容。</p>
+						<hr>
+<p class="last-mod"><label>最近更新：</label><span class="last-mod-span">by <a href="javascript:;">zhangxinxu</a> 2019-10-18 01:44:05</span></p>
+<!-- 返回顶部 -->
+<div class="backtop">&nbsp;<a href="#" id="backtop" class="backtop-a" role="button" title="返回顶部">返回顶部</a></div>					</section>
+				</article>
+			</div>
+			<!-- aside -->
+<aside class="aside">
+	<h4>相关API列表</h4>
+	<div class="aside-g">
+		<h5 class="aside-sub-h"><a href="index2.html">CanvasRenderingContext2D</a></h5>
+		<dl class="aside-dl"><dt class="aside-dt">属性</dt><dd class="aside-dd">
+							<a href="canvas.html" class="aside-dd-a">canvas</a>
+						</dd><dd class="aside-dd">
+							<a href="fillStyle.html" class="aside-dd-a">fillStyle</a>
+						</dd><dd class="aside-dd">
+							<a href="font.html" class="aside-dd-a">font</a>
+						</dd><dd class="aside-dd">
+							<a href="globalAlpha.html" class="aside-dd-a">globalAlpha</a>
+						</dd><dd class="aside-dd">
+							<a href="globalCompositeOperation.html" class="aside-dd-a">globalCompositeOperation</a>
+						</dd><dd class="aside-dd">
+							<a href="lineCap.html" class="aside-dd-a">lineCap</a>
+						</dd><dd class="aside-dd">
+							<a href="lineDashOffset.html" class="aside-dd-a">lineDashOffset</a>
+						</dd><dd class="aside-dd">
+							<a href="lineJoin.html" class="aside-dd-a">lineJoin</a>
+						</dd><dd class="aside-dd">
+							<span class="aside-dd-span">lineWidth</span>
+						</dd><dd class="aside-dd">
+							<a href="miterLimit.html" class="aside-dd-a">miterLimit</a>
+						</dd><dd class="aside-dd">
+							<a href="shadowBlur.html" class="aside-dd-a">shadowBlur</a>
+						</dd><dd class="aside-dd">
+							<a href="shadowColor.html" class="aside-dd-a">shadowColor</a>
+						</dd><dd class="aside-dd">
+							<a href="shadowOffsetX.html" class="aside-dd-a">shadowOffsetX</a>
+						</dd><dd class="aside-dd">
+							<a href="shadowOffsetY.html" class="aside-dd-a">shadowOffsetY</a>
+						</dd><dd class="aside-dd">
+							<a href="strokeStyle.html" class="aside-dd-a">strokeStyle</a>
+						</dd><dd class="aside-dd">
+							<a href="textAlign.html" class="aside-dd-a">textAlign</a>
+						</dd><dd class="aside-dd">
+							<a href="textBaseline.html" class="aside-dd-a">textBaseline</a>
+						</dd></dl><dl class="aside-dl"><dt class="aside-dt">方法</dt><dd class="aside-dd">
+							<a href="arc.html" class="aside-dd-a">arc()</a>
+						</dd><dd class="aside-dd">
+							<a href="arcTo.html" class="aside-dd-a">arcTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="beginPath.html" class="aside-dd-a">beginPath()</a>
+						</dd><dd class="aside-dd">
+							<a href="bezierCurveTo.html" class="aside-dd-a">bezierCurveTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="clearRect.html" class="aside-dd-a">clearRect()</a>
+						</dd><dd class="aside-dd">
+							<a href="clip.html" class="aside-dd-a">clip()</a>
+						</dd><dd class="aside-dd">
+							<a href="closePath.html" class="aside-dd-a">closePath()</a>
+						</dd><dd class="aside-dd">
+							<a href="createImageData.html" class="aside-dd-a">createImageData()</a>
+						</dd><dd class="aside-dd">
+							<a href="createLinearGradient.html" class="aside-dd-a">createLinearGradient()</a>
+						</dd><dd class="aside-dd">
+							<a href="createPattern.html" class="aside-dd-a">createPattern()</a>
+						</dd><dd class="aside-dd">
+							<a href="createRadialGradient.html" class="aside-dd-a">createRadialGradient()</a>
+						</dd><dd class="aside-dd">
+							<a href="drawFocusIfNeeded.html" class="aside-dd-a">drawFocusIfNeeded()</a>
+						</dd><dd class="aside-dd">
+							<a href="drawImage.html" class="aside-dd-a">drawImage()</a>
+						</dd><dd class="aside-dd">
+							<a href="ellipse.html" class="aside-dd-a">ellipse()</a>
+						</dd><dd class="aside-dd">
+							<a href="fill.html" class="aside-dd-a">fill()</a>
+						</dd><dd class="aside-dd">
+							<a href="fillRect.html" class="aside-dd-a">fillRect()</a>
+						</dd><dd class="aside-dd">
+							<a href="fillText.html" class="aside-dd-a">fillText()</a>
+						</dd><dd class="aside-dd">
+							<a href="getImageData.html" class="aside-dd-a">getImageData()</a>
+						</dd><dd class="aside-dd">
+							<a href="getLineDash.html" class="aside-dd-a">getLineDash()</a>
+						</dd><dd class="aside-dd">
+							<a href="isPointInPath.html" class="aside-dd-a">isPointInPath()</a>
+						</dd><dd class="aside-dd">
+							<a href="isPointInStroke.html" class="aside-dd-a">isPointInStroke()</a>
+						</dd><dd class="aside-dd">
+							<a href="lineTo.html" class="aside-dd-a">lineTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="measureText.html" class="aside-dd-a">measureText()</a>
+						</dd><dd class="aside-dd">
+							<a href="moveTo.html" class="aside-dd-a">moveTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="putImageData.html" class="aside-dd-a">putImageData()</a>
+						</dd><dd class="aside-dd">
+							<a href="quadraticCurveTo.html" class="aside-dd-a">quadraticCurveTo()</a>
+						</dd><dd class="aside-dd">
+							<a href="rect.html" class="aside-dd-a">rect()</a>
+						</dd><dd class="aside-dd">
+							<a href="restore.html" class="aside-dd-a">restore()</a>
+						</dd><dd class="aside-dd">
+							<a href="rotate.html" class="aside-dd-a">rotate()</a>
+						</dd><dd class="aside-dd">
+							<a href="save.html" class="aside-dd-a">save()</a>
+						</dd><dd class="aside-dd">
+							<a href="scale.html" class="aside-dd-a">scale()</a>
+						</dd><dd class="aside-dd">
+							<a href="setLineDash.html" class="aside-dd-a">setLineDash()</a>
+						</dd><dd class="aside-dd">
+							<a href="setTransform.html" class="aside-dd-a">setTransform()</a>
+						</dd><dd class="aside-dd">
+							<a href="stroke.html" class="aside-dd-a">stroke()</a>
+						</dd><dd class="aside-dd">
+							<a href="strokeRect.html" class="aside-dd-a">strokeRect()</a>
+						</dd><dd class="aside-dd">
+							<a href="strokeText.html" class="aside-dd-a">strokeText()</a>
+						</dd><dd class="aside-dd">
+							<a href="transform.html" class="aside-dd-a">transform()</a>
+						</dd><dd class="aside-dd">
+							<a href="translate.html" class="aside-dd-a">translate()</a>
+						</dd></dl><dl class="aside-dl">
+	<dt class="aside-dt">其他相关API</dt>
+	<dd class="aside-dd">
+					<a href="index1.html" class="aside-dd-a">HTMLCanvasElement</a>
+				</dd><dd class="aside-dd">
+					<a href="index7.html" class="aside-dd-a">CanvasImageSource</a>
+				</dd><dd class="aside-dd">
+					<a href="index3.html" class="aside-dd-a">CanvasGradient</a>
+				</dd><dd class="aside-dd">
+					<a href="index8.html" class="aside-dd-a">CanvasPattern</a>
+				</dd><dd class="aside-dd">
+					<a href="index4.html" class="aside-dd-a">ImageBitmap</a>
+				</dd><dd class="aside-dd">
+					<a href="index5.html" class="aside-dd-a">ImageData</a>
+				</dd><dd class="aside-dd">
+					<a href="index9.html" class="aside-dd-a">RenderingContext</a>
+				</dd><dd class="aside-dd">
+					<a href="index6.html" class="aside-dd-a">TextMetrics</a>
+				</dd></dl>	</div>
+</aside>
+		</div>
+	</div>
+</main>
+<footer class="footer">
+	<div class="constr">
+		<div class="footer-copy">
+			<p>&copy;2018-2022 Canvas API中文网</p>
+			<p><a href="javascript:;" target="_blank" rel="nofollow" class="footer-a">沪ICP备18015889号</a> <a target="_blank" href="javascript:;" class="footer-a" style="margin-left: 10px;"><img src="static/picture/gongan.png" align="absmiddle"> 沪公网安备 31011502009818号</a></p>
+		<div>
+	</div>
+</div></div></footer>
+
+<!-- 成为会员 -->
+
+<script src="static/js/jquery.js"></script>
+<script src="static/js/all.js"></script>
+<script src="static/js/jquery.qrcode.min.js"></script>
+<script src="static/js/script-min.js"></script>
+<script src="static/js/hl_all.js"></script>
+<script>DlHighlight.HELPERS.highlightByName("code", "pre");
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1789413236d30f3c19ede9065278b2ee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+var canvasTestDefault = document.getElementById('testDefault');
+var contextTestDefault = canvasTestDefault.getContext('2d');
+contextTestDefault.strokeRect(20, 20, 200, 80);
+
+// 特殊值测试
+var canvasSp = document.getElementById('spWidth');
+var contextSp = canvasSp.getContext('2d');
+var drawSpWidth = function (spWidth) {
+	contextSp.clearRect(0, 0, canvasSp.width, canvasSp.height);
+	// 开始绘制
+	contextSp.beginPath();
+	contextSp.moveTo(40, 40);
+	contextSp.lineTo(200, 80);
+	contextSp.lineWidth = spWidth;
+	contextSp.stroke();
+};
+[].slice.call(document.querySelectorAll('input[name="lineWidth"]')).forEach(function (radio) {
+	radio.addEventListener('click', function () {
+		var value = this.value;
+		if (/^\-?\d+$/.test(value)) {
+			drawSpWidth(+value);
+		} else if (value == 'NaN') {
+			drawSpWidth(Number('a'))
+		} else if (value == 'Infinity') {
+			drawSpWidth(1 / 0);
+		}
+	});
+});
+
+// 随机三角形
+var canvasTri = document.getElementById('randTri');
+var contextTri = canvasTri.getContext('2d');
+var widthTri = canvasTri.width;
+var heightTri = canvasTri.height;
+// 随机三个坐标点
+var positionA = [widthTri * Math.random(), heightTri / 2 * Math.random()];
+var positionB = [widthTri / 2 * Math.random(), heightTri / 2 + heightTri / 2 * Math.random()];
+var positionC = [widthTri / 2 + widthTri / 2 * Math.random(), heightTri / 2 + heightTri / 2 * Math.random()];
+// 开始绘制
+contextTri.beginPath();
+contextTri.moveTo(positionA[0], positionA[1]);
+contextTri.lineTo(positionB[0], positionB[1]);
+contextTri.lineTo(positionC[0], positionC[1]);
+contextTri.closePath();
+// 绘制，由于默认宽度就是1像素，因此
+// contextTri.lineWidth设置缺省
+contextTri.stroke();
+</script>
+<script>
+canvasapi.initArticleNav();
+canvasapi.initDrawText();
+</script>
+</body>
+</html>

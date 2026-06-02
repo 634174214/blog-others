@@ -1,0 +1,226 @@
+
+        <html>
+        <head>
+            <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+            <title>第3章 语言基础（1）</title>
+            <meta name="keywords" content="JS高级设计第四版">
+            <meta name="description" content="JS高级设计第四版，读书笔记- 第3章 语言基础（1）">
+            <link rel="stylesheet" type="text/css" href="markdown.css">
+            <script src="https://www.qdxin.cn/js/xinquery.js"></script>
+        </head>
+        <body>
+            <h1>第3章 语言基础（1）</h1>
+<h2>标识符</h2>
+<ol>
+<li>第一个字符必须是字母、下划线或$符</li>
+<li>其余字符可以是字母、下划线、$符或数字</li>
+<li>字母可以使用ASCII码或者Unicode字符，但不推荐</li>
+<li>使用驼峰大小写形式</li>
+<li>关键字、保留字、true、false 和 null 不能作为标识符</li>
+</ol>
+<h2>注释</h2>
+<pre><code class="language-javascript">// 单行注释
+/* 
+多行注释 */</code></pre>
+<h2>严格模式</h2>
+<p>ECMAScript 5 增加了严格模式(strict mode)的概念，所有现代浏览器都支持严格模式</p>
+<p>对整个脚本启用严格模式，在脚本开头加上这一行：</p>
+<pre><code class="language-javascript">"use strict";</code></pre>
+<p>也可以单独指定一个函数在严格模式下执行，只要把这个预处理指令放到函数体开头即可：</p>
+<pre><code class="language-javascript">function doSomething() {
+  "use strict";
+    // 函数体
+}</code></pre>
+<h2>语句</h2>
+<p>JavaScript语句以分号结尾，省略分号也可以，但不推荐</p>
+<pre><code class="language-javascript">let sum = a + b // 没有分号也有效，但不推荐
+let diff = a - b; // 加分号有效，推荐</code></pre>
+<p>多条语句通过花括号组成代码块</p>
+<pre><code class="language-javascript">if (test) {
+    test = false;
+    console.log(test);
+}</code></pre>
+<h2>关键字和保留字</h2>
+<p>几十个保留字，这里不一一列举了，现代的IDE都自动识别，不用特别记，多写多用自然就知道了</p>
+<h2>变量</h2>
+<ul>
+<li>var：所有版本中都可以使用</li>
+<li>const：ES 6 及之后的版本中使用</li>
+<li>let：ES 6 及之后的版本中使用</li>
+</ul>
+<p><strong>使用 var 声明变量</strong></p>
+<pre><code class="language-javascript">/*
+定义一个变量
+在不进行初始化的情况下，变量会保存一个特殊值 undefined
+*/
+var message1;
+
+/*
+定义一个变量并赋初始值为 hi
+*/
+var message2 = "hi";
+
+/*
+修改变量的值
+不仅可以改变保存的值，也可以改变值的类型
+*/
+message2 = 100;</code></pre>
+<p>使用 var 操作符定义的变量会成为包含它的函数的局部变量</p>
+<pre><code class="language-javascript">function test() {
+    var message = "hi"; // 局部变量
+}
+test();
+console.log(message); // 出错!</code></pre>
+<p>在函数内定义变量时省略 var 操作符，可以创建一个全局变量</p>
+<pre><code class="language-javascript">function test() {
+    message = "hi"; // 全局变量
+}
+test();
+console.log(message); // "hi"</code></pre>
+<p>使用 var 声明的变量会自动提升到函数作用域的顶部：</p>
+<pre><code class="language-javascript">function foo() {
+  console.log(age);
+  var age = 26;
+}
+foo();  // 控制台输出 undefined，不报错</code></pre>
+<p>以上代码等价于</p>
+<pre><code class="language-javascript">function foo() {
+    var age;
+  console.log(age);
+    age = 26; 
+}
+foo();  // 控制台输出 undefined，不报错</code></pre>
+<p><strong>使用 let 声明变量</strong></p>
+<p>let 跟 var 的作用差不多，但是 let 声明的范围是块作用域，而 var 声明的范围是函数作用域</p>
+<pre><code class="language-javascript">function doSomething1 {
+  if (true) {
+    var name = 'Matt';
+    console.log(name); // 正常输出 Matt
+  }
+  console.log(name);   // 正常输出 Matt
+}
+
+function doSomething2 {
+  if (true) {
+    let age = 26;
+    console.log(age); // 正常输出 26
+  }
+  console.log(age);   // 报错！没有定义 age 变量
+}</code></pre>
+<p>let 也不允许同一个块作用域中出现冗余声明，但是 var 可以</p>
+<pre><code class="language-javascript">var name;
+var name; // 运行正常
+
+let age;
+let age; // 报错SyntaxError，标识符 age 已经声明过了</code></pre>
+<p>let 声明的变量不会在作用域中被提升</p>
+<pre><code class="language-javascript">// name 会被提升
+console.log(name); // undefined
+var name = 'Matt';
+
+// age 不会被提升
+console.log(age); // ReferenceError:age 没有定义
+let age = 26;</code></pre>
+<p>使用 let 在全局作用域中声明的变量不会成为 window 对象的属性</p>
+<pre><code class="language-javascript">var name = 'Matt';
+console.log(window.name); // 'Matt'
+
+let age = 26;
+console.log(window.age);  // undefined</code></pre>
+<p><strong>对于 let 的作用域，这里给出一段代码加深理解：</strong></p>
+<pre><code class="language-javascript">// 脚本A
+&lt;script&gt;
+  // 全局声明了 name 和 age 变量
+  let name = 'Nicholas';
+  let age = 36;
+&lt;/script&gt;
+
+// 脚本B
+&lt;script&gt;
+  // 此时B不知道页面中是否声明了 name 和 age 变量
+  // 那么可以假设还没有声明过
+
+  if (typeof name === 'undefined') {
+    let name; // 这里的 name 被限制在 if 代码块中，执行完就被销毁了
+  }
+    name = 'Matt';
+    // 此处其实是对A中的 name 进行赋值
+    // 注意，如果A中没有声明过 name 变量，则会认为是省略了 var 操作符，而创建了一个全局变量
+
+    try {
+    console.log(age);
+    // 输出A中的 age 值为36
+    // 注意，如果A中没有声明过 age 则跳转到 catch 代码块
+  } catch(error) {
+    let age; // 这里的 age 被限制在 catch 代码块中，执行完就被销毁了
+  }
+    age = 26;
+    // 此处其实是对A中的 age 进行赋值
+    // 注意，如果A中没有声明过 age 变量，则会认为是省略了 var 操作符，而创建了一个全局变量
+&lt;/script&gt;</code></pre>
+<p>以上代码建议初学者手动敲一遍，多调试几次就能理解了</p>
+<p>以上 let 和 var 的区别就引申出了在处理循环时的不同：var 变量会渗透到循环体外，而 let 变量不会</p>
+<pre><code class="language-javascript">for (var i = 0; i &lt; 5; ++i) {
+  // 循环逻辑
+}
+console.log(i); // 5
+
+for (let i = 0; i &lt; 5; ++i) {
+  // 循环逻辑
+}
+console.log(i); // ReferenceError: i 没有定义</code></pre>
+<p>如果感觉没有什么区别，那么下面例子可以更直观感受一下：</p>
+<pre><code class="language-javascript">for (var i = 0; i &lt; 5; ++i) {
+  setTimeout(() =&gt; console.log(i), 0)
+}
+// 输出为 5、5、5、5、5
+
+for (let i = 0; i &lt; 5; ++i) {
+  setTimeout(() =&gt; console.log(i), 0)
+}
+// 输出为 0、1、2、3、4</code></pre>
+<p><strong>使用 const 声明变量</strong></p>
+<p>const 的行为与 let 基本相同，唯一一个重要的区别是用它声明变量时必须同时初始化变量，且尝试修改 const 声明的变量会导致运行时错误：</p>
+<pre><code class="language-javascript">const age = 26;
+age = 36; // TypeError: 给常量赋值
+
+// 不允许重复声明
+const name = 'Matt';
+const name = 'Nicholas'; // SyntaxError
+
+// 块作用域
+const name = 'Matt';
+if (true) {
+  const name = 'Nicholas';
+}
+console.log(name); // 输出 Matt</code></pre>
+<p>如果 const 变量引用的是一个对象， 那么修改这个对象内部的属性并不违反以上限制</p>
+<pre><code class="language-javascript">const person = {};
+person.name = 'Matt'; // 运行正常</code></pre>
+<p>const在循环中的应用（了解即可，基本不用）：</p>
+<pre><code class="language-javascript">for (const i = 0; i &lt; 10; ++i) {} // 报错TypeError:给常量赋值
+
+let i = 0;
+for (const j = 7; i &lt; 5; ++i) {
+  console.log(j);
+}
+// 7, 7, 7, 7, 7
+
+for (const key in {a: 1, b: 2}) {
+  console.log(key);
+}
+// a, b
+
+for (const value of [1,2,3,4,5]) {
+  console.log(value);
+}
+// 1, 2, 3, 4, 5</code></pre>
+<h2>小结</h2>
+<ol>
+<li>不使用var</li>
+<li>优先使用 const 来声明变量，只在提前知道未来会有修改时使用 let</li>
+</ol>
+        </body>
+        </html>
+    

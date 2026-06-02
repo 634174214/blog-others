@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>生成各种数据</title>
+    <style type="text/css">
+        iframe{
+            width: 100%;border: 1px solid #ccc;margin-top: 30px;
+            height: 200px;
+        }
+        a{
+            display: inline-block;padding: 10px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="left">
+        <div>
+            链接：<a href="index.html" target="_blank">打开网站</a>
+            <a href="https://hao.uisdc.com/" target="_blank">优设设计导航</a>
+        </div>
+        <div>
+           操作： 
+           <a href="server/create-links.php" target="iframe">1、生成链接项数据(使用图标不压缩路径)</a>
+           <a href="server/create-links.php?useiconzip=1" target="iframe">2、生成链接项数据(使用图标压缩路径)</a>
+           <a href="server/create-bottom-news.php" target="iframe">3、生成底部推荐信息</a>
+           <a href="index.php" target="iframe">4、生成index.html</a>
+        </div>
+        
+    </div>
+    <iframe name="iframe"></iframe>
+</body>
+</html>
