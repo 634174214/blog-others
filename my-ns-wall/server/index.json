@@ -1,9 +1,9 @@
 {
     "ns1": {
         "switch_id": "XTJ70870259341",
-        "memory_switch": 24.7,
+        "memory_switch": 26.1,
         "memory_switch_total": 64,
-        "memory_tf": 411,
+        "memory_tf": 410,
         "memory_tf_total": 954
     },
     "ns2": [],
@@ -111,7 +111,7 @@
             "exchange_rate": "1:1"
         }
     ],
-    "last_update_time": "2026-06-09 10:25:52",
+    "last_update_time": "2026-06-10 09:19:09",
     "games_played": [
         "哈迪斯",
         "蒸汽世界大劫掠2",
@@ -1993,7 +1993,7 @@
                 "type": "digital",
                 "area": "欧区",
                 "is_dlc": false,
-                "preview": "server\/previews\/poland\/49.jpg",
+                "preview": "server\/previews\/poland\/48.jpg",
                 "price_buy": 40,
                 "price_origin": 200,
                 "discount": "-80%",
