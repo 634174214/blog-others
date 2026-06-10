@@ -12,6 +12,7 @@ if(window.location.href.indexOf('index_json') > -1) {
 const app = Vue.createApp({
     data() {
         return {
+            isGithubPages: window.location.href.indexOf('github.io') > -1,
             tabCurrentLabel: 'all',
             // 所在区服
             tabs: [],
@@ -175,6 +176,30 @@ const app = Vue.createApp({
         }
     },
     methods: {
+        getTopLinksHref(key) {
+            let url = '';
+            if(this.isGithubPages) {
+                switch(key) {
+                    case 'huilv':
+                        url = '../my-ns-huilv/';
+                        break;
+                    case 'buy':
+                        url = '../switch-japan-translate/';
+                        break;
+                }
+            } else {
+                switch(key) {
+                    case 'huilv':
+                        url = '../../huilv-ns/';
+                        break;
+                    case 'buy':
+                        url = '../../switch-japan-translate/';
+                        break;
+                }
+            }
+            return url;
+            
+        },
         // 获取是否需要黑白化处理
         getNocolorResult(gameObj) {
             let res = false;

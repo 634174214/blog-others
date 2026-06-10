@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">  
+     <meta http-equiv="cleartype" content="on">    
+     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <title>多币种汇率转换器</title>
+    <link rel="stylesheet" href="layout.css">
+</head>
+<body>
+    <h1>我的NS游戏汇率转换</h1>
+    
+    <section class="container">
+        <ul>
+            <li class="box japan">
+                <div class="name">日元</div>
+                <div class="money-from">
+                    <span class="icon-from">金额</span>
+                    <input type="text" placeholder="请输入日元金额">
+                </div>
+                <div class="toggle to-right">
+                    <i class="toggle-icon"></i>
+                </div>
+                <div class="money-to">
+                    <span class="icon-to">RMB</span>
+                    <input type="text" placeholder="人民币">
+                </div>
+                <div class="submit">
+                    <button type="button" class="submit-btn">提交</button>
+                </div>
+            </li>
+            <li class="detail"></li>
+            <li class="box hongkong">
+                <div class="name">港币</div>
+                <div class="money-from">
+                    <span class="icon-from">金额</span>
+                    <input type="text" placeholder="请输入港币金额">
+                </div>
+                <div class="toggle to-right">
+                    <i class="toggle-icon"></i>
+                </div>
+                <div class="money-to">
+                    <span class="icon-to">RMB</span>
+                    <input type="text" placeholder="人民币">
+                </div>
+                <div class="submit">
+                    <button type="button" class="submit-btn">提交</button>
+                </div>
+            </li>
+            <li class="detail"></li>
+            <li class="box baxi">
+                <div class="name">巴西雷亚尔</div>
+                <div class="money-from">
+                    <span class="icon-from">金额</span>
+                    <input type="text" placeholder="请输入巴西雷亚尔金额">
+                </div>
+                <div class="toggle to-right">
+                    <i class="toggle-icon"></i>
+                </div>
+                <div class="money-to">
+                    <span class="icon-to">RMB</span>
+                    <input type="text" placeholder="人民币">
+                </div>
+                <div class="submit">
+                    <button type="button" class="submit-btn">提交</button>
+                </div>
+            </li>
+            <li class="detail"></li>
+            <li class="box moxige">
+                <div class="name">墨西哥元</div>
+                <div class="money-from">
+                    <span class="icon-from">金额</span>
+                    <input type="text" placeholder="请输入墨西哥元金额">
+                </div>
+                <div class="toggle to-right">
+                    <i class="toggle-icon"></i>
+                </div>
+                <div class="money-to">
+                    <span class="icon-to">RMB</span>
+                    <input type="text" placeholder="人民币">
+                </div>
+                <div class="submit">
+                    <button type="button" class="submit-btn">提交</button>
+                </div>
+            </li>
+            <li class="detail"></li>
+            <li class="box bolan">
+                <div class="name">波兰兹罗提</div>
+                <div class="money-from">
+                    <span class="icon-from">金额</span>
+                    <input type="text" placeholder="请输入波兰兹罗提金额">
+                </div>
+                <div class="toggle to-right">
+                    <i class="toggle-icon"></i>
+                </div>
+                <div class="money-to">
+                    <span class="icon-to">RMB</span>
+                    <input type="text" placeholder="人民币">
+                </div>
+                <div class="submit">
+                    <button type="button" class="submit-btn">提交</button>
+                </div>
+            </li>
+            <li class="detail"></li>
+        </ul>
+    </section>
+
+   <script src="https://www.qdxin.cn/js/xinquery.js"></script>
+   <script>
+        $('.toggle').on('click', function() {
+            $(this).toggleClass('to-right');
+        });
+
+        $('.box').attr('data-rate', '');
+
+        $('.submit-btn').on('click', function() {
+            var $this = $(this);
+            var $parent = $this.parents('.box');
+
+            // 判断是否有已有数据 
+            var dataRateStr = $parent.data('rate');
+            // console.log(dataRateStr)
+
+            let from = '';
+            let to = '人民币';
+            switch(true) {
+                case $parent.hasClass('japan'):
+                    from = '日元';
+                    break;
+                case $parent.hasClass('hongkong'):
+                    from = '港币';
+                    break;
+                case $parent.hasClass('moxige'):
+                    from = '墨西哥比索';
+                    break;
+                case $parent.hasClass('baxi'):
+                    from = '巴西雷亚尔';
+                    break;
+                case $parent.hasClass('bolan'):
+                    from = '波兰兹罗提';
+                    break;
+            }
+
+
+            var $moneyFrom = $parent.find('.money-from input');
+            var $moneyTo = $parent.find('.money-to input');
+            var moneyFrom = $moneyFrom.val();
+            var moneyTo = $moneyTo.val();
+
+            var $toggle = $parent.find('.toggle');
+            // 如果有to-right代表是其他的兑换人民币
+            var other2Rmb = $toggle.hasClass('to-right');
+            if (other2Rmb) {
+                if(!moneyFrom) {
+                    alert(`请输入${from}金额`);
+                    return;
+                }
+
+                // 如果有内容 那么基于已经有的内容进行计算
+                if(dataRateStr) {
+                    var dataRate = JSON.parse(dataRateStr);
+                    var rateObj = formatRate(dataRate.content1);
+                    var moneyToRes = (moneyFrom * rateObj.to) / rateObj.from;
+                    moneyToRes = moneyToRes.toFixed(2);
+                    $moneyTo.val(moneyToRes);
+                    return;
+                } 
+               
+            } else {
+                // 如果没有to-right代表是人民币兑换其他的
+                if(!moneyTo) {
+                    alert(`请输入${to}金额`);
+                    return;
+                }
+
+                if(dataRateStr) {
+                    var dataRate = JSON.parse(dataRateStr);
+                    var rateObj = formatRate(dataRate.content2);
+                    var moneyFromRes = (moneyTo * rateObj.to) / rateObj.from;  
+                    moneyFromRes = moneyFromRes.toFixed(2);  // 修正 toFixed() 的使用
+                    $moneyFrom.val(moneyFromRes);
+                    return;
+                } 
+
+
+                // 将moneyFrom和moneyTo交换
+                [moneyFrom, moneyTo] = [moneyTo, moneyFrom];
+                [from, to] = [to, from];
+            }
+
+            
+            
+            $.ajax({
+                type: 'GET',
+                url: 'proxy.php',
+                dataType: 'jsonp',
+                jsonp: 'ns',
+                jsonpCallback: 'ns_callback',
+                data: {
+                    from_money: from,
+                    to_money: to,
+                    from_money_num: moneyFrom,
+                    cb: 'ns_callback'
+                }
+            })
+            .done(function(res) {
+                // console.log(res);
+                var tplData = res.Result[0]['DisplayData']['resultData']['tplData'];
+                var useData = {
+                    // 1日元=0.05123500人民币
+                    content1: tplData['content1'],
+                    // 1人民币=19.51780000日元
+                    content2: tplData['content2'],
+                    // "日元"
+                    money1: tplData['money1'],
+                    // "人民币"
+                    money2: tplData['money2'],
+                    // "333"
+                    money1_num: tplData['money1_num'],
+                    // "17.06125500"
+                    money2_num: tplData['money2_num'],
+                    // "更新时间：2025-04-17 12:56 数据仅供参考"
+                    text: tplData['text']
+                }
+                // console.log(useData);
+                var number = parseFloat(useData.money2_num.replace(/,/g, ''));
+                var showVal = number.toLocaleString('en-US', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                });
+                if(other2Rmb) {
+                    $moneyTo.val(showVal);
+                } else {
+                    $moneyFrom.val(showVal);
+                }
+                // $parent.attr('data-rate', JSON.stringify(useData));
+                $parent.data('rate', JSON.stringify(useData));
+
+
+                var detailTps = detailTpl(useData);
+                var $detail = $parent.next();
+                if($detail.hasClass('detail')) {
+                    $detail.html(detailTps);
+                }
+            })
+            ;
+            
+            
+            // $('.detail').html(detailTps);
+
+        });
+
+    
+        function formatRate(rateStr) {
+            // 分割字符串，获取等号两边的值
+            const parts = rateStr.split('=');
+            
+            // 提取数字和货币名称
+            const fromPart = parts[0].match(/(\d+)(.*)/);
+            const toPart = parts[1].match(/(\d+\.?\d*)(.*)/);
+            
+            return {
+                from: parseFloat(fromPart[1]),
+                to: parseFloat(toPart[1])
+            };
+        }
+
+        // 使用示例：
+        // const rate1 = formatRate('1日元=0.05123500人民币');
+        // const rate2 = formatRate('1人民币=19.51780000日元');
+
+        function detailTpl(obj) {
+            return `
+                <div class="detail-inner">
+                    <h2 class="detail-h2">${obj.text}</h2>
+                    <div class="now-base">
+                        <p>当前汇率</p>
+                        <p>${obj.content1}</p>
+                        <p>${obj.content2}</p>
+                    </div>
+                    <div class="now-pay">
+                        <p>实际兑换</p>
+                        <p><em>${obj.money1}</em> ${obj.money1_num}</p>
+                        <p>=</p>
+                        <p><em>${obj.money2}</em> ${obj.money2_num}</p>
+                    </div>
+                </div>
+            `;
+        }
+   </script>
+</body>
+</html>

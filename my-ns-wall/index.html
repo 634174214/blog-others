@@ -7,6 +7,7 @@
     <title>我的游戏墙</title>
     <meta name="keywords" content="游戏墙,gamewall,game">
     <meta name="description" content="欢迎来到我的游戏墙，这是一个汇聚了游戏热情与创意的独特网页。">
+    <link rel="shortcut icon" href="favicon.ico"  type="image/x-icon">
     <link rel="stylesheet" href="css/style.css?t=20260213">
     <link rel="stylesheet" href="css/wudialog.css">
 </head>
@@ -72,15 +73,15 @@
                 <div class="links">
                     <ul class="links-ul">
                         <li>
-                            <a href="http://ns.wubin.work/huilv-ns/" target="_blank" class="rate">汇率</a>
+                            <a :href="getTopLinksHref('huilv')" target="_blank" class="rate">汇率</a>
                         </li>
                         <li>
-                            <a href="http://ns.wubin.work/switch-japan-translate/" target="_blank"
+                            <a :href="getTopLinksHref('buy')" target="_blank"
                                 class="how-buy">eshop</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="http://ns.wubin.work/" target="_blank" class="how-friend">游小圈</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
                 <h1 class="textnoselect">我的游戏墙</h1>
