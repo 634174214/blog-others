@@ -4,7 +4,10 @@ function deepCopy(obj) {
 
 const localStorageKey = '__wu_switch_gamewall_search_history__';
 const axiosUrlUsePhp = window.location.href.indexOf('localhost/ns-work/games-wall-ns') > -1;
-const axiosUrl = axiosUrlUsePhp ? 'server/index.php' : 'server/index.json';
+let axiosUrl = axiosUrlUsePhp ? 'server/index.php' : 'server/index.json';
+if(window.location.href.indexOf('index_json') > -1) {
+    axiosUrl = 'server/index.json';
+}
 
 const app = Vue.createApp({
     data() {
@@ -404,7 +407,10 @@ const app = Vue.createApp({
 
                 this.tabs =  this._getTabs(responseData.server_area);
                 this.account‌s = responseData['account‌s'];
+                // 先判断accounts中是否是一个空对象 如果是空对象那么account‌sArr还是空数组
+                console.log(responseData, responseData.account‌s)
                 this.account‌sArr = Object.values(responseData['account‌s']);
+                console.log(this.account‌sArr)
                 this.defaultGamingAccount = responseData['account_gaming_default'];
                 this.allGames = this._getAllGames(responseData.game_list);
                 // console.log(this.allGames);
@@ -678,13 +684,15 @@ const app = Vue.createApp({
         }
     },
     watch: {
-        account‌sArr() {
-            // 延长等待时间，确保DOM完全渲染
-            this.$nextTick(() => {
-                setTimeout(() => {
-                    this.initAccountSliders();
-                }, 200); // 缩短但确保DOM就绪，500ms也可以
-            });
+        account‌sArr(newval) {
+            if(newval.length > 0) {
+                // 延长等待时间，确保DOM完全渲染
+                this.$nextTick(() => {
+                    setTimeout(() => {
+                        this.initAccountSliders();
+                    }, 200); // 缩短但确保DOM就绪，500ms也可以
+                });
+            }
         },
         waitingStatus() {
             setTimeout(() => {

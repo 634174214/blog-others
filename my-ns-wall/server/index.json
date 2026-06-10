@@ -1,6 +1,6 @@
 {
     "ns1": {
-        "switch_id": "XTJ70870259341",
+        "switch_id": "XTJ7987068436",
         "memory_switch": 26.1,
         "memory_switch_total": 64,
         "memory_tf": 410,
@@ -9,60 +9,60 @@
     "ns2": [],
     "account_gaming_default": {
         "label_en": "hk",
-        "text": "港区 | wb0709sy"
+        "text": "港区 | iam_hk"
     },
     "account‌s": {
         "hk": {
             "label": "港区",
             "label_en": "hk",
-            "username": "wubin_hk",
+            "username": "iplayerHK001",
             "email": "634174214@qq.com",
-            "ns_account": "wb0709sy",
+            "ns_account": "iamHongkong",
             "link": "https:\/\/store.nintendo.com.hk\/",
             "note": ""
         },
         "jp": {
             "label": "日区",
             "label_en": "jp",
-            "username": "wb-japan",
-            "email": "wubin-work@qq.com",
-            "ns_account": "wb-japan",
+            "username": "iplayerJP002",
+            "email": "ilove_ns@163.com",
+            "ns_account": "iamJapan",
             "link": "https:\/\/store-jp.nintendo.com\/",
-            "note": "邮箱与634174214@qq.com是同一个"
+            "note": ""
         },
         "pl": {
             "label": "欧区-波兰",
             "label_en": "pl",
-            "username": "wb_poland",
-            "email": "452549215@qq.com",
-            "ns_account": "wb-poland",
+            "username": "iplayerPL003",
+            "email": "ilove_ns@hotmail.com",
+            "ns_account": "iamPoland",
             "link": "https:\/\/www.nintendo.com\/en-gb\/ ",
             "note": ""
         },
         "br": {
             "label": "美服区-巴西",
             "label_en": "br",
-            "username": "wb-brazil",
-            "email": "bin3656@aliyun.com",
-            "ns_account": "wb-brazil",
+            "username": "iplayerBR004",
+            "email": "ilove_ns@aliyun.com",
+            "ns_account": "iamBrazil",
             "link": "https:\/\/www.nintendo.com\/pt-br\/",
             "note": ""
         },
         "mx": {
             "label": "美区-墨西哥",
             "label_en": "mx",
-            "username": "wb-moxige",
-            "email": "bin3656@qq.com",
-            "ns_account": "wb-moxige",
+            "username": "iplayerMX005",
+            "email": "ilove_ns@gmail.com",
+            "ns_account": "iamMoxige",
             "link": "https:\/\/www.nintendo.com\/es-mx\/",
             "note": ""
         },
         "ar": {
             "label": "美区-阿根廷",
             "label_en": "ar",
-            "username": "wb-agentin",
-            "email": "wubin-work@foxmail.com",
-            "ns_account": "wb-agentin",
+            "username": "iplayerAR006",
+            "email": "ilove_ns@foxmail.com",
+            "ns_account": "iamAgentin",
             "link": "https:\/\/www.nintendo.com\/es-ar\/",
             "note": ""
         }
@@ -1993,7 +1993,7 @@
                 "type": "digital",
                 "area": "欧区",
                 "is_dlc": false,
-                "preview": "server\/previews\/poland\/48.jpg",
+                "preview": "server\/previews\/poland\/49.jpg",
                 "price_buy": 40,
                 "price_origin": 200,
                 "discount": "-80%",
