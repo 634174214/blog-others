@@ -428,8 +428,8 @@ const app = Vue.createApp({
                 const response = await axios.get(axiosUrl);
                 const responseData = response.data;
                 this.serverData = responseData;
-                console.log('服务器数据:', this.serverData);
-
+                // console.log('服务器数据:', this.serverData);
+                // console.log(responseData)
                 this.tabs =  this._getTabs(responseData.server_area);
                 this.account‌s = responseData['account‌s'];
                 // 先判断accounts中是否是一个空对象 如果是空对象那么account‌sArr还是空数组
