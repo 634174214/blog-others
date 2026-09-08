@@ -1,7 +1,7 @@
 {
     "ns1": {
         "switch_id": "XTJ7987068436",
-        "memory_switch": 26.1,
+        "memory_switch": 26,
         "memory_switch_total": 64,
         "memory_tf": 388,
         "memory_tf_total": 954
@@ -111,7 +111,7 @@
             "exchange_rate": "1:1"
         }
     ],
-    "last_update_time": "2026-08-31 08:23:28",
+    "last_update_time": "2026-09-08 09:12:27",
     "games_played": [
         "哈迪斯",
         "蒸汽世界大劫掠2",
@@ -724,6 +724,27 @@
                 "lended_date": "",
                 "installed_on": "nintendo switch 1",
                 "id": "gamecard_26"
+            },
+            {
+                "cn_name": "宝可梦传说：阿尔宙斯",
+                "en_name": "Pokémon™ Legends: Arceus",
+                "area": "港版-闲鱼",
+                "type": "card",
+                "preview": "server\/previews\/gamecard\/64.jpg",
+                "price_buy": 150,
+                "price_origin": 150,
+                "discount": "0%",
+                "bug_date": "2026-09-05",
+                "notes": "寶可夢傳說 阿爾宙斯",
+                "ns1_ok": true,
+                "ns2_ok": true,
+                "virtual_card_out": false,
+                "game_delete": false,
+                "lended": false,
+                "lended_to": "",
+                "lended_date": "",
+                "installed_on": "nintendo switch 1",
+                "id": "gamecard_27"
             }
         ],
         "hong_kong": [
@@ -2655,7 +2676,7 @@
                 "type": "digital",
                 "area": "美区",
                 "is_dlc": false,
-                "preview": "server\/previews\/brazil\/83.jpg",
+                "preview": "server\/previews\/brazil\/82.jpg",
                 "price_buy": 19.99,
                 "price_origin": 79.99,
                 "discount": "-75%",
