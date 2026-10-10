@@ -1,7 +1,7 @@
 {
     "ns1": {
         "switch_id": "XTJ7987068436",
-        "memory_switch": 25.8,
+        "memory_switch": 25.6,
         "memory_switch_total": 64,
         "memory_tf": 385,
         "memory_tf_total": 954
@@ -111,7 +111,7 @@
             "exchange_rate": "1:1"
         }
     ],
-    "last_update_time": "2026-09-20 10:29:47",
+    "last_update_time": "2026-10-10 08:30:45",
     "games_played": [
         "哈迪斯",
         "蒸汽世界大劫掠2",
@@ -446,7 +446,7 @@
                 "price_origin": 165,
                 "discount": "0%",
                 "bug_date": "2024-7-27",
-                "notes": "太阁立志传5",
+                "notes": "太阁立志传5，S赠送",
                 "ns1_ok": true,
                 "ns2_ok": true,
                 "virtual_card_out": false,
@@ -782,7 +782,7 @@
                 "price_origin": 156,
                 "discount": "0%",
                 "bug_date": "2026-09-12",
-                "notes": "真・女神轉生Ⅴ Vengeance，简称：真女神转生5V或SMT5V",
+                "notes": "真・女神轉生Ⅴ Vengeance，简称：真女神转生5V或SMT5V <br> 港服购买了DLC： ALL-IN-ONE",
                 "ns1_ok": true,
                 "ns2_ok": true,
                 "virtual_card_out": false,
@@ -3294,6 +3294,28 @@
                 "lended_date": "",
                 "installed_on": "nintendo switch 1",
                 "id": "brazil_33"
+            },
+            {
+                "cn_name": "星界战士DLC-阿尔文",
+                "en_name": "Arven - The Wolf Blade DLC for Astral Ascent",
+                "type": "digital",
+                "area": "美区",
+                "is_dlc": true,
+                "preview": "server\/previews\/brazil\/58dlc-4.jpg",
+                "price_buy": 13.59,
+                "price_origin": 16.99,
+                "discount": "-20%",
+                "bug_date": "2026-10-09",
+                "notes": "",
+                "ns1_ok": true,
+                "ns2_ok": true,
+                "virtual_card_out": false,
+                "game_delete": false,
+                "lended": false,
+                "lended_to": "",
+                "lended_date": "",
+                "installed_on": "nintendo switch 1",
+                "id": "brazil_34"
             }
         ],
         "mexico": [
@@ -3684,11 +3706,11 @@
                 "price_origin": 21,
                 "discount": "0%",
                 "bug_date": "2026-04-23",
-                "notes": "",
+                "notes": "2026-09-22删除，删除时版本为ver1.0.1，删除原因是对话有卡顿，攻击时偶有卡顿，卡顿频繁",
                 "ns1_ok": true,
                 "ns2_ok": true,
-                "virtual_card_out": false,
-                "game_delete": false,
+                "virtual_card_out": true,
+                "game_delete": true,
                 "lended": false,
                 "lended_to": "",
                 "lended_date": "",
