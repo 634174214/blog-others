@@ -1,9 +1,9 @@
 {
     "ns1": {
         "switch_id": "XTJ7987068436",
-        "memory_switch": 25.6,
+        "memory_switch": 25.8,
         "memory_switch_total": 64,
-        "memory_tf": 385,
+        "memory_tf": 382,
         "memory_tf_total": 954
     },
     "ns2": [],
@@ -111,7 +111,7 @@
             "exchange_rate": "1:1"
         }
     ],
-    "last_update_time": "2026-10-10 08:30:45",
+    "last_update_time": "2026-10-26 08:19:54",
     "games_played": [
         "哈迪斯",
         "蒸汽世界大劫掠2",
@@ -1210,6 +1210,50 @@
                 "lended_date": "",
                 "installed_on": "nintendo switch 1",
                 "id": "hongKong_16"
+            },
+            {
+                "cn_name": "太空刑警3",
+                "en_name": "Space Marshals 3",
+                "type": "digital",
+                "area": "港区",
+                "is_dlc": false,
+                "preview": "server\/previews\/hong_kong\/71.jpg",
+                "price_buy": 42,
+                "price_origin": 105,
+                "discount": "-60%",
+                "bug_date": "2026-10-23",
+                "notes": "",
+                "ns1_ok": true,
+                "ns2_ok": true,
+                "virtual_card_out": false,
+                "game_delete": false,
+                "lended": false,
+                "lended_to": "",
+                "lended_date": "",
+                "installed_on": "nintendo switch 1",
+                "id": "hongKong_17"
+            },
+            {
+                "cn_name": "太空刑警2",
+                "en_name": "Space Marshals 2",
+                "type": "digital",
+                "area": "港区",
+                "is_dlc": false,
+                "preview": "server\/previews\/hong_kong\/70.jpg",
+                "price_buy": 42,
+                "price_origin": 105,
+                "discount": "-60%",
+                "bug_date": "2026-10-23",
+                "notes": "",
+                "ns1_ok": true,
+                "ns2_ok": true,
+                "virtual_card_out": false,
+                "game_delete": false,
+                "lended": false,
+                "lended_to": "",
+                "lended_date": "",
+                "installed_on": "nintendo switch 1",
+                "id": "hongKong_18"
             }
         ],
         "japan": [
@@ -2191,7 +2235,7 @@
                 "type": "digital",
                 "area": "欧区",
                 "is_dlc": false,
-                "preview": "server\/previews\/poland\/48.jpg",
+                "preview": "server\/previews\/poland\/49.jpg",
                 "price_buy": 40,
                 "price_origin": 200,
                 "discount": "-80%",
