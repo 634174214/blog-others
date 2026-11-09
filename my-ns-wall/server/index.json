@@ -3,7 +3,7 @@
         "switch_id": "XTJ7987068436",
         "memory_switch": 25.8,
         "memory_switch_total": 64,
-        "memory_tf": 382,
+        "memory_tf": 381,
         "memory_tf_total": 954
     },
     "ns2": [],
@@ -111,7 +111,7 @@
             "exchange_rate": "1:1"
         }
     ],
-    "last_update_time": "2026-10-26 08:19:54",
+    "last_update_time": "2026-11-09 12:57:51",
     "games_played": [
         "哈迪斯",
         "蒸汽世界大劫掠2",
@@ -834,6 +834,27 @@
                 "lended_date": "",
                 "installed_on": "nintendo switch 1",
                 "id": "gamecard_31"
+            },
+            {
+                "cn_name": "苍蓝雷霆GUNVOLT 三棱合极版",
+                "en_name": "Azure Striker Gunvolt Trilogy Enhanced",
+                "area": "日版-拼多多",
+                "type": "card",
+                "preview": "server\/previews\/gamecard\/Gunvolt-1.jpg",
+                "price_buy": 204.85,
+                "price_origin": 204.85,
+                "discount": "0%",
+                "bug_date": "2026-11-05",
+                "notes": "蒼藍雷霆 GUNVOLT 三稜合極版",
+                "ns1_ok": true,
+                "ns2_ok": true,
+                "virtual_card_out": false,
+                "game_delete": false,
+                "lended": false,
+                "lended_to": "",
+                "lended_date": "",
+                "installed_on": "nintendo switch 1",
+                "id": "gamecard_32"
             }
         ],
         "hong_kong": [
@@ -2072,6 +2093,52 @@
                 "lended_date": "",
                 "installed_on": "nintendo switch 1",
                 "id": "japan_36"
+            },
+            {
+                "cn_name": "银白钢铁X THE OUT OF GUNVOLT",
+                "en_name": "Gunvolt Chronicles: Luminous Avenger iX",
+                "jp_name": "白き鋼鉄のX THE OUT OF GUNVOLT",
+                "type": "digital",
+                "area": "日区",
+                "is_dlc": false,
+                "preview": "server\/previews\/japan\/100-1.jpg",
+                "price_buy": 798,
+                "price_origin": 1996,
+                "discount": "-60%",
+                "bug_date": "2026-11-08",
+                "notes": "銀白鋼鐵X THE OUT OF GUNVOLT",
+                "ns1_ok": true,
+                "ns2_ok": true,
+                "virtual_card_out": false,
+                "game_delete": false,
+                "lended": false,
+                "lended_to": "",
+                "lended_date": "",
+                "installed_on": "nintendo switch 1",
+                "id": "japan_37"
+            },
+            {
+                "cn_name": "银白钢铁X-DLC-VS ???",
+                "en_name": "Extra Mission: \"VS ???\" DLC for Gunvolt Chronicles: Luminous Avenger iX",
+                "jp_name": "白き鋼鉄のX THE OUT OF GUNVOLT 追加ミッション「VS？？？」",
+                "type": "digital",
+                "area": "日区",
+                "is_dlc": true,
+                "preview": "server\/previews\/japan\/100_1-1.jpg",
+                "price_buy": 100,
+                "price_origin": 200,
+                "discount": "-50%",
+                "bug_date": "2026-11-08",
+                "notes": "",
+                "ns1_ok": true,
+                "ns2_ok": true,
+                "virtual_card_out": false,
+                "game_delete": false,
+                "lended": false,
+                "lended_to": "",
+                "lended_date": "",
+                "installed_on": "nintendo switch 1",
+                "id": "japan_38"
             }
         ],
         "poland": [
@@ -2235,7 +2302,7 @@
                 "type": "digital",
                 "area": "欧区",
                 "is_dlc": false,
-                "preview": "server\/previews\/poland\/49.jpg",
+                "preview": "server\/previews\/poland\/48.jpg",
                 "price_buy": 40,
                 "price_origin": 200,
                 "discount": "-80%",
